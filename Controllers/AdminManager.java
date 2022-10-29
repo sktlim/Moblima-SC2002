@@ -14,7 +14,7 @@ public class AdminManager {
 
 
     // CRUD methods
-    public int createAdmin(String username, String password, int adminId){
+    public int createAdmin(String username, String password){
         // create method
         try{
             Random rand = new Random()
