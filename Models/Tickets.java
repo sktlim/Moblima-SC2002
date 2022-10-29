@@ -2,13 +2,15 @@ package Models;
 
 public class Tickets {
 
-    private enum TicketType {STUDENT, STANDARD_WEEKDAY, STANDARD_WEEKEND, SENIOR};
+    private enum UserAgeType {STUDENT, SENIOR};
+    private enum DayType {WEEKDAY, WEEKEND}
 
     private int ticketId;
     private int showId;
     private int userId;
     private String seat;
-    private TicketType ticketType;
+    private UserAgeType ticketType;
+    private DayType dayType;
     private int price;
 
     //getter setters
