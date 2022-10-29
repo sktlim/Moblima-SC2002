@@ -1,6 +1,9 @@
 package Controllers;
 
 public class MovieGoerManager {
+
+    public final static String FILENAME = "Databases/movieGoers.txt";
+
     public int createMovieGoer(String username, String password, int age){
         // create method
         // return userId;

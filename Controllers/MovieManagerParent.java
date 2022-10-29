@@ -1,7 +1,12 @@
 package Controllers;
 
+import Models.*;
+
 public class movieManagerParent {
-    public int createMovie(String movieTitle, showingStatus showingStatus, String synopsis, String director, String cast, int movieRuntime, movieRating movieRating, int overallReviewRating){
+
+    public final static String FILENAME = "Databases/movies.txt";
+
+    public int createMovie(String movieTitle, ShowingStatus showingStatus, String synopsis, String director, String cast, int movieRuntime, MovieRating movieRating, int overallReviewRating){
         // create method
         // return movieId;
     }
@@ -11,7 +16,7 @@ public class movieManagerParent {
         // print method for show information
     }
 
-    public boolean updateMovie(int movieId, String movieTitle, showingStatus showingStatus, String synopsis, String director, String cast, int movieRuntime, movieRating movieRating, int overallReviewRating){
+    public boolean updateMovie(int movieId, String movieTitle, ShowingStatus showingStatus, String synopsis, String director, String cast, int movieRuntime, MovieRating movieRating, int overallReviewRating){
         //update method
         // true if success, false otherwise
     }

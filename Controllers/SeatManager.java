@@ -1,6 +1,7 @@
 package Controllers;
 
 public class SeatManager {
+
     public void findAvailSeats(int showId){
         // display available seats
     }

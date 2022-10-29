@@ -2,6 +2,8 @@ package Controllers;
 
 public class ShowManager {
 
+    public final static String FILENAME = "Databases/shows.txt";
+
     public int createShow(int movieId, int startTime, int endTime, int theatre, String cineplex){
         // create method
         // return showId;

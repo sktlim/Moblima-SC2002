@@ -1,7 +1,12 @@
 package Controllers;
 
+import Models.*;
+
 public class TicketManager {
-    public int createTicket(int showId, int userId, String seat, theatreClass theatreClass){
+
+    public final static String FILENAME = "Databases/tickets.txt";
+
+    public int createTicket(int showId, int userId, String seat, TheatreClass theatreClass){
         // create method
         // return ticketId;
     }
@@ -11,7 +16,7 @@ public class TicketManager {
         // print method for ticket information
     }
 
-    public boolean updateTicket(int ticketId, int showId, int userId, String seat, theatreClass theatreClass){
+    public boolean updateTicket(int ticketId, int showId, int userId, String seat, TheatreClass theatreClass){
         //update method
         // true if success, false otherwise
     }
