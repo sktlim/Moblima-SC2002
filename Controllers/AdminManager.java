@@ -6,60 +6,101 @@ import java.util.*;
 
 
 
+
+
 public class AdminManager {
 
 
     public final static String FILENAME = "Databases/admins.txt";
 
 
-
     // CRUD methods
-    public int createAdmin(String username, String password){
+    public void createAdmin(String username, String password){
         // create method
+        Map<String, List<String>> mapFromFile = HashMapFromTextFile();
+        List<String> l = new ArrayList<String>();
+        l.add(username);
+        l.add(password);
+        Integer admId = mapFromFile.size()+1;
+        String admIdOut = admId.toString();
+        mapFromFile.put(admIdOut, l);
+
+        File file = new File(FILENAME);
+        BufferedWriter bf = null;
+
         try{
-            Random rand = new Random()
-            ArrayList<Admin> admins = new ArrayList<Admin>();
-            File tempFile = new File(FILENAME);
-            if (tempFile.exists()){
-                admins = read();
+            bf = new BufferedWriter(new FileWriter(file));
+
+            for (Map.Entry<String, List<String>> entry: mapFromFile.entrySet()){
+                bf.write(entry.getKey() + ",");
+                List<String> ls = entry.getValue();
+                Iterator<String> listIterator = ls.iterator();
+                while(listIterator.hasNext()){
+                    bf.write(listIterator.next() + ",");
+                }
+                bf.newLine();
             }
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILENAME));
-            admins.add(adm);
-
+            bf.flush();
         }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        finally{
+            try{
+                bf.close();
+            }
+            catch(Exception e){
+            }
+        }
+    }
         
+    public Map<String,List<String>> HashMapFromTextFile(){
+        Map<String,List<String>> map = new HashMap<String,List<String>>();
+        BufferedReader br = null;
 
-
-
-
-        Admin adm = new Admin(username, password, adminId);
-
-        // return adminId;
-    }
-
-
-    public ArrayList<Admin> read(){
         try{
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FILENAME));
-            ArrayList<Admin> adminListing = (ArrayList<Admin>) ois.readObject();
-            ois.close();
-            return adminListing;
-        }  
+            File file = new File(FILENAME);
+            br = new BufferedReader(new FileReader(FILENAME));
+            String line = null;
+            while ((line=br.readLine())!=null){
+                String[] parts = line.split(",");
+                String adminId = parts[0].trim();
+                List<String> l = new ArrayList<String>();
+                String username = parts[1].trim();
+                String password = parts[2].trim();
+                l.add(username);
+                l.add(password);
 
-        catch(ClassNotFoundException | IOException e){
-
+                if (!username.equals("") && !password.equals("")){
+                    map.put(adminId,l);
+                }
+            }
+        } catch (Exception e){
+            e.printStackTrace();
         }
-        return new ArrayList<Admin>(); // returns empty admin list if no database is found
+        finally {
+            if (br!=null){
+                try{
+                    br.close();
+                } catch (Exception e){
+                    }
+            }
+        }
+        return map;
     }
 
-    public void readAdmin(int adminId){
-        //read method
-        // print method for admin information
+    public void printAdminList(){
+        Map<String, List<String>> mapFromFile = HashMapFromTextFile();
+        for (Map.Entry<String,List<String>> entry: mapFromFile.entrySet()){
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
     }
 
     public boolean updateAdmin(String username, String password){
         //update method
+        Map<String, List<String>> mapFromFile = HashMapFromTextFile();
         // true if success, false otherwise
+        return true;
     }
 
     public void deleteAdmin(int adminId){
