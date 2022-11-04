@@ -8,6 +8,7 @@ public class ShowManager {
     public int createShow(int movieId, int startTime, int endTime, int theatre, String cineplex){
         // create method
         // return showId;
+        return 1;
     }
 
     public void readShow(int showId){
