@@ -12,9 +12,9 @@ public class AdminUI extends UserUI {
 
     // implementation of abstract method
     public void showSelections() {
-        ////
     }
 
-    public void createMovie() {}
+    public void createMovie() {
+    }
 
 }
