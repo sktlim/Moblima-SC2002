@@ -1,1 +1,2 @@
-movieId, title, showingStatus, synopsis, director, cast, movieRuntime, movieRating, movieType
+john wick|COMING_SOON|assasin, fun|keanu reeeves|keanu, stephanie|145|PG13|BLOCKBUSTER|1
+charlie and the choc|NOW_SHOWING|charlie, reeves, fun|boris|johnson, boris|10958|NC16|THREE_D|2

@@ -2,7 +2,7 @@ package Models;
 
 public class Show {
 
-    public enum TheatreClass {STANDARD, SILVER, GOLD};
+    public enum TheatreClass {STANDARD, SILVER, GOLD, DEFAULT};
 
     private int showId;
     private int movieId;

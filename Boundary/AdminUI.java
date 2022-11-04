@@ -1,10 +1,6 @@
 package Boundary;
 
 
-import java.util.*;
-
-import Controllers.AdminManager;
-
 public class AdminUI {
 
     public boolean addShowtime(){
