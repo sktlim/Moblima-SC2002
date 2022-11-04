@@ -7,7 +7,8 @@ public class SeatManager {
     }
 
     public boolean isSeatAvail(int showId){
-        //check seat, if seat avail, return true, else return false
+        //check seat, if seat avail, return true, else return false\
+        return true;
     }
     
 }

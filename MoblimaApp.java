@@ -1,6 +1,5 @@
-import Boundary.*;
 import Controllers.*;
-import Models.*;
+
 import java.util.*;
 
 
@@ -8,23 +7,31 @@ public class MoblimaApp {
 
     
 
-
+    /** Scanner initiated in main, passed in all other functions as Scanner sc */
     public static void main (String [] args){
         Scanner sc = new Scanner(System.in);
 
-
-
-        System.out.println("enter username:");
-        String username = sc.nextLine();
-        System.out.println("enter password:");
-        String password = sc.nextLine();
-
-
+        MovieGoerManager mgm = new MovieGoerManager();
         AdminManager am = new AdminManager();
-        am.createAdmin(username, password);
+        MovieManagerMovieGoer mgp = new MovieManagerMovieGoer();
+        MovieManagerAdmin mga = new MovieManagerAdmin();
 
-        am.printAdminList();
-        
+        mga.createMovie(sc);
+        mga.printMovieList();
+//        mgp.printMovieList();
+
+//        mgp.printMovieList();
+
+//        am.updateAdmin(5, sc);
+//        am.printAdminList();
+
+//        mgm.createMovieGoer(sc);
+//        mgm.deleteMovieGoer(1);
+//        mgm.printMovieGoerList();
+//
+
+
+
 
 
         
