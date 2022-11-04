@@ -2,9 +2,9 @@ package Models;
 
 public class Movie {
 
-    private enum ShowingStatus{COMING_SOON, PREVIEW, NOW_SHOWING};
-    private enum MovieRating{G, PG13, NC16, M18, R21};
-    private enum MovieType{THREE_D, BLOCKBUSTER};
+    public enum ShowingStatus{COMING_SOON, PREVIEW, NOW_SHOWING};
+    public enum MovieRating{G, PG13, NC16, M18, R21};
+    public enum MovieType{THREE_D, BLOCKBUSTER};
     
     private int movieId;
     private String movieTitle;
