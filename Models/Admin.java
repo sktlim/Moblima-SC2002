@@ -25,5 +25,15 @@ public class Admin extends User {
     public void setAdminId(int adminId){
         this.adminId = adminId;
     }
+
+    public boolean equals(Object o) {
+        if (o instanceof Admin) {
+            Admin a = (Admin)o;
+            if (getAdminId() == (a.getAdminId())){
+                return true;
+            }
+        }
+        return false;
+    }
     
 }

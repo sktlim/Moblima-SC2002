@@ -1,7 +1,3 @@
-1,minghan,minghan,
-2,sk,sk,
-3,wayne,wayne,
-4,hanyu,hanyu,
-5,nicholas,nicholas,
-6,hoha,hoha,
-7,hello,bye,
+minghan|minghan|1
+sk|sk|2
+wayne|wayne|3

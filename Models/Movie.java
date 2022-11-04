@@ -2,9 +2,9 @@ package Models;
 
 public class Movie {
 
-    private enum ShowingStatus{COMING_SOON, PREVIEW, NOW_SHOWING};
-    private enum MovieRating{G, PG13, NC16, M18, R21};
-    private enum MovieType{THREE_D, BLOCKBUSTER};
+    public enum ShowingStatus{COMING_SOON, PREVIEW, NOW_SHOWING, DEFAULT};
+    public enum MovieRating{G, PG13, NC16, M18, R21, DEFAULT};
+    public enum MovieType{THREE_D, BLOCKBUSTER, DEFAULT};
     
     private int movieId;
     private String movieTitle;
@@ -30,7 +30,7 @@ public class Movie {
 
 
     // getters setters
-    public int getmovieId(){
+    public int getMovieId(){
         return this.movieId;
     }
 
@@ -99,7 +99,7 @@ public class Movie {
         this.movieRating = movieRating;
     }
 
-    public void getMovieType(MovieType movieType){
+    public void setMovieType(MovieType movieType){
         this.movieType = movieType;
     }
 
