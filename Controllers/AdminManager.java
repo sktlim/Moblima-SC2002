@@ -1,14 +1,15 @@
 package Controllers;
 
-import java.io.IOException;
-import java.io.FileWriter;
-import java.io.PrintWriter;
-import java.io.FileInputStream;
-import java.util.Scanner;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
 import Models.Admin;
+
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.StringTokenizer;
 
 
 public class AdminManager {
@@ -17,7 +18,7 @@ public class AdminManager {
 
 
     /** Create method
-     * Create new admin and add it to the data base*/
+     * Create new admin and add it to the database*/
     public void createAdmin(Scanner sc){
         try {
             System.out.println("Enter Username: ");
