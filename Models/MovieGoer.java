@@ -7,6 +7,11 @@ public class MovieGoer extends User {
     private int movieGoerId;
     private int age;
 
+    // constructor to instantiate MovieGoer attribute in MovieGoerUI
+    public MovieGoer(int movieGoerId) {
+        this.movieGoerId = movieGoerId;
+    }
+
     public MovieGoer(String username, String password, int age, int movieGoerId){
         super(username, password);
         this.age = age;
@@ -14,7 +19,7 @@ public class MovieGoer extends User {
     }
 
     //getters setters
-    public int getMovierGoerId(){
+    public int getMovieGoerId(){
         return this.movieGoerId;
     }
 
