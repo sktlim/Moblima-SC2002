@@ -6,9 +6,10 @@ public class TicketManager {
 
     public final static String FILENAME = "Databases/tickets.txt";
 
-    public int createTicket(int showId, int userId, String seat, TheatreClass theatreClass){
+    public int createTicket(int showId, int userId, String seat, Show.TheatreClass theatreClass){
         // create method
         // return ticketId;
+        return 1;
     }
 
     public void readTicket(int ticketId){
@@ -16,9 +17,10 @@ public class TicketManager {
         // print method for ticket information
     }
 
-    public boolean updateTicket(int ticketId, int showId, int userId, String seat, TheatreClass theatreClass){
+    public boolean updateTicket(int ticketId, int showId, int userId, String seat, Show.TheatreClass theatreClass){
         //update method
         // true if success, false otherwise
+        return true;
     }
 
     public void deleteTicket(int ticketId){

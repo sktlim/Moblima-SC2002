@@ -4,6 +4,7 @@ package Controllers;
 public class ShowManager {
 
     public final static String FILENAME = "Databases/shows.txt";
+    public static final String SEPARATOR = "|";
 
     /* Blank constructor to instantiate new ShowManager object in UI class */
     public ShowManager() {}
@@ -22,10 +23,17 @@ public class ShowManager {
     public boolean updateShow(int showId){
         //update method
         // true if success, false otherwise
+        return true;
     }
 
     public void deleteTicket(int showId){
         // delete method
     }
+
+
+
+
+
+
     
 }

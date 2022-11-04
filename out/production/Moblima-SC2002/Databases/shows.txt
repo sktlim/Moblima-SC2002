@@ -1,0 +1,1 @@
+showId, movieId, date, startTime, endTime, theatre, theatreClass, cineplex

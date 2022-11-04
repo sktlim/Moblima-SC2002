@@ -1,114 +1,234 @@
 package Controllers;
 
-import Models.*;
-import java.io.*;
-import java.util.*;
-
-
-
+import java.io.IOException;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.FileInputStream;
+import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+import Models.Admin;
 
 
 public class AdminManager {
+    public static final String SEPARATOR = "|";
+    public static final String FILENAME = "Databases/admins.txt" ;
 
 
-    public final static String FILENAME = "Databases/admins.txt";
-
-
-    // CRUD methods
-    public void createAdmin(String username, String password){
-        // create method
-        Map<String, List<String>> mapFromFile = HashMapFromTextFile();
-        List<String> l = new ArrayList<String>();
-        l.add(username);
-        l.add(password);
-        Integer admId = mapFromFile.size()+1;
-        String admIdOut = admId.toString();
-        mapFromFile.put(admIdOut, l);
-
-        File file = new File(FILENAME);
-        BufferedWriter bf = null;
-
-        try{
-            bf = new BufferedWriter(new FileWriter(file));
-
-            for (Map.Entry<String, List<String>> entry: mapFromFile.entrySet()){
-                bf.write(entry.getKey() + ",");
-                List<String> ls = entry.getValue();
-                Iterator<String> listIterator = ls.iterator();
-                while(listIterator.hasNext()){
-                    bf.write(listIterator.next() + ",");
+    /** Create method
+     * Create new admin and add it to the data base*/
+    public void createAdmin(Scanner sc){
+        try {
+            System.out.println("Enter Username: ");
+            String username = sc.nextLine();
+            int semaphore = 0; // password validation flag
+            String password = "password";
+            while(semaphore != 1){
+                System.out.println("Enter Password: ");
+                password = sc.nextLine();
+                System.out.println("Confirm Password: ");
+                String confirmation = sc.nextLine();
+                if (password.equals(confirmation)){
+                    semaphore = 1;
                 }
-                bf.newLine();
+                else{
+                    System.out.println("Passwords do not match. Please re-enter.");
+                }
             }
-            bf.flush();
+
+            ArrayList al = readAdmins(FILENAME);
+            Admin a1 = new Admin(username, password, al.size()+1);
+            al.add(a1);
+            saveAdmins(FILENAME, al);
+
+        }
+        catch (IOException e) {
+            System.out.println("IOException > " + e.getMessage());
+
+        }
+
+    }
+
+    /** Read method
+     * Print method to display everything on the txt file database */
+    public void printAdminList(){
+        try{
+            ArrayList al = readAdmins(FILENAME);
+            for (int i = 0 ; i < al.size() ; i++) {
+                Admin adm = (Admin)al.get(i);
+                System.out.println("AdminID: " + adm.getAdminId() );
+                System.out.println("Username: " + adm.getUsername() );
+                System.out.println("Password: " + adm.getPassword());
+            }
+
+
         }
         catch (IOException e){
-            e.printStackTrace();
-        }
-        finally{
-            try{
-                bf.close();
-            }
-            catch(Exception e){
-            }
+
         }
     }
-        
-    public Map<String,List<String>> HashMapFromTextFile(){
-        Map<String,List<String>> map = new HashMap<String,List<String>>();
-        BufferedReader br = null;
+
+    /** Update method
+     * this updates the various field of admin */
+    public void updateAdmin(int adminID, Scanner sc){
+        int semaphore = 0; // flag variable for password validation
+        String inputField = "0";
 
         try{
-            File file = new File(FILENAME);
-            br = new BufferedReader(new FileReader(FILENAME));
-            String line = null;
-            while ((line=br.readLine())!=null){
-                String[] parts = line.split(",");
-                String adminId = parts[0].trim();
-                List<String> l = new ArrayList<String>();
-                String username = parts[1].trim();
-                String password = parts[2].trim();
-                l.add(username);
-                l.add(password);
+            System.out.println("Select field to change:");
+            System.out.println("0: Username");
+            System.out.println("1: Password");
 
-                if (!username.equals("") && !password.equals("")){
-                    map.put(adminId,l);
+            int fieldEdit = sc.nextInt();
+            sc.nextLine();
+
+            if (fieldEdit == 0){
+                System.out.println("Enter new Username: ");
+                inputField = sc.nextLine();
+            }
+            else if (fieldEdit == 1){
+                System.out.println("Enter new Password: ");
+                inputField = sc.nextLine();
+                System.out.println("Re-Enter new Password:");
+                String check = sc.nextLine();
+                if (check.equals(inputField)){
+                    semaphore = 1;
                 }
             }
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-        finally {
-            if (br!=null){
-                try{
-                    br.close();
-                } catch (Exception e){
+
+
+            ArrayList al = readAdmins(FILENAME);
+            for (int i=0; i<al.size(); i++){
+                Admin adm = (Admin) al.get(i);
+                if (adm.getAdminId() == adminID){
+                    if (fieldEdit == 0 && inputField != "0"){
+                        adm.setUsername(inputField);
+                        System.out.println("Username successfully updated.");
+
                     }
+                    else if (fieldEdit == 1 && semaphore == 1 && inputField != "0"){
+                        adm.setPassword(inputField);
+                        System.out.println("Password successfully updated.");
+                    }
+                    else if (fieldEdit == 1 && semaphore == 0 && inputField != "0"){
+                        System.out.println("Password does not match.");
+                        System.out.println("Password update unsuccessful.");
+                    }
+                }
+            }
+            saveAdmins(FILENAME, al);
+        }
+        catch(IOException e){
+
+        }
+
+
+    }
+
+    /** Delete method
+     * delete admin based on adminID */
+    public void deleteAdmin(int adminID){
+        try{
+            ArrayList al = readAdmins(FILENAME);
+            for (int i=0; i<al.size(); i++){
+                Admin adm = (Admin) al.get(i);
+                if (adm.getAdminId() == adminID){
+                    al.remove(i);
+                }
+            }
+            saveAdmins(FILENAME, al);
+        }
+        catch(IOException e){
+
+        }
+
+
+    }
+
+
+
+    /** reading (helper func, declared as private as it is only called within this file)
+     * This creates a list of instances of admins */
+
+    private ArrayList readAdmins(String filename) throws IOException {
+        // read String from text file
+        ArrayList stringArray = (ArrayList)read(filename);
+        ArrayList alr = new ArrayList() ;// to store Admin data
+
+        for (int i = 0 ; i < stringArray.size() ; i++) {
+            String st = (String)stringArray.get(i);
+            // get individual 'fields' of the string separated by SEPARATOR
+            StringTokenizer star = new StringTokenizer(st , SEPARATOR);	// pass in the string to the string tokenizer using delimiter ","
+            String  username = star.nextToken().trim();	// first token
+            String  password = star.nextToken().trim();	// second token
+            int  adminId = Integer.parseInt(star.nextToken().trim()); // third token
+            // create admin object from file data
+            Admin adm = new Admin(username, password, adminId);
+            // add to Admin list
+            alr.add(adm) ;
+        }
+        return alr ;
+    }
+
+    /** Write fixed content to the given file.
+     * (helper func, declared as private as it is only called within this file)*/
+    private void write(String fileName, List data) throws IOException  {
+        PrintWriter out = new PrintWriter(new FileWriter(fileName));
+
+        try {
+            for (int i =0; i < data.size() ; i++) {
+                out.println((String)data.get(i));
             }
         }
-        return map;
-    }
-
-    public void printAdminList(){
-        Map<String, List<String>> mapFromFile = HashMapFromTextFile();
-        for (Map.Entry<String,List<String>> entry: mapFromFile.entrySet()){
-            System.out.println(entry.getKey() + " : " + entry.getValue());
+        finally {
+            out.close();
         }
     }
 
-    public boolean updateAdmin(String username, String password){
-        //update method
-        Map<String, List<String>> mapFromFile = HashMapFromTextFile();
-        // true if success, false otherwise
-        return true;
+    /** Read the contents of the given file.
+     * (helper func, declared as private as it is only called within this file)*/
+    private List read(String fileName) throws IOException {
+        List data = new ArrayList() ;
+        Scanner scanner = new Scanner(new FileInputStream(fileName));
+        try {
+            while (scanner.hasNextLine()){
+                data.add(scanner.nextLine());
+            }
+        }
+        finally{
+            scanner.close();
+        }
+        return data;
     }
 
-    public void deleteAdmin(int adminId){
-        // delete method
+    /** saving
+     * (helper func, declared as private as it is only called within this file)*/
+
+    private void saveAdmins(String filename, List al) throws IOException {
+        List alw = new ArrayList() ;// to store admins data
+
+        for (int i = 0 ; i < al.size() ; i++) {
+            Admin adm = (Admin)al.get(i);
+            StringBuilder st =  new StringBuilder() ;
+            st.append(adm.getUsername().trim());
+            st.append(SEPARATOR);
+            st.append(adm.getPassword().trim());
+            st.append(SEPARATOR);
+            st.append(adm.getAdminId());
+            alw.add(st.toString()) ;
+        }
+        write(filename,alw);
     }
 
 
 
- 
+
+
+
+
 }
+
+
+
 
