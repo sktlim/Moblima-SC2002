@@ -18,7 +18,7 @@ public class AdminManager {
 
     /** Create method
      * Create new admin and add it to the data base*/
-    public void createAdmin(Scanner sc){
+    public static void createAdmin(Scanner sc){
         try {
             System.out.println("Enter Username: ");
             String username = sc.nextLine();
@@ -52,7 +52,7 @@ public class AdminManager {
 
     /** Read method
      * Print method to display everything on the txt file database */
-    public void printAdminList(){
+    public static void printAdminList(){
         try{
             ArrayList al = readAdmins(FILENAME);
             for (int i = 0 ; i < al.size() ; i++) {
@@ -71,7 +71,7 @@ public class AdminManager {
 
     /** Update method
      * this updates the various field of admin */
-    public void updateAdmin(int adminID, Scanner sc){
+    public static void updateAdmin(int adminID, Scanner sc){
         int semaphore = 0; // flag variable for password validation
         String inputField = "0";
 
@@ -128,7 +128,7 @@ public class AdminManager {
 
     /** Delete method
      * delete admin based on adminID */
-    public void deleteAdmin(int adminID){
+    public static void deleteAdmin(int adminID){
         try{
             ArrayList al = readAdmins(FILENAME);
             for (int i=0; i<al.size(); i++){
@@ -151,7 +151,7 @@ public class AdminManager {
     /** reading (helper func, declared as private as it is only called within this file)
      * This creates a list of instances of admins */
 
-    private ArrayList readAdmins(String filename) throws IOException {
+    private static ArrayList readAdmins(String filename) throws IOException {
         // read String from text file
         ArrayList stringArray = (ArrayList)read(filename);
         ArrayList alr = new ArrayList() ;// to store Admin data
@@ -173,7 +173,7 @@ public class AdminManager {
 
     /** Write fixed content to the given file.
      * (helper func, declared as private as it is only called within this file)*/
-    private void write(String fileName, List data) throws IOException  {
+    private static void write(String fileName, List data) throws IOException  {
         PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
         try {
@@ -188,7 +188,7 @@ public class AdminManager {
 
     /** Read the contents of the given file.
      * (helper func, declared as private as it is only called within this file)*/
-    private List read(String fileName) throws IOException {
+    private static List read(String fileName) throws IOException {
         List data = new ArrayList() ;
         Scanner scanner = new Scanner(new FileInputStream(fileName));
         try {
@@ -205,7 +205,7 @@ public class AdminManager {
     /** saving
      * (helper func, declared as private as it is only called within this file)*/
 
-    private void saveAdmins(String filename, List al) throws IOException {
+    private static void saveAdmins(String filename, List al) throws IOException {
         List alw = new ArrayList() ;// to store admins data
 
         for (int i = 0 ; i < al.size() ; i++) {
