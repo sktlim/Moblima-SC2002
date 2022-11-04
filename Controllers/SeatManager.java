@@ -2,11 +2,11 @@ package Controllers;
 
 public class SeatManager {
 
-    public void findAvailSeats(int showId){
+    public static void findAvailSeats(int showId){
         // display available seats
     }
 
-    public boolean isSeatAvail(int showId){
+    public static boolean isSeatAvail(int showId){
         //check seat, if seat avail, return true, else return false\
         return true;
     }

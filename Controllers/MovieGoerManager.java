@@ -18,7 +18,7 @@ public class MovieGoerManager {
 
     /** Create method
      * Create new movieGoer and add it to the database*/
-    public void createMovieGoer(Scanner sc){
+    public static void createMovieGoer(Scanner sc){
         try {
             System.out.println("Enter Username: ");
             String username = sc.nextLine();
@@ -54,12 +54,12 @@ public class MovieGoerManager {
 
     /** Read method
      * Print method to display everything on the txt file database */
-    public void printMovieGoerList(){
+    public static void printMovieGoerList(){
         try{
             ArrayList ml = readMovieGoers(FILENAME);
             for (int i = 0 ; i < ml.size() ; i++) {
                 MovieGoer mg = (MovieGoer)ml.get(i);
-                System.out.println("MovieGoerID: " + mg.getMovierGoerId() );
+                System.out.println("MovieGoerID: " + mg.getMovieGoerId() );
                 System.out.println("Username: " + mg.getUsername() );
                 System.out.println("Password: " + mg.getPassword());
                 System.out.println("Age: " + mg.getAge());
@@ -74,7 +74,7 @@ public class MovieGoerManager {
 
     /** Update method
      * this updates the various field of movieGoer */
-    public void updateMovieGoer(int movieGoerId, Scanner sc){
+    public static void updateMovieGoer(int movieGoerId, Scanner sc){
         int semaphore = 0; // flag variable for password validation
         String inputField = "0";
         int newAge = 0;
@@ -111,7 +111,7 @@ public class MovieGoerManager {
             ArrayList ml = readMovieGoers(FILENAME);
             for (int i=0; i<ml.size(); i++){
                 MovieGoer mg = (MovieGoer) ml.get(i);
-                if (mg.getMovierGoerId() == movieGoerId){
+                if (mg.getMovieGoerId() == movieGoerId){
                     if (fieldEdit == 0 && inputField != "0"){
                         mg.setUsername(inputField);
                         System.out.println("Username successfully updated.");
@@ -142,12 +142,12 @@ public class MovieGoerManager {
 
     /** Delete method
      * delete admin based on adminID */
-    public void deleteMovieGoer(int movieGoerId){
+    public static void deleteMovieGoer(int movieGoerId){
         try{
             ArrayList ml = readMovieGoers(FILENAME);
             for (int i=0; i<ml.size(); i++){
                 MovieGoer m = (MovieGoer) ml.get(i);
-                if (m.getMovierGoerId() == movieGoerId){
+                if (m.getMovieGoerId() == movieGoerId){
                     ml.remove(i);
                 }
             }
@@ -164,7 +164,7 @@ public class MovieGoerManager {
     /** reading (helper func, declared as private as it is only called within this file)
      * This creates a list of instances of movieGoers */
 
-    private ArrayList readMovieGoers(String filename) throws IOException {
+    private static ArrayList readMovieGoers(String filename) throws IOException {
         // read String from text file
         ArrayList stringArray = (ArrayList)read(filename);
         ArrayList alr = new ArrayList() ;// to store MovieGoer data
@@ -187,7 +187,7 @@ public class MovieGoerManager {
 
     /** Write fixed content to the given file.
      * (helper func, declared as private as it is only called within this file)*/
-    private void write(String fileName, List data) throws IOException  {
+    private static void write(String fileName, List data) throws IOException  {
         PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
         try {
@@ -202,7 +202,7 @@ public class MovieGoerManager {
 
     /** Read the contents of the given file.
      * (helper func, declared as private as it is only called within this file)*/
-    private List read(String fileName) throws IOException {
+    private static List read(String fileName) throws IOException {
         List data = new ArrayList() ;
         Scanner scanner = new Scanner(new FileInputStream(fileName));
         try {
@@ -219,7 +219,7 @@ public class MovieGoerManager {
     /** saving
      * (helper func, declared as private as it is only called within this file)*/
 
-    private void saveMovieGoers(String filename, List al) throws IOException {
+    private static void saveMovieGoers(String filename, List al) throws IOException {
         List alw = new ArrayList() ;// to store movieGoer data
 
         for (int i = 0 ; i < al.size() ; i++) {
@@ -231,7 +231,7 @@ public class MovieGoerManager {
             st.append(SEPARATOR);
             st.append(mg.getAge());
             st.append(SEPARATOR);
-            st.append(mg.getMovierGoerId());
+            st.append(mg.getMovieGoerId());
             alw.add(st.toString()) ;
         }
         write(filename,alw);
