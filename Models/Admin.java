@@ -6,6 +6,11 @@ public class Admin extends User {
 
     public int adminId;
 
+    // constructor to instantiate Admin attribute in AdminUI
+    public Admin(int adminId) {
+        this.adminId = adminId;
+    }
+
     public Admin(String username, String password, int adminId){
         super(username, password);
         this.adminId = adminId;

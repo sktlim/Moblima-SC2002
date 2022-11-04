@@ -1,14 +1,20 @@
 package Boundary;
+import Models.*;
 
+public class AdminUI extends UserUI {
 
-public class AdminUI {
+    private Admin sessionAdmin;
 
-    public boolean addShowtime(){
-        // T if success F if failure
-
-        return true;
-
+    // constructor
+    public AdminUI(int userId) {
+        this.sessionAdmin = new Admin(userId);
     }
 
+    // implementation of abstract method
+    public void showSelections() {
+    }
+
+    public void createMovie() {
+    }
 
 }
