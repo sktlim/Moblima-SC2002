@@ -1,16 +1,8 @@
 package Boundary;
 
+public class AdminUI extends UserUI {
 
-import java.util.*;
 
-import Controllers.AdminManager;
-
-public class AdminUI {
-
-    public boolean addShowtime(){
-        // T if success F if failure
-
-    }
 
 
 }

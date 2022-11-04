@@ -1,8 +1,8 @@
 package Boundary;
 
-public class EntryUI{
+public class EntryUI extends UserUI {
 
-=
+
 
 }
 
