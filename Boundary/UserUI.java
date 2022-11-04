@@ -1,5 +1,5 @@
 package Boundary;
 
-public class UserUI {
+public abstract class UserUI {
     
 }
