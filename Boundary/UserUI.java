@@ -1,5 +1,5 @@
 package Boundary;
 
-public class MovieGoer {
+public class UserUI {
     
 }
