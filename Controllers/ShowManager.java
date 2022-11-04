@@ -1,12 +1,17 @@
 package Controllers;
 
+
 public class ShowManager {
 
     public final static String FILENAME = "Databases/shows.txt";
 
+    /* Blank constructor to instantiate new ShowManager object in UI class */
+    public ShowManager() {}
+
     public int createShow(int movieId, int startTime, int endTime, int theatre, String cineplex){
         // create method
         // return showId;
+
     }
 
     public void readShow(int showId){
@@ -14,7 +19,7 @@ public class ShowManager {
         // print method for show information
     }
 
-    public boolean updateShow(int showId, int movieId, int startTime, int endTime, int theatre, String cineplex){
+    public boolean updateShow(int showId){
         //update method
         // true if success, false otherwise
     }
