@@ -6,6 +6,17 @@ public class RatingAndReview {
     private String review;
     private int rating;
 
+    // ** NEED AN INVALIDRATING EXCEPTION CLASS TO ENSURE THAT RATINGS ARE BETWEEN 1 AND 5
+
+    /*
+    Overloaded constructor to create a new RatingandReview object in MovieManager classes with only movieId.
+    Review and Ratings fields will be assigned to their default values
+    and be overriden by the setter methods later on.
+    */
+    public RatingAndReview(int movieId) {
+        this.movieId = movieId;
+    }
+
     public RatingAndReview(int movieId, String review, int rating){
         this.movieId = movieId;
         this.review = review;

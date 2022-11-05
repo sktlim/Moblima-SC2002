@@ -16,6 +16,35 @@ public class MovieManagerMovieGoer {
     public final static String FILENAME = "Databases/movies.txt";
     public final static  String SEPARATOR = "|";
 
+    public static void getAllReview(int movieId) {
+        // prints all the reviews related to a particular movie
+    }
+
+    public static void getOverallRatings(int movieId) {
+        // prints the overall numerical ratings for a particular movie
+        // return String "N/A" if no ratings are found for this movie
+    }
+
+    public static void addReview(int movieId, String review) {
+        RatingAndReview ratingAndReview = new RatingAndReview(movieId); // calls overloaded constructor with only one param
+        ratingAndReview.setReview(review);
+    }
+
+    public static void addRating(int movieId, int rating) {
+        RatingAndReview ratingAndReview = new RatingAndReview(movieId); // calls overloaded constructor with only one param
+        ratingAndReview.setRating(rating);
+    }
+
+    public static String[] getTop5MoviesByTicketSales() {
+        String[] result = {"A"};
+        return result; // placeholder
+    }
+
+    public static String[] getTop5MoviesByRating() {
+        String[] result = {"A"};
+        return result; // placeholder
+    }
+
     /** Read method
      * Print method to display everything on the txt file database */
     public static void printMovieList(){
