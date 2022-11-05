@@ -1,4 +1,6 @@
 package Controllers;
+import Models.*;
+import java.util.Scanner;
 
 
 public class ShowManager {
@@ -9,23 +11,24 @@ public class ShowManager {
     /* Blank constructor to instantiate new ShowManager object in UI class */
     public ShowManager() {}
 
-    public int createShow(int movieId, int startTime, int endTime, int theatre, String cineplex){
+    public static int createShow(Scanner sc){
         // create method
         // return showId;
+        return 0; // placeholder
     }
 
-    public void readShow(int showId){
+    public static void readShow(int showId){
         //read method
         // print method for show information
     }
 
-    public boolean updateShow(int showId){
+    public static boolean updateShow(int showId, Scanner sc){
         //update method
         // true if success, false otherwise
         return true;
     }
 
-    public void deleteTicket(int showId){
+    public static void deleteShow(int showId){
         // delete method
     }
 

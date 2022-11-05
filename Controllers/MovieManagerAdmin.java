@@ -11,7 +11,7 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
 
     /** Create method
      * Create new movie and add it to the data base*/
-    public void createMovie(Scanner sc){
+    public static void createMovie(Scanner sc){
         try {
             System.out.println("Enter Movie Title: ");
             String movieTitle = sc.nextLine();
@@ -44,7 +44,7 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
 
     /** Update method
      * this updates the various field of movieGoer */
-    public void updateMovies(int movieId, Scanner sc){
+    public static void updateMovies(int movieId, Scanner sc){
         String inputField = "0";
         Movie.ShowingStatus showingStatus = Movie.ShowingStatus.DEFAULT;
         int runTime = 0;
@@ -168,7 +168,7 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
     }
     /** Delete method
      * delete admin based on movieId */
-    public void deleteMovie(int movieId){
+    public static void deleteMovie(int movieId){
         try{
             ArrayList ml = readMovies(FILENAME);
             for (int i=0; i<ml.size(); i++){

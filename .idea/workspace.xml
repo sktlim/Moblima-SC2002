@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Boundary/AdminUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Boundary/AdminUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Boundary/MovieGoerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Boundary/MovieGoerUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/MovieManagerMovieGoer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MovieManagerMovieGoer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/SeatManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/SeatManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MoblimaApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/MoblimaApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/RatingAndReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/Models/RatingAndReview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/Models/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +32,11 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.17931035" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -47,5 +59,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

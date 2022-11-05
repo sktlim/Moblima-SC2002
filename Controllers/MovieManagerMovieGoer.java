@@ -16,9 +16,38 @@ public class MovieManagerMovieGoer {
     public final static String FILENAME = "Databases/movies.txt";
     public final static  String SEPARATOR = "|";
 
+    public static void getAllReview(int movieId) {
+        // prints all the reviews related to a particular movie
+    }
+
+    public static void getOverallRatings(int movieId) {
+        // prints the overall numerical ratings for a particular movie
+        // return String "N/A" if no ratings are found for this movie
+    }
+
+    public static void addReview(int movieId, String review) {
+        RatingAndReview ratingAndReview = new RatingAndReview(movieId); // calls overloaded constructor with only one param
+        ratingAndReview.setReview(review);
+    }
+
+    public static void addRating(int movieId, int rating) {
+        RatingAndReview ratingAndReview = new RatingAndReview(movieId); // calls overloaded constructor with only one param
+        ratingAndReview.setRating(rating);
+    }
+
+    public static String[] getTop5MoviesByTicketSales() {
+        String[] result = {"A"};
+        return result; // placeholder
+    }
+
+    public static String[] getTop5MoviesByRating() {
+        String[] result = {"A"};
+        return result; // placeholder
+    }
+
     /** Read method
      * Print method to display everything on the txt file database */
-    public void printMovieList(){
+    public static void printMovieList(){
         try{
             ArrayList mov = readMovies(FILENAME);
             for (int i = 0 ; i < mov.size() ; i++) {
@@ -44,7 +73,7 @@ public class MovieManagerMovieGoer {
     /** reading (helper func, declared as protected as it is called within child file)
      * This creates a list of instances of movies */
 
-    protected ArrayList readMovies(String filename) throws IOException {
+    protected static ArrayList readMovies(String filename) throws IOException {
         // read String from text file
         ArrayList stringArray = (ArrayList)read(filename);
         ArrayList mov = new ArrayList() ;// to store Movie data
@@ -73,7 +102,7 @@ public class MovieManagerMovieGoer {
 
     /** Write fixed content to the given file.
      * (helper func, declared as private as it is only called within this file)*/
-    private void write(String fileName, List data) throws IOException  {
+    private static void write(String fileName, List data) throws IOException  {
         PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
         try {
@@ -88,7 +117,7 @@ public class MovieManagerMovieGoer {
 
     /** Read the contents of the given file.
      * (helper func, declared as private as it is only called within this file)*/
-    private List read(String fileName) throws IOException {
+    private static List read(String fileName) throws IOException {
         List data = new ArrayList() ;
         Scanner scanner = new Scanner(new FileInputStream(fileName));
         try {
@@ -105,7 +134,7 @@ public class MovieManagerMovieGoer {
     /** saving
      * (helper func, declared as private as it is called by child)*/
 
-    protected void saveMovies(String filename, List al) throws IOException {
+    protected static void saveMovies(String filename, List al) throws IOException {
         List alw = new ArrayList() ;// to store movies data
 
         for (int i = 0 ; i < al.size() ; i++) {
