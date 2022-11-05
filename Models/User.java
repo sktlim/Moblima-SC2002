@@ -4,6 +4,8 @@ public class User{
     private String username;
     private String password;
 
+    /* blank constructor to instantiate Admin and MovieGoer attributes in UI classes */
+    public User() {}
 
     public User(String username, String password){
         this.username = username;
