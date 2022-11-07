@@ -4,8 +4,8 @@ package Models;
 
 public class Ticket {
 
-    private enum UserAgeType {STUDENT, SENIOR};
-    private enum DayType {WEEKDAY, WEEKEND}
+    public enum UserAgeType {STUDENT, SENIOR};
+    public enum DayType {WEEKDAY, WEEKEND}
 
     private int ticketId;
     private int showId;
@@ -13,7 +13,7 @@ public class Ticket {
     private String seat;
     private UserAgeType userAgeType;
     private DayType dayType;
-    private int price;
+    private float price;
 
     public Ticket(int ticketId, int showId, int userId, String seat, UserAgeType userAgeType, DayType dayType, int price){
         this.ticketId = ticketId;
@@ -83,5 +83,5 @@ public class Ticket {
     }
 
 
-    
+
 }
