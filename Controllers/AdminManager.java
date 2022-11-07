@@ -69,6 +69,28 @@ public class AdminManager {
         }
     }
 
+    /** Read Method
+     * Find Admins by their admin ID
+     */
+    public static Admin findAdmin(int adminID){
+        try{
+            ArrayList al = readAdmins(FILENAME);
+            for (int i = 0 ; i < al.size() ; i++) {
+                Admin adm = (Admin)al.get(i);
+                if (adm.getAdminId()==adminID){
+                    System.out.println("Admin Successfully Found.");
+                    return adm;
+                }
+            }
+
+        }
+        catch (IOException e){
+
+        }
+        System.out.println("Admin not found.");
+        return null;
+    }
+
     /** Update method
      * this updates the various field of admin */
     public static void updateAdmin(int adminID, Scanner sc){

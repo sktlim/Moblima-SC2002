@@ -35,7 +35,7 @@ public class MovieGoerUI {
     }
 
     public void bookTicket(int showId, int userId, String seat, Show.TheatreClass theatreClass) {
-        TicketManager.createTicket(showId, userId, seat, theatreClass);
+//        TicketManager.createTicket(showId, userId, seat, theatreClass);
     }
 
     public void purchaseTicket(int ticketId) {

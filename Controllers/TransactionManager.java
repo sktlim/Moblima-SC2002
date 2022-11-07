@@ -26,8 +26,11 @@ public class TransactionManager { //CRUD
             String dateTimeNew = dateTime.replaceAll("-", "");
             dateTimeNew = dateTimeNew.replaceAll(";", "");
             dateTimeNew = dateTimeNew.replaceAll(":","");
-            /** placeholder, need to get the cineplex ID from ticket ID and then showID */
-            String TID = "ABC"+dateTimeNew;
+            Ticket t = TicketManager.findTicket(ticketId);
+            int showID = t.getShowId();
+            Show s = ShowManager.findShow(showID);
+            String cinCode = s.getCineplex();
+            String TID = cinCode+dateTimeNew;
 
 
             ArrayList tl = readTransactions(FILENAME);

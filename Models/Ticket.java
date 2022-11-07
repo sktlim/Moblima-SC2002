@@ -15,7 +15,7 @@ public class Ticket {
     private DayType dayType;
     private float price;
 
-    public Ticket(int ticketId, int showId, int userId, String seat, UserAgeType userAgeType, DayType dayType, int price){
+    public Ticket(int ticketId, int showId, int userId, String seat, UserAgeType userAgeType, DayType dayType, float price){
         this.ticketId = ticketId;
         this.showId = showId;
         this.userId = userId;
@@ -50,7 +50,7 @@ public class Ticket {
         return this.dayType;
     }
 
-    public int getPrice(){
+    public float getPrice(){
         return this.price;
     }
 
@@ -78,10 +78,8 @@ public class Ticket {
         this.dayType = dayType;
     }
 
-    public void setPrice(int price){
+    public void setPrice(float price){
         this.price = price;
     }
-
-
 
 }

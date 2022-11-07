@@ -1,4 +1,5 @@
 import Controllers.MovieGoerManager;
+import Controllers.TransactionManager;
 
 import java.util.Scanner;
 
@@ -18,6 +19,8 @@ public class MoblimaApp {
                 switch (input) {
                     case 1:
                         // Login as admin
+                        TransactionManager.createTransaction(12,15);
+                        TransactionManager.printTransactionList();
                         break;
                     case 2:
                         // Login as moviegoer
