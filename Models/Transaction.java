@@ -14,7 +14,6 @@ public class Transaction {
         this.dateTime = dateTime;
     }
 
-
     public String getTID() {
         return TID;
     }
@@ -38,4 +37,13 @@ public class Transaction {
     public void setMovieGoerId(int movieGoerId) {
         this.movieGoerId = movieGoerId;
     }
+
+    public String getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
+    }
+
 }
