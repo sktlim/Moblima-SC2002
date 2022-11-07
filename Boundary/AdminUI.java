@@ -4,7 +4,7 @@ import Controllers.*;
 import java.util.Scanner;
 
 
-public class AdminUI extends UserUI {
+public class AdminUI {
 
     private Admin sessionAdmin;
 
