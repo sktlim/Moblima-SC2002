@@ -1,6 +1,6 @@
-import Controllers.MovieGoerManager;
-import Controllers.TicketManager;
-import Models.Ticket;
+import Controllers.*;
+import Models.*;
+import Boundary.*;
 
 import java.util.Scanner;
 

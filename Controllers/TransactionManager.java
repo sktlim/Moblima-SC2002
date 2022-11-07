@@ -1,20 +1,147 @@
 package Controllers;
 import Models.*;
+
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.*;
 
-public class TransactionManager {
+public class TransactionManager { //CRUD
+    public static final String SEPARATOR = "|";
+    public static final String FILENAME = "Databases/transactions.txt" ;
 
-    public static void readTransactionHistory(int movieGoerId) {
-        // read .txt file
+
+    /** responsibility of main function to generate the ticketId and movieGoer Id
+     * dateTime is generated within this create method itself
+     * @param ticketId
+     * @param movieGoerId
+     */
+    public static void createTransaction(int ticketId, int movieGoerId){
+        try {
+            Date date = new Date();
+            SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd;HH:mm"); // instantiates the required formatter
+            String dateTime = sf.format(date);
+            String dateTimeNew = dateTime.replaceAll("-", "");
+            dateTimeNew = dateTimeNew.replaceAll(";", "");
+            dateTimeNew = dateTimeNew.replaceAll(":","");
+            Ticket t = TicketManager.findTicket(ticketId);
+            int showID = t.getShowId();
+            Show s = ShowManager.findShow(showID);
+            String cinCode = s.getCineplex();
+            String TID = cinCode+dateTimeNew;
+
+
+            ArrayList tl = readTransactions(FILENAME);
+            Transaction t1 = new Transaction(TID, ticketId, movieGoerId, dateTime);
+            tl.add(t1);
+            saveTransactions(FILENAME, tl);
+
+        }
+        catch (IOException e) {
+            System.out.println("IOException > " + e.getMessage());
+
+        }
+
+    }
+    public static void printTransactionList(){
+        try{
+            ArrayList trans = readTransactions(FILENAME);
+            for (int i = 0 ; i < trans.size() ; i++) {
+                Transaction t = (Transaction) trans.get(i);
+                System.out.println("TID: " + t.getTID() );
+                System.out.println("Ticket ID: " + t.getTicketId());
+                System.out.println("Movie Goer ID: " + t.getMovieGoerId());
+                System.out.println("Date/Time: " + t.getDateTime() );
+            }
+
+
+        }
+        catch (IOException e){
+
+        }
     }
 
-    /* main method will generate a new Date object to be passed into this function to be converted into a String for database storage */
-    public static void createTransaction (int ticketId, int movieGoerId, Date date) {
-        // convert Date object into a String field
-        SimpleDateFormat sf = new SimpleDateFormat("dd-MM-yyyy; HH:mm:ss"); // instantiates the required formatter
-        String dateTime = sf.format(date);
+    /** reading (helper func, declared as private as it is only called within this file)
+     * This creates a list of instances of admins */
 
-        // create the transaction instance and store in db
+    private static ArrayList readTransactions(String filename) throws IOException {
+        // read String from text file
+        ArrayList stringArray = (ArrayList)read(filename);
+        ArrayList trans = new ArrayList() ;// to store shows data
+
+        for (int i = 0 ; i < stringArray.size() ; i++) {
+            String st = (String)stringArray.get(i);
+            // get individual 'fields' of the string separated by SEPARATOR
+            StringTokenizer star = new StringTokenizer(st , SEPARATOR);	// pass in the string to the string tokenizer using delimiter ","
+            String TID = star.nextToken().trim();
+            int ticketId = Integer.parseInt(star.nextToken().trim());
+            int movieGoerId = Integer.parseInt(star.nextToken().trim());
+            String dateTime = star.nextToken().trim();
+            // create transaction object from file data
+
+            Transaction t = new Transaction(TID, ticketId, movieGoerId, dateTime);
+
+            // add to show list
+            trans.add(t) ;
+        }
+        return trans ;
     }
+
+    /** Write fixed content to the given file.
+     * (helper func, declared as private as it is only called within this file)*/
+    private static void write(String fileName, List data) throws IOException  {
+        PrintWriter out = new PrintWriter(new FileWriter(fileName));
+
+        try {
+            for (int i =0; i < data.size() ; i++) {
+                out.println((String)data.get(i));
+            }
+        }
+        finally {
+            out.close();
+        }
+    }
+
+    /** Read the contents of the given file.
+     * (helper func, declared as private as it is only called within this file)*/
+    private static List read(String fileName) throws IOException {
+        List data = new ArrayList() ;
+        Scanner scanner = new Scanner(new FileInputStream(fileName));
+        try {
+            while (scanner.hasNextLine()){
+                data.add(scanner.nextLine());
+            }
+        }
+        finally{
+            scanner.close();
+        }
+        return data;
+    }
+
+    /** saving
+     * (helper func, declared as private as it is only called within this file)*/
+
+    private static void saveTransactions(String filename, List al) throws IOException { // edit for show files
+        List alw = new ArrayList() ;// to store admins data
+
+        for (int i = 0 ; i < al.size() ; i++) {
+            Transaction t = (Transaction)al.get(i);
+            StringBuilder st = new StringBuilder();
+            st.append(t.getTID());
+            st.append(SEPARATOR);
+            st.append(t.getTicketId());
+            st.append(SEPARATOR);
+            st.append(t.getMovieGoerId());
+            st.append(SEPARATOR);
+            st.append(t.getDateTime());
+            st.append(SEPARATOR);
+
+            alw.add(st.toString()) ;
+
+        }
+        write(filename,alw);
+    }
+
 }
