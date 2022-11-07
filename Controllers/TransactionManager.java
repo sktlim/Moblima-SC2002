@@ -3,7 +3,7 @@ import Models.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class TransactionManager {
+public class TransactionManager { //CRUD
 
     public static void readTransactionHistory(int movieGoerId) {
         // read .txt file
