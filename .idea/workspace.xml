@@ -3,49 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MoblimaApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/MoblimaApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MoblimaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/MoblimaApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/.idea/checkstyle-idea.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Boundary/AdminUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Boundary/MovieGoerUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Boundary/UserUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Controllers/AdminManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Controllers/MovieGoerManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Controllers/MovieManagerAdmin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Controllers/MovieManagerMovieGoer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Controllers/SeatManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Controllers/ShowFinder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Controllers/ShowManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Controllers/TicketManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Controllers/TicketPriceCalculator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Databases/admins.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Databases/movieGoers.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Databases/movies.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Databases/prices.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Databases/shows.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Databases/tickets.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Moblima-SC2002.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/MoblimaApp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Models/Admin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Models/Movie$MovieRating.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Models/Movie$MovieType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Models/Movie$ShowingStatus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Models/Movie.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Models/MovieGoer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Models/RatingAndReview.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Models/SeatingPlan.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Models/Show$TheatreClass.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Models/Show.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Models/Ticket$DayType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Models/Ticket$UserAgeType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Models/Ticket.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Models/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/AdminManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/MovieGoerManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/ShowManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Admin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Movie$MovieRating.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Movie$MovieType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Movie$ShowingStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Movie.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/MovieGoer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/RatingAndReview.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Show$TheatreClass.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Show.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/User.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
