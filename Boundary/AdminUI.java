@@ -4,7 +4,7 @@ import Controllers.*;
 import java.util.Scanner;
 
 
-public class AdminUI extends UserUI {
+public class AdminUI {
 
     private Admin sessionAdmin;
 
@@ -47,11 +47,12 @@ public class AdminUI extends UserUI {
     }
 
     public int createShow(Scanner sc) {
-        return ShowManager.createShow(sc); // ShowManager's static createShow method returns showId: int
+        return 1; // Placeholder
     }
 
     public boolean updateShow(int showId, Scanner sc) {
-        return ShowManager.updateShow(showId, sc);
+
+        return true; // place holder
     }
 
     public void deleteShow(int showId) {
