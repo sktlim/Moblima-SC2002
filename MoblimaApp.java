@@ -1,17 +1,21 @@
 import Controllers.AdminManager;
+import Controllers.MovieGoerManager;
+
 import java.util.Scanner;
 
 
 public class MoblimaApp {
-    static void showSelections()  {
+    static void showSelections() {
         System.out.println("Please make a selection:\n1:Login as admin\n2:Login as moviegoer\n3:Create a new movie goer\n4:Exit application");
     }
 
     static boolean adminLogin(String username, String password) {
+
         return true;
     }
 
     static boolean movieGoerLogin(String username, String password) {
+        MovieGoerManager mgm= new MovieGoerManager();
         return true;
     }
 
@@ -19,15 +23,15 @@ public class MoblimaApp {
         return true;
     }
 
-    public static void main (String [] args){
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int input = -1;
-        try {
-            while(true) {
+        while (true) {
+            try {
                 showSelections();
                 input = sc.nextInt();
                 sc.nextLine();
-                switch(input) {
+                switch (input) {
                     case 1:
                         break;
                     case 2:
@@ -38,7 +42,7 @@ public class MoblimaApp {
                         System.out.println("enter password:");
                         String password = sc.nextLine();
 
-
+                        boolean isLoggedIn = movieGoerLogin(username, password);
                         AdminManager am = new AdminManager();
                         am.createAdmin(username, password);
 
@@ -52,9 +56,10 @@ public class MoblimaApp {
                         break;
                 }
             }
-        } catch (Exception e) {
-            System.out.println("hi");
-            System.out.println(e.get);
+            catch(Exception e){
+                System.out.println("hi");
+                System.out.println(e.getMessage());
+            }
         }
     }
 }
