@@ -1,6 +1,6 @@
 package Models;
 
-public class Prices {
+public class Price {
     private double Standard_2DWeekday;
     private double Standard_2DWeekend;
     private double Standard_2DHoliday;
@@ -31,7 +31,7 @@ public class Prices {
     private double student;
     private double seniorCitizen;
 
-    public Prices() {
+    public Price() {
     }
 
     public double getStandard_2DWeekday() {

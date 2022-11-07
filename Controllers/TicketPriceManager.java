@@ -1,7 +1,7 @@
 package Controllers;
 
 import Models.MovieGoer;
-import Models.Prices;
+import Models.Price;
 
 import java.io.IOException;
 import java.io.FileWriter;
@@ -32,7 +32,7 @@ public class TicketPriceManager {
             StringTokenizer star = new StringTokenizer(st, SEPARATOR);    // pass in the string to the string tokenizer using delimiter ","
             String field = star.nextToken().trim();    // first token
             double price = Double.parseDouble(star.nextToken().trim());    // second token
-            // create movieGoer object from file data
+            // create price object from file data
             hm.put(field, price);
         }
         return hm ;
@@ -54,7 +54,7 @@ public class TicketPriceManager {
         return data;
     }
 
-    private Prices createPrices(Map<String, Double> hashMap,Prices priceList){
+    private Price createPrices(Map<String, Double> hashMap, Price priceList){
         priceList.setStandard_2DWeekday(hashMap.get("Standard_2DWeekday"));
         priceList.setStandard_2DWeekend(hashMap.get("Standard_2DWeekend"));
         priceList.setStandard_2DHoliday(hashMap.get("Standard_2DHoliday"));
@@ -90,7 +90,7 @@ public class TicketPriceManager {
 
     public void printPriceList(){
         try {
-            Prices priceList = new Prices();
+            Price priceList = new Price();
             Map hm = readPrices(FILENAME);
             createPrices(hm, priceList);
             System.out.println("Price List");
