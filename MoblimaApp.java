@@ -1,4 +1,6 @@
 import Controllers.MovieGoerManager;
+import Controllers.TicketManager;
+import Models.Ticket;
 
 import java.util.Scanner;
 
