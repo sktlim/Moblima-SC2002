@@ -30,6 +30,24 @@ public class CineplexManager { //crud
         catch (IOException e){
         }
     }
+    /** Read method
+     * Find cineplex by cineplex code */
+    public static Cineplex findCineplex(String cineplexCode){
+        try{
+            ArrayList cin = readCineplexes(FILENAME);
+            for (int i = 0 ; i < cin.size() ; i++) {
+                Cineplex c = (Cineplex) cin.get(i);
+                if (c.getCineplexCode()==cineplexCode){
+                    System.out.println("Cineplex Successfully Found!");
+                    return c;
+                }
+            }
+        }
+        catch (IOException e){
+        }
+        System.out.println("Cineplex not found!");
+        return null;
+    }
 
     /** reading (helper func, declared as protected as it is called within child file)
      * This creates a list of instances of movies */

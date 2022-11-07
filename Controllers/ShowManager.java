@@ -33,7 +33,24 @@ public class ShowManager {
             int theatre = sc.nextInt();
             sc.nextLine();
             System.out.println("Enter Theatre Class: ");
-            Show.TheatreClass theatreClass = Show.TheatreClass.valueOf(sc.nextLine());
+            System.out.println("0: STANDARD");
+            System.out.println("1: SILVER");
+            System.out.println("2: GOLD");
+            int theatreClassSelector = sc.nextInt();
+            sc.nextLine();
+            Show.TheatreClass theatreClass = Show.TheatreClass.DEFAULT;
+            switch(theatreClassSelector){
+                case 0:
+                    theatreClass = Show.TheatreClass.STANDARD;
+                    break;
+                case 1:
+                    theatreClass = Show.TheatreClass.SILVER;
+                    break;
+                case 2:
+                    theatreClass = Show.TheatreClass.GOLD;
+                    break;
+            }
+
             System.out.println("Enter Cineplex: ");
             String cineplex = sc.nextLine();
 
@@ -73,6 +90,28 @@ public class ShowManager {
         catch (IOException e){
 
         }
+    }
+
+    /** Read method
+     * Find show by show ID */
+    public static Show findShow(int showID){
+        try{
+            ArrayList al = readShows(FILENAME);
+            for (int i = 0 ; i < al.size() ; i++) {
+                Show s = (Show)al.get(i);
+                if (s.getShowId()==showID){
+                    System.out.println("Show successfully found!");
+                    return s;
+                }
+            }
+
+
+        }
+        catch (IOException e){
+
+        }
+        System.out.println("Show not found!");
+        return null;
     }
 
     /** Update method
@@ -118,7 +157,23 @@ public class ShowManager {
 
                 case 4: // edit Theatre Class
                     System.out.println("Enter new Theatre Class: ");
-                    theatreClass = Show.TheatreClass.valueOf(sc.nextLine());
+                    System.out.println("0: STANDARD");
+                    System.out.println("1: SILVER");
+                    System.out.println("2: GOLD");
+                    int theatreClassSelector = sc.nextInt();
+                    sc.nextLine();
+                    theatreClass = Show.TheatreClass.DEFAULT;
+                    switch(theatreClassSelector){
+                        case 0:
+                            theatreClass = Show.TheatreClass.STANDARD;
+                            break;
+                        case 1:
+                            theatreClass = Show.TheatreClass.SILVER;
+                            break;
+                        case 2:
+                            theatreClass = Show.TheatreClass.GOLD;
+                            break;
+                    }
                     break;
 
 

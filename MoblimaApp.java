@@ -1,4 +1,6 @@
-import Controllers.MovieGoerManager;
+import Controllers.*;
+import Models.*;
+import Boundary.*;
 
 import java.util.Scanner;
 
@@ -38,33 +40,5 @@ public class MoblimaApp {
                 System.out.println(e.getMessage());
             }
         }
-
-//        MovieGoerManager mgm = new MovieGoerManager();
-//        AdminManager am = new AdminManager();
-//        MovieManagerMovieGoer mgp = new MovieManagerMovieGoer();
-//        MovieManagerAdmin mga = new MovieManagerAdmin();
-//
-//        mga.createMovie(sc);
-//        mga.printMovieList();
-//        mgp.printMovieList();
-
-//        mgp.printMovieList();
-
-//        am.updateAdmin(5, sc);
-//        am.printAdminList();
-
-//        mgm.createMovieGoer(sc);
-//        mgm.deleteMovieGoer(1);
-//        mgm.printMovieGoerList();
-
-//
-
-
-
-
-
-
     }
-    
-    
 }
