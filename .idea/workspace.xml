@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="added databses" />
-=======
     <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Models/Theatre.java" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Theatre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Moblima-SC2002/Databases/shows.txt" beforeDir="false" />
     </list>
->>>>>>> main
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,7 +63,6 @@
       <option name="presentableId" value="Default" />
       <updated>1667529748525</updated>
     </task>
-<<<<<<< HEAD
     <task id="LOCAL-00001" summary="added userUI files">
       <created>1667827510516</created>
       <option name="number" value="00001" />
@@ -90,8 +85,6 @@
       <updated>1667834369787</updated>
     </task>
     <option name="localTasksCounter" value="4" />
-=======
->>>>>>> main
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -105,15 +98,12 @@
       </map>
     </option>
   </component>
-<<<<<<< HEAD
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added userUI files" />
     <MESSAGE value="updated update method of MovieManagerAdmin" />
     <MESSAGE value="added databses" />
     <option name="LAST_COMMIT_MESSAGE" value="added databses" />
   </component>
-=======
->>>>>>> main
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
