@@ -10,6 +10,7 @@ public class MoblimaApp {
     }
 
     public static void main(String[] args) {
+        ShowManager sm = new ShowManager();
         Scanner sc = new Scanner(System.in);
         int input = -1;
         while (true) {
