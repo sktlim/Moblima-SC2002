@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Controllers/TicketPriceManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Prices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Databases/prices.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Databases/prices.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MoblimaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/MoblimaApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/AdminManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/MovieGoerManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/ShowManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Admin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Movie$MovieRating.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Movie$MovieType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Movie$ShowingStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Movie.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/MovieGoer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/RatingAndReview.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Show$TheatreClass.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Show.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/User.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,9 +31,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Controllers/MovieManagerAdmin.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -81,7 +88,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
