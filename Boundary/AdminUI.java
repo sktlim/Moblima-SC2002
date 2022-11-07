@@ -47,12 +47,11 @@ public class AdminUI extends UserUI {
     }
 
     public int createShow(Scanner sc) {
-        return 1; // Placeholder
+        return ShowManager.createShow(sc); // ShowManager's static createShow method returns showId: int
     }
 
     public boolean updateShow(int showId, Scanner sc) {
-
-        return true; // place holder
+        return ShowManager.updateShow(showId, sc);
     }
 
     public void deleteShow(int showId) {
