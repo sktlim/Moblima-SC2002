@@ -1,6 +1,7 @@
 import Controllers.AdminManager;
 import Controllers.MovieGoerManager;
 import Models.Movie;
+import Controllers.*;
 
 import java.util.Scanner;
 
