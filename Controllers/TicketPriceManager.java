@@ -69,7 +69,7 @@ public class TicketPriceManager {
         priceList.setSilver_2DHoliday(hashMap.get("Silver_2DHoliday"));
         priceList.setSilver_3DWeekday(hashMap.get("Silver_3DWeekday"));
         priceList.setSilver_3DWeekend(hashMap.get("Silver_3DWeekend"));
-        priceList.setStandard_3DHoliday(hashMap.get("Silver_3DHoliday"));
+        priceList.setSilver_3DHoliday(hashMap.get("Silver_3DHoliday"));
         priceList.setSilver_BlockBusterWeekday(hashMap.get("Silver_BlockBusterWeekday"));
         priceList.setSilver_BlockBusterWeekend(hashMap.get("Silver_BlockBusterWeekend"));
         priceList.setSilver_BlockBusterHoliday(hashMap.get("Silver_BlockBusterHoliday"));
@@ -102,7 +102,7 @@ public class TicketPriceManager {
             System.out.println("5. Standard 3D Weekend " + priceList.getStandard_3DWeekend());
             System.out.println("6. Standard 3D Holiday " + priceList.getStandard_3DHoliday());
             System.out.println("7. Standard BlockBuster Weekday " + priceList.getStandard_BlockBusterWeekday());
-            System.out.println("8. Standard BlockBuster Weekend " + priceList.getStandard_3DWeekend());
+            System.out.println("8. Standard BlockBuster Weekend " + priceList.getStandard_BlockBusterWeekend());
             System.out.println("9. Standard BlockBuster Holiday " + priceList.getStandard_BlockBusterHoliday());
             System.out.println("10. Silver 2D Weekday " + priceList.getSilver_2DWeekday());
             System.out.println("11. Silver 2D Weekend " + priceList.getSilver_2DWeekend());
@@ -111,7 +111,7 @@ public class TicketPriceManager {
             System.out.println("14. Silver 3D Weekend " + priceList.getSilver_3DWeekend());
             System.out.println("15. Silver 3D Holiday " + priceList.getSilver_3DHoliday());
             System.out.println("16. Silver BlockBuster Weekday " + priceList.getSilver_BlockBusterWeekday());
-            System.out.println("17. Silver BlockBuster Weekend " + priceList.getSilver_3DWeekend());
+            System.out.println("17. Silver BlockBuster Weekend " + priceList.getSilver_BlockBusterWeekend());
             System.out.println("18. Silver BlockBuster Holiday " + priceList.getSilver_BlockBusterHoliday());
             System.out.println("19. Gold 2D Weekday " + priceList.getGold_2DWeekday());
             System.out.println("20. Gold 2D Weekend " + priceList.getGold_2DWeekend());
@@ -127,15 +127,117 @@ public class TicketPriceManager {
         }
 
         catch (IOException e){
-
+            System.out.println(e);
         };
     }
 
-//    public void updatePrice(selection int, updatedPrice int)(){
-//        switch
-//    }
-//
-//    public int calculatePrice(theatreClass theatreClass, age int, date String, movieType movieType){
+    public void updatePrice(int selection ,int updatedPrice){
+        try {
+            Price priceList = new Price();
+            Map hm = readPrices(FILENAME);
+            System.out.println("Select price to change from Price List: \n");
+            printPriceList();
+            //        Scanner input = new Scanner(System.in);
+            //        input.nextInt()
+            switch (selection) {
+                case 1:
+                    priceList.setStandard_2DWeekday(updatedPrice);
+                    break;
+                case 2:
+                    priceList.setStandard_2DWeekend(updatedPrice);
+                    break;
+                case 3:
+                    priceList.setStandard_2DHoliday(updatedPrice);
+                    break;
+                case 4:
+                    priceList.setStandard_3DWeekday(updatedPrice);
+                    break;
+                case 5:
+                    priceList.setStandard_3DWeekend(updatedPrice);
+                    break;
+                case 6:
+                    priceList.setStandard_3DHoliday(updatedPrice);
+                    break;
+                case 7:
+                    priceList.setStandard_BlockBusterWeekday(updatedPrice);
+                    break;
+                case 8:
+                    priceList.setStandard_BlockBusterWeekend(updatedPrice);
+                    break;
+                case 9:
+                    priceList.setStandard_BlockBusterHoliday(updatedPrice);
+                    break;
+                case 10:
+                    priceList.setSilver_2DWeekday(updatedPrice);
+                    break;
+                case 11:
+                    priceList.setSilver_2DWeekend(updatedPrice);
+                    break;
+                case 12:
+                    priceList.setSilver_2DHoliday(updatedPrice);
+                    break;
+                case 13:
+                    priceList.setSilver_3DWeekday(updatedPrice);
+                    break;
+                case 14:
+                    priceList.setSilver_3DWeekend(updatedPrice);
+                    break;
+                case 15:
+                    priceList.setSilver_3DHoliday(updatedPrice);
+                    break;
+                case 16:
+                    priceList.setSilver_BlockBusterWeekday(updatedPrice);
+                    break;
+                case 17:
+                    priceList.setSilver_BlockBusterWeekend(updatedPrice);
+                    break;
+                case 18:
+                    priceList.setSilver_BlockBusterHoliday(updatedPrice);
+                    break;
+                case 19:
+                    priceList.setGold_2DWeekday(updatedPrice);
+                    break;
+                case 20:
+                    priceList.setGold_2DWeekend(updatedPrice);
+                    break;
+                case 21:
+                    priceList.setGold_2DHoliday(updatedPrice);
+                    break;
+                case 22:
+                    priceList.setGold_3DWeekday(updatedPrice);
+                    break;
+                case 23:
+                    priceList.setGold_3DWeekend(updatedPrice);
+                    break;
+                case 24:
+                    priceList.setGold_3DHoliday(updatedPrice);
+                    break;
+                case 25:
+                    priceList.setGold_BlockBusterWeekday(updatedPrice);
+                    break;
+                case 26:
+                    priceList.setGold_BlockBusterWeekend(updatedPrice);
+                    break;
+                case 27:
+                    priceList.setGold_BlockBusterHoliday(updatedPrice);
+                    break;
+                case 28:
+                    priceList.setStudent(updatedPrice);
+                    break;
+                case 29:
+                    priceList.setSeniorCitizen(updatedPrice);
+                    break;
+                default:
+                    break;
+            }
+        }
+            catch (IOException e){
+                System.out.println(e);
+            }
+        }
+
+//    public int calculatePrice(theatreClass theatreClass, int age, String date, movieType movieType ){
 //
 //    }
 }
+
