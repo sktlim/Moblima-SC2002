@@ -5,20 +5,7 @@
     <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="added databses" />
 =======
     <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/AdminManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/MovieGoerManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/ShowManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Admin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Movie$MovieRating.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Movie$MovieType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Movie$ShowingStatus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Movie.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/MovieGoer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/RatingAndReview.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Show$TheatreClass.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Show.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Theatre.java" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Theatre.java" afterDir="false" />
     </list>
 >>>>>>> main
     <option name="SHOW_DIALOG" value="false" />
