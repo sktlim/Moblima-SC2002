@@ -2,7 +2,7 @@ package Boundary;
 import Models.*;
 import Controllers.*;
 
-public class MovieGoerUI extends UserUI {
+public class MovieGoerUI {
 
     private MovieGoer sessionMovieGoer;
 

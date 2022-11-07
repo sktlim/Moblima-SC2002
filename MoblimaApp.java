@@ -1,41 +1,71 @@
+import Controllers.AdminManager;
+import Controllers.MovieGoerManager;
+
+import java.util.Scanner;
 import Controllers.*;
 
 import java.util.*;
 
 
 public class MoblimaApp {
-
-    
-
-    /** Scanner initiated in main, passed in all other functions as Scanner sc */
-    public static void main (String [] args){
-        Scanner sc = new Scanner(System.in);
-
-        MovieGoerManager mgm = new MovieGoerManager();
-        AdminManager am = new AdminManager();
-        MovieManagerMovieGoer mgp = new MovieManagerMovieGoer();
-        MovieManagerAdmin mga = new MovieManagerAdmin();
-
-        mga.createMovie(sc);
-        mga.printMovieList();
-//        mgp.printMovieList();
-
-//        mgp.printMovieList();
-
-//        am.updateAdmin(5, sc);
-//        am.printAdminList();
-
-//        mgm.createMovieGoer(sc);
-//        mgm.deleteMovieGoer(1);
-//        mgm.printMovieGoerList();
-//
-
-
-
-
-
-        
+    static void showSelections() {
+        System.out.println("Please make a selection:\n1:Login as admin\n2:Login as moviegoer\n3:Create a new movie goer\n4:Exit application");
     }
-    
-    
+
+    static boolean adminLogin(String username, String password) {
+
+        return true;
+    }
+
+    static boolean movieGoerLogin(String username, String password) {
+        MovieGoerManager mgm= new MovieGoerManager();
+        return true;
+    }
+
+    static boolean createMovieGoer(String username, String password) {
+        return true;
+    }
+
+    public static void main(String[] args) {
+        ShowManager sm = new ShowManager();
+        Scanner sc = new Scanner(System.in);
+        int input = -1;
+        while (true) {
+            try {
+                showSelections();
+                input = sc.nextInt();
+                sc.nextLine();
+                switch (input) {
+                    case 1:
+                        sm.createShow(sc);
+                        sm.printShowList();
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        System.out.println("enter username:");
+                        String username = sc.nextLine();
+                        System.out.println("enter password:");
+                        String password = sc.nextLine();
+
+                        boolean isLoggedIn = movieGoerLogin(username, password);
+                        AdminManager am = new AdminManager();
+                        am.createAdmin(sc);
+
+                        am.printAdminList();
+                        break;
+                    case 4:
+                        System.out.println("Exiting Application...");
+                        return;
+                    default:
+                        System.out.println("Invalid input! Please try again.");
+                        break;
+                }
+            }
+            catch(Exception e){
+                System.out.println("hi");
+                System.out.println(e.getMessage());
+            }
+        }
+    }
 }
