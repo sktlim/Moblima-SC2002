@@ -7,8 +7,11 @@
     <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/Controllers/MovieManagerAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MovieManagerAdmin.java" afterDir="false" />
 =======
+=======
+>>>>>>> parent of d82e848 (Merge branch 'main' of https://github.com/sktlim/Moblima-SC2002)
 =======
 >>>>>>> parent of d82e848 (Merge branch 'main' of https://github.com/sktlim/Moblima-SC2002)
       <change afterPath="$PROJECT_DIR$/Models/Movie$MovieRating.class" afterDir="false" />
@@ -25,6 +28,9 @@
       <change beforePath="$PROJECT_DIR$/Databases/shows.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Databases/shows.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MoblimaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/MoblimaApp.java" afterDir="false" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of d82e848 (Merge branch 'main' of https://github.com/sktlim/Moblima-SC2002)
+=======
 >>>>>>> parent of d82e848 (Merge branch 'main' of https://github.com/sktlim/Moblima-SC2002)
 =======
 >>>>>>> parent of d82e848 (Merge branch 'main' of https://github.com/sktlim/Moblima-SC2002)
@@ -39,7 +45,11 @@
       <map>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <entry key="$PROJECT_DIR$" value="showManagerFeaturev1" />
+=======
+        <entry key="$PROJECT_DIR$" value="main" />
+>>>>>>> parent of d82e848 (Merge branch 'main' of https://github.com/sktlim/Moblima-SC2002)
 =======
         <entry key="$PROJECT_DIR$" value="main" />
 >>>>>>> parent of d82e848 (Merge branch 'main' of https://github.com/sktlim/Moblima-SC2002)
