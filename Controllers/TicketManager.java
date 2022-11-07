@@ -77,6 +77,89 @@ public class TicketManager {
         return null;
     }
 
+    public static boolean updateTicket(Scanner sc){
+        //update method
+        String inputField;
+        try{
+            System.out.println("Select Ticket id to change:");
+            int tid = sc.nextInt();
+            sc.nextLine();
+            ArrayList<Ticket> tickets = readTickets(FILENAME);
+            int idx = -1;
+            for (int i=0; i<tickets.size(); i++) {
+                if (tickets.get(i).getTicketId() == tid) {
+                    idx = i;
+                }
+            }
+            if (idx == -1) throw new Exception("Ticket does not exist!");
+            Ticket t = tickets.get(idx);
+
+            System.out.println("Select field to change:");
+            System.out.println("0: Ticket Id");
+            System.out.println("1: Show Id");
+            System.out.println("2: User Id");
+            System.out.println("3: Seat");
+            System.out.println("4: User Age Type");
+            System.out.println("5: Day Type");
+            System.out.println("6: Price");
+
+            int fieldEdit = sc.nextInt();
+            sc.nextLine();
+
+            switch (fieldEdit) {
+                case 0:
+                    System.out.println("Enter new Ticket Id: ");
+                    t.setTicketId(sc.nextInt());
+                    sc.nextLine();
+                    break;
+                case 1:
+                    System.out.println("Enter new Show Id: ");
+                    t.setShowId(sc.nextInt());
+                    sc.nextLine();
+                    break;
+                case 2:
+                    System.out.println("Enter new User Id: ");
+                    t.setUserId(sc.nextInt());
+                    sc.nextLine();
+                    break;
+                case 3:
+                    System.out.println("Enter new Seat: ");
+                    t.setSeat(sc.nextLine());
+                case 4:
+                    System.out.println("Select new user age type:");
+                    System.out.println("0: Student");
+                    System.out.println("1: Senior");
+                    int option = sc.nextInt();
+                    sc.nextLine();
+                    if (option == 0) t.setUserAgeType(Ticket.UserAgeType.STUDENT);
+                    else if (option == 1) t.setUserAgeType(Ticket.UserAgeType.SENIOR);
+                    break;
+                case 5:
+                    System.out.println("Select new day type:");
+                    System.out.println("0: Weekday");
+                    System.out.println("1: Weekend");
+                    option = sc.nextInt();
+                    sc.nextLine();
+                    if (option == 0) t.setDayType(Ticket.DayType.WEEKDAY);
+                    else if (option == 1) t.setDayType(Ticket.DayType.WEEKEND);
+                    break;
+                case 6:
+                    System.out.println("Enter new price: ");
+                    t.setPrice(sc.nextFloat());
+                    sc.nextLine();
+                    break;
+            }
+
+            saveTickets(FILENAME, tickets);
+            System.out.println("Ticket has been updated");
+        }
+        catch(Exception e){
+            System.out.println("Exception > " + e.getMessage());
+            return false;
+        }
+        return true;
+    }
+
     public static void deleteTicket(int ticketId){
         // delete method
         try {
@@ -94,6 +177,7 @@ public class TicketManager {
             System.out.println("Exception > " + e.getMessage());
         }
     }
+
     /** reading (helper func, declared as private as it is only called within this file)
      * This creates a list of instances of movieGoers */
 
@@ -104,9 +188,9 @@ public class TicketManager {
         for (int i = 0 ; i < stringArray.size() ; i++) {
             String st = (String)stringArray.get(i);
             // get individual 'fields' of the string separated by SEPARATOR
-            StringTokenizer star = new StringTokenizer(st , SEPARATOR);  // pass in the string to the string tokenizer using delimiter ","
-            int ticketId = Integer.parseInt(star.nextToken().trim());  // first token
-            int showId = Integer.parseInt(star.nextToken().trim());  // second token
+            StringTokenizer star = new StringTokenizer(st , SEPARATOR);	// pass in the string to the string tokenizer using delimiter ","
+            int ticketId = Integer.parseInt(star.nextToken().trim());	// first token
+            int showId = Integer.parseInt(star.nextToken().trim());	// second token
             int userId = Integer.parseInt(star.nextToken().trim());
             String  seat = star.nextToken().trim();
             Ticket.UserAgeType userAgeType = Ticket.UserAgeType.valueOf(star.nextToken().trim());

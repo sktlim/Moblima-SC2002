@@ -1,5 +1,6 @@
-import Controllers.MovieGoerManager;
-import Controllers.TransactionManager;
+import Controllers.*;
+import Models.*;
+import Boundary.*;
 
 import java.util.Scanner;
 
@@ -19,8 +20,6 @@ public class MoblimaApp {
                 switch (input) {
                     case 1:
                         // Login as admin
-                        TransactionManager.createTransaction(12,15);
-                        TransactionManager.printTransactionList();
                         break;
                     case 2:
                         // Login as moviegoer
@@ -41,33 +40,5 @@ public class MoblimaApp {
                 System.out.println(e.getMessage());
             }
         }
-
-//        MovieGoerManager mgm = new MovieGoerManager();
-//        AdminManager am = new AdminManager();
-//        MovieManagerMovieGoer mgp = new MovieManagerMovieGoer();
-//        MovieManagerAdmin mga = new MovieManagerAdmin();
-//
-//        mga.createMovie(sc);
-//        mga.printMovieList();
-//        mgp.printMovieList();
-
-//        mgp.printMovieList();
-
-//        am.updateAdmin(5, sc);
-//        am.printAdminList();
-
-//        mgm.createMovieGoer(sc);
-//        mgm.deleteMovieGoer(1);
-//        mgm.printMovieGoerList();
-
-//
-
-
-
-
-
-
     }
-    
-    
 }

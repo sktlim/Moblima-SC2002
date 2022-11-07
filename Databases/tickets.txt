@@ -1,1 +1,1 @@
-ticketId, showId, userId, seat, userAgeType, dayType, price
+1|22|123|12A|SENIOR|WEEKDAY|12.0
