@@ -126,7 +126,26 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
                     break;
                 case 1: //edit showing status
                     System.out.println("Enter Movie Showing Status: ");
-                    showingStatus = Movie.ShowingStatus.valueOf(sc.nextLine());
+                    System.out.println("0: COMING_SOON");
+                    System.out.println("1: PREVIEW");
+                    System.out.println("2: NOW_SHOWING");
+                    int showStatusSelector = sc.nextInt();
+                    sc.nextLine();
+                    showingStatus = Movie.ShowingStatus.DEFAULT;
+
+                    switch(showStatusSelector){
+                        case 0:
+                            showingStatus = Movie.ShowingStatus.COMING_SOON;
+                            break;
+
+                        case 1:
+                            showingStatus = Movie.ShowingStatus.PREVIEW;
+                            break;
+
+                        case 2:
+                            showingStatus = Movie.ShowingStatus.NOW_SHOWING;
+                            break;
+                    }
                     break;
 
                 case 2: // edit synopsis
@@ -154,14 +173,50 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
 
                 case 6: // edit rating
                     System.out.println("Enter Movie Rating: ");
-                    movieRating = Movie.MovieRating.valueOf(sc.nextLine());
+                    System.out.println("0: G");
+                    System.out.println("1: PG13");
+                    System.out.println("2: NC16");
+                    System.out.println("3: M18");
+                    System.out.println("4: R21");
+                    int movieRatingSelector = sc.nextInt();
+                    sc.nextLine();
+                    movieRating = Movie.MovieRating.DEFAULT;
+                    switch(movieRatingSelector){
+                        case 0:
+                            movieRating = Movie.MovieRating.G;
+                            break;
+                        case 1:
+                            movieRating = Movie.MovieRating.PG13;
+                            break;
+                        case 2:
+                            movieRating = Movie.MovieRating.NC16;
+                            break;
+                        case 3:
+                            movieRating = Movie.MovieRating.M18;
+                            break;
+                        case 4:
+                            movieRating = Movie.MovieRating.R21;
+                            break;
+                    }
                     break;
 
 
 
                 case 7: // edit movie type
                     System.out.println("Enter Movie Type: ");
-                    movieType = Movie.MovieType.valueOf(sc.nextLine());
+                    System.out.println("0: 3D");
+                    System.out.println("1: BLOCKBUSTER");
+                    int movieTypeSelector = sc.nextInt();
+                    sc.nextLine();
+                    movieType = Movie.MovieType.DEFAULT;
+                    switch(movieTypeSelector){
+                        case 0:
+                            movieType = Movie.MovieType.THREE_D;
+                            break;
+                        case 1:
+                            movieType = Movie.MovieType.BLOCKBUSTER;
+                            break;
+                    }
                     break;
             }
 

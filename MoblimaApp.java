@@ -27,6 +27,7 @@ public class MoblimaApp {
     }
 
     public static void main(String[] args) {
+        ShowManager sm = new ShowManager();
         Scanner sc = new Scanner(System.in);
         int input = -1;
         while (true) {
@@ -36,6 +37,8 @@ public class MoblimaApp {
                 sc.nextLine();
                 switch (input) {
                     case 1:
+                        sm.createShow(sc);
+                        sm.printShowList();
                         break;
                     case 2:
                         break;
@@ -47,7 +50,7 @@ public class MoblimaApp {
 
                         boolean isLoggedIn = movieGoerLogin(username, password);
                         AdminManager am = new AdminManager();
-                        am.createAdmin(username, password);
+                        am.createAdmin(sc);
 
                         am.printAdminList();
                         break;
