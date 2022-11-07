@@ -5,24 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/Controllers/MovieManagerAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MovieManagerAdmin.java" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/Models/Movie$MovieRating.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Movie$MovieType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Movie$ShowingStatus.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Movie.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/MovieGoer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/RatingAndReview.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Boundary/AdminUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Boundary/AdminUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/ShowFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ShowFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/ShowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ShowManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Databases/movies.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Databases/movies.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Databases/shows.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Databases/shows.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MoblimaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/MoblimaApp.java" afterDir="false" />
+>>>>>>> parent of d82e848 (Merge branch 'main' of https://github.com/sktlim/Moblima-SC2002)
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
+<<<<<<< HEAD
         <entry key="$PROJECT_DIR$" value="showManagerFeaturev1" />
+=======
+        <entry key="$PROJECT_DIR$" value="main" />
+>>>>>>> parent of d82e848 (Merge branch 'main' of https://github.com/sktlim/Moblima-SC2002)
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -32,21 +45,22 @@
   </component>
   <component name="ProjectId" id="2H41sVfLilos9OphP6w2l0YLkE0" />
   <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="1" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.17931035" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  <component name="RunManager">
+    <configuration name="MoblimaApp" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="MoblimaApp" />
+      <module name="Moblima-SC2002" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="TaskManager">
@@ -71,8 +85,7 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
