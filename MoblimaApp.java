@@ -2,6 +2,9 @@ import Controllers.AdminManager;
 import Controllers.MovieGoerManager;
 
 import java.util.Scanner;
+import Controllers.*;
+
+import java.util.*;
 
 
 public class MoblimaApp {
