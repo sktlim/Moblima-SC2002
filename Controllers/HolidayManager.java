@@ -2,10 +2,7 @@ package Controllers;
 
 import Models.Holiday;
 
-import java.io.FileInputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.*;
 
 public class HolidayManager {
@@ -52,6 +49,19 @@ public class HolidayManager {
 //    private Holiday createHolidays(Map <String, String> hashMap, Holiday holidayList) {
 //
 //    }
+
+    private void write(String fileName, List data) throws IOException {
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(fileName)));
+
+        try {
+            for (int i =0; i < data.size() ; i++) {
+                out.println((String)data.get(i));
+            }
+        }
+        finally {
+            out.close();
+        }
+    }
 
 
 }
