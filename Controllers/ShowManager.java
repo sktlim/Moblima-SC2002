@@ -33,7 +33,24 @@ public class ShowManager {
             int theatre = sc.nextInt();
             sc.nextLine();
             System.out.println("Enter Theatre Class: ");
-            Show.TheatreClass theatreClass = Show.TheatreClass.valueOf(sc.nextLine());
+            System.out.println("0: STANDARD");
+            System.out.println("1: SILVER");
+            System.out.println("2: GOLD");
+            int theatreClassSelector = sc.nextInt();
+            sc.nextLine();
+            Show.TheatreClass theatreClass = Show.TheatreClass.DEFAULT;
+            switch(theatreClassSelector){
+                case 0:
+                    theatreClass = Show.TheatreClass.STANDARD;
+                    break;
+                case 1:
+                    theatreClass = Show.TheatreClass.SILVER;
+                    break;
+                case 2:
+                    theatreClass = Show.TheatreClass.GOLD;
+                    break;
+            }
+
             System.out.println("Enter Cineplex: ");
             String cineplex = sc.nextLine();
 
@@ -140,7 +157,23 @@ public class ShowManager {
 
                 case 4: // edit Theatre Class
                     System.out.println("Enter new Theatre Class: ");
-                    theatreClass = Show.TheatreClass.valueOf(sc.nextLine());
+                    System.out.println("0: STANDARD");
+                    System.out.println("1: SILVER");
+                    System.out.println("2: GOLD");
+                    int theatreClassSelector = sc.nextInt();
+                    sc.nextLine();
+                    theatreClass = Show.TheatreClass.DEFAULT;
+                    switch(theatreClassSelector){
+                        case 0:
+                            theatreClass = Show.TheatreClass.STANDARD;
+                            break;
+                        case 1:
+                            theatreClass = Show.TheatreClass.SILVER;
+                            break;
+                        case 2:
+                            theatreClass = Show.TheatreClass.GOLD;
+                            break;
+                    }
                     break;
 
 
