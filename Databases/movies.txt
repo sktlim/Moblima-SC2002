@@ -1,5 +1,2 @@
 john wick|COMING_SOON|assasin, fun|keanu reeeves|keanu, stephanie|145|PG13|BLOCKBUSTER|1
 charlie and the choc|NOW_SHOWING|charlie, reeves, fun|boris|johnson, boris|10958|NC16|THREE_D|2
-xxx|NOW_SHOWING|xxx+yyy|xxx|xxx,yyy,zzz|123|PG13|BLOCKBUSTER|3
-xxx|NOW_SHOWING|yyy|xxx|x=y|123|PG13|BLOCKBUSTER|4
-xxx|NOW_SHOWING|xxx|yyy|xxx|123|PG13|BLOCKBUSTER|5

@@ -15,14 +15,9 @@ public class MoblimaApp {
         AdminManager am = new AdminManager();
         MovieManagerMovieGoer mgp = new MovieManagerMovieGoer();
         MovieManagerAdmin mga = new MovieManagerAdmin();
-        ShowManager sm = new ShowManager();
 
-//        sm.createShow(sc);
-        sm.updateShows(1, sc);
-        sm.printShowList();
-
-//        mga.createMovie(sc);
-//        mga.printMovieList();
+        mga.createMovie(sc);
+        mga.printMovieList();
 //        mgp.printMovieList();
 
 //        mgp.printMovieList();
