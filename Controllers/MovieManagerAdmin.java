@@ -277,6 +277,27 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
 
 
     }
+    /** Read method
+     * Find movie by movieId*/
+    public static Movie findMovie(int movieID){
+        try{
+            ArrayList mov = readMovies(FILENAME);
+            for (int i = 0 ; i < mov.size() ; i++) {
+                Movie m = (Movie) mov.get(i);
+                if (m.getMovieId()==movieID){
+                    System.out.println("Movie successfully found!");
+                    return m;
+                }
+            }
+
+
+        }
+        catch (IOException e){
+
+        }
+        System.out.println("Movie not found!");
+        return null;
+    }
     /** Delete method
      * delete admin based on movieId */
     public static void deleteMovie(int movieId){

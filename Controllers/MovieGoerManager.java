@@ -72,6 +72,28 @@ public class MovieGoerManager {
         }
     }
 
+    /** Read method
+     * Find moviegoer by movieGoer ID */
+    public static MovieGoer findMovieGoer(int movieGoerID){
+        try{
+            ArrayList ml = readMovieGoers(FILENAME);
+            for (int i = 0 ; i < ml.size() ; i++) {
+                MovieGoer mg = (MovieGoer)ml.get(i);
+                if (mg.getMovieGoerId()==movieGoerID){
+                    System.out.println("Movie Goer successfully found!");
+                    return mg;
+                }
+            }
+
+
+        }
+        catch (IOException e){
+
+        }
+        System.out.println("Movie Goer not found!");
+        return null;
+    }
+
     /** Update method
      * this updates the various field of movieGoer */
     public static void updateMovieGoer(int movieGoerId, Scanner sc){

@@ -70,6 +70,7 @@ public class MovieManagerMovieGoer {
         }
     }
 
+
     /** reading (helper func, declared as protected as it is called within child file)
      * This creates a list of instances of movies */
 

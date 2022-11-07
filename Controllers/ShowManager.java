@@ -75,6 +75,28 @@ public class ShowManager {
         }
     }
 
+    /** Read method
+     * Find show by show ID */
+    public static Show findShow(int showID){
+        try{
+            ArrayList al = readShows(FILENAME);
+            for (int i = 0 ; i < al.size() ; i++) {
+                Show s = (Show)al.get(i);
+                if (s.getShowId()==showID){
+                    System.out.println("Show successfully found!");
+                    return s;
+                }
+            }
+
+
+        }
+        catch (IOException e){
+
+        }
+        System.out.println("Show not found!");
+        return null;
+    }
+
     /** Update method
      * this updates the various field of movieGoer */
     public static void updateShows(int showId, Scanner sc){
