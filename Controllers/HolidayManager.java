@@ -1,10 +1,8 @@
 package Controllers;
 
 import Models.Holiday;
-import Models.Transaction;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.*;
 import java.time.LocalDate;
 
@@ -51,7 +49,6 @@ public class HolidayManager {
 
     private static void createHoliday(Scanner sc) {
         try {
-            sc.nextLine();
             System.out.println("Please enter the holiday's Name: ");
             String holidayName = sc.nextLine();
             System.out.println("Please enter the holiday's Year: ");
@@ -70,6 +67,7 @@ public class HolidayManager {
             Holiday h = new Holiday(holidayName, date.toString());
             arrayList.add(h);
             saveHolidays(FILENAME, arrayList);
+            System.out.println(String.format("%s has successfully been created.", holidayName));
         } catch (IOException e){
             System.out.println("IOException > " + e.getMessage());
         }
@@ -125,11 +123,87 @@ public class HolidayManager {
         }
     }
 
+    /** Allows admins to update existing holidays. All fields are allowed to be updated.
+     * Holidays are queried according to their Name
+     * Users must input the Holiday Name exact (case-sensitive) including its Year in the name e.g. Christmas 2022 **/
+    public static void updateHoliday(Scanner sc) {
+        System.out.println("Enter the name of the holiday you wish to change: ");
+        String holidayName = sc.nextLine();
+        String inputField = "0";
+
+        try {
+            System.out.println("Select field to change: ");
+            System.out.println("1: Name");
+            System.out.println("2: Date");
+
+            int fieldEdit = sc.nextInt();
+            sc.nextLine();
+
+            switch (fieldEdit) {
+                case 1: // edit Name
+                    System.out.println("Enter new Holiday Name: ");
+                    inputField = sc.nextLine();
+                    break;
+                case 2: // edit Date
+                    System.out.println("Enter new Holiday Date: ");
+                    inputField = sc.nextLine();
+                    break;
+            }
+
+            ArrayList holidayList = readHolidays(FILENAME);
+            for (int i = 0; i < holidayList.size(); i++) {
+                Holiday h = (Holiday) holidayList.get(i);
+                if (Objects.equals(h.getName(), holidayName)) {
+                    switch (fieldEdit) {
+                        case 1:
+                            h.setName(inputField);
+                            System.out.println("Name successfully updated.");
+                            break;
+                        case 2:
+                            h.setDate(inputField);
+                            System.out.println("Date successfully updated.");
+                            break;
+                    }
+                }
+            }
+
+            saveHolidays(FILENAME, holidayList);
+
+        } catch (IOException e) {
+
+        }
+    }
+
+    /** Delete method
+     * delete holiday based on holidayName */
+    public static void deleteHoliday(Scanner sc) {
+        System.out.println("Which holiday would you like to delete?: ");
+        String holidayToBeDeleted = sc.nextLine();
+
+        try {
+            ArrayList hl = readHolidays(FILENAME);
+            for (int i=0; i<hl.size(); i++){
+                Holiday h = (Holiday) hl.get(i);
+                if (Objects.equals(h.getName(), holidayToBeDeleted)){
+                    hl.remove(i);
+                }
+            }
+            saveHolidays(FILENAME, hl);
+            System.out.println(String.format("%s has successfully been deleted.", holidayToBeDeleted));
+        } catch (IOException e) {
+
+        }
+    }
+
+    /** FOR UNIT TESTS ON HOLIDAYS **/
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("1: printHolidayList");
         System.out.println("2: createHoliday");
+        System.out.println("3: updateHoliday");
+        System.out.println("4: deleteHoliday");
         int choice = sc.nextInt();
+        sc.nextLine();
 
         switch(choice) {
             case 1:
@@ -137,8 +211,12 @@ public class HolidayManager {
                 break;
             case 2:
                 HolidayManager.createHoliday(sc);
-                HolidayManager.printHolidayList();
-
+                break;
+            case 3:
+                HolidayManager.updateHoliday(sc);
+                break;
+            case 4:
+                HolidayManager.deleteHoliday(sc);
                 break;
         }
     }
