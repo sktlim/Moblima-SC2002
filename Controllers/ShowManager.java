@@ -44,8 +44,7 @@ public class ShowManager {
             sc.nextLine();
             System.out.println("Enter Theatre Class: ");
             System.out.println("0: STANDARD");
-            System.out.println("1: SILVER");
-            System.out.println("2: GOLD");
+            System.out.println("1: PLATINUM");
             int theatreClassSelector = sc.nextInt();
             sc.nextLine();
             Show.TheatreClass theatreClass = Show.TheatreClass.DEFAULT;
@@ -54,10 +53,7 @@ public class ShowManager {
                     theatreClass = Show.TheatreClass.STANDARD;
                     break;
                 case 1:
-                    theatreClass = Show.TheatreClass.SILVER;
-                    break;
-                case 2:
-                    theatreClass = Show.TheatreClass.GOLD;
+                    theatreClass = Show.TheatreClass.PLATINUM;
                     break;
             }
             String cineplex = "null";
@@ -193,8 +189,7 @@ public class ShowManager {
                 case 4: // edit Theatre Class
                     System.out.println("Enter new Theatre Class: ");
                     System.out.println("0: STANDARD");
-                    System.out.println("1: SILVER");
-                    System.out.println("2: GOLD");
+                    System.out.println("1: PLATINUM");
                     int theatreClassSelector = sc.nextInt();
                     sc.nextLine();
                     theatreClass = Show.TheatreClass.DEFAULT;
@@ -203,10 +198,7 @@ public class ShowManager {
                             theatreClass = Show.TheatreClass.STANDARD;
                             break;
                         case 1:
-                            theatreClass = Show.TheatreClass.SILVER;
-                            break;
-                        case 2:
-                            theatreClass = Show.TheatreClass.GOLD;
+                            theatreClass = Show.TheatreClass.PLATINUM;
                             break;
                     }
                     break;
