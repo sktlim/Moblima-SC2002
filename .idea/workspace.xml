@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="Updated ticket price manager">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/HolidayManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/HolidayManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Databases/holidays.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Databases/holidays.txt" afterDir="false" />
@@ -29,6 +28,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Controllers/MovieManagerAdmin.java" root0="FORCE_HIGHLIGHTING" />
