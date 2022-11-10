@@ -8,10 +8,11 @@ public class MovieGoerAuthManager {
 
     static String fileName = "./databases/movieGoers.txt";
 
-    public static boolean mgchecker(String username, String password) throws IOException, FileNotFoundException {
+    // returns moviegoer id if exist. Else -1.
+    public static int mgchecker(String username, String password) throws IOException, FileNotFoundException {
         // This will reference one line at a time
         String line = null;
-        boolean retVal= false;
+        int moviegoerId = -1;
         try {
             // FileReader reads text files in the default encoding.
             FileReader fileReader = new FileReader(fileName);
@@ -25,8 +26,8 @@ public class MovieGoerAuthManager {
                 // because you know first and second word of each line in
                 // given file is id and password
                 if (token[0].equals(username) && token[1].equals(password)){
-                    retVal=true;
-                    return retVal;
+                    moviegoerId = Integer.parseInt(token[3]);
+                    return moviegoerId;
                 }
             }
 
@@ -35,7 +36,7 @@ public class MovieGoerAuthManager {
         }
         catch(FileNotFoundException ex) { System.out.println("Unable to open file '" + fileName + "'");}
         catch(IOException ex) { System.out.println("Error reading file '" + fileName + "'");}
-        return retVal;
+        return -1;
     }
 
 }
