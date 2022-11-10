@@ -46,8 +46,8 @@ public class MovieGoerUI {
         // call TransactionManager's static method
     }
 
-    public static String[] getTop5MoviesByTicketSales() {
-        return MovieManagerMovieGoer.getTop5MoviesByTicketSales();
+    public static void getTop5MoviesByTicketSales() {
+        MovieManagerMovieGoer.getTop5MoviesByTicketSales();
     }
 
     public static void getTop5MoviesByRating() {

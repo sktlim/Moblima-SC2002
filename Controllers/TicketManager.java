@@ -181,7 +181,7 @@ public class TicketManager {
     /** reading (helper func, declared as private as it is only called within this file)
      * This creates a list of instances of movieGoers */
 
-    private static ArrayList readTickets(String filename) throws IOException {
+    protected static ArrayList readTickets(String filename) throws IOException {
         // read String from text file
         ArrayList stringArray = (ArrayList)read(filename);
         ArrayList alr = new ArrayList() ;// to store Tickets data
