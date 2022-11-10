@@ -12,6 +12,7 @@ import java.util.StringTokenizer;
 import Models.Show;
 import Models.Theatre;
 import Exceptions.ItemNotFoundException;
+import java.util.InputMismatchException;
 
 public class TheatreManager { // crud
     public final static String FILENAME = "Databases/theatres.txt";
@@ -35,6 +36,9 @@ public class TheatreManager { // crud
         }
         catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
+        }
+        catch (InputMismatchException e) {
+            System.out.println("Your input was of a wrong format!");
         }
     }
 

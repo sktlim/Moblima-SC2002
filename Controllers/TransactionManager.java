@@ -1,4 +1,5 @@
 package Controllers;
+import Exceptions.ItemNotFoundException;
 import Models.*;
 
 import java.io.FileInputStream;
@@ -45,6 +46,7 @@ public class TransactionManager { //CRUD
         }
     }
 
+    /** Prints all transactions for all users **/
     public static void printTransactionList(){
         try{
             ArrayList trans = readTransactions(FILENAME);
@@ -58,6 +60,33 @@ public class TransactionManager { //CRUD
         }
         catch (IOException e){
             System.out.println("IOException > " + e.getMessage());
+        }
+    }
+
+    /** Prints transaction history for a given user **/
+    public static void printTransactionHistory(int movieGoerId){
+        try{
+            ArrayList trans = readTransactions(FILENAME);
+            boolean foundUser = false;
+            for (int i = 0 ; i < trans.size() ; i++) {
+                Transaction t = (Transaction) trans.get(i);
+                if (t.getMovieGoerId() == movieGoerId) { // found
+                    foundUser = true;
+                    System.out.println("TID: " + t.getTID() );
+                    System.out.println("Ticket ID: " + t.getTicketId());
+                    System.out.println("Movie Goer ID: " + t.getMovieGoerId());
+                    System.out.println("Date/Time: " + t.getDateTime() );
+                }
+            }
+            if (!foundUser) {
+                throw new ItemNotFoundException();
+            }
+        }
+        catch (IOException e){
+            System.out.println("IOException > " + e.getMessage());
+        }
+        catch (ItemNotFoundException e){
+            System.out.println("MovieGoer not found > " + e.getMessage());
         }
     }
 

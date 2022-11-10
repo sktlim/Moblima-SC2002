@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import Exceptions.ItemNotFoundException;
+import java.util.InputMismatchException;
 
 public class ShowManager {
 
@@ -90,12 +91,13 @@ public class ShowManager {
         }
         catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
-
         }
         catch(ParseException e){
             System.out.println("IOException > " + e.getMessage());
         }
-
+        catch (InputMismatchException e) {
+            System.out.println("Your input was of a wrong format! Please ensure that your input is an integer.");
+        }
     }
 
 
@@ -266,6 +268,9 @@ public class ShowManager {
         }
         catch (ItemNotFoundException e) {
             System.out.println("Show not found > " + e.getMessage());
+        }
+        catch (InputMismatchException e) {
+            System.out.println("Your input was of a wrong format! Please ensure that your input is an integer.");
         }
     }
 

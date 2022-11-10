@@ -197,7 +197,7 @@ public class TicketPriceManager {
             Price priceList = new Price();
             Map<String, Double> hm = readPrices();
             printPriceList();
-            System.out.println("\nSelect price to change from Price List:");
+            System.out.println("\nSelect price to change fromgit Price List:");
             System.out.println("(Enter '0' to exit price update)");
             selection = sc.nextInt();
 
