@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static Models.Movie.ShowingStatus.DEFAULT;
 
 public class MovieManagerAdmin extends MovieManagerMovieGoer {
 
@@ -73,16 +72,20 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
             }
 
             System.out.println("Enter Movie Type: ");
-            System.out.println("0: 3D");
-            System.out.println("1: BLOCKBUSTER");
+            System.out.println("0: 2D");
+            System.out.println("1: 3D");
+            System.out.println("2: BLOCKBUSTER");
             int movieTypeSelector = sc.nextInt();
             sc.nextLine();
             Movie.MovieType movieType = Movie.MovieType.DEFAULT;
             switch(movieTypeSelector){
                 case 0:
-                    movieType = Movie.MovieType.THREE_D;
+                    movieType = Movie.MovieType.TWO_D;
                     break;
                 case 1:
+                    movieType = Movie.MovieType.THREE_D;
+                    break;
+                case 2:
                     movieType = Movie.MovieType.BLOCKBUSTER;
                     break;
             }
@@ -204,16 +207,20 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
 
                 case 7: // edit movie type
                     System.out.println("Enter Movie Type: ");
-                    System.out.println("0: 3D");
-                    System.out.println("1: BLOCKBUSTER");
+                    System.out.println("0: 2D");
+                    System.out.println("1: 3D");
+                    System.out.println("2: BLOCKBUSTER");
                     int movieTypeSelector = sc.nextInt();
                     sc.nextLine();
                     movieType = Movie.MovieType.DEFAULT;
                     switch(movieTypeSelector){
                         case 0:
-                            movieType = Movie.MovieType.THREE_D;
+                            movieType = Movie.MovieType.TWO_D;
                             break;
                         case 1:
+                            movieType = Movie.MovieType.THREE_D;
+                            break;
+                        case 2:
                             movieType = Movie.MovieType.BLOCKBUSTER;
                             break;
                     }
@@ -285,7 +292,7 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
             for (int i = 0 ; i < mov.size() ; i++) {
                 Movie m = (Movie) mov.get(i);
                 if (m.getMovieId()==movieID){
-                    System.out.println("Movie successfully found!");
+//                    System.out.println("Movie successfully found!");
                     return m;
                 }
             }

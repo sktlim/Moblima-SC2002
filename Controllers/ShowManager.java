@@ -5,10 +5,9 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 
 public class ShowManager {
@@ -23,19 +22,29 @@ public class ShowManager {
             System.out.println("Enter Movie ID: ");
             int movieId = sc.nextInt();
             sc.nextLine();
+            while (MovieManagerAdmin.findMovie((movieId))==null){
+                System.out.println("Invalid Movie Selected. Please re-enter.");
+                movieId = sc.nextInt();
+                sc.nextLine();
+            }
+            Movie m = MovieManagerAdmin.findMovie(movieId);
             System.out.println("Enter Date (DD/MM/YYYY): ");
             String date = sc.nextLine();
             System.out.println("Enter Start Time (HH:MM, 24HRS): ");
             String startTime = sc.nextLine();
-            System.out.println("Enter End Time (HH:MM, 24HRS): ");
-            String endTime = sc.nextLine();
+            Calendar cal = Calendar.getInstance();
+            Date dateFormat = new SimpleDateFormat("HH:mm").parse(startTime);
+            cal.setTime(dateFormat);
+            cal.add(Calendar.MINUTE, m.getMovieRuntime());
+            Date endDate = cal.getTime();
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+            String endTime = sdf.format(endDate);
             System.out.println("Enter Theatre: ");
             int theatre = sc.nextInt();
             sc.nextLine();
             System.out.println("Enter Theatre Class: ");
             System.out.println("0: STANDARD");
-            System.out.println("1: SILVER");
-            System.out.println("2: GOLD");
+            System.out.println("1: PLATINUM");
             int theatreClassSelector = sc.nextInt();
             sc.nextLine();
             Show.TheatreClass theatreClass = Show.TheatreClass.DEFAULT;
@@ -44,15 +53,33 @@ public class ShowManager {
                     theatreClass = Show.TheatreClass.STANDARD;
                     break;
                 case 1:
-                    theatreClass = Show.TheatreClass.SILVER;
+                    theatreClass = Show.TheatreClass.PLATINUM;
+                    break;
+            }
+            String cineplex = "null";
+            System.out.println("Enter Cineplex: ");
+            System.out.println("0: AMK Hub Mall");
+            System.out.println("1: Bishan Town Hall");
+            System.out.println("2: Jurong Point Junction");
+            int cineplexSelector = sc.nextInt();
+            sc.nextLine();
+            while(cineplexSelector<0 || cineplexSelector>2){
+                System.out.println("Invalid Input, please re-enter.");
+                cineplexSelector=sc.nextInt();
+                sc.nextLine();
+            }
+            switch(cineplexSelector){
+                case 0:
+                    cineplex = "AMK Hub Mall";
+                    break;
+                case 1:
+                    cineplex = "Bishan Town Hall";
                     break;
                 case 2:
-                    theatreClass = Show.TheatreClass.GOLD;
+                    cineplex = "Jurong Point Junction";
                     break;
             }
 
-            System.out.println("Enter Cineplex: ");
-            String cineplex = sc.nextLine();
 
             ArrayList sl = readShows(FILENAME);
             Show s1 = new Show(sl.size()+1, movieId, date, startTime, endTime, theatre, theatreClass, cineplex);
@@ -61,6 +88,10 @@ public class ShowManager {
 
         }
         catch (IOException e) {
+            System.out.println("IOException > " + e.getMessage());
+
+        }
+        catch(ParseException e){
             System.out.println("IOException > " + e.getMessage());
 
         }
@@ -156,8 +187,7 @@ public class ShowManager {
                 case 4: // edit Theatre Class
                     System.out.println("Enter new Theatre Class: ");
                     System.out.println("0: STANDARD");
-                    System.out.println("1: SILVER");
-                    System.out.println("2: GOLD");
+                    System.out.println("1: PLATINUM");
                     int theatreClassSelector = sc.nextInt();
                     sc.nextLine();
                     theatreClass = Show.TheatreClass.DEFAULT;
@@ -166,10 +196,7 @@ public class ShowManager {
                             theatreClass = Show.TheatreClass.STANDARD;
                             break;
                         case 1:
-                            theatreClass = Show.TheatreClass.SILVER;
-                            break;
-                        case 2:
-                            theatreClass = Show.TheatreClass.GOLD;
+                            theatreClass = Show.TheatreClass.PLATINUM;
                             break;
                     }
                     break;
