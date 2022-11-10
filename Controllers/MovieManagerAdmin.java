@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static Models.Movie.ShowingStatus.DEFAULT;
 
 public class MovieManagerAdmin extends MovieManagerMovieGoer {
 

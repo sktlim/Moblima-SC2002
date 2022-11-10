@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+
+/** Completed MH (10Nov)*/
 public class CineplexManager { //crud
     public final static String FILENAME = "Databases/cineplexes.txt";
     public final static  String SEPARATOR = "|";
