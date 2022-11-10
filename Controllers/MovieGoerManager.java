@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+import Exceptions.ItemNotFoundException;
 import Models.MovieGoer;
 
 public class MovieGoerManager {
@@ -64,11 +65,9 @@ public class MovieGoerManager {
                 System.out.println("Password: " + mg.getPassword());
                 System.out.println("Age: " + mg.getAge());
             }
-
-
         }
         catch (IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
     }
 
@@ -77,20 +76,25 @@ public class MovieGoerManager {
     public static MovieGoer findMovieGoer(int movieGoerID){
         try{
             ArrayList ml = readMovieGoers(FILENAME);
+            boolean foundRequestedMovieGoer = false;
             for (int i = 0 ; i < ml.size() ; i++) {
                 MovieGoer mg = (MovieGoer)ml.get(i);
-                if (mg.getMovieGoerId()==movieGoerID){
+                if (mg.getMovieGoerId()==movieGoerID){ // found
+                    foundRequestedMovieGoer = true;
                     System.out.println("Movie Goer successfully found!");
                     return mg;
                 }
             }
-
-
+            if (!foundRequestedMovieGoer) {
+                throw new ItemNotFoundException();
+            }
         }
         catch (IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
-        System.out.println("Movie Goer not found!");
+        catch (ItemNotFoundException e) {
+            System.out.println("MovieGoer not found > " + e.getMessage());
+        }
         return null;
     }
 
@@ -131,9 +135,11 @@ public class MovieGoerManager {
 
 
             ArrayList ml = readMovieGoers(FILENAME);
+            boolean foundRequestedMovieGoer = false;
             for (int i=0; i<ml.size(); i++){
                 MovieGoer mg = (MovieGoer) ml.get(i);
-                if (mg.getMovieGoerId() == movieGoerId){
+                if (mg.getMovieGoerId() == movieGoerId){ // found
+                    foundRequestedMovieGoer = true;
                     if (fieldEdit == 0 && inputField != "0"){
                         mg.setUsername(inputField);
                         System.out.println("Username successfully updated.");
@@ -154,12 +160,17 @@ public class MovieGoerManager {
                 }
             }
             saveMovieGoers(FILENAME, ml);
+
+            if (!foundRequestedMovieGoer) {
+                throw new ItemNotFoundException();
+            }
         }
         catch(IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
-
-
+        catch (ItemNotFoundException e) {
+            System.out.println("MovieGoer not found > " + e.getMessage());
+        }
     }
 
     /** Delete method
@@ -167,19 +178,26 @@ public class MovieGoerManager {
     public static void deleteMovieGoer(int movieGoerId){
         try{
             ArrayList ml = readMovieGoers(FILENAME);
+            boolean foundRequestedMovieGoer = false;
             for (int i=0; i<ml.size(); i++){
                 MovieGoer m = (MovieGoer) ml.get(i);
-                if (m.getMovieGoerId() == movieGoerId){
+                if (m.getMovieGoerId() == movieGoerId){ // found
+                    foundRequestedMovieGoer = true;
                     ml.remove(i);
                 }
             }
             saveMovieGoers(FILENAME, ml);
+
+            if (!foundRequestedMovieGoer) {
+                throw new ItemNotFoundException();
+            }
         }
         catch(IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
-
-
+        catch (ItemNotFoundException e) {
+            System.out.println("MovieGoer not found > " + e.getMessage());
+        }
     }
 
 
