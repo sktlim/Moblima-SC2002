@@ -282,12 +282,6 @@ public class TicketPriceManager {
             Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
             calendar.setTime(date);
             int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
-
-            // add in isHoliday() from Wayne once ready
-//        if (age>60 && movieType!= Movie.MovieType.THREE_D && dayOfWeek>1 && dayOfWeek<7){
-//            if (dayOfWeek==7 &&)
-//        }
-
             if (theatreClass == Show.TheatreClass.STANDARD) {
                 if (movieType == Movie.MovieType.TWO_D) {
                     if (dayOfWeek > 1 && dayOfWeek < 5) {
@@ -333,9 +327,9 @@ public class TicketPriceManager {
                         }
 
                     }
-
-                    // TO ADD: CHECK isHoliday() FOR DATE AND EVE
-
+                    else if (HolidayManager.isHoliday(strDate)) {
+                        price = priceList.getStandard_2DHoliday();
+                    }
                     else if (dayOfWeek == 1 || dayOfWeek == 7) {
                         // check weekends
                         price = priceList.getStandard_2DWeekend();
@@ -358,9 +352,9 @@ public class TicketPriceManager {
                         price = priceList.getStandard_3DWeekday_Fri();
 
                     }
-
-                    // TO ADD: CHECK isHoliday() FOR DATE AND EVE
-
+                    else if (HolidayManager.isHoliday(strDate)) {
+                        price = priceList.getStandard_3DHoliday();
+                    }
                     else if (dayOfWeek == 1 || dayOfWeek == 7) {
                         // check weekends
                         price = priceList.getStandard_3DWeekend();
@@ -384,9 +378,9 @@ public class TicketPriceManager {
                         price = priceList.getStandard_BlockBusterWeekday_Fri();
 
                     }
-
-                    // TO ADD: CHECK isHoliday() FOR DATE AND EVE
-
+                    else if (HolidayManager.isHoliday(strDate)) {
+                        price = priceList.getStandard_BlockBusterHoliday();
+                    }
                     else if (dayOfWeek == 1 || dayOfWeek == 7) {
                         // check weekends
                         price = priceList.getStandard_BlockBusterWeekend();
@@ -412,9 +406,9 @@ public class TicketPriceManager {
                         price = priceList.getPlatinum_2DWeekday_Fri();
 
                     }
-
-                    // TO ADD: CHECK isHoliday() FOR DATE AND EVE
-
+                    else if (HolidayManager.isHoliday(strDate)) {
+                        price = priceList.getPlatinum_2DHoliday();
+                    }
                     else if (dayOfWeek == 1 || dayOfWeek == 7) {
                         // check weekends
                         price = priceList.getPlatinum_2DWeekend();
@@ -437,9 +431,9 @@ public class TicketPriceManager {
                         price = priceList.getPlatinum_3DWeekday_Fri();
 
                     }
-
-                    // TO ADD: CHECK isHoliday() FOR DATE AND EVE
-
+                    else if (HolidayManager.isHoliday(strDate)) {
+                        price = priceList.getPlatinum_3DHoliday();
+                    }
                     else if (dayOfWeek == 1 || dayOfWeek == 7) {
                         // check weekends
                         price = priceList.getPlatinum_3DWeekend();
@@ -462,9 +456,9 @@ public class TicketPriceManager {
                         price = priceList.getPlatinum_BlockBusterWeekday_Fri();
 
                     }
-
-                    // TO ADD: CHECK isHoliday() FOR DATE AND EVE
-
+                    else if (HolidayManager.isHoliday(strDate)) {
+                        price = priceList.getPlatinum_BlockBusterHoliday();
+                    }
                     else if (dayOfWeek == 1 || dayOfWeek == 7) {
                         // check weekends
                         price = priceList.getPlatinum_BlockBusterWeekend();
