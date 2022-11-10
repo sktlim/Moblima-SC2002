@@ -4,8 +4,8 @@ package Models;
 
 public class Ticket {
 
-    public enum UserAgeType {STUDENT, SENIOR};
-    public enum DayType {WEEKDAY, WEEKEND}
+    public enum UserAgeType {STUDENT, SENIOR, ADULT};
+    public enum DayType {WEEKDAY, WEEKEND, DEFAULT}
 
     private int ticketId;
     private int showId;
