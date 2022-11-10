@@ -10,7 +10,29 @@ import static Controllers.MovieGoerAuthManager.mgchecker;
 
 public class MoblimaApp {
     static void showSelections() {
-        System.out.println("Welcome to MOBLIMA. ");
+        System.out.println("=========================================================================================================================================================================================================================");
+        System.out.println("\n" +
+                "                                                                                                                                                                        \n" +
+                "MMMMMMMM               MMMMMMMM     OOOOOOOOO     BBBBBBBBBBBBBBBBB   LLLLLLLLLLL             IIIIIIIIIIMMMMMMMM               MMMMMMMM               AAA               \n" +
+                "M:::::::M             M:::::::M   OO:::::::::OO   B::::::::::::::::B  L:::::::::L             I::::::::IM:::::::M             M:::::::M              A:::A              \n" +
+                "M::::::::M           M::::::::M OO:::::::::::::OO B::::::BBBBBB:::::B L:::::::::L             I::::::::IM::::::::M           M::::::::M             A:::::A             \n" +
+                "M:::::::::M         M:::::::::MO:::::::OOO:::::::OBB:::::B     B:::::BLL:::::::LL             II::::::IIM:::::::::M         M:::::::::M            A:::::::A            \n" +
+                "M::::::::::M       M::::::::::MO::::::O   O::::::O  B::::B     B:::::B  L:::::L                 I::::I  M::::::::::M       M::::::::::M           A:::::::::A           \n" +
+                "M:::::::::::M     M:::::::::::MO:::::O     O:::::O  B::::B     B:::::B  L:::::L                 I::::I  M:::::::::::M     M:::::::::::M          A:::::A:::::A          \n" +
+                "M:::::::M::::M   M::::M:::::::MO:::::O     O:::::O  B::::BBBBBB:::::B   L:::::L                 I::::I  M:::::::M::::M   M::::M:::::::M         A:::::A A:::::A         \n" +
+                "M::::::M M::::M M::::M M::::::MO:::::O     O:::::O  B:::::::::::::BB    L:::::L                 I::::I  M::::::M M::::M M::::M M::::::M        A:::::A   A:::::A        \n" +
+                "M::::::M  M::::M::::M  M::::::MO:::::O     O:::::O  B::::BBBBBB:::::B   L:::::L                 I::::I  M::::::M  M::::M::::M  M::::::M       A:::::A     A:::::A       \n" +
+                "M::::::M   M:::::::M   M::::::MO:::::O     O:::::O  B::::B     B:::::B  L:::::L                 I::::I  M::::::M   M:::::::M   M::::::M      A:::::AAAAAAAAA:::::A      \n" +
+                "M::::::M    M:::::M    M::::::MO:::::O     O:::::O  B::::B     B:::::B  L:::::L                 I::::I  M::::::M    M:::::M    M::::::M     A:::::::::::::::::::::A     \n" +
+                "M::::::M     MMMMM     M::::::MO::::::O   O::::::O  B::::B     B:::::B  L:::::L         LLLLLL  I::::I  M::::::M     MMMMM     M::::::M    A:::::AAAAAAAAAAAAA:::::A    \n" +
+                "M::::::M               M::::::MO:::::::OOO:::::::OBB:::::BBBBBB::::::BLL:::::::LLLLLLLLL:::::LII::::::IIM::::::M               M::::::M   A:::::A             A:::::A   \n" +
+                "M::::::M               M::::::M OO:::::::::::::OO B:::::::::::::::::B L::::::::::::::::::::::LI::::::::IM::::::M               M::::::M  A:::::A               A:::::A  \n" +
+                "M::::::M               M::::::M   OO:::::::::OO   B::::::::::::::::B  L::::::::::::::::::::::LI::::::::IM::::::M               M::::::M A:::::A                 A:::::A \n" +
+                "MMMMMMMM               MMMMMMMM     OOOOOOOOO     BBBBBBBBBBBBBBBBB   LLLLLLLLLLLLLLLLLLLLLLLLIIIIIIIIIIMMMMMMMM               MMMMMMMMAAAAAAA                   AAAAAAA\n" +
+                "                                                                                                                                                                        \n" +
+                "                                                                                                                                                                        \n");
+        System.out.println("=========================================================================================================================================================================================================================");
+        System.out.println("\n");
         System.out.println("Please make a selection:\n1:Login as Admin\n2:Login as Movie Goer\n3:Create a new Movie Goer\n4:Exit application");
     }
 
