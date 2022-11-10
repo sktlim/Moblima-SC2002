@@ -14,26 +14,29 @@ public class HolidayManager {
     public final static String FILENAME = "Databases/holidays.txt";
     public static final String SEPARATOR = ",";
 
-    /** Read the contents of the given file.
-     * (helper func, declared as private as it is only called within this file)*/
+    /**
+     * Read the contents of the given file.
+     * (helper func, declared as private as it is only called within this file)
+     */
     private static List read(String fileName) throws IOException {
         ArrayList<String> data = new ArrayList<>();
         Scanner scanner = new Scanner(new FileInputStream(fileName));
         try {
-            while (scanner.hasNextLine()){
+            while (scanner.hasNextLine()) {
                 data.add(scanner.nextLine());
             }
-        }
-        finally{
+        } finally {
             scanner.close();
         }
         return data;
     }
 
-    /** reading (helper func, declared as private as it is only called within this file) **/
+    /**
+     * reading (helper func, declared as private as it is only called within this file)
+     **/
     private static ArrayList readHolidays(String fileName) throws IOException {
         // read String from text file
-        ArrayList stringArray = (ArrayList)read(fileName);
+        ArrayList stringArray = (ArrayList) read(fileName);
         ArrayList alr = new ArrayList();// to store Holiday data
 
         for (Object o : stringArray) {
@@ -46,11 +49,13 @@ public class HolidayManager {
             Holiday h = new Holiday(holidayName, date);
             alr.add(h);
         }
-        return alr ;
+        return alr;
     }
 
-    /** Admins will input the year, month, date separately.
-     * New date object will then be created with these 3 fields.**/
+    /**
+     * Admins will input the year, month, date separately.
+     * New date object will then be created with these 3 fields.
+     **/
     private static void createHoliday(Scanner sc) {
         try {
             System.out.println("Please enter the holiday's Name: ");
@@ -72,10 +77,9 @@ public class HolidayManager {
             arrayList.add(h);
             saveHolidays(FILENAME, arrayList);
             System.out.println(String.format("%s has successfully been created.", holidayName));
-        } catch (IOException e){
+        } catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
-        }
-        catch (InputMismatchException e) {
+        } catch (InputMismatchException e) {
             System.out.println("Your input was of a wrong format! Please ensure that your input is an integer.");
         }
     }
@@ -83,7 +87,6 @@ public class HolidayManager {
     /** Write fixed content to the given file.
      * (helper func, declared as private as it is only called within this file)*/
     /**
-     *
      * @param fileName
      * @param data
      * @throws IOException
@@ -92,52 +95,54 @@ public class HolidayManager {
         PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(fileName)));
 
         try {
-            for (int i =0; i < data.size() ; i++) {
-                out.println((String)data.get(i));
+            for (int i = 0; i < data.size(); i++) {
+                out.println((String) data.get(i));
             }
-        }
-        finally {
+        } finally {
             out.close();
         }
     }
 
-    /** saving
-     * (helper func, declared as private as it is only called within this file)*/
+    /**
+     * saving
+     * (helper func, declared as private as it is only called within this file)
+     */
     private static void saveHolidays(String fileName, List al) throws IOException {
         List alw = new ArrayList();
 
-        for (int i = 0 ; i < al.size() ; i++) {
-            Holiday h = (Holiday)al.get(i);
+        for (int i = 0; i < al.size(); i++) {
+            Holiday h = (Holiday) al.get(i);
             StringBuilder st = new StringBuilder();
             st.append(h.getName());
             st.append(SEPARATOR);
             st.append(h.getDate());
             st.append(SEPARATOR);
 
-            alw.add(st.toString()) ;
+            alw.add(st.toString());
 
         }
         write(fileName, alw);
     }
 
-    public static void printHolidayList(){
-        try{
+    public static void printHolidayList() {
+        try {
             List holidayList = readHolidays(FILENAME);
-            for (int i = 0 ; i < holidayList.size() ; i++) {
+            for (int i = 0; i < holidayList.size(); i++) {
                 Holiday h = (Holiday) holidayList.get(i);
                 System.out.println("Holiday Name: " + h.getName());
                 System.out.println("Holiday Date: " + h.getDate());
                 System.out.println();
             }
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
         }
     }
 
-    /** Allows admins to update existing holidays. All fields are allowed to be updated.
+    /**
+     * Allows admins to update existing holidays. All fields are allowed to be updated.
      * Holidays are queried according to their Name
-     * Users must input the Holiday Name exact (case-sensitive) including its Year in the name e.g. Christmas 2022 **/
+     * Users must input the Holiday Name exact (case-sensitive) including its Year in the name e.g. Christmas 2022
+     **/
     public static void updateHoliday(Scanner sc) {
         System.out.println("Enter the name of the holiday you wish to change: ");
         String holidayName = sc.nextLine();
@@ -189,17 +194,17 @@ public class HolidayManager {
 
         } catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
-        }
-        catch (ItemNotFoundException e){
+        } catch (ItemNotFoundException e) {
             System.out.println("Holiday not found > " + e.getMessage());
-        }
-        catch (InputMismatchException e) {
+        } catch (InputMismatchException e) {
             System.out.println("Your input was of a wrong format! Please ensure that your input is an integer.");
         }
     }
 
-    /** Delete method
-     * delete holiday based on holidayName */
+    /**
+     * Delete method
+     * delete holiday based on holidayName
+     */
     public static void deleteHoliday(Scanner sc) {
         System.out.println("Which holiday would you like to delete?: ");
         String holidayToBeDeleted = sc.nextLine();
@@ -207,9 +212,9 @@ public class HolidayManager {
         try {
             ArrayList hl = readHolidays(FILENAME);
             boolean foundRequestedHoliday = false;
-            for (int i=0; i<hl.size(); i++){
+            for (int i = 0; i < hl.size(); i++) {
                 Holiday h = (Holiday) hl.get(i);
-                if (Objects.equals(h.getName(), holidayToBeDeleted)){ // holiday has been found
+                if (Objects.equals(h.getName(), holidayToBeDeleted)) { // holiday has been found
                     foundRequestedHoliday = true;
                     hl.remove(i);
                 }
@@ -222,20 +227,20 @@ public class HolidayManager {
             }
         } catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
-        }
-        catch (ItemNotFoundException e){
+        } catch (ItemNotFoundException e) {
             System.out.println("Holiday not found > " + e.getMessage());
-        }
-        catch (InputMismatchException e) {
+        } catch (InputMismatchException e) {
             System.out.println("Your input was of a wrong format!");
         }
     }
 
-    /** Accepts a String of format YYYY-MM-DD **/
+    /**
+     * Accepts a String of format YYYY-MM-DD
+     **/
     public static boolean isHoliday(String holidayDate) {
         try {
             ArrayList hl = readHolidays(FILENAME);
-            for (int i=0; i<hl.size(); i++) {
+            for (int i = 0; i < hl.size(); i++) {
                 Holiday h = (Holiday) hl.get(i);
                 if (Objects.equals(h.getDate(), holidayDate)) {
                     return true;
@@ -248,6 +253,6 @@ public class HolidayManager {
         }
     }
 
-
-
 }
+
+
