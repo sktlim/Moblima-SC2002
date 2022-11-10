@@ -6,10 +6,13 @@ public class Theatre {
     private String cineplexCode;
     private Show.TheatreClass theatreClass;
 
-    public Theatre(int theatreId, String cineplexCode, Show.TheatreClass theatreClass) {
+    private int isBusy;
+
+    public Theatre(int theatreId, String cineplexCode, Show.TheatreClass theatreClass, int isBusy) {
         this.theatreId = theatreId;
         this.cineplexCode = cineplexCode;
         this.theatreClass = theatreClass;
+        this.isBusy = isBusy;
     }
 
     public int getTheatreId() {
@@ -24,6 +27,8 @@ public class Theatre {
         return cineplexCode;
     }
 
+    public int getStatus(){return isBusy;}
+
     public void setCineplexCode(String cineplexCode) {
         this.cineplexCode = cineplexCode;
     }
@@ -35,4 +40,6 @@ public class Theatre {
     public void setTheatreClass(Show.TheatreClass theatreClass) {
         this.theatreClass = theatreClass;
     }
+
+    public void setStatus(int isBusy){this.isBusy = isBusy;}
 }
