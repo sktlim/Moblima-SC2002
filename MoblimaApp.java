@@ -20,6 +20,7 @@ public class MoblimaApp {
                 switch (input) {
                     case 1:
                         // Login as admin
+                        ShowManager.createShow(sc);
                         break;
                     case 2:
                         // Login as moviegoer
