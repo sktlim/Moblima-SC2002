@@ -195,31 +195,52 @@ public class HolidayManager {
         }
     }
 
-    /** FOR UNIT TESTS ON HOLIDAYS **/
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("1: printHolidayList");
-        System.out.println("2: createHoliday");
-        System.out.println("3: updateHoliday");
-        System.out.println("4: deleteHoliday");
-        int choice = sc.nextInt();
-        sc.nextLine();
-
-        switch(choice) {
-            case 1:
-                HolidayManager.printHolidayList();
-                break;
-            case 2:
-                HolidayManager.createHoliday(sc);
-                break;
-            case 3:
-                HolidayManager.updateHoliday(sc);
-                break;
-            case 4:
-                HolidayManager.deleteHoliday(sc);
-                break;
+    /** Accepts a String of format YYYY-MM-DD **/
+    public static boolean isHoliday(String holidayDate) {
+        try {
+            ArrayList hl = readHolidays(FILENAME);
+            for (int i=0; i<hl.size(); i++) {
+                Holiday h = (Holiday) hl.get(i);
+                if (Objects.equals(h.getDate(), holidayDate)) {
+                    return true;
+                }
+            }
+            return false;
+        } catch (IOException e) {
+            // do something
+            return false;
         }
     }
+
+    /** FOR UNIT TESTS ON HOLIDAYS **/
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("1: printHolidayList");
+//        System.out.println("2: createHoliday");
+//        System.out.println("3: updateHoliday");
+//        System.out.println("4: deleteHoliday");
+//        System.out.println("5: isHoliday");
+//        int choice = sc.nextInt();
+//        sc.nextLine();
+//
+//        switch(choice) {
+//            case 1:
+//                HolidayManager.printHolidayList();
+//                break;
+//            case 2:
+//                HolidayManager.createHoliday(sc);
+//                break;
+//            case 3:
+//                HolidayManager.updateHoliday(sc);
+//                break;
+//            case 4:
+//                HolidayManager.deleteHoliday(sc);
+//                break;
+//            case 5:
+//                System.out.println(HolidayManager.isHoliday("2022-12-22")); // not a holiday
+//                System.out.println(HolidayManager.isHoliday("2022-12-25")); // christmas
+//        }
+//    }
 
 
 }
