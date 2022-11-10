@@ -7,13 +7,20 @@ public class User{
     /* blank constructor to instantiate Admin and MovieGoer attributes in UI classes */
     public User() {}
 
+    /**
+     * Constructore for user
+     * @param username
+     * @param password
+     */
     public User(String username, String password){
         this.username = username;
         this.password = password;
     }
 
-    // getters setters
-
+    /**
+     * Getter and Setter Methods
+     * @return
+     */
     public String getUsername(){
         return this.username;
     }

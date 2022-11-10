@@ -5,11 +5,20 @@ public class Cineplex {
     private String cineplexCode;
     private String name;
 
+    /**
+     * Constructor method
+     * @param cineplexCode
+     * @param name
+     */
     public Cineplex(String cineplexCode, String name) {
         this.cineplexCode = cineplexCode;
         this.name = name;
     }
 
+    /**
+     * Getter and Setter Methods
+     * @return
+     */
     public String getCineplexCode() {
         return cineplexCode;
     }

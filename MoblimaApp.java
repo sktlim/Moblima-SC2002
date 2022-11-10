@@ -10,6 +10,10 @@ import static Controllers.MovieGoerAuthManager.mgchecker;
 
 public class MoblimaApp {
     static void showSelections() {
+        System.out.println("Please make a selection:\n1:Login as Admin\n2:Login as Movie Goer\n3:Create a new Movie Goer\n4:Exit application");
+    }
+
+    private static void wallPaper(){
         System.out.println("=========================================================================================================================================================================================================================");
         System.out.println("\n" +
                 "                                                                                                                                                                        \n" +
@@ -33,23 +37,31 @@ public class MoblimaApp {
                 "                                                                                                                                                                        \n");
         System.out.println("=========================================================================================================================================================================================================================");
         System.out.println("\n");
-        System.out.println("Please make a selection:\n1:Login as Admin\n2:Login as Movie Goer\n3:Create a new Movie Goer\n4:Exit application");
+    }
+
+    private static int checkInput (String input) throws Exception {
+        if (input.length() == 1) return Integer.parseInt(input);
+        else return Integer.parseInt(input.substring(0, 2));
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int input = -1;
+        wallPaper();
+        String input = null;
+
         while (true) {
             try {
+                int option = -1;
                 showSelections();
-                input = sc.nextInt();
-                sc.nextLine();
-                switch (input) {
+                input = sc.nextLine();
+                option = checkInput(input);
+                switch (option) {
                     case 1:
                         // Login as admin
                         System.out.println("You have chosen to login as Admin. Please enter your login information below.");
                         String [] login_array = new String [2];
                         String username, password;
+
 
                         System.out.println("Enter your username: ");
                         username = sc.next();
@@ -59,14 +71,15 @@ public class MoblimaApp {
                         // Stores username and password to the array
                         login_array[0] = username;
                         login_array[1] = password;
-
-                        boolean auth = adminchecker(login_array [0],login_array [1]);
-                        if (auth) {
-                            return;
+                        int adminId = adminchecker(login_array [0],login_array [1]);
+                        if (adminId != -1) {
+                            AdminUI aui = new AdminUI(adminId);
+                            aui.showUI(sc);
                         }
                         else{
                             System.out.println("Error! Details incorrect, please try again. ");
                         }
+
                         break;
                     case 2:
                         // Login as moviegoer
@@ -83,9 +96,10 @@ public class MoblimaApp {
                         login_array2[0] = username2;
                         login_array2[1] = password2;
 
-                        boolean auth2 = mgchecker(login_array2 [0],login_array2 [1]);
-                        if (auth2 == true) {
-                            return;
+                        int moviegoerId = mgchecker(login_array2 [0],login_array2 [1]);
+                        if (moviegoerId != -1) {
+                            MovieGoerUI mui = new MovieGoerUI(moviegoerId);
+                            mui.showUI(sc);
                         }
                         else{
                             System.out.println("Error! Details incorrect, please try again. ");

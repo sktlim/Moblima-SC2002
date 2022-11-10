@@ -1,6 +1,8 @@
 package Boundary;
 import Models.*;
 import Controllers.*;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -15,7 +17,7 @@ public class AdminUI {
 
     /* implementation of abstract method
        this method should be called repeatedly in the main While loop */
-    public void showSelections() {
+    private void showSelections() {
         System.out.println("Welcome to the admin page.");
         System.out.println("SELECT ONE OF THE FOLLOWING OPTIONS");
         System.out.println("========================================");
@@ -32,6 +34,112 @@ public class AdminUI {
         System.out.println("8: Create a New Admin");
         System.out.println("9: Update an Existing Admin");
         System.out.println("10: Delete an Existing Admin");
+        System.out.println("========================================");
+        System.out.println("11: Back to main menu");
+    }
+
+    // User interface
+    public void showUI (Scanner sc) {
+        while (true) {
+            try {
+                String input = null;
+                int option = -1;
+
+                showSelections();
+                input = sc.nextLine();
+                option = checkInput(input);
+                switch(option) {
+                    case 1:
+                        createMovie(sc);
+                        break;
+                    case 2:
+                        System.out.println("Please select the movie id you would like to update.");
+                        printMovieId();
+                        input = sc.nextLine();
+                        int id = checkInput(input);
+                        updateMovie(id, sc);
+                        break;
+                    case 3:
+                        System.out.println("Please select the movie id you would like to delete.");
+                        printMovieId();
+                        input = sc.nextLine();
+                        id = checkInput(input);
+                        deleteMovie(id);
+                        break;
+                    case 4:
+                        createMovie(sc);
+                        break;
+                    case 5:
+                        System.out.println("Please select the show id you would like to update.");
+                        printShowsId();
+                        input = sc.nextLine();
+                        id = checkInput(input);
+                        updateShow(id, sc);
+                        break;
+                    case 6:
+                        System.out.println("Please select the show id you would like to delete.");
+                        printShowsId();
+                        input = sc.nextLine();
+                        id = checkInput(input);
+                        deleteShow(id);
+                        break;
+                    case 7:
+                        printAdminList();
+                        break;
+                    case 8:
+                        createAdmin(sc);
+                        break;
+                    case 9:
+                        System.out.println("Please select the admin id you would like to update. If unsure, please use option 7 to print the list of admins.");
+                        input = sc.nextLine();
+                        id = checkInput(input);
+                        updateAdmin(id, sc);
+                        break;
+                    case 10:
+                        System.out.println("Please select the admin id you would like to delete. If unsure, please use option 7 to print the list of admins.");
+                        input = sc.nextLine();
+                        id = checkInput(input);
+                        deleteAdmin(id);
+                        break;
+                    case 11:
+                        return;
+                    }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    private int checkInput (String input) throws Exception {
+        if (input.length() == 1) return Integer.parseInt(input);
+        else return Integer.parseInt(input.substring(0, 2));
+    }
+    private void printMovieId() {
+        ArrayList movies = MovieManagerAdmin.getMovies();
+        System.out.println("Movie | Id");
+        for (int i=0; i<movies.size(); i++) {
+            Movie m = (Movie)movies.get(i);
+            String title = m.getMovieTitle();
+            int id = m.getMovieId();
+            System.out.printf("%s | %d\n", title, id);
+        }
+    }
+
+    private void printShowsId() {
+        ArrayList shows = ShowManager.getShows("Database/shows.txt");
+        System.out.println("Cineplex | Theatre  | Date | Start Time | End Time | Movie Name | Id");
+        for (int i=0; i<shows.size(); i++) {
+            Show s = (Show)shows.get(i);
+            StringBuilder sb = new StringBuilder();
+            sb.append(s.getCineplex() + " | ");
+            sb.append(s.getTheatre() + " | ");
+            sb.append(s.getDate() + " | ");
+            sb.append(s.getStartTime() + " | ");
+            sb.append(s.getEndTime() + " | ");
+            Movie m = MovieManagerAdmin.findMovie(s.getMovieId());
+            sb.append(m.getMovieTitle() + " | ");
+            sb.append(s.getShowId());
+        }
     }
 
     public void createMovie(Scanner sc) {

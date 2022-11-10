@@ -15,7 +15,9 @@ public class TransactionManager { //CRUD
     public static final String FILENAME = "Databases/transactions.txt" ;
 
 
-    /** responsibility of main function to generate the ticketId and movieGoer Id
+    /**
+     * Create transaction in the transactions database
+     * responsibility of main function to generate the ticketId and movieGoerID
      * dateTime is generated within this create method itself
      * @param ticketId
      * @param movieGoerId
@@ -46,7 +48,10 @@ public class TransactionManager { //CRUD
         }
     }
 
-    /** Prints all transactions for all users **/
+    /**
+     * Read method
+     * Print the entire transaction list in the database
+     */
     public static void printTransactionList(){
         try{
             ArrayList trans = readTransactions(FILENAME);

@@ -13,7 +13,17 @@ public class Show {
     private TheatreClass theatreClass;
     private String cineplex;
 
-
+    /**
+     * Constructor for Show
+     * @param showId
+     * @param movieId
+     * @param date
+     * @param startTime
+     * @param endTime
+     * @param theatre
+     * @param theatreClass
+     * @param cineplex
+     */
     public Show(int showId, int movieId, String date, String startTime, String endTime, int theatre, TheatreClass theatreClass, String cineplex){
         this.showId = showId;
         this.movieId = movieId;
@@ -25,9 +35,11 @@ public class Show {
         this.cineplex = cineplex;
     }
 
-    
 
-    //getters setters
+    /**
+     * Getter and Setter Methods
+     * @return
+     */
     public int getShowId(){
         return this.showId;
     }

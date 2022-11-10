@@ -11,17 +11,33 @@ import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.*;
 
+/**
+ * Ticket Price Manager allows console user to print price list, update prices, and calculate prices of tickets
+ */
 public class TicketPriceManager {
-
+    /**
+     * Path of prices.txt file
+     */
     public final static String FILENAME = "Databases/prices.txt";
+
+    /**
+     * Separator for parsing prices.txt file
+     */
     public static final String SEPARATOR = ",";
+
+    /**
+     * Initialises Ticket Price Manager
+     */
+    public TicketPriceManager() {
+    }
 
     /**
      * Helper function for converting prices from .txt file to hash map
      * @return returns Hashmap with Key-Value of Price Type and Price respectively
      * @throws IOException
      */
-    private Map<String, Double> readPrices() throws IOException {
+    private static Map<String, Double> readPrices() throws IOException {
+
         // read String from text file
         ArrayList stringArray = (ArrayList) read();
 //        ArrayList alr = new ArrayList() ;// to store Price data
@@ -44,7 +60,9 @@ public class TicketPriceManager {
      * @return Data input from .txt file
      * @throws IOException Error with reading .txt file
      */
-    private List read() throws IOException {
+
+    private static List read() throws IOException {
+
         List data = new ArrayList();
         Scanner scanner = new Scanner(new FileInputStream(TicketPriceManager.FILENAME));
         try {
@@ -102,7 +120,7 @@ public class TicketPriceManager {
      * @param priceList Price Object to update with Prices
      * @return Updated Price Object will be returned
      */
-    private Price createPrices(Map<String, Double> hashMap, Price priceList) {
+    private static Price createPrices(Map<String, Double> hashMap, Price priceList) {
         priceList.setStandard_2DWeekday_MonWed(hashMap.get("Standard_2DWeekday_MonWed"));
         priceList.setStandard_2DWeekday_Thu(hashMap.get("Standard_2DWeekday_Thu"));
         priceList.setStandard_2DWeekday_Fri(hashMap.get("Standard_2DWeekday_Fri"));
@@ -142,7 +160,7 @@ public class TicketPriceManager {
     /**
      * Prints the full list of prices for every type
      */
-    public void printPriceList() {
+    public static void printPriceList() {
         try {
             Price priceList = new Price();
             Map<String, Double> hm = readPrices();
@@ -190,7 +208,8 @@ public class TicketPriceManager {
      * Updates prices based on input from user
      * @param sc Takes in Scanner object as input
      */
-    public void updatePrice(Scanner sc) {
+     
+    public static void updatePrice(Scanner sc) {
         try {
             int selection;
             double updatedPrice;
@@ -409,20 +428,22 @@ public class TicketPriceManager {
         }
     }
 
+
     /**
+     * Calculate price of ticket based on the show, age, date, time, theatre class and movie type
      * @param show    Show object
-     * @param ticket  Ticket object
+     * @param userAgeType  Ticket object
      * @param strDate Date in 'YYYY-MM-DD' format with type String
      * @param movie   Movie Object
      * @return Price of ticket for particular show and movie at particular date
      */
-    public double calculatePrice(Show show, Ticket ticket, String strDate, Movie movie) {
+    public static double calculatePrice(Show show, Ticket.UserAgeType userAgeType, String strDate, Movie movie) {
         double price = 0;
         Movie.MovieType movieType = movie.getMovieType();
         Show.TheatreClass theatreClass = show.getTheaterClass();
         String startTime = show.getStartTime();
         LocalTime time = LocalTime.parse(startTime);
-        Ticket.UserAgeType age = ticket.getUserAgeType();
+        Ticket.UserAgeType age = userAgeType;
 
         try {
             Price priceList = new Price();
