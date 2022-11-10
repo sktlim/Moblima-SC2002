@@ -9,6 +9,8 @@ import java.io.PrintWriter;
 import java.util.*;
 import java.util.Map.Entry;
 
+import Exceptions.ItemNotFoundException;
+
 
 import static Controllers.RatingAndReviewManager.readReviews;
 import static Controllers.TicketManager.readTickets;
@@ -20,6 +22,7 @@ public class MovieManagerMovieGoer {
     public final static String REVIEWS = "Databases/ratingAndReviews.txt";
     public final static String TICKETS = "Databases/tickets.txt";
 
+    /** Prints all the available reviews for a given movie **/
     public static void getAllReview(int movieId) {
         // prints all the reviews related to a particular movie
         int reviewNum = 1;
@@ -33,14 +36,18 @@ public class MovieManagerMovieGoer {
                 }
             }
             if (reviewNum == 1){
-                System.out.println("Sorry, it seems like there are no available reviews for this movie.");
+                throw new ItemNotFoundException();
             }
-
         }
         catch(IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
+        }
+        catch (ItemNotFoundException e) {
+            System.out.println("Sorry, it seems like there are no available reviews for this movie. > " + e.getMessage());
         }
     }
+
+    /** Returns the overall ratings for a given movie **/
     public static float getOverallRatings(int movieId){
         // return method
         float reviewNum = 0;
@@ -54,14 +61,21 @@ public class MovieManagerMovieGoer {
                     reviewNum++;
                 }
             }
+
+            if (reviewNum == 0) {
+                throw new ItemNotFoundException();
+            }
         }
         catch(IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
+        }
+        catch (ItemNotFoundException e) {
+            System.out.println("No ratings found for this movie > " + e.getMessage());
         }
         return ratingTot/reviewNum;
-
     }
 
+    /** Similar to getOverallRatings but prints the value instead of returning **/
     public static void printOverallRatings(int movieId) {
         // prints the overall numerical ratings for a particular movie
         // return String "N/A" if no ratings are found for this movie
@@ -77,17 +91,21 @@ public class MovieManagerMovieGoer {
                 }
             }
             if (reviewNum == 0){
-                System.out.println("Sorry, it seems like there are no available reviews for this movie.");
+                throw new ItemNotFoundException();
             }
             else{
                 System.out.printf("The average rating for this movie is %.2f.\n", ratingTot/reviewNum);
             }
         }
         catch(IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
+        }
+        catch (ItemNotFoundException e) {
+            System.out.println("N/A > " + e.getMessage());
         }
     }
 
+    /** Calls RatingAndReviewManager's static method **/
     public static void addRatingAndReview(Scanner sc) {
         RatingAndReviewManager.createReview(sc);
     }
@@ -97,21 +115,28 @@ public class MovieManagerMovieGoer {
         int ticketSold = 0;
         try{
             ArrayList al = readTickets(TICKETS);
+            boolean foundMovie = false;
             for (int i=0 ;i<al.size(); i++){
                 Ticket t = (Ticket) al.get(i);
                 Show s = ShowManager.findShow(t.getShowId());
                 Movie m = MovieManagerAdmin.findMovie(s.getShowId());
-                if (m.getMovieId() == movieId){
+                if (m.getMovieId() == movieId){ // found
+                    foundMovie = true;
                     ticketSold++;
                 }
             }
+
+            if (!foundMovie) {
+                throw new ItemNotFoundException();
+            }
         }
         catch(IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
+        }
+        catch (ItemNotFoundException e) {
+            System.out.println("There was no movie found matching the given movieId > " + e.getMessage());
         }
         return ticketSold;
-
-
     }
 
     public static void getTop5MoviesByTicketSales() {
@@ -130,7 +155,7 @@ public class MovieManagerMovieGoer {
             }
         }
         catch(IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
         LinkedHashMap<Integer, Integer> sortedMap = new LinkedHashMap<>();
         ArrayList<Integer> list = new ArrayList<>();
@@ -155,8 +180,6 @@ public class MovieManagerMovieGoer {
             System.out.println(m.getMovieTitle());
             numElements--;
         }
-
-
     }
 
     public static void getTop5MoviesByRating() {

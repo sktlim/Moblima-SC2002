@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+import Exceptions.ItemNotFoundException;
+
 import static Controllers.MovieManagerMovieGoer.readMovies;
 
 
@@ -63,7 +65,6 @@ public class RatingAndReviewManager {
         }
         catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
-
         }
 
     }
@@ -81,16 +82,20 @@ public class RatingAndReviewManager {
                 System.out.println("Review: " + mg.getReview());
             }
 
-
         }
         catch (IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
     }
 
 
     /** Update method
      * this updates the various field of movieGoer */
+    /**
+     *
+     * @param reviewId
+     * @param sc
+     */
     public static void updateReview(int reviewId, Scanner sc){
         String inputField = "0";
         int inputInt = 0;
@@ -122,9 +127,11 @@ public class RatingAndReviewManager {
 
 
             ArrayList ml = readReviews(FILENAME);
+            boolean foundReview = false;
             for (int i=0; i<ml.size(); i++){
                 RatingAndReview mg = (RatingAndReview) ml.get(i);
-                if (mg.getReviewId() == reviewId){
+                if (mg.getReviewId() == reviewId){ // false
+                    foundReview = true;
                     if (fieldEdit == 0 && inputInt != 0){
                         mg.setMovieId(inputInt);
                         System.out.println("Movie ID successfully updated.");
@@ -141,11 +148,17 @@ public class RatingAndReviewManager {
                 }
             }
             saveReviews(FILENAME, ml);
+
+            if (!foundReview) {
+                throw new ItemNotFoundException();
+            }
         }
         catch(IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
-
+        catch (ItemNotFoundException e) {
+            System.out.println("No reviews found that match the given reviewId > " + e.getMessage());
+        }
 
     }
 
@@ -154,18 +167,26 @@ public class RatingAndReviewManager {
     public static void deleteReview(int reviewId){
         try{
             ArrayList ml = readReviews(FILENAME);
+            boolean foundReview = false;
             for (int i=0; i<ml.size(); i++){
                 RatingAndReview m = (RatingAndReview) ml.get(i);
-                if (m.getReviewId() == reviewId){
+                if (m.getReviewId() == reviewId){ // found
+                    foundReview = true;
                     ml.remove(i);
                 }
             }
             saveReviews(FILENAME, ml);
+
+            if (!foundReview) {
+                throw new ItemNotFoundException();
+            }
         }
         catch(IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
-
+        catch (ItemNotFoundException e) {
+            System.out.println("No reviews found that match the given reviewId > " + e.getMessage());
+        }
 
     }
 
