@@ -11,10 +11,25 @@ import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.*;
 
+/**
+ * Ticket Price Manager allows console user to print price list, update prices, and calculate prices of tickets
+ */
 public class TicketPriceManager {
-
+    /**
+     * Path of prices.txt file
+     */
     public final static String FILENAME = "Databases/prices.txt";
+
+    /**
+     * Separator for parsing prices.txt file
+     */
     public static final String SEPARATOR = ",";
+
+    /**
+     * Initialises Ticket Price Manager
+     */
+    public TicketPriceManager() {
+    }
 
     /**
      * Helper function for converting prices from .txt file to hash map
@@ -415,6 +430,7 @@ public class TicketPriceManager {
 
 
     /**
+     * Calculate price of ticket based on the show, age, date, time, theatre class and movie type
      * @param show    Show object
      * @param userAgeType  Ticket object
      * @param strDate Date in 'YYYY-MM-DD' format with type String
