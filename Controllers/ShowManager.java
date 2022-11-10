@@ -5,10 +5,9 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 
 public class ShowManager {
@@ -28,12 +27,18 @@ public class ShowManager {
                 movieId = sc.nextInt();
                 sc.nextLine();
             }
+            Movie m = MovieManagerAdmin.findMovie(movieId);
             System.out.println("Enter Date (DD/MM/YYYY): ");
             String date = sc.nextLine();
             System.out.println("Enter Start Time (HH:MM, 24HRS): ");
             String startTime = sc.nextLine();
-            System.out.println("Enter End Time (HH:MM, 24HRS): ");
-            String endTime = sc.nextLine();
+            Calendar cal = Calendar.getInstance();
+            Date dateFormat = new SimpleDateFormat("HH:mm").parse(startTime);
+            cal.setTime(dateFormat);
+            cal.add(Calendar.MINUTE, m.getMovieRuntime());
+            Date endDate = cal.getTime();
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+            String endTime = sdf.format(endDate);
             System.out.println("Enter Theatre: ");
             int theatre = sc.nextInt();
             sc.nextLine();
@@ -51,10 +56,7 @@ public class ShowManager {
                     theatreClass = Show.TheatreClass.PLATINUM;
                     break;
             }
-
             String cineplex = "null";
-
-
             System.out.println("Enter Cineplex: ");
             System.out.println("0: AMK Hub Mall");
             System.out.println("1: Bishan Town Hall");
@@ -86,6 +88,10 @@ public class ShowManager {
 
         }
         catch (IOException e) {
+            System.out.println("IOException > " + e.getMessage());
+
+        }
+        catch(ParseException e){
             System.out.println("IOException > " + e.getMessage());
 
         }
