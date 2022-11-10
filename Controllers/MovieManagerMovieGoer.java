@@ -11,12 +11,14 @@ import java.util.Map.Entry;
 
 
 import static Controllers.RatingAndReviewManager.readReviews;
+import static Controllers.TicketManager.readTickets;
 
 public class MovieManagerMovieGoer {
 
     public final static String FILENAME = "Databases/movies.txt";
     public final static  String SEPARATOR = "|";
     public final static String REVIEWS = "Databases/ratingAndReviews.txt";
+    public final static String TICKETS = "Databases/tickets.txt";
 
     public static void getAllReview(int movieId) {
         // prints all the reviews related to a particular movie
@@ -90,14 +92,74 @@ public class MovieManagerMovieGoer {
         RatingAndReviewManager.createReview(sc);
     }
 
+    public static int getTicketSales(int movieId){
+        // return method
+        int ticketSold = 0;
+        try{
+            ArrayList al = readTickets(TICKETS);
+            for (int i=0 ;i<al.size(); i++){
+                Ticket t = (Ticket) al.get(i);
+                Show s = ShowManager.findShow(t.getShowId());
+                Movie m = MovieManagerAdmin.findMovie(s.getShowId());
+                if (m.getMovieId() == movieId){
+                    ticketSold++;
+                }
+            }
+        }
+        catch(IOException e){
 
-    public static String[] getTop5MoviesByTicketSales() {
-        String[] result = {"A"};
-        return result; // placeholder
+        }
+        return ticketSold;
+
+
+    }
+
+    public static void getTop5MoviesByTicketSales() {
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        try{
+            ArrayList al = readTickets(TICKETS);
+            for (int i=0; i<al.size(); i++){
+                Ticket t = (Ticket) al.get(i);
+                int showId = t.getShowId();
+                Show s = ShowManager.findShow(showId);
+                int movieId = s.getMovieId();
+                if (!hm.containsKey(movieId)){
+                    hm.put(movieId, getTicketSales(movieId));
+                }
+
+            }
+        }
+        catch(IOException e){
+
+        }
+        LinkedHashMap<Integer, Integer> sortedMap = new LinkedHashMap<>();
+        ArrayList<Integer> list = new ArrayList<>();
+        for (Map.Entry<Integer, Integer> entry : hm.entrySet()) {
+            list.add(entry.getValue());
+        }
+        Collections.sort(list, Collections.reverseOrder());
+        for (Integer num : list) {
+            for (Entry<Integer, Integer> entry : hm.entrySet()) {
+                if (entry.getValue().equals(num)) {
+                    sortedMap.put(entry.getKey(), num);
+                }
+            }
+        }
+        int numElements = 5;
+        System.out.println("Top 5 movies by Ticket Sales: ");
+        for (Integer key : sortedMap.keySet()) {
+            if (numElements <= 0) {
+                break;
+            }
+            Movie m = MovieManagerAdmin.findMovie(key);
+            System.out.println(m.getMovieTitle());
+            numElements--;
+        }
+
+
     }
 
     public static void getTop5MoviesByRating() {
-        String[] result = {"A"};
         HashMap<Integer, Float> hm = new HashMap<>();
         try {
             ArrayList al = readReviews(REVIEWS);
@@ -126,7 +188,7 @@ public class MovieManagerMovieGoer {
         }
 //        System.out.println(sortedMap);
         int numElements = 5;
-        System.out.println("Top 5 movies: ");
+        System.out.println("Top 5 movies by Rating: ");
         for (Integer key : sortedMap.keySet()) {
             if (numElements <= 0) {
                 break;
