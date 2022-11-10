@@ -18,9 +18,14 @@ public class TheatreManager { // crud
     public final static String FILENAME = "Databases/theatres.txt";
     public final static String SEPARATOR = "|";
 
-    /** Create method
-     * Create new theatre and add it to the data base
-     * This method should not be accessed elsewhere*/
+    /**
+     * Create method
+     * Create new theatre and add it to the database
+     * This method should not be accessed elsewhere as theatres are fixed
+     * Hence, declared as private
+     * @param sc takes in scanner for first initialization
+     */
+
     private static void createTheatre(Scanner sc){
         try {
             System.out.println("Enter cineplex code: ");
@@ -42,13 +47,13 @@ public class TheatreManager { // crud
         }
     }
 
-    /** Read method
-     * Find show by Cineplex Code and TheatreId */
+
     /**
-     *
+     * Read method
+     * Find show by Cineplex Code and TheatreId
      * @param cineplexCode
      * @param theatreId
-     * @return
+     * @return Object of type Theatre
      */
     public static Theatre findTheatre(String cineplexCode, int theatreId){
         try{
@@ -73,7 +78,12 @@ public class TheatreManager { // crud
         return null;
     }
 
-    /** Set theatre busy -- isBusy set to true */
+    /** Set theatre busy
+     * @param cineplexCode
+     * @param theatreId
+     * Finds a match to cineplexCode and theatreID
+     * Sets that theatre to busy
+     */
     public static void setBusy(String cineplexCode, int theatreId){
         try{
             ArrayList al = readTheatres(FILENAME);
@@ -90,7 +100,12 @@ public class TheatreManager { // crud
         }
     }
 
-    /** Set theatre free -- isBusy set to false */
+    /** Set theatre free
+     * @param cineplexCode
+     * @param theatreId
+     * Finds a match to cineplexCode and theatreID
+     * Sets that theatre to free
+     */
     public static void setFree(String cineplexCode, int theatreId){
         try{
             ArrayList al = readTheatres(FILENAME);
@@ -127,6 +142,12 @@ public class TheatreManager { // crud
         }
     }
 
+    /**
+     * Read theatres
+     * @param filename
+     * @return ArrayList of theatres
+     * @throws IOException
+     */
     private static ArrayList readTheatres(String filename) throws IOException {
         // read String from text file
         ArrayList stringArray = (ArrayList)read(filename);
@@ -183,8 +204,9 @@ public class TheatreManager { // crud
         return data;
     }
 
-    /** saving
-     * (helper func, declared as private as it is called by child)*/
+    /** saving (helper function)
+     * declared as private as it is only accessed within the scope of this file
+     */
 
     private static void saveTheatres(String filename, List al) throws IOException {
         List alw = new ArrayList() ;// to store movies data

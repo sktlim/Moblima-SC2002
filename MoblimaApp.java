@@ -51,6 +51,7 @@ public class MoblimaApp {
                         String [] login_array = new String [2];
                         String username, password;
 
+
                         System.out.println("Enter your username: ");
                         username = sc.next();
                         System.out.println("Enter your password: ");
@@ -67,6 +68,7 @@ public class MoblimaApp {
                         else{
                             System.out.println("Error! Details incorrect, please try again. ");
                         }
+
                         break;
                     case 2:
                         // Login as moviegoer

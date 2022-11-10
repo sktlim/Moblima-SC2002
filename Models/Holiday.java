@@ -5,11 +5,20 @@ public class Holiday {
     private String name;
     private String date;
 
+    /**
+     * Constructor Method for Holiday
+     * @param name
+     * @param date
+     */
     public Holiday(String name, String date) {
         this.name = name;
         this.date = date;
     }
 
+    /**
+     * Getter and Setter Methods
+     * @return
+     */
     public String getName() {
         return name;
     }

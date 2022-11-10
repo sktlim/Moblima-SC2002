@@ -22,7 +22,11 @@ public class MovieManagerMovieGoer {
     public final static String REVIEWS = "Databases/ratingAndReviews.txt";
     public final static String TICKETS = "Databases/tickets.txt";
 
-    /** Prints all the available reviews for a given movie **/
+    /**
+     * Prints all available reviews for a given Movie
+     * Search by movieId
+     * @param movieId
+     */
     public static void getAllReview(int movieId) {
         // prints all the reviews related to a particular movie
         int reviewNum = 1;
@@ -47,7 +51,11 @@ public class MovieManagerMovieGoer {
         }
     }
 
-    /** Returns the overall ratings for a given movie **/
+    /**
+     * Find the overall average rating for a given movie
+     * @param movieId search by movie ID
+     * @return an average score of the rating of the movie
+     */
     public static float getOverallRatings(int movieId){
         // return method
         float reviewNum = 0;
@@ -75,7 +83,10 @@ public class MovieManagerMovieGoer {
         return ratingTot/reviewNum;
     }
 
-    /** Similar to getOverallRatings but prints the value instead of returning **/
+    /**
+     * Print the overall ratings of movieId
+     * @param movieId
+     */
     public static void printOverallRatings(int movieId) {
         // prints the overall numerical ratings for a particular movie
         // return String "N/A" if no ratings are found for this movie
@@ -105,11 +116,20 @@ public class MovieManagerMovieGoer {
         }
     }
 
-    /** Calls RatingAndReviewManager's static method **/
+    /**
+     * Add rating and review
+     * Calls RatingAndReviewManager's static method
+     * @param sc to pass into the createReview method
+     */
     public static void addRatingAndReview(Scanner sc) {
         RatingAndReviewManager.createReview(sc);
     }
 
+    /**
+     * Get ticket sales by movie ID
+     * @param movieId search field
+     * @return total number of tickets that the movie sold
+     */
     public static int getTicketSales(int movieId){
         // return method
         int ticketSold = 0;
@@ -139,6 +159,13 @@ public class MovieManagerMovieGoer {
         return ticketSold;
     }
 
+    /**
+     * Get top 5 movies by ticket sales
+     * Utilizes the getTicketSales function and puts this data into a hashmap,
+     * where the movieId is the key and the tickets sold are the values.
+     * Sorts the hashmap from largest to smallest
+     * Prints the top 5 movies by ticket sales.
+     */
     public static void getTop5MoviesByTicketSales() {
         HashMap<Integer, Integer> hm = new HashMap<>();
         try{
@@ -182,6 +209,13 @@ public class MovieManagerMovieGoer {
         }
     }
 
+    /**
+     * Get top 5 movies by rating
+     * Utilizes the getOverallRatings function to put the overall ratings for
+     * a movie (as values) with the movieID as the key
+     * Does a descending sort of the hashmap
+     * Prints the top 5 movies by rating
+     */
     public static void getTop5MoviesByRating() {
         HashMap<Integer, Float> hm = new HashMap<>();
         try {
@@ -222,8 +256,10 @@ public class MovieManagerMovieGoer {
         }
     }
 
-    /** Read method
-     * Print method to display everything on the txt file database */
+    /**
+     * Read method
+     * Print method to display everything on the txt file database \
+     */
     public static void printMovieList(){
         try{
             ArrayList mov = readMovies(FILENAME);
@@ -310,7 +346,7 @@ public class MovieManagerMovieGoer {
     }
 
     /** saving
-     * (helper func, declared as private as it is called by child)*/
+     * (helper func, declared as protected as it is called by child)*/
 
     protected static void saveMovies(String filename, List al) throws IOException {
         List alw = new ArrayList() ;// to store movies data

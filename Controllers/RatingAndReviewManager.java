@@ -24,8 +24,10 @@ public class RatingAndReviewManager {
     public static final String SEPARATOR = "|";
     public final static String MOVIES = "Databases/movies.txt";
 
-    /** Create method
-     * Create new movieGoer and add it to the database*/
+    /**
+     * Create method
+     * Create new movieGoer and add it to the database
+     * @param sc takes in a scanner to instantiate fields within the function*/
     public static void createReview(Scanner sc){
         int semaphore = 0;
         try {
@@ -72,8 +74,10 @@ public class RatingAndReviewManager {
         }
     }
 
-    /** Read method
-     * Print method to display everything on the txt file database */
+    /**
+     * Read method
+     * Print method to display everything on the txt file database
+     */
     public static void printRatingsAndReviewList(){
         try{
             ArrayList ml = readReviews(FILENAME);
@@ -92,12 +96,12 @@ public class RatingAndReviewManager {
     }
 
 
-    /** Update method
-     * this updates the various field of movieGoer */
+
     /**
-     *
+     * Update method
+     * this updates the various field of review based on reviewId
      * @param reviewId
-     * @param sc
+     * @param sc takes in scanner to update various fields within the function
      */
     public static void updateReview(int reviewId, Scanner sc){
         String inputField = "0";
@@ -167,8 +171,11 @@ public class RatingAndReviewManager {
         }
     }
 
-    /** Delete method
-     * delete admin based on adminID */
+    /**
+     * Delete method
+     * delete review based on reviewID
+     * @param reviewId
+     */
     public static void deleteReview(int reviewId){
         try{
             ArrayList ml = readReviews(FILENAME);
@@ -196,8 +203,9 @@ public class RatingAndReviewManager {
     }
 
 
-    /** reading (helper func, declared as private as it is only called within this file)
-     * This creates a list of instances of movieGoers */
+    /** reading (helper func, declared as protected as it is
+     * accessed within this package)
+     * This creates a list of instances of reviews */
 
     protected static ArrayList readReviews(String filename) throws IOException {
         // read String from text file
@@ -251,9 +259,10 @@ public class RatingAndReviewManager {
         return data;
     }
 
-    /** saving
-     * (helper func, declared as private as it is only called within this file)*/
-
+    /**
+     * saving (helper func)
+     * declared as private as it is only called within this file
+     */
     private static void saveReviews(String filename, List al) throws IOException {
         List alw = new ArrayList() ;// to store review data
 

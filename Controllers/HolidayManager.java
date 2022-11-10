@@ -32,8 +32,11 @@ public class HolidayManager {
     }
 
     /**
-     * reading (helper func, declared as private as it is only called within this file)
-     **/
+     * reading (helper func)
+     * declared as private as it is only called within this file)
+     * @return ArrayList of holidays
+     */
+
     private static ArrayList readHolidays(String fileName) throws IOException {
         // read String from text file
         ArrayList stringArray = (ArrayList) read(fileName);
@@ -52,10 +55,16 @@ public class HolidayManager {
         return alr;
     }
 
+
+
     /**
-     * Admins will input the year, month, date separately.
-     * New date object will then be created with these 3 fields.
-     **/
+     * Create method to add new Holiday to database
+     * @param sc Takes in the scanner to instantiate variables within
+     *        the function itself.
+     *        Admins will input the year, month, date separately.
+     *        New date object will then be create with these 3 fields.
+     */
+
     private static void createHoliday(Scanner sc) {
         try {
             System.out.println("Please enter the holiday's Name: ");
@@ -84,9 +93,10 @@ public class HolidayManager {
         }
     }
 
-    /** Write fixed content to the given file.
-     * (helper func, declared as private as it is only called within this file)*/
     /**
+
+     * Write fixed content to the given file (helper function)
+     * Declared as private as it is only called within this file
      * @param fileName
      * @param data
      * @throws IOException
@@ -104,8 +114,8 @@ public class HolidayManager {
     }
 
     /**
-     * saving
-     * (helper func, declared as private as it is only called within this file)
+     * saving (Helper function)
+     * Declared as private as it is only called within this file
      */
     private static void saveHolidays(String fileName, List al) throws IOException {
         List alw = new ArrayList();
@@ -124,8 +134,13 @@ public class HolidayManager {
         write(fileName, alw);
     }
 
-    public static void printHolidayList() {
-        try {
+
+    /**
+     * Read method
+     * Print all holidays in the database
+     */
+    public static void printHolidayList(){
+        try{
             List holidayList = readHolidays(FILENAME);
             for (int i = 0; i < holidayList.size(); i++) {
                 Holiday h = (Holiday) holidayList.get(i);
@@ -139,10 +154,13 @@ public class HolidayManager {
     }
 
     /**
+     * Update Method
+     * @param sc takes in scanner to update fields within the function
      * Allows admins to update existing holidays. All fields are allowed to be updated.
      * Holidays are queried according to their Name
      * Users must input the Holiday Name exact (case-sensitive) including its Year in the name e.g. Christmas 2022
-     **/
+     */
+     
     public static void updateHoliday(Scanner sc) {
         System.out.println("Enter the name of the holiday you wish to change: ");
         String holidayName = sc.nextLine();
@@ -203,8 +221,10 @@ public class HolidayManager {
 
     /**
      * Delete method
-     * delete holiday based on holidayName
+     * @param sc takes in scanner to ask which holiday to delete
+     * delete holiday based on holidayName 
      */
+
     public static void deleteHoliday(Scanner sc) {
         System.out.println("Which holiday would you like to delete?: ");
         String holidayToBeDeleted = sc.nextLine();
@@ -235,8 +255,11 @@ public class HolidayManager {
     }
 
     /**
-     * Accepts a String of format YYYY-MM-DD
-     **/
+     * Validation for holiday
+     * @param holidayDate of format YYYY-MM-DD
+     * @return boolean value if the date is a holiday or not
+     */
+
     public static boolean isHoliday(String holidayDate) {
         try {
             ArrayList hl = readHolidays(FILENAME);

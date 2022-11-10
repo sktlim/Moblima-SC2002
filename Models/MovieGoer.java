@@ -7,18 +7,31 @@ public class MovieGoer extends User {
     private int movieGoerId;
     private int age;
 
-    // constructor to instantiate MovieGoer attribute in MovieGoerUI
+    /**
+     * constructor for MovieGoer
+     * @param movieGoerId
+     */
     public MovieGoer(int movieGoerId) {
         this.movieGoerId = movieGoerId;
     }
 
+    /**
+     * Overloaded method for constructor of MovieGoer
+     * @param username
+     * @param password
+     * @param age
+     * @param movieGoerId
+     */
     public MovieGoer(String username, String password, int age, int movieGoerId){
         super(username, password);
         this.age = age;
         this.movieGoerId = movieGoerId;
     }
 
-    //getters setters
+    /**
+     * Getter and Setter Methods
+     * @return
+     */
     public int getMovieGoerId(){
         return this.movieGoerId;
     }
