@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="Updated ticket price manager">
-      <change beforePath="$PROJECT_DIR$/Controllers/MovieManagerAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MovieManagerAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/ShowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ShowManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/TicketPriceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/TicketPriceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Databases/prices.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Databases/prices.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Price.java" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Price.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Show.java" afterDir="false" />
+    <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/CineplexManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/CineplexManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +158,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added userUI files" />
