@@ -1,45 +1,64 @@
 package Models;
 
 public class Price {
-    private double Standard_2DWeekday;
+    private double Standard_2DWeekday_MonWed;
+    private double Standard_2DWeekday_Thu;
+    private double Standard_2DWeekday_Fri;
     private double Standard_2DWeekend;
     private double Standard_2DHoliday;
-    private double Standard_3DWeekday;
+    private double Standard_3DWeekday_MonWed;
+    private double Standard_3DWeekday_Thu;
+    private double Standard_3DWeekday_Fri;
     private double Standard_3DWeekend;
     private double Standard_3DHoliday;
-    private double Standard_BlockBusterWeekday;
+    private double Standard_BlockBusterWeekday_MonWed;
+    private double Standard_BlockBusterWeekday_Thu;
+    private double Standard_BlockBusterWeekday_Fri;
     private double Standard_BlockBusterWeekend;
     private double Standard_BlockBusterHoliday;
-    private double Silver_2DWeekday;
-    private double Silver_2DWeekend;
-    private double Silver_2DHoliday;
-    private double Silver_3DWeekday;
-    private double Silver_3DWeekend;
-    private double Silver_3DHoliday;
-    private double Silver_BlockBusterWeekday;
-    private double Silver_BlockBusterWeekend;
-    private double Silver_BlockBusterHoliday;
-    private double Gold_2DWeekday;
-    private double Gold_2DWeekend;
-    private double Gold_2DHoliday;
-    private double Gold_3DWeekday;
-    private double Gold_3DWeekend;
-    private double Gold_3DHoliday;
-    private double Gold_BlockBusterWeekday;
-    private double Gold_BlockBusterWeekend;
-    private double Gold_BlockBusterHoliday;
+    private double Platinum_2DWeekday_MonWed;
+    private double Platinum_2DWeekday_Thu;
+    private double Platinum_2DWeekday_Fri;
+    private double Platinum_2DWeekend;
+    private double Platinum_2DHoliday;
+    private double Platinum_3DWeekday_MonWed;
+    private double Platinum_3DWeekday_Thu;
+    private double Platinum_3DWeekday_Fri;
+    private double Platinum_3DWeekend;
+    private double Platinum_3DHoliday;
+    private double Platinum_BlockBusterWeekday_MonWed;
+    private double Platinum_BlockBusterWeekday_Thu;
+    private double Platinum_BlockBusterWeekday_Fri;
+    private double Platinum_BlockBusterWeekend;
+    private double Platinum_BlockBusterHoliday;
     private double student;
     private double seniorCitizen;
 
     public Price() {
     }
 
-    public double getStandard_2DWeekday() {
-        return Standard_2DWeekday;
+    public double getStandard_2DWeekday_MonWed() {
+        return Standard_2DWeekday_MonWed;
     }
 
-    public void setStandard_2DWeekday(double standard_2DWeekday) {
-        Standard_2DWeekday = standard_2DWeekday;
+    public void setStandard_2DWeekday_MonWed(double standard_2DWeekday_MonWed) {
+        Standard_2DWeekday_MonWed = standard_2DWeekday_MonWed;
+    }
+
+    public double getStandard_2DWeekday_Thu() {
+        return Standard_2DWeekday_Thu;
+    }
+
+    public void setStandard_2DWeekday_Thu(double standard_2DWeekday_Thu) {
+        Standard_2DWeekday_Thu = standard_2DWeekday_Thu;
+    }
+
+    public double getStandard_2DWeekday_Fri() {
+        return Standard_2DWeekday_Fri;
+    }
+
+    public void setStandard_2DWeekday_Fri(double standard_2DWeekday_Fri) {
+        Standard_2DWeekday_Fri = standard_2DWeekday_Fri;
     }
 
     public double getStandard_2DWeekend() {
@@ -58,12 +77,28 @@ public class Price {
         Standard_2DHoliday = standard_2DHoliday;
     }
 
-    public double getStandard_3DWeekday() {
-        return Standard_3DWeekday;
+    public double getStandard_3DWeekday_MonWed() {
+        return Standard_3DWeekday_MonWed;
     }
 
-    public void setStandard_3DWeekday(double standard_3DWeekday) {
-        Standard_3DWeekday = standard_3DWeekday;
+    public void setStandard_3DWeekday_MonWed(double standard_3DWeekday_MonWed) {
+        Standard_3DWeekday_MonWed = standard_3DWeekday_MonWed;
+    }
+
+    public double getStandard_3DWeekday_Thu() {
+        return Standard_3DWeekday_Thu;
+    }
+
+    public void setStandard_3DWeekday_Thu(double standard_3DWeekday_Thu) {
+        Standard_3DWeekday_Thu = standard_3DWeekday_Thu;
+    }
+
+    public double getStandard_3DWeekday_Fri() {
+        return Standard_3DWeekday_Fri;
+    }
+
+    public void setStandard_3DWeekday_Fri(double standard_3DWeekday_Fri) {
+        Standard_3DWeekday_Fri = standard_3DWeekday_Fri;
     }
 
     public double getStandard_3DWeekend() {
@@ -82,12 +117,28 @@ public class Price {
         Standard_3DHoliday = standard_3DHoliday;
     }
 
-    public double getStandard_BlockBusterWeekday() {
-        return Standard_BlockBusterWeekday;
+    public double getStandard_BlockBusterWeekday_MonWed() {
+        return Standard_BlockBusterWeekday_MonWed;
     }
 
-    public void setStandard_BlockBusterWeekday(double standard_BlockBusterWeekday) {
-        Standard_BlockBusterWeekday = standard_BlockBusterWeekday;
+    public void setStandard_BlockBusterWeekday_MonWed(double standard_BlockBusterWeekday_MonWed) {
+        Standard_BlockBusterWeekday_MonWed = standard_BlockBusterWeekday_MonWed;
+    }
+
+    public double getStandard_BlockBusterWeekday_Thu() {
+        return Standard_BlockBusterWeekday_Thu;
+    }
+
+    public void setStandard_BlockBusterWeekday_Thu(double standard_BlockBusterWeekday_Thu) {
+        Standard_BlockBusterWeekday_Thu = standard_BlockBusterWeekday_Thu;
+    }
+
+    public double getStandard_BlockBusterWeekday_Fri() {
+        return Standard_BlockBusterWeekday_Fri;
+    }
+
+    public void setStandard_BlockBusterWeekday_Fri(double standard_BlockBusterWeekday_Fri) {
+        Standard_BlockBusterWeekday_Fri = standard_BlockBusterWeekday_Fri;
     }
 
     public double getStandard_BlockBusterWeekend() {
@@ -106,148 +157,124 @@ public class Price {
         Standard_BlockBusterHoliday = standard_BlockBusterHoliday;
     }
 
-    public double getSilver_2DWeekday() {
-        return Silver_2DWeekday;
+    public double getPlatinum_2DWeekday_MonWed() {
+        return Platinum_2DWeekday_MonWed;
     }
 
-    public void setSilver_2DWeekday(double silver_2DWeekday) {
-        Silver_2DWeekday = silver_2DWeekday;
+    public void setPlatinum_2DWeekday_MonWed(double platinum_2DWeekday_MonWed) {
+        Platinum_2DWeekday_MonWed = platinum_2DWeekday_MonWed;
     }
 
-    public double getSilver_2DWeekend() {
-        return Silver_2DWeekend;
+    public double getPlatinum_2DWeekday_Thu() {
+        return Platinum_2DWeekday_Thu;
     }
 
-    public void setSilver_2DWeekend(double silver_2DWeekend) {
-        Silver_2DWeekend = silver_2DWeekend;
+    public void setPlatinum_2DWeekday_Thu(double platinum_2DWeekday_Thu) {
+        Platinum_2DWeekday_Thu = platinum_2DWeekday_Thu;
     }
 
-    public double getSilver_2DHoliday() {
-        return Silver_2DHoliday;
+    public double getPlatinum_2DWeekday_Fri() {
+        return Platinum_2DWeekday_Fri;
     }
 
-    public void setSilver_2DHoliday(double silver_2DHoliday) {
-        Silver_2DHoliday = silver_2DHoliday;
+    public void setPlatinum_2DWeekday_Fri(double platinum_2DWeekday_Fri) {
+        Platinum_2DWeekday_Fri = platinum_2DWeekday_Fri;
     }
 
-    public double getSilver_3DWeekday() {
-        return Silver_3DWeekday;
+    public double getPlatinum_2DWeekend() {
+        return Platinum_2DWeekend;
     }
 
-    public void setSilver_3DWeekday(double silver_3DWeekday) {
-        Silver_3DWeekday = silver_3DWeekday;
+    public void setPlatinum_2DWeekend(double platinum_2DWeekend) {
+        Platinum_2DWeekend = platinum_2DWeekend;
     }
 
-    public double getSilver_3DWeekend() {
-        return Silver_3DWeekend;
+    public double getPlatinum_2DHoliday() {
+        return Platinum_2DHoliday;
     }
 
-    public void setSilver_3DWeekend(double silver_3DWeekend) {
-        Silver_3DWeekend = silver_3DWeekend;
+    public void setPlatinum_2DHoliday(double platinum_2DHoliday) {
+        Platinum_2DHoliday = platinum_2DHoliday;
     }
 
-    public double getSilver_3DHoliday() {
-        return Silver_3DHoliday;
+    public double getPlatinum_3DWeekday_MonWed() {
+        return Platinum_3DWeekday_MonWed;
     }
 
-    public void setSilver_3DHoliday(double silver_3DHoliday) {
-        Silver_3DHoliday = silver_3DHoliday;
+    public void setPlatinum_3DWeekday_MonWed(double platinum_3DWeekday_MonWed) {
+        Platinum_3DWeekday_MonWed = platinum_3DWeekday_MonWed;
     }
 
-    public double getSilver_BlockBusterWeekday() {
-        return Silver_BlockBusterWeekday;
+    public double getPlatinum_3DWeekday_Thu() {
+        return Platinum_3DWeekday_Thu;
     }
 
-    public void setSilver_BlockBusterWeekday(double silver_BlockBusterWeekday) {
-        Silver_BlockBusterWeekday = silver_BlockBusterWeekday;
+    public void setPlatinum_3DWeekday_Thu(double platinum_3DWeekday_Thu) {
+        Platinum_3DWeekday_Thu = platinum_3DWeekday_Thu;
     }
 
-    public double getSilver_BlockBusterWeekend() {
-        return Silver_BlockBusterWeekend;
+    public double getPlatinum_3DWeekday_Fri() {
+        return Platinum_3DWeekday_Fri;
     }
 
-    public void setSilver_BlockBusterWeekend(double silver_BlockBusterWeekend) {
-        Silver_BlockBusterWeekend = silver_BlockBusterWeekend;
+    public void setPlatinum_3DWeekday_Fri(double platinum_3DWeekday_Fri) {
+        Platinum_3DWeekday_Fri = platinum_3DWeekday_Fri;
     }
 
-    public double getSilver_BlockBusterHoliday() {
-        return Silver_BlockBusterHoliday;
+    public double getPlatinum_3DWeekend() {
+        return Platinum_3DWeekend;
     }
 
-    public void setSilver_BlockBusterHoliday(double silver_BlockBusterHoliday) {
-        Silver_BlockBusterHoliday = silver_BlockBusterHoliday;
+    public void setPlatinum_3DWeekend(double platinum_3DWeekend) {
+        Platinum_3DWeekend = platinum_3DWeekend;
     }
 
-    public double getGold_2DWeekday() {
-        return Gold_2DWeekday;
+    public double getPlatinum_3DHoliday() {
+        return Platinum_3DHoliday;
     }
 
-    public void setGold_2DWeekday(double gold_2DWeekday) {
-        Gold_2DWeekday = gold_2DWeekday;
+    public void setPlatinum_3DHoliday(double platinum_3DHoliday) {
+        Platinum_3DHoliday = platinum_3DHoliday;
     }
 
-    public double getGold_2DWeekend() {
-        return Gold_2DWeekend;
+    public double getPlatinum_BlockBusterWeekday_MonWed() {
+        return Platinum_BlockBusterWeekday_MonWed;
     }
 
-    public void setGold_2DWeekend(double gold_2DWeekend) {
-        Gold_2DWeekend = gold_2DWeekend;
+    public void setPlatinum_BlockBusterWeekday_MonWed(double platinum_BlockBusterWeekday_MonWed) {
+        Platinum_BlockBusterWeekday_MonWed = platinum_BlockBusterWeekday_MonWed;
     }
 
-    public double getGold_2DHoliday() {
-        return Gold_2DHoliday;
+    public double getPlatinum_BlockBusterWeekday_Thu() {
+        return Platinum_BlockBusterWeekday_Thu;
     }
 
-    public void setGold_2DHoliday(double gold_2DHoliday) {
-        Gold_2DHoliday = gold_2DHoliday;
+    public void setPlatinum_BlockBusterWeekday_Thu(double platinum_BlockBusterWeekday_Thu) {
+        Platinum_BlockBusterWeekday_Thu = platinum_BlockBusterWeekday_Thu;
     }
 
-    public double getGold_3DWeekday() {
-        return Gold_3DWeekday;
+    public double getPlatinum_BlockBusterWeekday_Fri() {
+        return Platinum_BlockBusterWeekday_Fri;
     }
 
-    public void setGold_3DWeekday(double gold_3DWeekday) {
-        Gold_3DWeekday = gold_3DWeekday;
+    public void setPlatinum_BlockBusterWeekday_Fri(double platinum_BlockBusterWeekday_Fri) {
+        Platinum_BlockBusterWeekday_Fri = platinum_BlockBusterWeekday_Fri;
     }
 
-    public double getGold_3DWeekend() {
-        return Gold_3DWeekend;
+    public double getPlatinum_BlockBusterWeekend() {
+        return Platinum_BlockBusterWeekend;
     }
 
-    public void setGold_3DWeekend(double gold_3DWeekend) {
-        Gold_3DWeekend = gold_3DWeekend;
+    public void setPlatinum_BlockBusterWeekend(double platinum_BlockBusterWeekend) {
+        Platinum_BlockBusterWeekend = platinum_BlockBusterWeekend;
     }
 
-    public double getGold_3DHoliday() {
-        return Gold_3DHoliday;
+    public double getPlatinum_BlockBusterHoliday() {
+        return Platinum_BlockBusterHoliday;
     }
 
-    public void setGold_3DHoliday(double gold_3DHoliday) {
-        Gold_3DHoliday = gold_3DHoliday;
-    }
-
-    public double getGold_BlockBusterWeekday() {
-        return Gold_BlockBusterWeekday;
-    }
-
-    public void setGold_BlockBusterWeekday(double gold_BlockBusterWeekday) {
-        Gold_BlockBusterWeekday = gold_BlockBusterWeekday;
-    }
-
-    public double getGold_BlockBusterWeekend() {
-        return Gold_BlockBusterWeekend;
-    }
-
-    public void setGold_BlockBusterWeekend(double gold_BlockBusterWeekend) {
-        Gold_BlockBusterWeekend = gold_BlockBusterWeekend;
-    }
-
-    public double getGold_BlockBusterHoliday() {
-        return Gold_BlockBusterHoliday;
-    }
-
-    public void setGold_BlockBusterHoliday(double gold_BlockBusterHoliday) {
-        Gold_BlockBusterHoliday = gold_BlockBusterHoliday;
+    public void setPlatinum_BlockBusterHoliday(double platinum_BlockBusterHoliday) {
+        Platinum_BlockBusterHoliday = platinum_BlockBusterHoliday;
     }
 
     public double getStudent() {
