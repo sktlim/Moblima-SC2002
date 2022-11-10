@@ -12,6 +12,8 @@ import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.*;
 
+import Exceptions.ItemNotFoundException;
+
 public class TicketPriceManager {
 
     public final static String FILENAME = "Databases/prices.txt";
@@ -138,7 +140,7 @@ public class TicketPriceManager {
             System.out.println("31. Student discount " + priceList.getStudent());
             System.out.println("32. Senior Citizen discount " + priceList.getSeniorCitizen());
         } catch (IOException e) {
-            System.out.println(e);
+            System.out.println("IOException > " + e.getMessage());
         }
     }
 
@@ -476,7 +478,7 @@ public class TicketPriceManager {
             }
 
         } catch (IOException e) {
-            System.out.println(e);
+            System.out.println("IOException > " + e.getMessage());
             System.out.println("Error reading price file");
         }
         return price;
