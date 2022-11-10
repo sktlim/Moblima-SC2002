@@ -9,13 +9,14 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-import Models.Admin;
 import Models.Show;
 import Models.Theatre;
+import Exceptions.ItemNotFoundException;
 
 public class TheatreManager { // crud
     public final static String FILENAME = "Databases/theatres.txt";
     public final static String SEPARATOR = "|";
+
     /** Create method
      * Create new theatre and add it to the data base
      * This method should not be accessed elsewhere*/
@@ -26,7 +27,6 @@ public class TheatreManager { // crud
             Show.TheatreClass theatreClass = Show.TheatreClass.STANDARD;
             int busy = 1;
 
-
             ArrayList al = readTheatres(FILENAME);
             Theatre a1 = new Theatre(al.size()+1,cineplexcode, theatreClass, busy);
             al.add(a1);
@@ -35,30 +35,37 @@ public class TheatreManager { // crud
         }
         catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
-
         }
-
     }
 
     /** Read method
      * Find show by Cineplex Code and TheatreId */
+    /**
+     *
+     * @param cineplexCode
+     * @param theatreId
+     * @return
+     */
     public static Theatre findTheatre(String cineplexCode, int theatreId){
         try{
             ArrayList al = readTheatres(FILENAME);
+            boolean foundTheatre = false;
             for (int i = 0 ; i < al.size() ; i++) {
                 Theatre t = (Theatre)al.get(i);
-                if (t.getTheatreId()==theatreId && t.getCineplexCode()==cineplexCode){
-//                    System.out.println("Theatre successfully found!");
+                if (t.getTheatreId()==theatreId && t.getCineplexCode()==cineplexCode){ // found
+                    foundTheatre = true;
+                    System.out.println("Theatre successfully found!");
                     return t;
                 }
             }
-
-
+            throw new ItemNotFoundException();
         }
         catch (IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
-        System.out.println("Theatre not found!");
+        catch (ItemNotFoundException e) {
+            System.out.println("Theatre not found > " + e.getMessage());
+        }
         return null;
     }
 
@@ -75,7 +82,7 @@ public class TheatreManager { // crud
             saveTheatres(FILENAME, al);
         }
         catch (IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
     }
 
@@ -92,7 +99,7 @@ public class TheatreManager { // crud
             saveTheatres(FILENAME, al);
         }
         catch (IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
     }
 
@@ -112,6 +119,7 @@ public class TheatreManager { // crud
             }
         }
         catch (IOException e){
+            System.out.println("IOException > " + e.getMessage());
         }
     }
 

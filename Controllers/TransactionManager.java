@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+
 public class TransactionManager { //CRUD
     public static final String SEPARATOR = "|";
     public static final String FILENAME = "Databases/transactions.txt" ;
@@ -41,10 +42,9 @@ public class TransactionManager { //CRUD
         }
         catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
-
         }
-
     }
+
     public static void printTransactionList(){
         try{
             ArrayList trans = readTransactions(FILENAME);
@@ -55,11 +55,9 @@ public class TransactionManager { //CRUD
                 System.out.println("Movie Goer ID: " + t.getMovieGoerId());
                 System.out.println("Date/Time: " + t.getDateTime() );
             }
-
-
         }
         catch (IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
     }
 
