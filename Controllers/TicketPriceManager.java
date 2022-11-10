@@ -456,7 +456,7 @@ public class TicketPriceManager {
             try {
                 date = format.parse(strDate);
             } catch (ParseException e) {
-                e.printStackTrace();
+                System.out.println("Parse Error > " + e.getMessage());
             }
             Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
             assert date != null;
