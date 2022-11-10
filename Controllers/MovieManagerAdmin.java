@@ -345,5 +345,13 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
         }
     }
 
+    public static ArrayList getMovies() {
+        try {
+            return readMovies("Databases/movies.txt");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
 
 }

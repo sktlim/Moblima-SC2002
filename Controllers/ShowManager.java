@@ -370,5 +370,14 @@ public class ShowManager {
         write(filename,alw);
     }
 
+    // For admin UI
+    public static ArrayList getShows(String fileName) {
+        try {
+            return readShows(fileName);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
 
 }

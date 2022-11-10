@@ -20,13 +20,13 @@ public class MoblimaApp {
                 switch (input) {
                     case 1:
                         // Login as admin
-
-//                        SeatManager.updateSeatPlan(1, "A3", 0);
-                        SeatManager.isSeatAvail(1, "A3");
-
+                        // if logged in, run code below
+                        // AdminUI aui = new AdminUI(3);
+                        // aui.showUI(sc);
                         break;
                     case 2:
                         // Login as moviegoer
+
                         break;
                     case 3:
                         // Create a new moviegoer
