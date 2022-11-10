@@ -26,7 +26,6 @@ public class AdminAuthManager {
                 // given file is id and password
                 if (token[0].equals(username) && token[1].equals(password)){
                     retVal=true;
-                    return retVal;
                 }
             }
 
