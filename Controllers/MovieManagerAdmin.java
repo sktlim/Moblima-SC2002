@@ -9,8 +9,11 @@ import Exceptions.ItemNotFoundException;
 
 public class MovieManagerAdmin extends MovieManagerMovieGoer {
 
-    /** Create method
-     * Create new movie and add it to the data base*/
+    /**
+     * Create method
+     * Create new movie and add it to the database
+     * @param sc takes in scanner to instantiate fields within the function
+     */
     public static void createMovie(Scanner sc){
         try {
             System.out.println("Enter Movie Title: ");
@@ -102,12 +105,10 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
         }
     }
 
-    /** Update method
-     * this updates the various field of movieGoer */
     /**
-     *
-     * @param movieId
-     * @param sc
+     * Update method
+     * @param movieId update movie in the database by movieId
+     * @param sc takes in scanner to update various fields
      */
     public static void updateMovies(int movieId, Scanner sc){
         String inputField = "0";
@@ -297,8 +298,12 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
             System.out.println("Movie not found > " + e.getMessage());
         }
     }
-    /** Read method
-     * Find movie by movieId*/
+    /**
+     * Read method
+     * Find movie by movieId
+     * @param movieID
+     * @return Object of type Movie
+     */
     public static Movie findMovie(int movieID){
         try{
             ArrayList mov = readMovies(FILENAME);
@@ -319,8 +324,11 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
         }
         return null;
     }
-    /** Delete method
-     * delete admin based on movieId */
+    /**
+     * Delete method
+     * Delete Movie based on movieId
+     * @param movieId
+     */
     public static void deleteMovie(int movieId){
         try{
             ArrayList ml = readMovies(FILENAME);

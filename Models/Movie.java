@@ -16,6 +16,18 @@ public class Movie {
     private MovieRating movieRating;
     private MovieType movieType;
 
+    /**
+     * Constructor Method for Movie
+     * @param movieId
+     * @param movieTitle
+     * @param showingStatus
+     * @param synopsis
+     * @param director
+     * @param cast
+     * @param movieRuntime
+     * @param movieRating
+     * @param movieType
+     */
     public Movie(int movieId, String movieTitle, ShowingStatus showingStatus, String synopsis, String director, String cast, int movieRuntime, MovieRating movieRating, MovieType movieType){
         this.movieId = movieId;
         this.movieTitle = movieTitle;
@@ -29,7 +41,10 @@ public class Movie {
     }
 
 
-    // getters setters
+    /**
+     * Getter and Setter Methods
+     * @return
+     */
     public int getMovieId(){
         return this.movieId;
     }

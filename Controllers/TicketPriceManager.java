@@ -20,7 +20,7 @@ public class TicketPriceManager {
     /**
      * reading (helper func, declared as private as it is only called within this file)
      **/
-    private Map readPrices(String filename) throws IOException {
+    private static Map readPrices(String filename) throws IOException {
         // read String from text file
         ArrayList stringArray = (ArrayList) read(filename);
 //        ArrayList alr = new ArrayList() ;// to store Price data
@@ -42,7 +42,7 @@ public class TicketPriceManager {
      * Read the contents of the given file.
      * (helper func, declared as private as it is only called within this file)
      */
-    private List read(String fileName) throws IOException {
+    private static List read(String fileName) throws IOException {
         List data = new ArrayList();
         Scanner scanner = new Scanner(new FileInputStream(fileName));
         try {
@@ -58,7 +58,7 @@ public class TicketPriceManager {
     /**
      * working and gtg
      */
-    private Price createPrices(Map<String, Double> hashMap, Price priceList) {
+    private static Price createPrices(Map<String, Double> hashMap, Price priceList) {
         priceList.setStandard_2DWeekday_MonWed(hashMap.get("Standard_2DWeekday_MonWed"));
         priceList.setStandard_2DWeekday_Thu(hashMap.get("Standard_2DWeekday_Thu"));
         priceList.setStandard_2DWeekday_Fri(hashMap.get("Standard_2DWeekday_Fri"));
@@ -98,7 +98,7 @@ public class TicketPriceManager {
     /**
      * working and gtg
      */
-    public void printPriceList() {
+    public static void printPriceList() {
         try {
             Price priceList = new Price();
             Map hm = readPrices(FILENAME);
@@ -145,7 +145,7 @@ public class TicketPriceManager {
     /**
      * need fix update price; not completely done
      */
-    public void updatePrice(int selection, int updatedPrice) {
+    public static void updatePrice(int selection, int updatedPrice) {
         try {
             Price priceList = new Price();
             Map hm = readPrices(FILENAME);
@@ -258,13 +258,13 @@ public class TicketPriceManager {
         }
     }
 
-    public double calculatePrice(Show show, Ticket ticket, String strDate, Movie movie) {
+    public static double calculatePrice(Show show, Ticket.UserAgeType userAgeType, String strDate, Movie movie) {
         double price = 0;
         Movie.MovieType movieType = movie.getMovieType();
         Show.TheatreClass theatreClass = show.getTheaterClass();
         String startTime = show.getStartTime();
         LocalTime time = LocalTime.parse(startTime);
-        Ticket.UserAgeType age = ticket.getUserAgeType();
+        Ticket.UserAgeType age = userAgeType;
 
         try {
             Price priceList = new Price();

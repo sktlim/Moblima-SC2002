@@ -21,8 +21,14 @@ public class AdminManager {
     public static final String FILENAME = "Databases/admins.txt" ;
 
 
-    /** Create method
-     * Create new admin and add it to the data base*/
+
+    /**
+     * Create method to add new admin to the database
+     * @param sc Takes in the scanner to instantiate variables within
+     *           the function itself.
+     *           Password is checked with a confirm password field as per
+     *           normal sign up operations.
+     */
     public static void createAdmin(Scanner sc){
         try {
             System.out.println("Enter Username: ");
@@ -54,8 +60,10 @@ public class AdminManager {
 
     }
 
-    /** Read method
-     * Print method to display everything on the txt file database */
+
+    /**
+     * Prints the entire admin list from the database,
+     */
     public static void printAdminList(){
         try{
             ArrayList al = readAdmins(FILENAME);
@@ -73,8 +81,12 @@ public class AdminManager {
         }
     }
 
-    /** Read Method
-     * Find Admins by their admin ID
+
+    /**
+     * Read Method
+     * Find Admins by their Admin ID
+     * @param adminID
+     * @return Admin Object
      */
     public static Admin findAdmin(int adminID){
         try{
@@ -98,12 +110,10 @@ public class AdminManager {
         return null;
     }
 
-    /** Update method
-     * this updates the various field of admin */
-    /**
-     *
+    /** Update Method
+     * Used to update the various fields of admin based on admin ID
      * @param adminID
-     * @param sc
+     * @param sc scanner is passed in to change various fields within the function
      */
     public static void updateAdmin(int adminID, Scanner sc){
         int semaphore = 0; // flag variable for password validation
@@ -167,8 +177,11 @@ public class AdminManager {
         }
     }
 
-    /** Delete method
-     * delete admin based on adminID */
+    /**
+     * Delete Method
+     * Deletes entry on the database based on adminID
+     * @param adminID
+     */
     public static void deleteAdmin(int adminID){
         try{
             boolean foundRequestedAdmin = false;
@@ -196,8 +209,13 @@ public class AdminManager {
 
 
 
-    /** reading (helper func, declared as private as it is only called within this file)
-     * This creates a list of instances of admins */
+    /**
+     * Reading (Helper function)
+     * Declared as private as it is only called within the scope of this file
+     * @param filename
+     * @return Array list of admins
+     * @throws IOException
+     */
 
     private static ArrayList readAdmins(String filename) throws IOException {
         // read String from text file
@@ -219,10 +237,8 @@ public class AdminManager {
         return alr ;
     }
 
-    /** Write fixed content to the given file.
-     * (helper func, declared as private as it is only called within this file)*/
-    /**
-     *
+    /** Write a fixed content to the given file
+     * Declared as private as it is only called within the scope of this file
      * @param fileName
      * @param data
      * @throws IOException
@@ -241,7 +257,11 @@ public class AdminManager {
     }
 
     /** Read the contents of the given file.
-     * (helper func, declared as private as it is only called within this file)*/
+     * Declared as private as it is only called within the scope of this file
+     * @param fileName
+     * @return
+     * @throws IOException
+     */
     private static List read(String fileName) throws IOException {
         List data = new ArrayList() ;
         Scanner scanner = new Scanner(new FileInputStream(fileName));
@@ -256,10 +276,9 @@ public class AdminManager {
         return data;
     }
 
-    /** saving
-     * (helper func, declared as private as it is only called within this file)*/
-    /**
-     *
+
+    /** Saving (Helper function)
+     * declared as private as it is only called within this file
      * @param filename
      * @param al
      * @throws IOException

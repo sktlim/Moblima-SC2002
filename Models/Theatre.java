@@ -8,6 +8,13 @@ public class Theatre {
 
     private int isBusy;
 
+    /**
+     * Constructor for Theatre
+     * @param theatreId
+     * @param cineplexCode
+     * @param theatreClass
+     * @param isBusy
+     */
     public Theatre(int theatreId, String cineplexCode, Show.TheatreClass theatreClass, int isBusy) {
         this.theatreId = theatreId;
         this.cineplexCode = cineplexCode;
@@ -15,6 +22,10 @@ public class Theatre {
         this.isBusy = isBusy;
     }
 
+    /**
+     * Getter and Setter Methods
+     * @return
+     */
     public int getTheatreId() {
         return theatreId;
     }

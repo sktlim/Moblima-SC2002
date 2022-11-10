@@ -16,7 +16,9 @@ public class ShowManager {
     public static final String FILENAME = "Databases/shows.txt" ;
 
     /** Create method
-     * Create new show and add it to the data base*/
+     * Create new show and add it to the database
+     * @param sc Takes in scanner to instantiate various fields in the function
+     */
     public static void createShow(Scanner sc){
         try {
             System.out.println("Enter Movie ID: ");
@@ -124,7 +126,10 @@ public class ShowManager {
     }
 
     /** Read method
-     * Find show by show ID */
+     * Find show by show ID
+     * @param showID
+     * @return Object of type Show
+     */
     public static Show findShow(int showID){
         try{
             ArrayList al = readShows(FILENAME);
@@ -144,7 +149,10 @@ public class ShowManager {
     }
 
     /** Update method
-     * this updates the various field of movieGoer */
+     * this updates the various field of movieGoer by showId
+     * @param showId
+     * @param sc Takes in scanner to update various fields within the function
+     */
     public static void updateShows(int showId, Scanner sc){
         String inputField = "0";
         Show.TheatreClass theatreClass = Show.TheatreClass.DEFAULT;
@@ -256,8 +264,11 @@ public class ShowManager {
 
     }
 
-    /** Delete method
-     * delete show based on showID */
+    /**
+     * Delete method
+     * delete show based on showID
+     * @param showID
+     */
     public static void deleteShow(int showID){
         try{
             ArrayList al = readShows(FILENAME);
@@ -279,7 +290,7 @@ public class ShowManager {
 
 
     /** reading (helper func, declared as private as it is only called within this file)
-     * This creates a list of instances of admins */
+     * This creates a list of instances of shows */
 
     private static ArrayList readShows(String filename) throws IOException {
         // read String from text file

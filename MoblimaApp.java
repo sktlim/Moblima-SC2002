@@ -21,9 +21,7 @@ public class MoblimaApp {
                     case 1:
                         // Login as admin
 
-//                        SeatManager.updateSeatPlan(1, "A3", 0);
-                        SeatManager.isSeatAvail(1, "A3");
-
+                        TicketManager.createTicket(sc, 1);
                         break;
                     case 2:
                         // Login as moviegoer

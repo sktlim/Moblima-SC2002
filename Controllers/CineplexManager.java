@@ -14,13 +14,15 @@ import java.util.StringTokenizer;
 import Exceptions.ItemNotFoundException;
 
 
-/** Completed MH (10Nov)*/
 public class CineplexManager { //crud
     public final static String FILENAME = "Databases/cineplexes.txt";
     public final static  String SEPARATOR = "|";
 
-    /** Read method
-     * Print method to display everything on the txt file database */
+
+    /**
+     * Read method
+     * Print method to display everything on the txt file database
+     */
     public static void printCineplexList(){
         try{
             ArrayList cin = readCineplexes(FILENAME);
@@ -33,8 +35,12 @@ public class CineplexManager { //crud
         catch (IOException e){
         }
     }
-    /** Read method
-     * Find cineplex by cineplex code */
+
+    /**
+     * Read Method, find by cineplex code
+     * @param cineplexCode
+     * @return an object of type Cineplex
+     */
     public static Cineplex findCineplex(String cineplexCode){
         try{
             ArrayList cin = readCineplexes(FILENAME);
@@ -56,8 +62,14 @@ public class CineplexManager { //crud
         return null;
     }
 
-    /** reading (helper func, declared as protected as it is called within child file)
-     * This creates a list of instances of movies */
+
+    /**
+     * Read (Helper function)
+     * Declared as private as it is only called within the scope of this file
+     * @param filename
+     * @return ArrayList of cineplexes
+     * @throws IOException
+     */
 
     private static ArrayList readCineplexes(String filename) throws IOException {
         // read String from text file
@@ -110,8 +122,13 @@ public class CineplexManager { //crud
         return data;
     }
 
-    /** saving
-     * (helper func, declared as private as it is called by child)*/
+    /**
+     * Save to database (Helper function)
+     * Declared as private as it is only called within the scope of this file
+     * @param filename
+     * @param al
+     * @throws IOException
+     */
 
     private static void saveCineplexes(String filename, List al) throws IOException {
         List alw = new ArrayList() ;// to store movies data
