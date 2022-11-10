@@ -6,6 +6,8 @@ import java.io.*;
 import java.util.*;
 import java.time.LocalDate;
 
+import Exceptions.ItemNotFoundException;
+
 public class HolidayManager {
 
     public final static String FILENAME = "Databases/holidays.txt";
@@ -46,7 +48,8 @@ public class HolidayManager {
         return alr ;
     }
 
-
+    /** Admins will input the year, month, date separately.
+     * New date object will then be created with these 3 fields.**/
     private static void createHoliday(Scanner sc) {
         try {
             System.out.println("Please enter the holiday's Name: ");
@@ -73,6 +76,14 @@ public class HolidayManager {
         }
     }
 
+    /** Write fixed content to the given file.
+     * (helper func, declared as private as it is only called within this file)*/
+    /**
+     *
+     * @param fileName
+     * @param data
+     * @throws IOException
+     */
     private static void write(String fileName, List data) throws IOException {
         PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(fileName)));
 
@@ -88,7 +99,6 @@ public class HolidayManager {
 
     /** saving
      * (helper func, declared as private as it is only called within this file)*/
-
     private static void saveHolidays(String fileName, List al) throws IOException {
         List alw = new ArrayList();
 
@@ -115,11 +125,9 @@ public class HolidayManager {
                 System.out.println("Holiday Date: " + h.getDate());
                 System.out.println();
             }
-
-
         }
         catch (IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
     }
 
@@ -151,9 +159,11 @@ public class HolidayManager {
             }
 
             ArrayList holidayList = readHolidays(FILENAME);
+            boolean foundRequestedHoliday = false;
             for (int i = 0; i < holidayList.size(); i++) {
                 Holiday h = (Holiday) holidayList.get(i);
-                if (Objects.equals(h.getName(), holidayName)) {
+                if (Objects.equals(h.getName(), holidayName)) { // holiday has been found
+                    foundRequestedHoliday = true;
                     switch (fieldEdit) {
                         case 1:
                             h.setName(inputField);
@@ -169,8 +179,15 @@ public class HolidayManager {
 
             saveHolidays(FILENAME, holidayList);
 
-        } catch (IOException e) {
+            if (!foundRequestedHoliday) {
+                throw new ItemNotFoundException();
+            }
 
+        } catch (IOException e) {
+            System.out.println("IOException > " + e.getMessage());
+        }
+        catch (ItemNotFoundException e){
+            System.out.println("Holiday not found > " + e.getMessage());
         }
     }
 
@@ -182,16 +199,25 @@ public class HolidayManager {
 
         try {
             ArrayList hl = readHolidays(FILENAME);
+            boolean foundRequestedHoliday = false;
             for (int i=0; i<hl.size(); i++){
                 Holiday h = (Holiday) hl.get(i);
-                if (Objects.equals(h.getName(), holidayToBeDeleted)){
+                if (Objects.equals(h.getName(), holidayToBeDeleted)){ // holiday has been found
+                    foundRequestedHoliday = true;
                     hl.remove(i);
                 }
             }
             saveHolidays(FILENAME, hl);
             System.out.println(String.format("%s has successfully been deleted.", holidayToBeDeleted));
-        } catch (IOException e) {
 
+            if (!foundRequestedHoliday) {
+                throw new ItemNotFoundException();
+            }
+        } catch (IOException e) {
+            System.out.println("IOException > " + e.getMessage());
+        }
+        catch (ItemNotFoundException e){
+            System.out.println("Holiday not found > " + e.getMessage());
         }
     }
 

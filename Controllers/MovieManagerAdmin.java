@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Exceptions.ItemNotFoundException;
 
 public class MovieManagerAdmin extends MovieManagerMovieGoer {
 
@@ -103,6 +104,11 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
 
     /** Update method
      * this updates the various field of movieGoer */
+    /**
+     *
+     * @param movieId
+     * @param sc
+     */
     public static void updateMovies(int movieId, Scanner sc){
         String inputField = "0";
         Movie.ShowingStatus showingStatus = Movie.ShowingStatus.DEFAULT;
@@ -229,9 +235,11 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
 
 
             ArrayList ml = readMovies(FILENAME);
+            boolean foundMovie = false;
             for (int i=0; i<ml.size(); i++){
                 Movie m = (Movie) ml.get(i);
-                if (m.getMovieId() == movieId){
+                if (m.getMovieId() == movieId){ // found
+                    foundMovie = true;
                     switch(fieldEdit){
                         case 0:
                             m.setMovieTitle(inputField);
@@ -277,12 +285,17 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
                 }
             }
             saveMovies(FILENAME, ml);
+
+            if (!foundMovie) {
+                throw new ItemNotFoundException();
+            }
         }
         catch(IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
-
-
+        catch (ItemNotFoundException e) {
+            System.out.println("Movie not found > " + e.getMessage());
+        }
     }
     /** Read method
      * Find movie by movieId*/
@@ -291,18 +304,19 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
             ArrayList mov = readMovies(FILENAME);
             for (int i = 0 ; i < mov.size() ; i++) {
                 Movie m = (Movie) mov.get(i);
-                if (m.getMovieId()==movieID){
-//                    System.out.println("Movie successfully found!");
+                if (m.getMovieId()==movieID){ // found
+                    System.out.println("Movie successfully found!");
                     return m;
                 }
             }
-
-
+            throw new ItemNotFoundException();
         }
         catch (IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
-        System.out.println("Movie not found!");
+        catch (ItemNotFoundException e) {
+            System.out.println("Admin not found > " + e.getMessage());
+        }
         return null;
     }
     /** Delete method
@@ -310,19 +324,25 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
     public static void deleteMovie(int movieId){
         try{
             ArrayList ml = readMovies(FILENAME);
+            boolean foundMovie = false;
             for (int i=0; i<ml.size(); i++){
                 Movie m = (Movie) ml.get(i);
-                if (m.getMovieId() == movieId){
+                if (m.getMovieId() == movieId){ // found
+                    foundMovie = true;
                     ml.remove(i);
                 }
             }
             saveMovies(FILENAME, ml);
+            if (!foundMovie) {
+                throw new ItemNotFoundException();
+            }
         }
         catch(IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
-
-
+        catch (ItemNotFoundException e) {
+            System.out.println("Admin not found > " + e.getMessage());
+        }
     }
 
 
