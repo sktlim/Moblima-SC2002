@@ -7,6 +7,7 @@ import java.util.*;
 import java.time.LocalDate;
 
 import Exceptions.ItemNotFoundException;
+import java.util.InputMismatchException;
 
 public class HolidayManager {
 
@@ -73,6 +74,9 @@ public class HolidayManager {
             System.out.println(String.format("%s has successfully been created.", holidayName));
         } catch (IOException e){
             System.out.println("IOException > " + e.getMessage());
+        }
+        catch (InputMismatchException e) {
+            System.out.println("Your input was of a wrong format! Please ensure that your input is an integer.");
         }
     }
 
@@ -189,6 +193,9 @@ public class HolidayManager {
         catch (ItemNotFoundException e){
             System.out.println("Holiday not found > " + e.getMessage());
         }
+        catch (InputMismatchException e) {
+            System.out.println("Your input was of a wrong format! Please ensure that your input is an integer.");
+        }
     }
 
     /** Delete method
@@ -219,6 +226,9 @@ public class HolidayManager {
         catch (ItemNotFoundException e){
             System.out.println("Holiday not found > " + e.getMessage());
         }
+        catch (InputMismatchException e) {
+            System.out.println("Your input was of a wrong format!");
+        }
     }
 
     /** Accepts a String of format YYYY-MM-DD **/
@@ -238,35 +248,6 @@ public class HolidayManager {
         }
     }
 
-    /** FOR UNIT TESTS ON HOLIDAYS **/
-//    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        System.out.println("1: printHolidayList");
-//        System.out.println("2: createHoliday");
-//        System.out.println("3: updateHoliday");
-//        System.out.println("4: deleteHoliday");
-//        System.out.println("5: isHoliday");
-//        int choice = sc.nextInt();
-//        sc.nextLine();
-//
-//        switch(choice) {
-//            case 1:
-//                HolidayManager.printHolidayList();
-//                break;
-//            case 2:
-//                HolidayManager.createHoliday(sc);
-//                break;
-//            case 3:
-//                HolidayManager.updateHoliday(sc);
-//                break;
-//            case 4:
-//                HolidayManager.deleteHoliday(sc);
-//                break;
-//            case 5:
-//                System.out.println(HolidayManager.isHoliday("2022-12-22")); // not a holiday
-//                System.out.println(HolidayManager.isHoliday("2022-12-25")); // christmas
-//        }
-//    }
 
 
 }

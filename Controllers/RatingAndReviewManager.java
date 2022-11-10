@@ -14,6 +14,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 import Exceptions.ItemNotFoundException;
+import java.util.InputMismatchException;
 
 import static Controllers.MovieManagerMovieGoer.readMovies;
 
@@ -66,7 +67,9 @@ public class RatingAndReviewManager {
         catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
         }
-
+        catch (InputMismatchException e) {
+            System.out.println("Your input was of a wrong format! Please ensure that your input is an integer.");
+        }
     }
 
     /** Read method
@@ -159,7 +162,9 @@ public class RatingAndReviewManager {
         catch (ItemNotFoundException e) {
             System.out.println("No reviews found that match the given reviewId > " + e.getMessage());
         }
-
+        catch (InputMismatchException e) {
+            System.out.println("Your input was of a wrong format! Please ensure that your input is an integer.");
+        }
     }
 
     /** Delete method

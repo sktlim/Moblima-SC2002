@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import Exceptions.ItemNotFoundException;
+import java.util.InputMismatchException;
 
 public class MovieManagerAdmin extends MovieManagerMovieGoer {
 
@@ -99,6 +100,9 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
         }
         catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
+        }
+        catch (InputMismatchException e) {
+            System.out.println("Your input was of a wrong format! Please ensure that your input is an integer.");
         }
     }
 
@@ -295,6 +299,9 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
         }
         catch (ItemNotFoundException e) {
             System.out.println("Movie not found > " + e.getMessage());
+        }
+        catch (InputMismatchException e) {
+            System.out.println("Your input was of a wrong format! Please ensure that your input is an integer.");
         }
     }
     /** Read method
