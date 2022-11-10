@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="Integrated isHoliday() with ticket price manager">
+    <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="Completed ticket price manager class">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/TicketPriceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/TicketPriceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Databases/prices.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Databases/prices.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MoblimaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/MoblimaApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667834369787</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Completed ticket price manager class">
+      <created>1668097658979</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668097658979</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -183,7 +189,8 @@
     <MESSAGE value="updated update method of MovieManagerAdmin" />
     <MESSAGE value="added databses" />
     <MESSAGE value="Updated ticket price manager" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated ticket price manager" />
+    <MESSAGE value="Completed ticket price manager class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed ticket price manager class" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
