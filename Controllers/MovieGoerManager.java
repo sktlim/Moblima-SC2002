@@ -14,7 +14,6 @@ public class MovieGoerManager {
     public final static String FILENAME = "Databases/movieGoers.txt";
     public static final String SEPARATOR = "|";
 
-<<<<<<< HEAD
     /** Checks if the user exists in the database
      * If yes, let the users know that failed authentication is due to wrong password input
      * Else, prompt users to sign up **/
@@ -35,14 +34,10 @@ public class MovieGoerManager {
     }
 
     /** Create method
-     * Create new movieGoer and add it to the database*/
-=======
-    /**
-     * Create method
      * @param sc takes in scanner to input fields within the function
      * Create new movieGoer and add it to the database
-     */
->>>>>>> c821ae5216824c0d0f287c373b72455d7c7d1b97
+     **/
+
     public static void createMovieGoer(Scanner sc){
         try {
             System.out.println("Enter Username: ");
