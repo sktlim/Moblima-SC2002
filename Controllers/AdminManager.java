@@ -8,7 +8,10 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
+
+import Exceptions.ItemNotFoundException;
 import Models.Admin;
+
 
 
 /** Completed MH (10Nov)*/
@@ -47,7 +50,6 @@ public class AdminManager {
         }
         catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
-
         }
 
     }
@@ -67,7 +69,7 @@ public class AdminManager {
 
         }
         catch (IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
     }
 
@@ -84,17 +86,25 @@ public class AdminManager {
                     return adm;
                 }
             }
+            throw new ItemNotFoundException();
 
         }
-        catch (IOException e){
-
+        catch (IOException e) {
+            System.out.println("IOException > " + e.getMessage());
         }
-        System.out.println("Admin not found.");
+        catch (ItemNotFoundException e) {
+            System.out.println("Admin not found > " + e.getMessage());
+        }
         return null;
     }
 
     /** Update method
      * this updates the various field of admin */
+    /**
+     *
+     * @param adminID
+     * @param sc
+     */
     public static void updateAdmin(int adminID, Scanner sc){
         int semaphore = 0; // flag variable for password validation
         String inputField = "0";
@@ -123,9 +133,11 @@ public class AdminManager {
 
 
             ArrayList al = readAdmins(FILENAME);
+            boolean foundRequestedAdmin = false; // flag to determine if the admin to be updated exists
             for (int i=0; i<al.size(); i++){
                 Admin adm = (Admin) al.get(i);
-                if (adm.getAdminId() == adminID){
+                if (adm.getAdminId() == adminID){ // admin has been found
+                    foundRequestedAdmin = true;
                     if (fieldEdit == 0 && inputField != "0"){
                         adm.setUsername(inputField);
                         System.out.println("Username successfully updated.");
@@ -142,32 +154,44 @@ public class AdminManager {
                 }
             }
             saveAdmins(FILENAME, al);
+
+            if (!foundRequestedAdmin) { // the requested admin was not found
+                throw new ItemNotFoundException();
+            }
         }
         catch(IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
-
-
+        catch (ItemNotFoundException e) {
+            System.out.println("Admin not found > " + e.getMessage());
+        }
     }
 
     /** Delete method
      * delete admin based on adminID */
     public static void deleteAdmin(int adminID){
         try{
+            boolean foundRequestedAdmin = false;
             ArrayList al = readAdmins(FILENAME);
             for (int i=0; i<al.size(); i++){
                 Admin adm = (Admin) al.get(i);
-                if (adm.getAdminId() == adminID){
+                if (adm.getAdminId() == adminID){ // admin has been found
+                    foundRequestedAdmin = true;
                     al.remove(i);
                 }
             }
             saveAdmins(FILENAME, al);
+
+            if (!foundRequestedAdmin) {
+                throw new ItemNotFoundException();
+            }
         }
         catch(IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
-
-
+        catch (ItemNotFoundException e) {
+            System.out.println("Admin not found > " + e.getMessage());
+        }
     }
 
 
@@ -197,6 +221,12 @@ public class AdminManager {
 
     /** Write fixed content to the given file.
      * (helper func, declared as private as it is only called within this file)*/
+    /**
+     *
+     * @param fileName
+     * @param data
+     * @throws IOException
+     */
     private static void write(String fileName, List data) throws IOException  {
         PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
@@ -228,7 +258,12 @@ public class AdminManager {
 
     /** saving
      * (helper func, declared as private as it is only called within this file)*/
-
+    /**
+     *
+     * @param filename
+     * @param al
+     * @throws IOException
+     */
     private static void saveAdmins(String filename, List al) throws IOException {
         List alw = new ArrayList() ;// to store admins data
 
@@ -244,12 +279,6 @@ public class AdminManager {
         }
         write(filename,alw);
     }
-
-
-
-
-
-
 
 }
 
