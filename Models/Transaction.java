@@ -7,6 +7,13 @@ public class Transaction {
     private int movieGoerId;
     private String dateTime;
 
+    /**
+     * Constructor for Transaction
+     * @param TID
+     * @param ticketId
+     * @param movieGoerId
+     * @param dateTime
+     */
     public Transaction(String TID, int ticketId, int movieGoerId, String dateTime) {
         this.TID = TID;
         this.ticketId = ticketId;
@@ -14,6 +21,10 @@ public class Transaction {
         this.dateTime = dateTime;
     }
 
+    /**
+     * Getter and Setter Methods
+     * @return
+     */
     public String getTID() {
         return TID;
     }

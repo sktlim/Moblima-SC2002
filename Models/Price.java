@@ -34,9 +34,16 @@ public class Price {
     private double student;
     private double seniorCitizen;
 
+    /**
+     * Constructor method for price
+     */
     public Price() {
     }
 
+    /**
+     * Getter and Setter Methods
+     * @return
+     */
     public double getStandard_2DWeekday_MonWed() {
         return Standard_2DWeekday_MonWed;
     }

@@ -13,9 +13,19 @@ public class Ticket {
     private String seat;
     private UserAgeType userAgeType;
     private DayType dayType;
-    private float price;
+    private double price;
 
-    public Ticket(int ticketId, int showId, int userId, String seat, UserAgeType userAgeType, DayType dayType, float price){
+    /**
+     * Constructor for ticket
+     * @param ticketId
+     * @param showId
+     * @param userId
+     * @param seat
+     * @param userAgeType
+     * @param dayType
+     * @param price
+     */
+    public Ticket(int ticketId, int showId, int userId, String seat, UserAgeType userAgeType, DayType dayType, double price){
         this.ticketId = ticketId;
         this.showId = showId;
         this.userId = userId;
@@ -25,7 +35,10 @@ public class Ticket {
         this.price = price;
     }
 
-    //getter setters
+    /**
+     * Getter and Setter Methods
+      * @return
+     */
     public int getTicketId(){
         return this.ticketId;
     }
@@ -50,7 +63,7 @@ public class Ticket {
         return this.dayType;
     }
 
-    public float getPrice(){
+    public double getPrice(){
         return this.price;
     }
 
@@ -78,7 +91,7 @@ public class Ticket {
         this.dayType = dayType;
     }
 
-    public void setPrice(float price){
+    public void setPrice(double price){
         this.price = price;
     }
 

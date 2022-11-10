@@ -22,6 +22,7 @@ public class TicketPriceManager {
      * @throws IOException
      */
     private Map<String, Double> readPrices() throws IOException {
+
         // read String from text file
         ArrayList stringArray = (ArrayList) read();
 //        ArrayList alr = new ArrayList() ;// to store Price data
@@ -44,7 +45,9 @@ public class TicketPriceManager {
      * @return Data input from .txt file
      * @throws IOException Error with reading .txt file
      */
+
     private List read() throws IOException {
+
         List data = new ArrayList();
         Scanner scanner = new Scanner(new FileInputStream(TicketPriceManager.FILENAME));
         try {
@@ -102,7 +105,7 @@ public class TicketPriceManager {
      * @param priceList Price Object to update with Prices
      * @return Updated Price Object will be returned
      */
-    private Price createPrices(Map<String, Double> hashMap, Price priceList) {
+    private static Price createPrices(Map<String, Double> hashMap, Price priceList) {
         priceList.setStandard_2DWeekday_MonWed(hashMap.get("Standard_2DWeekday_MonWed"));
         priceList.setStandard_2DWeekday_Thu(hashMap.get("Standard_2DWeekday_Thu"));
         priceList.setStandard_2DWeekday_Fri(hashMap.get("Standard_2DWeekday_Fri"));
@@ -142,7 +145,7 @@ public class TicketPriceManager {
     /**
      * Prints the full list of prices for every type
      */
-    public void printPriceList() {
+    public static void printPriceList() {
         try {
             Price priceList = new Price();
             Map<String, Double> hm = readPrices();
@@ -190,6 +193,7 @@ public class TicketPriceManager {
      * Updates prices based on input from user
      * @param sc Takes in Scanner object as input
      */
+     
     public void updatePrice(Scanner sc) {
         try {
             int selection;
@@ -409,6 +413,7 @@ public class TicketPriceManager {
         }
     }
 
+
     /**
      * @param show    Show object
      * @param ticket  Ticket object
@@ -422,7 +427,7 @@ public class TicketPriceManager {
         Show.TheatreClass theatreClass = show.getTheaterClass();
         String startTime = show.getStartTime();
         LocalTime time = LocalTime.parse(startTime);
-        Ticket.UserAgeType age = ticket.getUserAgeType();
+        Ticket.UserAgeType age = userAgeType;
 
         try {
             Price priceList = new Price();

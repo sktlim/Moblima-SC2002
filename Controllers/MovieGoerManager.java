@@ -18,8 +18,11 @@ public class MovieGoerManager {
     public final static String FILENAME = "Databases/movieGoers.txt";
     public static final String SEPARATOR = "|";
 
-    /** Create method
-     * Create new movieGoer and add it to the database*/
+    /**
+     * Create method
+     * @param sc takes in scanner to input fields within the function
+     * Create new movieGoer and add it to the database
+     */
     public static void createMovieGoer(Scanner sc){
         try {
             System.out.println("Enter Username: ");
@@ -55,8 +58,10 @@ public class MovieGoerManager {
         }
     }
 
-    /** Read method
-     * Print method to display everything on the txt file database */
+    /**
+     * Read method
+     * Print method to display everything on the txt file database
+     */
     public static void printMovieGoerList(){
         try{
             ArrayList ml = readMovieGoers(FILENAME);
@@ -73,8 +78,12 @@ public class MovieGoerManager {
         }
     }
 
-    /** Read method
-     * Find moviegoer by movieGoer ID */
+    /**
+     * Read method
+     * Find movie goer by movieGoerID
+     * @param movieGoerID
+     * @return object of type MovieGoer
+     */
     public static MovieGoer findMovieGoer(int movieGoerID){
         try{
             ArrayList ml = readMovieGoers(FILENAME);
@@ -99,8 +108,11 @@ public class MovieGoerManager {
         return null;
     }
 
-    /** Update method
-     * this updates the various field of movieGoer */
+    /**
+     * Update method
+     * @param movieGoerId takes in the movieGoerId for updating
+     * @param sc takes in scanner for field update within the function
+     */
     public static void updateMovieGoer(int movieGoerId, Scanner sc){
         int semaphore = 0; // flag variable for password validation
         String inputField = "0";
@@ -177,8 +189,11 @@ public class MovieGoerManager {
         }
     }
 
-    /** Delete method
-     * delete admin based on adminID */
+    /**
+     * Delete method
+     * delete admin based on adminID
+     * @param movieGoerId
+     */
     public static void deleteMovieGoer(int movieGoerId){
         try{
             ArrayList ml = readMovieGoers(FILENAME);

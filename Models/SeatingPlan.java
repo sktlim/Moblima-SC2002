@@ -7,6 +7,13 @@ public class SeatingPlan {
     private int noOfRows;
     private int noOfColumns;
 
+    /**
+     * Constructor for Seating Plan
+     * @param cineplex
+     * @param theatre
+     * @param noOfRows
+     * @param noOfColumns
+     */
     public SeatingPlan(String cineplex, int theatre, int noOfRows, int noOfColumns){
         this.cineplex = cineplex;
         this.theatre = theatre;
@@ -14,7 +21,10 @@ public class SeatingPlan {
         this.noOfColumns = noOfColumns;
     }
 
-    // getters setters
+    /**
+     * Getter and Setter Methods
+     * @return
+     */
     public String getCineplex(){
         return this.cineplex;
     }

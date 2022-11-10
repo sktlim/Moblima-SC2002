@@ -15,10 +15,22 @@ public class RatingAndReview {
     Review and Ratings fields will be assigned to their default values
     and be overriden by the setter methods later on.
     */
+
+    /**
+     * Constructor for Rating and Review
+     * @param movieId
+     */
     public RatingAndReview(int movieId) {
         this.movieId = movieId;
     }
 
+    /**
+     * Overloaded method for Constructor of Rating and Review
+     * @param reviewId
+     * @param movieId
+     * @param review
+     * @param rating
+     */
     public RatingAndReview(int reviewId, int movieId, String review, int rating) {
         this.reviewId = reviewId;
         this.movieId = movieId;
@@ -26,7 +38,10 @@ public class RatingAndReview {
         this.rating = rating;
     }
 
-    //getters setters
+    /**
+     * Getter and Setter Methods
+     * @return
+     */
 
     public int getMovieId() {
         return this.movieId;
