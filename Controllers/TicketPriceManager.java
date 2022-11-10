@@ -21,7 +21,7 @@ public class TicketPriceManager {
      * @return returns Hashmap with Key-Value of Price Type and Price respectively
      * @throws IOException
      */
-    private Map<String, Double> readPrices() throws IOException {
+    private static Map<String, Double> readPrices() throws IOException {
 
         // read String from text file
         ArrayList stringArray = (ArrayList) read();
@@ -46,7 +46,7 @@ public class TicketPriceManager {
      * @throws IOException Error with reading .txt file
      */
 
-    private List read() throws IOException {
+    private static List read() throws IOException {
 
         List data = new ArrayList();
         Scanner scanner = new Scanner(new FileInputStream(TicketPriceManager.FILENAME));
@@ -194,7 +194,7 @@ public class TicketPriceManager {
      * @param sc Takes in Scanner object as input
      */
      
-    public void updatePrice(Scanner sc) {
+    public static void updatePrice(Scanner sc) {
         try {
             int selection;
             double updatedPrice;
@@ -416,12 +416,12 @@ public class TicketPriceManager {
 
     /**
      * @param show    Show object
-     * @param ticket  Ticket object
+     * @param userAgeType  Ticket object
      * @param strDate Date in 'YYYY-MM-DD' format with type String
      * @param movie   Movie Object
      * @return Price of ticket for particular show and movie at particular date
      */
-    public double calculatePrice(Show show, Ticket ticket, String strDate, Movie movie) {
+    public static double calculatePrice(Show show, Ticket.UserAgeType userAgeType, String strDate, Movie movie) {
         double price = 0;
         Movie.MovieType movieType = movie.getMovieType();
         Show.TheatreClass theatreClass = show.getTheaterClass();
