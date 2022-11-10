@@ -101,6 +101,8 @@
         <item itemvalue="Application.TicketPriceManager" />
         <item itemvalue="Application.HolidayManager" />
         <item itemvalue="Application.MoblimaApp" />
+        <item itemvalue="Application.TicketPriceManager" />
+        <item itemvalue="Application.HolidayManager" />
       </list>
     </recent_temporary>
   </component>
