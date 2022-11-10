@@ -104,8 +104,6 @@ public class ShowManager {
                     return s;
                 }
             }
-
-
         }
         catch (IOException e){
 

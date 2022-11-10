@@ -20,6 +20,8 @@ public class MoblimaApp {
                 switch (input) {
                     case 1:
                         // Login as admin
+//                        SeatManager.updateSeatPlan(1, "A3", 0);
+                        SeatManager.isSeatAvail(1, "A3");
                         break;
                     case 2:
                         // Login as moviegoer
