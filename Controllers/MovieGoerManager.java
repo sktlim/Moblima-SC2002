@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import Exceptions.ItemNotFoundException;
+import java.util.InputMismatchException;
 import Models.MovieGoer;
 
 public class MovieGoerManager {
@@ -51,9 +52,10 @@ public class MovieGoerManager {
         }
         catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
-
         }
-
+        catch (InputMismatchException e) {
+            System.out.println("Your input was of a wrong format! Please ensure that your input is an integer.");
+        }
     }
 
     /**
@@ -94,9 +96,8 @@ public class MovieGoerManager {
                     return mg;
                 }
             }
-            if (!foundRequestedMovieGoer) {
-                throw new ItemNotFoundException();
-            }
+            throw new ItemNotFoundException();
+
         }
         catch (IOException e){
             System.out.println("IOException > " + e.getMessage());
@@ -182,6 +183,9 @@ public class MovieGoerManager {
         }
         catch (ItemNotFoundException e) {
             System.out.println("MovieGoer not found > " + e.getMessage());
+        }
+        catch (InputMismatchException e) {
+            System.out.println("Your input was of a wrong format! Please ensure that your input is an integer.");
         }
     }
 

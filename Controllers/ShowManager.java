@@ -9,6 +9,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import Exceptions.ItemNotFoundException;
+import java.util.InputMismatchException;
 
 public class ShowManager {
 
@@ -91,13 +93,13 @@ public class ShowManager {
         }
         catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
-
         }
         catch(ParseException e){
             System.out.println("IOException > " + e.getMessage());
-
         }
-
+        catch (InputMismatchException e) {
+            System.out.println("Your input was of a wrong format! Please ensure that your input is an integer.");
+        }
     }
 
 
@@ -121,7 +123,7 @@ public class ShowManager {
 
         }
         catch (IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
     }
 
@@ -133,18 +135,22 @@ public class ShowManager {
     public static Show findShow(int showID){
         try{
             ArrayList al = readShows(FILENAME);
+            boolean foundShow = false;
             for (int i = 0 ; i < al.size() ; i++) {
                 Show s = (Show)al.get(i);
-                if (s.getShowId()==showID){
-//                    System.out.println("Show successfully found!");
+                if (s.getShowId()==showID){ // found
+                    System.out.println("Show successfully found!");
                     return s;
                 }
             }
+            throw new ItemNotFoundException();
         }
         catch (IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
-        System.out.println("Show not found!");
+        catch (ItemNotFoundException e) {
+            System.out.println("Show not found > " + e.getMessage());
+        }
         return null;
     }
 
@@ -209,19 +215,18 @@ public class ShowManager {
                     }
                     break;
 
-
                 case 5: // edit Cineplex
                     System.out.println("Enter Cineplex: ");
                     inputField = sc.nextLine();
                     break;
-
             }
 
-
             ArrayList sl = readShows(FILENAME);
+            boolean foundShow = false;
             for (int i=0; i<sl.size(); i++){
                 Show s = (Show) sl.get(i);
-                if (s.getShowId() == showId){
+                if (s.getShowId() == showId){ // found
+                    foundShow = true;
                     switch(fieldEdit){
                         case 0:
                             s.setDate(inputField);
@@ -256,12 +261,20 @@ public class ShowManager {
                 }
             }
             saveShows(FILENAME, sl);
+
+            if (!foundShow) {
+                throw new ItemNotFoundException();
+            }
         }
         catch(IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
-
-
+        catch (ItemNotFoundException e) {
+            System.out.println("Show not found > " + e.getMessage());
+        }
+        catch (InputMismatchException e) {
+            System.out.println("Your input was of a wrong format! Please ensure that your input is an integer.");
+        }
     }
 
     /**
@@ -272,19 +285,26 @@ public class ShowManager {
     public static void deleteShow(int showID){
         try{
             ArrayList al = readShows(FILENAME);
+            boolean foundShow = false;
             for (int i=0; i<al.size(); i++){
                 Show s = (Show) al.get(i);
-                if (s.getShowId() == showID){
+                if (s.getShowId() == showID){ // found
+                    foundShow = true;
                     al.remove(i);
                 }
             }
             saveShows(FILENAME, al);
+
+            if (!foundShow) {
+                throw new ItemNotFoundException();
+            }
         }
         catch(IOException e){
-
+            System.out.println("IOException > " + e.getMessage());
         }
-
-
+        catch (ItemNotFoundException e) {
+            System.out.println("Show not found > " + e.getMessage());
+        }
     }
 
 

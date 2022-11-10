@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import Exceptions.ItemNotFoundException;
+import java.util.InputMismatchException;
 import Models.Admin;
 
 
@@ -57,7 +58,9 @@ public class AdminManager {
         catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
         }
-
+        catch (InputMismatchException e) {
+            System.out.println("String inputs were expected, but your input was of a different format > " + e.getMessage());
+        }
     }
 
 
@@ -174,6 +177,9 @@ public class AdminManager {
         }
         catch (ItemNotFoundException e) {
             System.out.println("Admin not found > " + e.getMessage());
+        }
+        catch (InputMismatchException e) {
+            System.out.println("Your input was of a wrong format! Please ensure that your input is an integer.");
         }
     }
 
@@ -298,6 +304,7 @@ public class AdminManager {
         }
         write(filename,alw);
     }
+
 
 }
 
