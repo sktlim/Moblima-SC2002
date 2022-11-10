@@ -23,6 +23,11 @@ public class ShowManager {
             System.out.println("Enter Movie ID: ");
             int movieId = sc.nextInt();
             sc.nextLine();
+            while (MovieManagerAdmin.findMovie((movieId))==null){
+                System.out.println("Invalid Movie Selected. Please re-enter.");
+                movieId = sc.nextInt();
+                sc.nextLine();
+            }
             System.out.println("Enter Date (DD/MM/YYYY): ");
             String date = sc.nextLine();
             System.out.println("Enter Start Time (HH:MM, 24HRS): ");
@@ -51,8 +56,32 @@ public class ShowManager {
                     break;
             }
 
+            String cineplex = "null";
+
+
             System.out.println("Enter Cineplex: ");
-            String cineplex = sc.nextLine();
+            System.out.println("0: AMK Hub Mall");
+            System.out.println("1: Bishan Town Hall");
+            System.out.println("2: Jurong Point Junction");
+            int cineplexSelector = sc.nextInt();
+            sc.nextLine();
+            while(cineplexSelector<0 || cineplexSelector>2){
+                System.out.println("Invalid Input, please re-enter.");
+                cineplexSelector=sc.nextInt();
+                sc.nextLine();
+            }
+            switch(cineplexSelector){
+                case 0:
+                    cineplex = "AMK Hub Mall";
+                    break;
+                case 1:
+                    cineplex = "Bishan Town Hall";
+                    break;
+                case 2:
+                    cineplex = "Jurong Point Junction";
+                    break;
+            }
+
 
             ArrayList sl = readShows(FILENAME);
             Show s1 = new Show(sl.size()+1, movieId, date, startTime, endTime, theatre, theatreClass, cineplex);
