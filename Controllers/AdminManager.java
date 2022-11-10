@@ -11,6 +11,8 @@ import java.util.StringTokenizer;
 import Models.Admin;
 
 
+/** Completed MH (10Nov)*/
+
 public class AdminManager {
     public static final String SEPARATOR = "|";
     public static final String FILENAME = "Databases/admins.txt" ;
