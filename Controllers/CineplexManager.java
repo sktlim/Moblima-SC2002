@@ -1,7 +1,6 @@
 package Controllers;
 
 import Models.Cineplex;
-import Models.RatingAndReview;
 
 import java.io.FileInputStream;
 import java.io.FileWriter;
@@ -11,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
+
+import Exceptions.ItemNotFoundException;
 
 
 /** Completed MH (10Nov)*/
@@ -44,10 +45,14 @@ public class CineplexManager { //crud
                     return c;
                 }
             }
+            throw new ItemNotFoundException();
         }
         catch (IOException e){
+            System.out.println("IOException > " + e.getMessage());
         }
-        System.out.println("Cineplex not found!");
+        catch (ItemNotFoundException e) {
+            System.out.println("Cineplex not found > " + e.getMessage());
+        }
         return null;
     }
 
