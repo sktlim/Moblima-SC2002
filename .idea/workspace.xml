@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="Updated ticket price manager">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/HolidayManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/HolidayManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/AdminAuthManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/AdminAuthManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Databases/movieGoers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Databases/movieGoers.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MoblimaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/MoblimaApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

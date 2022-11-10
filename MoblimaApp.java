@@ -5,7 +5,8 @@ import Boundary.*;
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
-import static Controllers.AdminAuthManager.checker;
+import static Controllers.AdminAuthManager.adminchecker;
+import static Controllers.MovieGoerAuthManager.mgchecker;
 
 public class MoblimaApp {
     static void showSelections() {
@@ -37,7 +38,7 @@ public class MoblimaApp {
                         login_array[0] = username;
                         login_array[1] = password;
 
-                        boolean auth = checker(login_array [0],login_array [1]);
+                        boolean auth = adminchecker(login_array [0],login_array [1]);
                         if (auth) {
                             return;
                         }
@@ -47,11 +48,26 @@ public class MoblimaApp {
                         break;
                     case 2:
                         // Login as moviegoer
-                        System.out.println("You have chosen to login as MovieGoer. ");
+                        System.out.println("You have chosen to login as a Movie Goer. Please enter your login information below.");
+                        String [] login_array2 = new String [2];
+                        String username2, password2;
+
                         System.out.println("Enter your username: ");
-                        username = sc.nextLine();
+                        username2 = sc.next();
                         System.out.println("Enter your password: ");
-                        password = sc.nextLine();
+                        password2 = sc.next();
+
+                        // Stores username and password to the array
+                        login_array2[0] = username2;
+                        login_array2[1] = password2;
+
+                        boolean auth2 = mgchecker(login_array2 [0],login_array2 [1]);
+                        if (auth2 == true) {
+                            return;
+                        }
+                        else{
+                            System.out.println("Error! Details incorrect, please try again. ");
+                        }
                         break;
                     case 3:
                         // Create a new moviegoer

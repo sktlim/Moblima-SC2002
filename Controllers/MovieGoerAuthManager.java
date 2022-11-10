@@ -4,11 +4,11 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class AdminAuthManager {
+public class MovieGoerAuthManager {
 
-    static String fileName = "./databases/admins.txt";
+    static String fileName = "./databases/movieGoers.txt";
 
-    public static boolean adminchecker(String username, String password) throws IOException, FileNotFoundException {
+    public static boolean mgchecker(String username, String password) throws IOException, FileNotFoundException {
         // This will reference one line at a time
         String line = null;
         boolean retVal= false;
