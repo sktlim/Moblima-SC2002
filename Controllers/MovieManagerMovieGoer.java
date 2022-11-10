@@ -6,43 +6,135 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.util.*;
+import java.util.Map.Entry;
+
+
+import static Controllers.RatingAndReviewManager.readReviews;
 
 public class MovieManagerMovieGoer {
 
     public final static String FILENAME = "Databases/movies.txt";
     public final static  String SEPARATOR = "|";
+    public final static String REVIEWS = "Databases/ratingAndReviews.txt";
 
     public static void getAllReview(int movieId) {
         // prints all the reviews related to a particular movie
+        int reviewNum = 1;
+        try{
+            ArrayList al = readReviews(REVIEWS);
+            for (int i=0 ;i<al.size(); i++){
+                RatingAndReview r = (RatingAndReview) al.get(i);
+                if (r.getMovieId() == movieId){
+                    System.out.printf("Review %d: %s\n", reviewNum, r.getReview());
+                    reviewNum++;
+                }
+            }
+            if (reviewNum == 1){
+                System.out.println("Sorry, it seems like there are no available reviews for this movie.");
+            }
+
+        }
+        catch(IOException e){
+
+        }
+    }
+    public static float getOverallRatings(int movieId){
+        // return method
+        float reviewNum = 0;
+        float ratingTot = 0;
+        try{
+            ArrayList al = readReviews(REVIEWS);
+            for (int i=0 ;i<al.size(); i++){
+                RatingAndReview r = (RatingAndReview) al.get(i);
+                if (r.getMovieId() == movieId){
+                    ratingTot += r.getRating();
+                    reviewNum++;
+                }
+            }
+        }
+        catch(IOException e){
+
+        }
+        return ratingTot/reviewNum;
+
     }
 
-    public static void getOverallRatings(int movieId) {
+    public static void printOverallRatings(int movieId) {
         // prints the overall numerical ratings for a particular movie
         // return String "N/A" if no ratings are found for this movie
+        float reviewNum = 0;
+        float ratingTot = 0;
+        try{
+            ArrayList al = readReviews(REVIEWS);
+            for (int i=0 ;i<al.size(); i++){
+                RatingAndReview r = (RatingAndReview) al.get(i);
+                if (r.getMovieId() == movieId){
+                    ratingTot += r.getRating();
+                    reviewNum++;
+                }
+            }
+            if (reviewNum == 0){
+                System.out.println("Sorry, it seems like there are no available reviews for this movie.");
+            }
+            else{
+                System.out.printf("The average rating for this movie is %.2f.\n", ratingTot/reviewNum);
+            }
+        }
+        catch(IOException e){
+
+        }
     }
 
-    public static void addReview(int movieId, String review) {
-        RatingAndReview ratingAndReview = new RatingAndReview(movieId); // calls overloaded constructor with only one param
-        ratingAndReview.setReview(review);
+    public static void addRatingAndReview(Scanner sc) {
+        RatingAndReviewManager.createReview(sc);
     }
 
-    public static void addRating(int movieId, int rating) {
-        RatingAndReview ratingAndReview = new RatingAndReview(movieId); // calls overloaded constructor with only one param
-        ratingAndReview.setRating(rating);
-    }
 
     public static String[] getTop5MoviesByTicketSales() {
         String[] result = {"A"};
         return result; // placeholder
     }
 
-    public static String[] getTop5MoviesByRating() {
+    public static void getTop5MoviesByRating() {
         String[] result = {"A"};
-        return result; // placeholder
+        HashMap<Integer, Float> hm = new HashMap<>();
+        try {
+            ArrayList al = readReviews(REVIEWS);
+            for (int i = 0; i < al.size(); i++) {
+                RatingAndReview r = (RatingAndReview) al.get(i);
+                if (!hm.containsKey(r.getMovieId())) {
+                    hm.put(r.getMovieId(), getOverallRatings(r.getMovieId()));
+                }
+            }
+        } catch (IOException e) {
+
+        }
+
+        LinkedHashMap<Integer, Float> sortedMap = new LinkedHashMap<>();
+        ArrayList<Float> list = new ArrayList<>();
+        for (Map.Entry<Integer, Float> entry : hm.entrySet()) {
+            list.add(entry.getValue());
+        }
+        Collections.sort(list, Collections.reverseOrder());
+        for (Float num : list) {
+            for (Entry<Integer, Float> entry : hm.entrySet()) {
+                if (entry.getValue().equals(num)) {
+                    sortedMap.put(entry.getKey(), num);
+                }
+            }
+        }
+//        System.out.println(sortedMap);
+        int numElements = 5;
+        System.out.println("Top 5 movies: ");
+        for (Integer key : sortedMap.keySet()) {
+            if (numElements <= 0) {
+                break;
+            }
+            Movie m = MovieManagerAdmin.findMovie(key);
+            System.out.println(m.getMovieTitle());
+            numElements--;
+        }
     }
 
     /** Read method

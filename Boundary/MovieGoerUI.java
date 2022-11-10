@@ -50,8 +50,8 @@ public class MovieGoerUI {
         return MovieManagerMovieGoer.getTop5MoviesByTicketSales();
     }
 
-    public String[] getTop5MoviesByRating() {
-        return MovieManagerMovieGoer.getTop5MoviesByRating();
+    public static void getTop5MoviesByRating() {
+        MovieManagerMovieGoer.getTop5MoviesByRating();
     }
 
 }

@@ -284,7 +284,7 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
             for (int i = 0 ; i < mov.size() ; i++) {
                 Movie m = (Movie) mov.get(i);
                 if (m.getMovieId()==movieID){
-                    System.out.println("Movie successfully found!");
+//                    System.out.println("Movie successfully found!");
                     return m;
                 }
             }
