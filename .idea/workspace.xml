@@ -62,7 +62,7 @@
     <property name="project.structure.side.proportion" value="0.17931035" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
-  <component name="RunManager" selected="Application.TicketPriceManager">
+  <component name="RunManager" selected="Application.MoblimaApp">
     <configuration name="HolidayManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Controllers.HolidayManager" />
       <module name="Moblima-SC2002" />
@@ -98,9 +98,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MoblimaApp" />
         <item itemvalue="Application.TicketPriceManager" />
         <item itemvalue="Application.HolidayManager" />
-        <item itemvalue="Application.MoblimaApp" />
         <item itemvalue="Application.TicketPriceManager" />
         <item itemvalue="Application.HolidayManager" />
       </list>
