@@ -18,11 +18,11 @@ import java.util.InputMismatchException;
  */
 public class ShowManager implements Manager{
     /**
-     * Path of prices.txt file.
+     * Separator for parsing shows.txt file.
      */
     public static final String SEPARATOR = "|";
     /**
-     * Separator for parsing prices.txt file.
+     * Path of shows.txt file.
      */
     public static final String FILENAME = "Databases/shows.txt" ;
 
@@ -396,7 +396,7 @@ public class ShowManager implements Manager{
     }
 
     /**
-     * Reading (helper func, declared as private as it is only called within this file)
+     * Reading helper function.
      * This creates a list of instances of shows
      * @param filename File name of content to be read
      * @return ArrayList of Shows

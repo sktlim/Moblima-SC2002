@@ -8,12 +8,18 @@ import java.io.*;
 import java.util.*;
 
 /**
- * This class prompts the user for a password and attempts to mask input with "*"
+ * The Password Field class prompts the user for a password and attempts to mask input with "*"
  */
 
 public class PasswordField {
 
-
+    /**
+     * Gets password through user input.
+     * @param in input from user
+     * @param prompt prompt to user
+     * @return User password in char[]
+     * @throws IOException I/O Error with input
+     */
     public static final char[] getPassword(InputStream in, String prompt) throws IOException {
         MaskingThread maskingthread = new MaskingThread(prompt);
         Thread thread = new Thread(maskingthread);

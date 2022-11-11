@@ -19,7 +19,7 @@ import java.util.InputMismatchException;
  */
 public class TheatreManager implements Manager { // crud
     /**
-     * Path of prices.txt file.
+     * Path of theatres.txt file.
      */
     public final static String FILENAME = "Databases/theatres.txt";
     /**
@@ -57,7 +57,7 @@ public class TheatreManager implements Manager { // crud
 
 
     /**
-     * Read method
+     * Read method.
      * Find show by Cineplex Code and TheatreId
      * @param cineplexCode Cineplex code that theatre belongs to
      * @param theatreId Theatre ID of theatre
@@ -129,8 +129,7 @@ public class TheatreManager implements Manager { // crud
         }
     }
 
-    /** Read method.
-     * Print method to display everything on the txt file database. */
+    /** Read method to display and print everything on the txt file database. */
     public static void printTheatreList(){
         try{
             ArrayList the = readTheatres(FILENAME);
