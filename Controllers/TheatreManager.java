@@ -14,7 +14,7 @@ import Models.Theatre;
 import Exceptions.ItemNotFoundException;
 import java.util.InputMismatchException;
 
-public class TheatreManager { // crud
+public class TheatreManager implements Manager { // crud
     public final static String FILENAME = "Databases/theatres.txt";
     public final static String SEPARATOR = "|";
 

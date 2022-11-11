@@ -14,7 +14,7 @@ import java.util.StringTokenizer;
 import Exceptions.ItemNotFoundException;
 
 
-public class CineplexManager { //crud
+public class CineplexManager implements Manager{ //crud
     public final static String FILENAME = "Databases/cineplexes.txt";
     public final static  String SEPARATOR = "|";
 

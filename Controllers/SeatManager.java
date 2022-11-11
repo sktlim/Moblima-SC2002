@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
-public class SeatManager {
+public class SeatManager implements Manager {
     private int[][] seatPlan;
     public final static String FILE_FIXED_PLAN = "Databases/seatingPlanTheatre.txt";
     public final static String FILE_SHOW_PLAN = "Databases/seatingPlanShow.txt";

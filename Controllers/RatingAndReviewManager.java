@@ -19,7 +19,7 @@ import java.util.InputMismatchException;
 import static Controllers.MovieManagerMovieGoer.readMovies;
 
 
-public class RatingAndReviewManager {
+public class RatingAndReviewManager implements Manager{
     public final static String FILENAME = "Databases/ratingAndReviews.txt";
     public static final String SEPARATOR = "|";
     public final static String MOVIES = "Databases/movies.txt";

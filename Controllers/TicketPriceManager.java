@@ -14,7 +14,7 @@ import java.util.*;
 /**
  * Ticket Price Manager allows console user to print price list, update prices, and calculate prices of tickets
  */
-public class TicketPriceManager {
+public class TicketPriceManager implements Manager{
     /**
      * Path of prices.txt file
      */

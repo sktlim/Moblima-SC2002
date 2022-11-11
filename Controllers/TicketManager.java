@@ -14,7 +14,7 @@ import java.util.*;
 import Exceptions.ItemNotFoundException;
 import java.util.InputMismatchException;
 
-public class TicketManager {
+public class TicketManager implements Manager{
     public final static String FILENAME = "Databases/tickets.txt";
     public static final String SEPARATOR = "|";
 
