@@ -114,15 +114,39 @@ public class TicketManager {
             ArrayList<Ticket> tickets = readTickets(FILENAME);
             int ticketId = tickets.size()+1;
             Ticket t = new Ticket(ticketId, showId, userId, seat, userAgeType, dayType, price);
-            // Already check if seat from that show is available.
-            // for (int i=0; i<tickets.size(); i++) {
-            //    if (tickets.get(i).getShowId() == t.getShowId() && tickets.get(i).getSeat().equals(t.getSeat())) {
-            //        throw new Exception("ticket with same show time and seat already exists!");
-            //    }
-            // }
+            // Check if ticket already exists. But also check before if seat available.
+             for (int i=0; i<tickets.size(); i++) {
+                if (tickets.get(i).getShowId() == t.getShowId() && tickets.get(i).getSeat().equals(t.getSeat())) {
+                    throw new Exception("ticket with same show time and seat already exists!");
+                }
+             }
             tickets.add(t);
-            saveTickets(FILENAME, tickets);
+
+             // COUPLE seats and SINGLE seats are booked differently
+            String seatType = SeatManager.getSeatType(showId, seat);
+            SeatManager.updateSeatPlan(showId, seat, 1);
+            TransactionManager.createTransaction(t, userId);
+
+            if (seatType.equals("COUPLEL")) {
+                int ticketId2 = tickets.size()+2;
+                String seat2 = seat.charAt(0) + Integer.toString(Integer.parseInt(seat.substring(1))+1);
+                Ticket t2 = new Ticket(ticketId2, showId, userId, seat2, userAgeType, dayType, price);
+                SeatManager.updateSeatPlan(showId, seat2, 1);
+                tickets.add(t2);
+                saveTickets(FILENAME, tickets);
+                TransactionManager.createTransaction(t2, userId);
+            } else if (seatType.equals("COUPLER")) {
+                int ticketId2 = tickets.size()+2;
+                String seat2 = seat.charAt(0) + Integer.toString(Integer.parseInt(seat.substring(1))-1);
+                Ticket t2 = new Ticket(ticketId2, showId, userId, seat2, userAgeType, dayType, price);
+                SeatManager.updateSeatPlan(showId, seat2, 1);
+                tickets.add(t2);
+                saveTickets(FILENAME, tickets);
+                TransactionManager.createTransaction(t2, userId);
+            }
+            System.out.println("Ticket(s) has been booked!");
             return ticketId;
+
         } catch (Exception e) {
             System.out.println("Exception > " + e.getMessage());
             return -1;

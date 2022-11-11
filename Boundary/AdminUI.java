@@ -143,7 +143,6 @@ public class AdminUI {
             sb.append(m.getMovieTitle() + " | ");
             sb.append(s.getShowId());
             System.out.println(sb);
-
         }
     }
 
