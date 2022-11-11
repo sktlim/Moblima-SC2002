@@ -2,6 +2,7 @@ package Boundary;
 import Models.*;
 import Controllers.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -67,7 +68,7 @@ public class AdminUI {
                         deleteMovie(id);
                         break;
                     case 4:
-                        createMovie(sc);
+                        createShow(sc);
                         break;
                     case 5:
                         System.out.println("Please select the show id you would like to update.");
@@ -126,10 +127,12 @@ public class AdminUI {
     }
 
     private void printShowsId() {
-        ArrayList shows = ShowManager.getShows("Database/shows.txt");
+//        ShowManager.printShowList();
+        ArrayList shows = ShowManager.getShows("Databases/shows.txt");
         System.out.println("Cineplex | Theatre  | Date | Start Time | End Time | Movie Name | Id");
-        for (int i=0; i<shows.size(); i++) {
-            Show s = (Show)shows.get(i);
+        for (int i = 0; i < shows.size(); i++) {
+            System.out.println("ale");
+            Show s = (Show) shows.get(i);
             StringBuilder sb = new StringBuilder();
             sb.append(s.getCineplex() + " | ");
             sb.append(s.getTheatre() + " | ");
@@ -139,6 +142,8 @@ public class AdminUI {
             Movie m = MovieManagerAdmin.findMovie(s.getMovieId());
             sb.append(m.getMovieTitle() + " | ");
             sb.append(s.getShowId());
+            System.out.println(sb);
+
         }
     }
 
@@ -154,12 +159,12 @@ public class AdminUI {
         MovieManagerAdmin.deleteMovie(movieId);
     }
 
-    public int createShow(Scanner sc) {
-        return 1; // Placeholder
+    public void createShow(Scanner sc) {
+        ShowManager.createShow(sc);
     }
 
     public boolean updateShow(int showId, Scanner sc) {
-
+        ShowManager.updateShows(showId, sc);
         return true; // place holder
     }
 
