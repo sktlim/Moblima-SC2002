@@ -9,9 +9,17 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-
+/**
+ * Transaction Manager handles the creating, reading, updating, and deleting of transactions.
+ */
 public class TransactionManager implements Manager{ //CRUD
+    /**
+     * Separator for tokenising String from input file
+     */
     public static final String SEPARATOR = "|";
+    /**
+     * Input file path
+     */
     public static final String FILENAME = "Databases/transactions.txt" ;
 
 
@@ -19,8 +27,8 @@ public class TransactionManager implements Manager{ //CRUD
      * Create transaction in the transactions database
      * responsibility of main function to generate the ticketId and movieGoerID
      * dateTime is generated within this create method itself
-     * @param t
-     * @param movieGoerId
+     * @param t Ticket associated with particular transaction
+     * @param movieGoerId Movie Goer making the particular transaction
      */
     public static void createTransaction(Ticket t, int movieGoerId){
         try {
@@ -36,7 +44,7 @@ public class TransactionManager implements Manager{ //CRUD
             String TID = cinCode+dateTimeNew;
 
 
-            ArrayList tl = readTransactions(FILENAME);
+            ArrayList tl = readTransactions();
             Transaction t1 = new Transaction(TID, t.getTicketId(), movieGoerId, dateTime);
             tl.add(t1);
             saveTransactions(FILENAME, tl);
@@ -49,11 +57,11 @@ public class TransactionManager implements Manager{ //CRUD
 
     /**
      * Read method
-     * Print the entire transaction list in the database
+     * Prints the entire transaction list in the database
      */
     public static void printTransactionList(){
         try{
-            ArrayList trans = readTransactions(FILENAME);
+            ArrayList trans = readTransactions();
             for (int i = 0 ; i < trans.size() ; i++) {
                 Transaction t = (Transaction) trans.get(i);
                 System.out.println("TID: " + t.getTID() );
@@ -67,10 +75,13 @@ public class TransactionManager implements Manager{ //CRUD
         }
     }
 
-    /** Prints transaction history for a given user **/
+    /**
+     * Prints transaction history for a given user
+     * @param movieGoerId Movie Goer ID
+     * **/
     public static void printTransactionHistory(int movieGoerId){
         try{
-            ArrayList trans = readTransactions(FILENAME);
+            ArrayList trans = readTransactions();
             boolean foundUser = false;
             for (int i = 0 ; i < trans.size() ; i++) {
                 Transaction t = (Transaction) trans.get(i);
@@ -94,12 +105,15 @@ public class TransactionManager implements Manager{ //CRUD
         }
     }
 
-    /** reading (helper func, declared as private as it is only called within this file)
-     * This creates a list of instances of admins */
-
-    private static ArrayList readTransactions(String filename) throws IOException {
+    /**
+     * Reading (helper func, declared as private as it is only called within this file).
+     * This creates a list of instances of admins.
+     * @return Array list of transaction data
+     * @throws IOException Exception throw in in event of I/O error
+     */
+    private static ArrayList readTransactions() throws IOException {
         // read String from text file
-        ArrayList stringArray = (ArrayList)read(filename);
+        ArrayList stringArray = (ArrayList)read(TransactionManager.FILENAME);
         ArrayList trans = new ArrayList() ;// to store shows data
 
         for (int i = 0 ; i < stringArray.size() ; i++) {
@@ -120,8 +134,12 @@ public class TransactionManager implements Manager{ //CRUD
         return trans ;
     }
 
-    /** Write fixed content to the given file.
-     * (helper func, declared as private as it is only called within this file)*/
+    /**
+     * Write fixed content to the given file (helper func, declared as private as it is only called within this file).
+     * @param fileName File Name of content to be parsed
+     * @param data List to be written into file with data
+     * @throws IOException Exception throw in in event of I/O error
+     */
     private static void write(String fileName, List data) throws IOException  {
         PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
@@ -135,8 +153,11 @@ public class TransactionManager implements Manager{ //CRUD
         }
     }
 
-    /** Read the contents of the given file.
-     * (helper func, declared as private as it is only called within this file)*/
+    /** Read the contents of the given file(helper func, declared as private as it is only called within this file).
+     * @param fileName File Name of content to be parsed
+     * @return  List filled with data from file
+     * @throws IOException Exception throw in in event of I/O error
+     */
     private static List read(String fileName) throws IOException {
         List data = new ArrayList() ;
         Scanner scanner = new Scanner(new FileInputStream(fileName));
@@ -151,9 +172,12 @@ public class TransactionManager implements Manager{ //CRUD
         return data;
     }
 
-    /** saving
-     * (helper func, declared as private as it is only called within this file)*/
-
+    /**
+     * Save transactions (helper function, declared as private as it is only called within this file)
+     * @param filename File Name of content to be parsed
+     * @param al Array list for building String to be written into file
+     * @throws IOException Exception throw in in event of I/O error
+     */
     private static void saveTransactions(String filename, List al) throws IOException { // edit for show files
         List alw = new ArrayList() ;// to store admins data
 

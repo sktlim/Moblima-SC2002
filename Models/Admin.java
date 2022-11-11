@@ -36,6 +36,7 @@ public class Admin extends User {
         this.adminId = adminId;
     }
 
+
     /**
      * Gets the unique ID of the Admin.
      * @return this Admin's ID

@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/AdminAuthManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/AdminAuthManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/MovieGoerAuthManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MovieGoerAuthManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MoblimaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/MoblimaApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/ShowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ShowManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/TheatreManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/TheatreManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/TicketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/TicketManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/TicketPriceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/TicketPriceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/TransactionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/TransactionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Show.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Models/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,6 +190,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added userUI files" />

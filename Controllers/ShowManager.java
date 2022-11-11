@@ -13,9 +13,17 @@ import java.util.*;
 import Exceptions.ItemNotFoundException;
 import java.util.InputMismatchException;
 
+/**
+ * Show manager can create, read, update, and delete Shows
+ */
 public class ShowManager implements Manager{
-
+    /**
+     * Path of prices.txt file.
+     */
     public static final String SEPARATOR = "|";
+    /**
+     * Separator for parsing prices.txt file.
+     */
     public static final String FILENAME = "Databases/shows.txt" ;
 
     /** Create method
@@ -128,7 +136,7 @@ public class ShowManager implements Manager{
     }
 
 
-    /** Read method
+    /** Read method.
      * Print method to display everything on the txt file database */
     public static void printShowList(){
         try{
@@ -152,9 +160,9 @@ public class ShowManager implements Manager{
         }
     }
 
-    /** Read method
-     * Find show by show ID
-     * @param showID
+    /** Read method.
+     * Find show by show ID.
+     * @param showID show ID of show to be found.
      * @return Object of type Show
      */
     public static Show findShow(int showID){
@@ -181,7 +189,7 @@ public class ShowManager implements Manager{
 
     /** Update method
      * this updates the various field of movieGoer by showId
-     * @param showId
+     * @param showId show ID of show to be updated
      * @param sc Takes in scanner to update various fields within the function
      */
     public static void updateShows(int showId, Scanner sc){
@@ -358,9 +366,9 @@ public class ShowManager implements Manager{
     }
 
     /**
-     * Delete method
-     * delete show based on showID
-     * @param showID
+     * Delete method.
+     * Delete show based on showID
+     * @param showID show ID of show to be deleted
      */
     public static void deleteShow(int showID){
         try{
@@ -387,10 +395,13 @@ public class ShowManager implements Manager{
         }
     }
 
-
-
-    /** reading (helper func, declared as private as it is only called within this file)
-     * This creates a list of instances of shows */
+    /**
+     * Reading (helper func, declared as private as it is only called within this file)
+     * This creates a list of instances of shows
+     * @param filename File name of content to be read
+     * @return ArrayList of Shows
+     * @throws IOException I/O Error with input
+     */
 
     private static ArrayList readShows(String filename) throws IOException {
         // read String from text file
@@ -418,8 +429,13 @@ public class ShowManager implements Manager{
         return shows ;
     }
 
-    /** Write fixed content to the given file.
-     * (helper func, declared as private as it is only called within this file)*/
+    /**
+     * Write fixed content to the given file.
+     * (helper func, declared as private as it is only called within this file)
+     * @param fileName File name of content to be written over
+     * @param data Data to overwrite file
+     * @throws IOException I/O Error with input
+     */
     private static void write(String fileName, List data) throws IOException  {
         PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
@@ -433,8 +449,12 @@ public class ShowManager implements Manager{
         }
     }
 
-    /** Read the contents of the given file.
-     * (helper func, declared as private as it is only called within this file)*/
+    /**
+     * Read the contents of the given file(helper func, declared as private as it is only called within this file).
+     * @param fileName File name of content to be read
+     * @return List of data
+     * @throws IOException I/O Error with input
+     */
     private static List read(String fileName) throws IOException {
         List data = new ArrayList() ;
         Scanner scanner = new Scanner(new FileInputStream(fileName));
@@ -449,9 +469,12 @@ public class ShowManager implements Manager{
         return data;
     }
 
-    /** saving
-     * (helper func, declared as private as it is only called within this file)*/
-
+    /**
+     * Save Shows to database
+     * @param filename File Name of content to be saved to
+     * @param al Array list for building String to be written into file
+     * @throws IOException Exception throw in in event of I/O error
+     */
     private static void saveShows(String filename, List al) throws IOException { // edit for show files
         List alw = new ArrayList() ;// to store admins data
 
@@ -482,6 +505,12 @@ public class ShowManager implements Manager{
     }
 
     // For admin UI
+
+    /**
+     * Get shows from file
+     * @param fileName file to be read
+     * @return Array List with Shows
+     */
     public static ArrayList getShows(String fileName) {
         try {
             return readShows(fileName);
@@ -491,6 +520,12 @@ public class ShowManager implements Manager{
         }
     }
 
+    /**
+     * Ensure input is valid.
+     * @param input input String
+     * @return returns 0 or 1
+     * @throws Exception Error in method
+     */
     private static int checkInput (String input) throws Exception {
         if (input.length()==0) throw new Exception();
         if (input.length() == 1) return Integer.parseInt(input);
