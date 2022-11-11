@@ -139,7 +139,7 @@ public class ShowManager {
             for (int i = 0 ; i < al.size() ; i++) {
                 Show s = (Show)al.get(i);
                 if (s.getShowId()==showID){ // found
-                    System.out.println("Show successfully found!");
+                    // System.out.println("Show successfully found!");
                     return s;
                 }
             }
