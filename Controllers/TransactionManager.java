@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 
-public class TransactionManager { //CRUD
+public class TransactionManager implements Manager{ //CRUD
     public static final String SEPARATOR = "|";
     public static final String FILENAME = "Databases/transactions.txt" ;
 
@@ -19,7 +19,7 @@ public class TransactionManager { //CRUD
      * Create transaction in the transactions database
      * responsibility of main function to generate the ticketId and movieGoerID
      * dateTime is generated within this create method itself
-     * @param ticketId
+     * @param t
      * @param movieGoerId
      */
     public static void createTransaction(Ticket t, int movieGoerId){

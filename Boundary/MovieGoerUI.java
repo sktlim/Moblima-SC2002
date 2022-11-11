@@ -5,7 +5,7 @@ import Controllers.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MovieGoerUI {
+public class MovieGoerUI extends UserUI {
 
     private MovieGoer sessionMovieGoer;
 

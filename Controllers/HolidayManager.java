@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import Exceptions.ItemNotFoundException;
 import java.util.InputMismatchException;
 
-public class HolidayManager {
+public class HolidayManager implements Manager {
 
     public final static String FILENAME = "Databases/holidays.txt";
     public static final String SEPARATOR = ",";

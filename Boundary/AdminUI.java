@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class AdminUI {
+public class AdminUI extends UserUI{
 
     private Admin sessionAdmin;
 
@@ -18,7 +18,7 @@ public class AdminUI {
 
     /* implementation of abstract method
        this method should be called repeatedly in the main While loop */
-    private void showSelections() {
+    public void showSelections() {
         System.out.println("Welcome to the admin page.");
         System.out.println("SELECT ONE OF THE FOLLOWING OPTIONS");
         System.out.println("========================================");
@@ -162,9 +162,8 @@ public class AdminUI {
         ShowManager.createShow(sc);
     }
 
-    public boolean updateShow(int showId, Scanner sc) {
+    public void updateShow(int showId, Scanner sc) {
         ShowManager.updateShows(showId, sc);
-        return true; // place holder
     }
 
     public void deleteShow(int showId) {

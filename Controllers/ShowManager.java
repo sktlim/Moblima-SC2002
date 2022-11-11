@@ -13,7 +13,7 @@ import java.util.*;
 import Exceptions.ItemNotFoundException;
 import java.util.InputMismatchException;
 
-public class ShowManager {
+public class ShowManager implements Manager{
 
     public static final String SEPARATOR = "|";
     public static final String FILENAME = "Databases/shows.txt" ;
