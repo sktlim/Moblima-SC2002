@@ -1,8 +1,7 @@
 package Models;
 
 /**
- * Represents a Movie in our application.
- * This is the generic Movie in production, and NOT a particular screening of the Movie.
+ * Represents a Movie in our application. This is the generic Movie in production, and NOT a particular screening of the Movie.
  * One Movie has multiple different Shows.
  */
 
@@ -71,15 +70,15 @@ public class Movie {
     /**
      * Constructor for Movie
      * Allows Admins to create a new Movie with the following params
-     * @param movieId
-     * @param movieTitle
-     * @param showingStatus
-     * @param synopsis
-     * @param director
-     * @param cast
-     * @param movieRuntime
-     * @param movieRating
-     * @param movieType
+     * @param movieId This Movie's unique ID. ID will be incremented with each new entry in the Movies Database.
+     * @param movieTitle This Movie's Title
+     * @param showingStatus This Movie's current showing status. Enumerated variable consisting of COMING_SOON, PREVIEW, NOW_SHOWING, DEFAULT
+     * @param synopsis This Movie's synopsis
+     * @param director This Movie's Director
+     * @param cast This Movie's Cast
+     * @param movieRuntime This Movie's Runtime, represented in minutes
+     * @param movieRating This Movie's Rating. Enumerated variable consisting of G, PG13, NC16, M18, R21, DEFAULT
+     * @param movieType This Movie's Type. Enumerated variable consisting of TWO_D,THREE_D, BLOCKBUSTER, DEFAULT
      */
     public Movie(int movieId, String movieTitle, ShowingStatus showingStatus, String synopsis, String director, String cast, int movieRuntime, MovieRating movieRating, MovieType movieType){
         this.movieId = movieId;
@@ -173,7 +172,7 @@ public class Movie {
     /**
      * Modifies this Movie's unique ID
      * SHOULD NOT BE CALLED UNNECESSARILY
-     * @param movieId
+     * @param movieId This Movie's unique ID.
      */
     public void setmovieId(int movieId){
         this.movieId = movieId;
@@ -181,7 +180,7 @@ public class Movie {
 
     /**
      * Modifies this Movie's Title
-     * @param movieTitle
+     * @param movieTitle This Movie's Title.
      */
     public void setMovieTitle(String movieTitle){
         this.movieTitle = movieTitle;
@@ -189,7 +188,7 @@ public class Movie {
 
     /**
      * Modifies this Movie's ShowingStatus
-     * @param showingStatus
+     * @param showingStatus This Movie's showing status. Enumerated variable consisting of COMING_SOON, PREVIEW, NOW_SHOWING, DEFAULT
      */
     public void setShowingStatus(ShowingStatus showingStatus){
         this.showingStatus = showingStatus;
@@ -197,7 +196,7 @@ public class Movie {
 
     /**
      * Modifies this Movie's Synopsis
-     * @param synopsis
+     * @param synopsis This Movie's synopsis.
      */
     public void setSynopsis(String synopsis){
         this.synopsis = synopsis;
@@ -205,7 +204,7 @@ public class Movie {
 
     /**
      * Modifies this Movie's Director
-     * @param director
+     * @param director This Movie's Director.
      */
     public void setDirector(String director){
         this.director = director;
@@ -213,7 +212,7 @@ public class Movie {
 
     /**
      * Modifies this Movie's Cast
-     * @param cast
+     * @param cast This Movie's Cast.
      */
     public void setCast(String cast){
         this.cast = cast;
@@ -221,7 +220,7 @@ public class Movie {
 
     /**
      * Modifies this Movie's RunTime
-     * @param movieRuntime
+     * @param movieRuntime This Movie's RunTime, represented in minutes.
      */
     public void setMovieRuntime(int movieRuntime){
         this.movieRuntime = movieRuntime;
@@ -229,7 +228,7 @@ public class Movie {
 
     /**
      * Modifies this Movie's Rating
-     * @param movieRating
+     * @param movieRating This Movie's Rating. Enumerated variable consisting of G, PG13, NC16, M18, R21, DEFAULT
      */
     public void setMovieRating(MovieRating movieRating){
         this.movieRating = movieRating;
@@ -237,7 +236,7 @@ public class Movie {
 
     /**
      * Modifies this Movie's Type
-     * @param movieType
+     * @param movieType This Movie's Type. Enumerated variable consisting of TWO_D,THREE_D, BLOCKBUSTER, DEFAULT
      */
     public void setMovieType(MovieType movieType){
         this.movieType = movieType;

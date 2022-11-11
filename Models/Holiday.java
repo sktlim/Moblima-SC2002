@@ -1,8 +1,7 @@
 package Models;
 
 /**
- * Represents a Holiday in our application.
- * The holidays used are in accordance with Singapore's Holidays
+ * Represents a Holiday in our application. The holidays used are in accordance with Singapore's Holidays
  * We note that the same Holidays can occur on different dates for different years.
  * As such, we tag a year to each Holiday Name for greater clarity.
  */
@@ -10,7 +9,7 @@ package Models;
 public class Holiday {
 
     /**
-     * The name of the Holiday
+     * The name of the Holiday. This should include the year at the back e.g. Christmas 2022
      */
     private String name;
 
@@ -22,8 +21,8 @@ public class Holiday {
     /**
      * Constructor Method for Holiday
      * Allows the Admin to create new Holiday instances
-     * @param name
-     * @param date
+     * @param name This Holiday's Name. The year is included at the back.
+     * @param date This Holiday's Date. This is of the format YYYY-MM-DD.
      */
     public Holiday(String name, String date) {
         this.name = name;
@@ -44,7 +43,7 @@ public class Holiday {
 
     /**
      * Modifies the name of the Holiday
-     * @param name
+     * @param name This Holiday's Name
      */
     public void setName(String name) {
         this.name = name;
@@ -60,7 +59,7 @@ public class Holiday {
 
     /**
      * Modifies the date of the Holiday
-     * @param date
+     * @param date This Holiday's Date
      */
     public void setDate(String date) {
         this.date = date;
