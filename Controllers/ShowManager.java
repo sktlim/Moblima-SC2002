@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 
 import Exceptions.ItemNotFoundException;
@@ -46,12 +47,26 @@ public class ShowManager {
             System.out.println("Enter Theatre: ");
             int theatre = sc.nextInt();
             sc.nextLine();
-            System.out.println("Enter Theatre Class: ");
-            System.out.println("0: STANDARD");
-            System.out.println("1: PLATINUM");
-            int theatreClassSelector = sc.nextInt();
-            sc.nextLine();
+            int flag = 0;
+            int theatreClassSelector = 0;
             Show.TheatreClass theatreClass = Show.TheatreClass.DEFAULT;
+            while(flag == 0){
+                try{
+                    System.out.println("Enter Theatre Class: ");
+                    System.out.println("0: STANDARD");
+                    System.out.println("1: PLATINUM");
+                    String input = sc.nextLine();
+                    theatreClassSelector = checkInput(input);
+                    while(theatreClassSelector < 0 || theatreClassSelector > 1){
+                        throw new Exception();
+                    }
+                    flag = 1;
+                }
+                catch(Exception e){
+                    System.out.println("Invalid Input. Please re-enter.");
+                }
+            }
+
             switch(theatreClassSelector){
                 case 0:
                     theatreClass = Show.TheatreClass.STANDARD;
@@ -61,17 +76,27 @@ public class ShowManager {
                     break;
             }
             String cineplex = "null";
-            System.out.println("Enter Cineplex: ");
-            System.out.println("0: AMK Hub Mall");
-            System.out.println("1: Bishan Town Hall");
-            System.out.println("2: Jurong Point Junction");
-            int cineplexSelector = sc.nextInt();
-            sc.nextLine();
-            while(cineplexSelector<0 || cineplexSelector>2){
-                System.out.println("Invalid Input, please re-enter.");
-                cineplexSelector=sc.nextInt();
-                sc.nextLine();
+            int cineplexSelector = 0;
+            flag = 0;
+            while (flag == 0){
+                try{
+                    System.out.println("Enter Cineplex: ");
+                    System.out.println("0: AMK Hub Mall");
+                    System.out.println("1: Bishan Town Hall");
+                    System.out.println("2: Jurong Point Junction");
+                    String input = sc.nextLine();
+                    cineplexSelector = checkInput(input);
+                    while(cineplexSelector<0 || cineplexSelector>2){
+                        throw new Exception();
+                    }
+                    flag = 1;
+                }
+                catch(Exception e){
+                    System.out.println("Invalid Input. Please re-enter.");
+                }
             }
+
+
             switch(cineplexSelector){
                 case 0:
                     cineplex = "AMK Hub Mall";
@@ -95,7 +120,7 @@ public class ShowManager {
             System.out.println("IOException > " + e.getMessage());
         }
         catch(ParseException e){
-            System.out.println("IOException > " + e.getMessage());
+            System.out.println("ParseException > " + e.getMessage());
         }
         catch (InputMismatchException e) {
             System.out.println("Your input was of a wrong format! Please ensure that your input is an integer.");
@@ -165,28 +190,41 @@ public class ShowManager {
         int theatre = 0;
 
         try{
-            System.out.println("Select field to change:");
-            System.out.println("0: Date");
-            System.out.println("1: Start Time");
-            System.out.println("2: End Time");
-            System.out.println("3: Theatre");
-            System.out.println("4: Theatre Class");
-            System.out.println("5: Cineplex");
 
-            int fieldEdit = sc.nextInt();
-            sc.nextLine();
+            int flag = 0;
+            int fieldEdit = -1;
+            while (flag == 0){
+                try{
+                    System.out.println("Select field to change:");
+                    System.out.println("0: Date");
+                    System.out.println("1: Start Time");
+                    System.out.println("2: End Time");
+                    System.out.println("3: Theatre");
+                    System.out.println("4: Theatre Class");
+                    System.out.println("5: Cineplex");
+                    String input = sc.nextLine();
+                    fieldEdit = checkInput(input);
+                    while(fieldEdit < 0 || fieldEdit > 5){
+                        throw new Exception();
+                    }
+                }
+                catch(Exception e){
+                    System.out.println("Invalid Input. Please re-enter.");
+                }
+            }
 
             switch(fieldEdit){
                 case 0: //edit Date
-                    System.out.println("Enter new Date: ");
+                    System.out.println("Enter new Date (DD/MM/YYYY): ");
                     inputField = sc.nextLine();
                     break;
                 case 1: //edit Start Time
                     System.out.println("Enter new Start Time (HH:MM, 24HRS): ");
-                    inputField = sc.next();
+                    inputField = sc.nextLine();
                     break;
 
                 case 2: // edit End Time
+                    System.out.println("WARNING: You are manually editing the end time now.");
                     System.out.println("Enter new End Time (HH:MM, 24HRS): ");
                     inputField = sc.nextLine();
                     break;
@@ -199,12 +237,24 @@ public class ShowManager {
                     break;
 
                 case 4: // edit Theatre Class
-                    System.out.println("Enter new Theatre Class: ");
-                    System.out.println("0: STANDARD");
-                    System.out.println("1: PLATINUM");
-                    int theatreClassSelector = sc.nextInt();
-                    sc.nextLine();
-                    theatreClass = Show.TheatreClass.DEFAULT;
+                    flag = 0;
+                    int theatreClassSelector = 0;
+                    while(flag == 0){
+                        try{
+                            System.out.println("Enter new Theatre Class: ");
+                            System.out.println("0: STANDARD");
+                            System.out.println("1: PLATINUM");
+                            String input = sc.nextLine();
+                            theatreClassSelector = checkInput(input);
+                            while(theatreClassSelector<0||theatreClassSelector>1){
+                                throw new Exception();
+                            }
+                        }
+                        catch(Exception e){
+                            System.out.println("Invalid Input. Please re-enter.");
+                        }
+                    }
+
                     switch(theatreClassSelector){
                         case 0:
                             theatreClass = Show.TheatreClass.STANDARD;
@@ -216,9 +266,39 @@ public class ShowManager {
                     break;
 
                 case 5: // edit Cineplex
-                    System.out.println("Enter Cineplex: ");
-                    inputField = sc.nextLine();
-                    break;
+                    String cineplex = "null";
+                    int cineplexSelector = 0;
+                    flag = 0;
+                    while (flag == 0){
+                        try{
+                            System.out.println("Enter Cineplex: ");
+                            System.out.println("0: AMK Hub Mall");
+                            System.out.println("1: Bishan Town Hall");
+                            System.out.println("2: Jurong Point Junction");
+                            String input = sc.nextLine();
+                            cineplexSelector = checkInput(input);
+                            while(cineplexSelector<0 || cineplexSelector>2){
+                                throw new Exception();
+                            }
+                            flag = 1;
+                        }
+                        catch(Exception e){
+                            System.out.println("Invalid Input. Please re-enter.");
+                        }
+                    }
+
+
+                    switch(cineplexSelector){
+                        case 0:
+                            cineplex = "AMK Hub Mall";
+                            break;
+                        case 1:
+                            cineplex = "Bishan Town Hall";
+                            break;
+                        case 2:
+                            cineplex = "Jurong Point Junction";
+                            break;
+                    }
             }
 
             ArrayList sl = readShows(FILENAME);
@@ -409,6 +489,12 @@ public class ShowManager {
             System.out.println(e.getMessage());
             return null;
         }
+    }
+
+    private static int checkInput (String input) throws Exception {
+        if (input.length()==0) throw new Exception();
+        if (input.length() == 1) return Integer.parseInt(input);
+        else return Integer.parseInt(input.substring(0, 2));
     }
 
 }
