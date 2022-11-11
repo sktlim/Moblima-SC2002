@@ -22,7 +22,7 @@ public class TransactionManager { //CRUD
      * @param ticketId
      * @param movieGoerId
      */
-    public static void createTransaction(int ticketId, int movieGoerId){
+    public static void createTransaction(Ticket t, int movieGoerId){
         try {
             Date date = new Date();
             SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd;HH:mm"); // instantiates the required formatter
@@ -30,7 +30,6 @@ public class TransactionManager { //CRUD
             String dateTimeNew = dateTime.replaceAll("-", "");
             dateTimeNew = dateTimeNew.replaceAll(";", "");
             dateTimeNew = dateTimeNew.replaceAll(":","");
-            Ticket t = TicketManager.findTicket(ticketId);
             int showID = t.getShowId();
             Show s = ShowManager.findShow(showID);
             String cinCode = s.getCineplex();
@@ -38,7 +37,7 @@ public class TransactionManager { //CRUD
 
 
             ArrayList tl = readTransactions(FILENAME);
-            Transaction t1 = new Transaction(TID, ticketId, movieGoerId, dateTime);
+            Transaction t1 = new Transaction(TID, t.getTicketId(), movieGoerId, dateTime);
             tl.add(t1);
             saveTransactions(FILENAME, tl);
 

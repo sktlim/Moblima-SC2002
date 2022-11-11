@@ -139,6 +139,7 @@ public class AdminUI {
             Movie m = MovieManagerAdmin.findMovie(s.getMovieId());
             sb.append(m.getMovieTitle() + " | ");
             sb.append(s.getShowId());
+            System.out.println(sb);
         }
     }
 
