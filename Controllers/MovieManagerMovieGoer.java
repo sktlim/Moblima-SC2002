@@ -15,7 +15,7 @@ import Exceptions.ItemNotFoundException;
 import static Controllers.RatingAndReviewManager.readReviews;
 import static Controllers.TicketManager.readTickets;
 
-public class MovieManagerMovieGoer {
+public class MovieManagerMovieGoer implements Manager{
 
     public final static String FILENAME = "Databases/movies.txt";
     public final static  String SEPARATOR = "|";

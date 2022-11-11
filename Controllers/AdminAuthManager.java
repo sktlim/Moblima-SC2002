@@ -4,7 +4,7 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class AdminAuthManager {
+public class AdminAuthManager{
 
     static String fileName = "./databases/admins.txt";
 

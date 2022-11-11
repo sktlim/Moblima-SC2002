@@ -9,7 +9,7 @@ import static Controllers.AdminAuthManager.adminchecker;
 import static Controllers.MovieGoerAuthManager.mgchecker;
 
 public class MoblimaApp {
-    static void showSelections() {
+    private static void showSelections() {
         System.out.println("Please make a selection:\n1:Login as Admin\n2:Login as Movie Goer\n3:Create a new Movie Goer\n4:Exit application");
     }
 

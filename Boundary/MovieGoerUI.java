@@ -5,7 +5,7 @@ import Controllers.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MovieGoerUI {
+public class MovieGoerUI extends UserUI {
 
     private MovieGoer sessionMovieGoer;
 
@@ -46,19 +46,17 @@ public class MovieGoerUI {
                         printShowsId();
                         break;
                     case 2:
+                        printShowsId();
                         System.out.println("Please enter the show id whose seat plan you would like to view.");
-                        input = sc.nextLine();
-                        int id = checkInput(input);
-                        readSeatPlan(id);
+                        readSeatPlan(sc);
                         break;
                     case 3:
-                        System.out.println("show id: ");
-                        input = sc.nextLine();
-                        int sid = checkInput(input);
-                        String seat = sc.nextLine();
-                        isSeatAvail(sid, seat);
+                        printShowsId();
+                        System.out.println("Which seat would you like to check is available?");
+                        isSeatAvail(sc);
                         break;
                     case 4:
+                        printShowsId();
                         bookTicket(sc, sessionMovieGoer.getMovieGoerId());
                         break;
                     case 5:
@@ -79,12 +77,12 @@ public class MovieGoerUI {
         }
     }
     private int checkInput (String input) throws Exception {
-        if (input.length() == 1) return Integer.parseInt(input);
+        if (input.length() <= 1) return Integer.parseInt(input);
         else return Integer.parseInt(input.substring(0, 2));
     }
 
     private void printShowsId() {
-        ArrayList shows = ShowManager.getShows("Database/shows.txt");
+        ArrayList shows = ShowManager.getShows("Databases/shows.txt");
         System.out.println("Cineplex | Theatre  | Date | Start Time | End Time | Movie Name | Id");
         for (int i=0; i<shows.size(); i++) {
             Show s = (Show)shows.get(i);
@@ -97,15 +95,35 @@ public class MovieGoerUI {
             Movie m = MovieManagerAdmin.findMovie(s.getMovieId());
             sb.append(m.getMovieTitle() + " | ");
             sb.append(s.getShowId());
+            System.out.println(sb);
         }
     }
 
-    public void readSeatPlan(int showId) {
-        SeatManager.readSeatPlan(showId);
+    public void readSeatPlan(Scanner sc) {
+        try {
+            String input = sc.nextLine();
+            int sid = checkInput(input);
+            SeatManager.readSeatPlan(sid);
+            return;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    public void isSeatAvail(int showId, String seat) {
-        SeatManager.isSeatAvail(showId, seat);
+    public void isSeatAvail(Scanner sc) {
+        try {
+            System.out.print("show id: ");
+            String input = sc.nextLine();
+            int sid = checkInput(input);
+            System.out.print("seat: ");
+            String seat = sc.nextLine();
+            int isAvail = SeatManager.isSeatAvail(sid, seat);
+            if (isAvail == 1) System.out.println("Seat is available!");
+            else if (isAvail == 0) System.out.println("Seat has been taken!");
+            return;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void bookTicket(Scanner sc, int userId) {

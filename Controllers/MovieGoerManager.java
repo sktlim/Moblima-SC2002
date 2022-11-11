@@ -9,7 +9,7 @@ import java.util.*;
 import Exceptions.ItemNotFoundException;
 import Models.MovieGoer;
 
-public class MovieGoerManager {
+public class MovieGoerManager implements Manager{
 
     public final static String FILENAME = "Databases/movieGoers.txt";
     public static final String SEPARATOR = "|";
