@@ -98,7 +98,7 @@ public class MoblimaApp {
                         }
                         else{
                             System.out.println("Error! Details incorrect, please try again. ");
-                            boolean movieGoerExists = MovieGoerManager.doesUserExist(username2);
+                            boolean movieGoerExists = MovieGoerManager.doesUserExist(username);
                             if (movieGoerExists) {
                                 System.out.println("Your username is correct but password was incorrect.");
                             }
