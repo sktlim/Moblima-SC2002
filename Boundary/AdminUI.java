@@ -30,13 +30,18 @@ public class AdminUI extends UserUI{
         System.out.println("4: Create a New Show");
         System.out.println("5: Update an existing Show");
         System.out.println("6: Delete an existing Show");
+        System.out.println("REVIEWS");
+        System.out.println("7: Print Reviews and Ratings List");
+        System.out.println("8: Create Review");
+        System.out.println("9: Update Review");
+        System.out.println("10: Delete Review");
         System.out.println("ADMINS");
-        System.out.println("7: Print Admin List");
-        System.out.println("8: Create a New Admin");
-        System.out.println("9: Update an Existing Admin");
-        System.out.println("10: Delete an Existing Admin");
+        System.out.println("11: Print Admin List");
+        System.out.println("12: Create a New Admin");
+        System.out.println("13: Update an Existing Admin");
+        System.out.println("14: Delete an Existing Admin");
         System.out.println("========================================");
-        System.out.println("11: Back to main menu\n");
+        System.out.println("15: Back to main menu");
     }
 
     // User interface
@@ -68,6 +73,7 @@ public class AdminUI extends UserUI{
                         deleteMovie(id);
                         break;
                     case 4:
+                        printMovieId();
                         createShow(sc);
                         break;
                     case 5:
@@ -85,24 +91,45 @@ public class AdminUI extends UserUI{
                         deleteShow(id);
                         break;
                     case 7:
-                        printAdminList();
+                        RatingAndReviewManager.printRatingsAndReviewList();
                         break;
                     case 8:
-                        createAdmin(sc);
+                        listMovies();
+                        RatingAndReviewManager.createReview(sc);
                         break;
                     case 9:
+                        RatingAndReviewManager.printRatingsAndReviewList();
+                        System.out.println("Please select the review id you would like to update.");
+                        input = sc.nextLine();
+                        id = checkInput(input);
+                        RatingAndReviewManager.updateReview(id, sc);
+                        break;
+                    case 10:
+                        RatingAndReviewManager.printRatingsAndReviewList();
+                        System.out.println("Please select the review id you would like to delete.");
+                        input = sc.nextLine();
+                        id = checkInput(input);
+                        RatingAndReviewManager.deleteReview(id);
+                        break;
+                    case 11:
+                        printAdminList();
+                        break;
+                    case 12:
+                        createAdmin(sc);
+                        break;
+                    case 13:
                         System.out.println("Please select the admin id you would like to update. If unsure, please use option 7 to print the list of admins.");
                         input = sc.nextLine();
                         id = checkInput(input);
                         updateAdmin(id, sc);
                         break;
-                    case 10:
+                    case 14:
                         System.out.println("Please select the admin id you would like to delete. If unsure, please use option 7 to print the list of admins.");
                         input = sc.nextLine();
                         id = checkInput(input);
                         deleteAdmin(id);
                         break;
-                    case 11:
+                    case 15:
                         return;
                     }
             } catch (Exception e) {
@@ -134,7 +161,6 @@ public class AdminUI extends UserUI{
         ArrayList shows = ShowManager.getShows("Databases/shows.txt");
         System.out.println("Cineplex | Theatre  | Date | Start Time | End Time | Movie Name | Id");
         for (int i = 0; i < shows.size(); i++) {
-            System.out.println("ale");
             Show s = (Show) shows.get(i);
             StringBuilder sb = new StringBuilder();
             sb.append(s.getCineplex() + " | ");

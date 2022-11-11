@@ -12,6 +12,7 @@ import java.util.*;
 
 import Exceptions.ItemNotFoundException;
 import java.util.InputMismatchException;
+import java.util.regex.Pattern;
 
 /**
  * Show manager can create, read, update, and delete Shows
@@ -41,10 +42,36 @@ public class ShowManager implements Manager{
                 sc.nextLine();
             }
             Movie m = MovieManagerAdmin.findMovie(movieId);
-            System.out.println("Enter Date (DD/MM/YYYY): ");
-            String date = sc.nextLine();
-            System.out.println("Enter Start Time (HH:MM, 24HRS): ");
-            String startTime = sc.nextLine();
+
+            int semaphore = -1;
+            String date = "";
+            while (semaphore == -1) {
+                try {
+                    System.out.println("Enter Date (DD/MM/YYYY): ");
+                    date = sc.nextLine();
+                    Pattern DATE_PATTERN = Pattern.compile(
+                            "^\\d{2}\\/\\d{2}\\/\\d{4}$");
+                    if (!DATE_PATTERN.matcher(date).matches()) throw new IllegalArgumentException("Date is invalid!");
+                    semaphore = 1;
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+
+            semaphore = -1;
+            String startTime = "";
+            while (semaphore == -1) {
+                try {
+                    System.out.println("Enter Start Time (HH:MM, 24HRS): ");
+                    startTime = sc.nextLine();
+                    Pattern DATE_PATTERN = Pattern.compile(
+                            "^([2][0-3]|[0-1][0-9]|[1-9]):[0-5][0-9]$");
+                    if (!DATE_PATTERN.matcher(startTime).matches()) throw new IllegalArgumentException("Start time is invalid!");
+                    semaphore = 1;
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+            }
             Calendar cal = Calendar.getInstance();
             Date dateFormat = new SimpleDateFormat("HH:mm").parse(startTime);
             cal.setTime(dateFormat);
@@ -52,9 +79,20 @@ public class ShowManager implements Manager{
             Date endDate = cal.getTime();
             SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
             String endTime = sdf.format(endDate);
-            System.out.println("Enter Theatre: ");
-            int theatre = sc.nextInt();
-            sc.nextLine();
+
+            semaphore = -1;
+            int theatre = -1;
+            while (semaphore == -1) {
+                try {
+                    System.out.println("Enter Theatre: ");
+                    String input = sc.nextLine();
+                    theatre = checkInput(input);
+                    semaphore = 1;
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+
             int flag = 0;
             int theatreClassSelector = 0;
             Show.TheatreClass theatreClass = Show.TheatreClass.DEFAULT;
@@ -117,12 +155,13 @@ public class ShowManager implements Manager{
                     break;
             }
 
-
             ArrayList sl = readShows(FILENAME);
-            Show s1 = new Show(sl.size()+1, movieId, date, startTime, endTime, theatre, theatreClass, cineplex);
+            int new_showId = sl.size()+1;
+            Show s1 = new Show(new_showId, movieId, date, startTime, endTime, theatre, theatreClass, cineplex);
             sl.add(s1);
             saveShows(FILENAME, sl);
-
+            SeatManager.createShowPlan(new_showId, theatre);
+            System.out.println("Show created successfully!");
         }
         catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
@@ -215,6 +254,7 @@ public class ShowManager implements Manager{
                     while(fieldEdit < 0 || fieldEdit > 5){
                         throw new Exception();
                     }
+                    flag = 1;
                 }
                 catch(Exception e){
                     System.out.println("Invalid Input. Please re-enter.");
@@ -223,21 +263,52 @@ public class ShowManager implements Manager{
 
             switch(fieldEdit){
                 case 0: //edit Date
-                    System.out.println("Enter new Date (DD/MM/YYYY): ");
-                    inputField = sc.nextLine();
+                    int semaphore = -1;
+                    while (semaphore == -1) {
+                        try {
+                            System.out.println("Enter new Date (DD/MM/YYYY): ");
+                            inputField = sc.nextLine();
+                            Pattern DATE_PATTERN = Pattern.compile(
+                                    "^\\d{2}\\/\\d{2}\\/\\d{4}$");
+                            if (!DATE_PATTERN.matcher(inputField).matches()) throw new IllegalArgumentException("Date is invalid!");
+                            semaphore = 1;
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
                     break;
                 case 1: //edit Start Time
-                    System.out.println("Enter new Start Time (HH:MM, 24HRS): ");
-                    inputField = sc.nextLine();
+                    semaphore = -1;
+                    while (semaphore == -1) {
+                        try {
+                            System.out.println("Enter new Start Time (HH:MM, 24HRS): ");
+                            inputField = sc.nextLine();
+                            Pattern DATE_PATTERN = Pattern.compile(
+                                    "^([2][0-3]|[0-1][0-9]|[1-9]):[0-5][0-9]$");
+                            if (!DATE_PATTERN.matcher(inputField).matches()) throw new IllegalArgumentException("Start time is invalid!");
+                            semaphore = 1;
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
                     break;
 
                 case 2: // edit End Time
-                    System.out.println("WARNING: You are manually editing the end time now.");
-                    System.out.println("Enter new End Time (HH:MM, 24HRS): ");
-                    inputField = sc.nextLine();
+                    semaphore = -1;
+                    while (semaphore == -1) {
+                        try {
+                            System.out.println("WARNING: You are manually editing the end time now.");
+                            System.out.println("Enter new End Time (HH:MM, 24HRS): ");
+                            inputField = sc.nextLine();
+                            Pattern DATE_PATTERN = Pattern.compile(
+                                    "^([2][0-3]|[0-1][0-9]|[1-9]):[0-5][0-9]$");
+                            if (!DATE_PATTERN.matcher(inputField).matches()) throw new IllegalArgumentException("End time is invalid!");
+                            semaphore = 1;
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
                     break;
-
-
                 case 3: // edit Theatre
                     System.out.println("Enter new Theatre: ");
                     theatre = sc.nextInt();
@@ -381,11 +452,12 @@ public class ShowManager implements Manager{
                     al.remove(i);
                 }
             }
-            saveShows(FILENAME, al);
-
             if (!foundShow) {
                 throw new ItemNotFoundException();
             }
+            saveShows(FILENAME, al);
+            SeatManager.deleteSeatPlan(showID);
+            System.out.println("Show successfully deleted!");
         }
         catch(IOException e){
             System.out.println("IOException > " + e.getMessage());

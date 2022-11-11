@@ -9,4 +9,4 @@ Talbis Iblis|COMING_SOON|To protect their family???s name from being scarred, Ha
 Black Hawk|PREVIEW|Black hawk is an action packed drama featuring Tom Cruise|Keddy Walsh|Tom Cruise, Scarlett Johannsen, Bobby, Mike Tyson|121|R21|TWO_D|9
 ssg|NOW_SHOWING|g|g|g|32|NC16|THREE_D|10
 g|NOW_SHOWING|g|g|g|23|R21|BLOCKBUSTER|11
-wayne and his sex life|COMING_SOON|Its never coming.|Wayne|Wayne|1|R21|BLOCKBUSTER|12
+wayne and his sex life|NOW_SHOWING|Its never coming.|Wayne|Wayne|1|R21|BLOCKBUSTER|12
