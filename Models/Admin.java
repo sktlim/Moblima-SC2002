@@ -1,18 +1,14 @@
 package Models;
 
 /**
- * Represents an Admin in our application.
- * Subclass of the base User class
+ * Represents an Admin in our application. Subclass of the base User class
+ * This class inherits the following fields from the base User class:
+ * username
+ * password
+ * age
  */
 
 public class Admin extends User {
-
-    /**
-     * This class inherits the following fields from the base User class:
-     * username
-     * password
-     * age
-     * */
 
     /**
      * The unique ID for each admin
@@ -31,19 +27,14 @@ public class Admin extends User {
     /**
      * Overloaded Constructor method for admin
      * Creates a new Admin with the given params
-     * @param username
-     * @param password
-     * @param adminId
+     * @param username This Admin's username
+     * @param password This Admin's password
+     * @param adminId This Admin's unique Id
      */
     public Admin(String username, String password, int adminId){
         super(username, password);
         this.adminId = adminId;
     }
-
-    /**
-     * Getter and setter methods
-     */
-
 
     /**
      * Gets the unique ID of the Admin.
@@ -56,7 +47,7 @@ public class Admin extends User {
     /**
      * Changes the unique ID of this Admin.
      * SHOULD NOT BE USED UNNECESSARILY
-     * @param adminId
+     * @param adminId This Admin's Id
      */
     public void setAdminId(int adminId){
         this.adminId = adminId;
@@ -64,7 +55,7 @@ public class Admin extends User {
 
     /**
      * Check if an object is an instance of Admin
-     * @param o
+     * @param o Object to undergo check
      * @return boolean if the object is an instance of Admin
      */
     public boolean equals(Object o) {

@@ -173,14 +173,9 @@ public class Price {
     private double seniorCitizen;
 
     /**
-     * Constructor for Price
+     * Default Constructor for Price
      */
-    public Price() {
-    }
-
-    /**
-     * Getter and Setter Methods
-     */
+    public Price() {}
 
     /**
      * Gets the price for Standard Mon-Wed 2D Movies
@@ -192,7 +187,7 @@ public class Price {
 
     /**
      * Modifies the price for Standard Mon-Wed 2D Movies
-     * @param standard_2DWeekday_MonWed
+     * @param standard_2DWeekday_MonWed price for Standard Mon-Wed 2D Movies
      */
     public void setStandard_2DWeekday_MonWed(double standard_2DWeekday_MonWed) {
         Standard_2DWeekday_MonWed = standard_2DWeekday_MonWed;
@@ -208,7 +203,7 @@ public class Price {
 
     /**
      * Modifies the price for Standard Thu 2D Movies
-     * @param standard_2DWeekday_Thu
+     * @param standard_2DWeekday_Thu price for Standard Thu 2D Movies
      */
     public void setStandard_2DWeekday_Thu(double standard_2DWeekday_Thu) {
         Standard_2DWeekday_Thu = standard_2DWeekday_Thu;
@@ -224,7 +219,7 @@ public class Price {
 
     /**
      * Modifies the price for Standard Fri 2D Movies
-     * @param standard_2DWeekday_Fri
+     * @param standard_2DWeekday_Fri price for Standard Fri 2D Movies
      */
     public void setStandard_2DWeekday_Fri(double standard_2DWeekday_Fri) {
         Standard_2DWeekday_Fri = standard_2DWeekday_Fri;
@@ -240,7 +235,7 @@ public class Price {
 
     /**
      * Modifies the price for Standard Weekend 2D Movies
-     * @param standard_2DWeekend
+     * @param standard_2DWeekend price for Standard Weekend 2D Movies
      */
     public void setStandard_2DWeekend(double standard_2DWeekend) {
         Standard_2DWeekend = standard_2DWeekend;
@@ -256,7 +251,7 @@ public class Price {
 
     /**
      * Modifies the price for Standard 2D Movies on a Holiday
-     * @param standard_2DHoliday
+     * @param standard_2DHoliday price for Standard 2D Movies on a Holiday
      */
     public void setStandard_2DHoliday(double standard_2DHoliday) {
         Standard_2DHoliday = standard_2DHoliday;
@@ -272,7 +267,7 @@ public class Price {
 
     /**
      * Modifies the price for Standard Mon-Wed 3D Movies
-     * @param standard_3DWeekday_MonWed
+     * @param standard_3DWeekday_MonWed price for Standard Mon-Wed 3D Movies
      */
     public void setStandard_3DWeekday_MonWed(double standard_3DWeekday_MonWed) {
         Standard_3DWeekday_MonWed = standard_3DWeekday_MonWed;
@@ -288,7 +283,7 @@ public class Price {
 
     /**
      * Modifies the price for Standard Thu 3D Movies
-     * @param standard_3DWeekday_Thu
+     * @param standard_3DWeekday_Thu price for Standard Thu 3D Movies
      */
     public void setStandard_3DWeekday_Thu(double standard_3DWeekday_Thu) {
         Standard_3DWeekday_Thu = standard_3DWeekday_Thu;
@@ -304,7 +299,7 @@ public class Price {
 
     /**
      * Modifies the price for Standard Fri 3D Movies
-     * @param standard_3DWeekday_Fri
+     * @param standard_3DWeekday_Fri price for Standard Fri 3D Movies
      */
     public void setStandard_3DWeekday_Fri(double standard_3DWeekday_Fri) {
         Standard_3DWeekday_Fri = standard_3DWeekday_Fri;
@@ -320,7 +315,7 @@ public class Price {
 
     /**
      * Modifies the price for Standard Weekend 3D Movies
-     * @param standard_3DWeekend
+     * @param standard_3DWeekend price for Standard Weekend 3D Movies
      */
     public void setStandard_3DWeekend(double standard_3DWeekend) {
         Standard_3DWeekend = standard_3DWeekend;
@@ -336,7 +331,7 @@ public class Price {
 
     /**
      * Modifies the price for Standard 3D Movies on a Holiday
-     * @param standard_3DHoliday
+     * @param standard_3DHoliday price for Standard 3D Movies on a Holiday
      */
     public void setStandard_3DHoliday(double standard_3DHoliday) {
         Standard_3DHoliday = standard_3DHoliday;
@@ -352,7 +347,7 @@ public class Price {
 
     /**
      * Modifies the price for Standard Mon-Wed BlockBuster Movies
-     * @param standard_BlockBusterWeekday_MonWed
+     * @param standard_BlockBusterWeekday_MonWed price for Standard Mon-Wed BlockBuster Movies
      */
     public void setStandard_BlockBusterWeekday_MonWed(double standard_BlockBusterWeekday_MonWed) {
         Standard_BlockBusterWeekday_MonWed = standard_BlockBusterWeekday_MonWed;
@@ -368,7 +363,7 @@ public class Price {
 
     /**
      * Modifies the price for Standard Thu BlockBuster Movies
-     * @param standard_BlockBusterWeekday_Thu
+     * @param standard_BlockBusterWeekday_Thu price for Standard Thu BlockBuster Movies
      */
     public void setStandard_BlockBusterWeekday_Thu(double standard_BlockBusterWeekday_Thu) {
         Standard_BlockBusterWeekday_Thu = standard_BlockBusterWeekday_Thu;
@@ -384,7 +379,7 @@ public class Price {
 
     /**
      * Modifies the price for Standard Fri BlockBuster Movies
-     * @param standard_BlockBusterWeekday_Fri
+     * @param standard_BlockBusterWeekday_Fri price for Standard Fri BlockBuster Movies
      */
     public void setStandard_BlockBusterWeekday_Fri(double standard_BlockBusterWeekday_Fri) {
         Standard_BlockBusterWeekday_Fri = standard_BlockBusterWeekday_Fri;
@@ -400,7 +395,7 @@ public class Price {
 
     /**
      * Modifies the price for Standard Weekend BlockBuster Movies
-     * @param standard_BlockBusterWeekend
+     * @param standard_BlockBusterWeekend price for Standard Weekend BlockBuster Movies
      */
     public void setStandard_BlockBusterWeekend(double standard_BlockBusterWeekend) {
         Standard_BlockBusterWeekend = standard_BlockBusterWeekend;
@@ -416,7 +411,7 @@ public class Price {
 
     /**
      * Modifies the price for Standard BlockBuster Movies on a Holiday
-     * @param standard_BlockBusterHoliday
+     * @param standard_BlockBusterHoliday price for Standard BlockBuster Movies on a Holiday
      */
     public void setStandard_BlockBusterHoliday(double standard_BlockBusterHoliday) {
         Standard_BlockBusterHoliday = standard_BlockBusterHoliday;
@@ -432,7 +427,7 @@ public class Price {
 
     /**
      * Modifies the price for Platinum Mon-Wed 2D Movies
-     * @param platinum_2DWeekday_MonWed
+     * @param platinum_2DWeekday_MonWed price for Platinum Mon-Wed 2D Movies
      */
     public void setPlatinum_2DWeekday_MonWed(double platinum_2DWeekday_MonWed) {
         Platinum_2DWeekday_MonWed = platinum_2DWeekday_MonWed;
@@ -448,7 +443,7 @@ public class Price {
 
     /**
      * Modifies the price for Platinum Thu 2D Movies
-     * @param platinum_2DWeekday_Thu
+     * @param platinum_2DWeekday_Thu price for Platinum Thu 2D Movies
      */
     public void setPlatinum_2DWeekday_Thu(double platinum_2DWeekday_Thu) {
         Platinum_2DWeekday_Thu = platinum_2DWeekday_Thu;
@@ -464,7 +459,7 @@ public class Price {
 
     /**
      * Modifies the price for Platinum Fri 2D Movies
-     * @param platinum_2DWeekday_Fri
+     * @param platinum_2DWeekday_Fri price for Platinum Fri 2D Movies
      */
     public void setPlatinum_2DWeekday_Fri(double platinum_2DWeekday_Fri) {
         Platinum_2DWeekday_Fri = platinum_2DWeekday_Fri;
@@ -480,7 +475,7 @@ public class Price {
 
     /**
      * Modifies the price for Platinum Weekend 2D Movies
-     * @param platinum_2DWeekend
+     * @param platinum_2DWeekend price for Platinum Weekend 2D Movies
      */
     public void setPlatinum_2DWeekend(double platinum_2DWeekend) {
         Platinum_2DWeekend = platinum_2DWeekend;
@@ -496,7 +491,7 @@ public class Price {
 
     /**
      * Modifies the price for Platinum 2D Movies on a Holiday
-     * @param platinum_2DHoliday
+     * @param platinum_2DHoliday price for Platinum 2D Movies on a Holiday
      */
     public void setPlatinum_2DHoliday(double platinum_2DHoliday) {
         Platinum_2DHoliday = platinum_2DHoliday;
@@ -512,7 +507,7 @@ public class Price {
 
     /**
      * Modifies the price for Platinum Mon-Wed 3D Movies
-     * @param platinum_3DWeekday_MonWed
+     * @param platinum_3DWeekday_MonWed price for Platinum Mon-Wed 3D Movies
      */
     public void setPlatinum_3DWeekday_MonWed(double platinum_3DWeekday_MonWed) {
         Platinum_3DWeekday_MonWed = platinum_3DWeekday_MonWed;
@@ -528,7 +523,7 @@ public class Price {
 
     /**
      * Modifies the price for Platinum Thu 3D Movies
-     * @param platinum_3DWeekday_Thu
+     * @param platinum_3DWeekday_Thu price for Platinum Thu 3D Movies
      */
     public void setPlatinum_3DWeekday_Thu(double platinum_3DWeekday_Thu) {
         Platinum_3DWeekday_Thu = platinum_3DWeekday_Thu;
@@ -544,7 +539,7 @@ public class Price {
 
     /**
      * Modifies the price for Platinum Fri 3D Movies
-     * @param platinum_3DWeekday_Fri
+     * @param platinum_3DWeekday_Fri price for Platinum Fri 3D Movies
      */
     public void setPlatinum_3DWeekday_Fri(double platinum_3DWeekday_Fri) {
         Platinum_3DWeekday_Fri = platinum_3DWeekday_Fri;
@@ -560,7 +555,7 @@ public class Price {
 
     /**
      * Modifies the price for Platinum Weekend 3D Movies
-     * @param platinum_3DWeekend
+     * @param platinum_3DWeekend price for Platinum Weekend 3D Movies
      */
     public void setPlatinum_3DWeekend(double platinum_3DWeekend) {
         Platinum_3DWeekend = platinum_3DWeekend;
@@ -576,7 +571,7 @@ public class Price {
 
     /**
      * Modifies the price for Platinum 3D Movies on a Holiday
-     * @param platinum_3DHoliday
+     * @param platinum_3DHoliday price for Platinum 3D Movies on a Holiday
      */
     public void setPlatinum_3DHoliday(double platinum_3DHoliday) {
         Platinum_3DHoliday = platinum_3DHoliday;
@@ -592,7 +587,7 @@ public class Price {
 
     /**
      * Modifies the price for Platinum Mon-Wed BlockBuster Movies
-     * @param platinum_BlockBusterWeekday_MonWed
+     * @param platinum_BlockBusterWeekday_MonWed price for Platinum Mon-Wed BlockBuster Movies
      */
     public void setPlatinum_BlockBusterWeekday_MonWed(double platinum_BlockBusterWeekday_MonWed) {
         Platinum_BlockBusterWeekday_MonWed = platinum_BlockBusterWeekday_MonWed;
@@ -608,7 +603,7 @@ public class Price {
 
     /**
      * Modifies the price for Platinum Thu BlockBuster Movies
-     * @param platinum_BlockBusterWeekday_Thu
+     * @param platinum_BlockBusterWeekday_Thu price for Platinum Thu BlockBuster Movies
      */
     public void setPlatinum_BlockBusterWeekday_Thu(double platinum_BlockBusterWeekday_Thu) {
         Platinum_BlockBusterWeekday_Thu = platinum_BlockBusterWeekday_Thu;
@@ -624,7 +619,7 @@ public class Price {
 
     /**
      * Modifies the price for Platinum Fri BlockBuster Movies
-     * @param platinum_BlockBusterWeekday_Fri
+     * @param platinum_BlockBusterWeekday_Fri price for Platinum Fri BlockBuster Movies
      */
     public void setPlatinum_BlockBusterWeekday_Fri(double platinum_BlockBusterWeekday_Fri) {
         Platinum_BlockBusterWeekday_Fri = platinum_BlockBusterWeekday_Fri;
@@ -640,7 +635,7 @@ public class Price {
 
     /**
      * Modifies the price for Platinum Weekend BlockBuster Movies
-     * @param platinum_BlockBusterWeekend
+     * @param platinum_BlockBusterWeekend price for Platinum Weekend BlockBuster Movies
      */
     public void setPlatinum_BlockBusterWeekend(double platinum_BlockBusterWeekend) {
         Platinum_BlockBusterWeekend = platinum_BlockBusterWeekend;
@@ -656,7 +651,7 @@ public class Price {
 
     /**
      * Modifies the price for Platinum BlockBuster Movies on a Holiday
-     * @param platinum_BlockBusterHoliday
+     * @param platinum_BlockBusterHoliday price for Platinum BlockBuster Movies on a Holiday
      */
     public void setPlatinum_BlockBusterHoliday(double platinum_BlockBusterHoliday) {
         Platinum_BlockBusterHoliday = platinum_BlockBusterHoliday;
@@ -672,7 +667,7 @@ public class Price {
 
     /**
      * Modifies the price for Students
-     * @param student
+     * @param student price for Students
      */
     public void setStudent(double student) {
         this.student = student;
@@ -688,7 +683,7 @@ public class Price {
 
     /**
      * Modifies the price for Senior Citizens
-     * @param seniorCitizen
+     * @param seniorCitizen price for Senior Citizens
      */
     public void setSeniorCitizen(double seniorCitizen) {
         this.seniorCitizen = seniorCitizen;
