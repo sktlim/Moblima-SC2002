@@ -4,18 +4,34 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 
+/**
+ * This class represents the Authentication Manager Class for movieGoers. This class has no fields and no instances will be created.
+ * To invoke this class' methods, simply call MovieGoerAuthManager.method()
+ */
+
 public class MovieGoerAuthManager {
 
-    static String fileName = "./databases/movieGoers.txt";
+    /**
+     * This class performs read operations on the movieGoers.txt database to validate movieGoers
+     */
+    public static final String FILENAME = "Databases/movieGoers.txt";
 
-    // returns moviegoer id if exist. Else -1.
-    public static int mgchecker(String username, String password) throws IOException, FileNotFoundException {
+    /**
+     * This static method serves to authenticate movieGoers based on username and password inputs.
+     * These 2 params are queried in the movieGoers database
+     * @param username Username input by user
+     * @param password Password input by user
+     * @return userId if movieGoer successfully authenticated. Else, return -1 to indicate that auth failed.
+     * @throws IOException Checked exception: if this method fails to read database file
+     * @throws FileNotFoundException Checked exception: if the specified database file is not found
+     */
+    public static int authenticateMovieGoer(String username, String password) throws IOException, FileNotFoundException {
         // This will reference one line at a time
         String line = null;
         int moviegoerId = -1;
         try {
             // FileReader reads text files in the default encoding.
-            FileReader fileReader = new FileReader(fileName);
+            FileReader fileReader = new FileReader(FILENAME);
 
             // Always wrap FileReader in BufferedReader.
             BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -34,8 +50,8 @@ public class MovieGoerAuthManager {
             // Close file
             bufferedReader.close();
         }
-        catch(FileNotFoundException ex) { System.out.println("Unable to open file '" + fileName + "'");}
-        catch(IOException ex) { System.out.println("Error reading file '" + fileName + "'");}
+        catch(FileNotFoundException ex) { System.out.println("Unable to open file '" + FILENAME + "'");}
+        catch(IOException ex) { System.out.println("Error reading file '" + FILENAME + "'");}
         return -1;
     }
 
