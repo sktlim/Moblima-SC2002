@@ -19,82 +19,136 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
         try {
             System.out.println("Enter Movie Title: ");
             String movieTitle = sc.nextLine();
-            System.out.println("Enter Showing Status: ");
-            System.out.println("0: COMING_SOON");
-            System.out.println("1: PREVIEW");
-            System.out.println("2: NOW_SHOWING");
-            int showStatusSelector = sc.nextInt();
-            sc.nextLine();
+
+            String showStatusSelectorString = "-1";
             Movie.ShowingStatus showingStatus = Movie.ShowingStatus.DEFAULT;
+            int flag = 0;
+            while(flag == 0){
+                try{
+                    System.out.println("Enter Showing Status: ");
+                    System.out.println("0: COMING_SOON");
+                    System.out.println("1: PREVIEW");
+                    System.out.println("2: NOW_SHOWING");
+                    showStatusSelectorString = sc.nextLine();
+                    int showStatusSelector = checkInput(showStatusSelectorString);
+                    showingStatus = Movie.ShowingStatus.DEFAULT;
+                    while(showStatusSelector<0 || showStatusSelector>2){
+                        throw new Exception();
+                    }
+                    flag = 1;
+                    switch(showStatusSelector){
+                        case 0:
+                            showingStatus = Movie.ShowingStatus.COMING_SOON;
+                            break;
 
-            switch(showStatusSelector){
-                case 0:
-                    showingStatus = Movie.ShowingStatus.COMING_SOON;
-                    break;
+                        case 1:
+                            showingStatus = Movie.ShowingStatus.PREVIEW;
+                            break;
 
-                case 1:
-                    showingStatus = Movie.ShowingStatus.PREVIEW;
-                    break;
-
-                case 2:
-                    showingStatus = Movie.ShowingStatus.NOW_SHOWING;
-                    break;
+                        case 2:
+                            showingStatus = Movie.ShowingStatus.NOW_SHOWING;
+                            break;
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Invalid Input. Please re-enter");
+                }
             }
+
+
             System.out.println("Enter Synopsis: ");
             String synopsis = sc.nextLine();
             System.out.println("Enter Director: ");
             String director = sc.nextLine();
             System.out.println("Enter Cast: ");
             String cast = sc.nextLine();
-            System.out.println("Enter Movie Runtime: ");
-            int movieRuntime = sc.nextInt();
-            sc.nextLine();
-            System.out.println("Enter Movie Rating: ");
-            System.out.println("0: G");
-            System.out.println("1: PG13");
-            System.out.println("2: NC16");
-            System.out.println("3: M18");
-            System.out.println("4: R21");
-            int movieRatingSelector = sc.nextInt();
-            sc.nextLine();
+            flag = 0;
+            int movieRuntime = 0;
+            while(flag==0){
+                try{
+                    System.out.println("Enter Movie Runtime: ");
+                    String input = sc.nextLine();
+                    movieRuntime = checkInput(input);
+                    flag = 1;
+                }
+                catch(Exception e){
+                    System.out.println("Invalid Input. Please re-enter.");
+                }
+            }
+
+            flag = 0;
+            String movieRatingSelectorString = "-1";
             Movie.MovieRating movieRating = Movie.MovieRating.DEFAULT;
-            switch(movieRatingSelector){
-                case 0:
-                    movieRating = Movie.MovieRating.G;
-                    break;
-                case 1:
-                    movieRating = Movie.MovieRating.PG13;
-                    break;
-                case 2:
-                    movieRating = Movie.MovieRating.NC16;
-                    break;
-                case 3:
-                    movieRating = Movie.MovieRating.M18;
-                    break;
-                case 4:
-                    movieRating = Movie.MovieRating.R21;
-                    break;
+
+            while(flag == 0){
+                try{
+                    System.out.println("Enter Movie Rating: ");
+                    System.out.println("0: G");
+                    System.out.println("1: PG13");
+                    System.out.println("2: NC16");
+                    System.out.println("3: M18");
+                    System.out.println("4: R21");
+                    String input = sc.nextLine();
+                    int movieRatingSelector = checkInput(input);
+                    while(movieRatingSelector<0 || movieRatingSelector>4){
+                        throw new Exception();
+                    }
+                    switch(movieRatingSelector){
+                        case 0:
+                            movieRating = Movie.MovieRating.G;
+                            break;
+                        case 1:
+                            movieRating = Movie.MovieRating.PG13;
+                            break;
+                        case 2:
+                            movieRating = Movie.MovieRating.NC16;
+                            break;
+                        case 3:
+                            movieRating = Movie.MovieRating.M18;
+                            break;
+                        case 4:
+                            movieRating = Movie.MovieRating.R21;
+                            break;
+                    }
+                    flag = 1;
+                }
+                catch(Exception e){
+                    System.out.println("Invalid Input. Please re-enter.");
+                }
             }
 
-            System.out.println("Enter Movie Type: ");
-            System.out.println("0: 2D");
-            System.out.println("1: 3D");
-            System.out.println("2: BLOCKBUSTER");
-            int movieTypeSelector = sc.nextInt();
-            sc.nextLine();
+            flag = 0;
             Movie.MovieType movieType = Movie.MovieType.DEFAULT;
-            switch(movieTypeSelector){
-                case 0:
-                    movieType = Movie.MovieType.TWO_D;
-                    break;
-                case 1:
-                    movieType = Movie.MovieType.THREE_D;
-                    break;
-                case 2:
-                    movieType = Movie.MovieType.BLOCKBUSTER;
-                    break;
+            while (flag == 0){
+                try{
+                    System.out.println("Enter Movie Type: ");
+                    System.out.println("0: 2D");
+                    System.out.println("1: 3D");
+                    System.out.println("2: BLOCKBUSTER");
+                    String input = sc.nextLine();
+                    int movieTypeSelector = checkInput(input);
+                    while(movieTypeSelector<0||movieTypeSelector>2){
+                        throw new Exception();
+                    }
+                    switch(movieTypeSelector){
+                        case 0:
+                            movieType = Movie.MovieType.TWO_D;
+                            break;
+                        case 1:
+                            movieType = Movie.MovieType.THREE_D;
+                            break;
+                        case 2:
+                            movieType = Movie.MovieType.BLOCKBUSTER;
+                            break;
+                    }
+                    flag = 1;
+                }
+                catch(Exception e){
+                    System.out.println("Invalid Input. Please re-enter");
+                }
             }
 
+            System.out.println("Movie successfully created!");
             ArrayList al = readMovies(FILENAME);
             Movie m1 = new Movie(al.size()+1, movieTitle, showingStatus, synopsis, director, cast, movieRuntime, movieRating, movieType);
             al.add(m1);
@@ -122,31 +176,54 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
         Movie.MovieType movieType = Movie.MovieType.DEFAULT;
 
         try{
-            System.out.println("Select field to change:");
-            System.out.println("0: Movie Title");
-            System.out.println("1: Showing Status");
-            System.out.println("2: Synopsis");
-            System.out.println("3: Director");
-            System.out.println("4: Cast");
-            System.out.println("5: Runtime");
-            System.out.println("6: Rating");
-            System.out.println("7: Movie Type");
-            int fieldEdit = sc.nextInt();
-            sc.nextLine();
+            int flag = 0;
+            int fieldEdit = 0;
+            while(flag == 0){
+                try{
+                    System.out.println("Select field to change:");
+                    System.out.println("0: Movie Title");
+                    System.out.println("1: Showing Status");
+                    System.out.println("2: Synopsis");
+                    System.out.println("3: Director");
+                    System.out.println("4: Cast");
+                    System.out.println("5: Runtime");
+                    System.out.println("6: Rating");
+                    System.out.println("7: Movie Type");
+                    String input = sc.nextLine();
+                    fieldEdit = checkInput(input);
+                    while(fieldEdit<0 || fieldEdit > 7){
+                        throw new Exception();
+                    }
+                    flag = 1;
+                }
+                catch(Exception e){
+                    System.out.println("Invalid Input. Please re-enter.");
+                }
+            }
+
             switch(fieldEdit){
                 case 0: //edit movie title
                     System.out.println("Enter new Movie Title: ");
                     inputField = sc.nextLine();
                     break;
                 case 1: //edit showing status
-                    System.out.println("Enter Movie Showing Status: ");
-                    System.out.println("0: COMING_SOON");
-                    System.out.println("1: PREVIEW");
-                    System.out.println("2: NOW_SHOWING");
-                    int showStatusSelector = sc.nextInt();
-                    sc.nextLine();
-                    showingStatus = Movie.ShowingStatus.DEFAULT;
-
+                    flag = 0;
+                    int showStatusSelector = 0;
+                    while(flag == 0){
+                        try{
+                            System.out.println("Enter Movie Showing Status: ");
+                            System.out.println("0: COMING_SOON");
+                            System.out.println("1: PREVIEW");
+                            System.out.println("2: NOW_SHOWING");
+                            String input = sc.nextLine();
+                            showStatusSelector = checkInput(input);
+                            showingStatus = Movie.ShowingStatus.DEFAULT;
+                        }
+                        catch(Exception e){
+                            System.out.println("Invalid Input. Please re-enter.");
+                        }
+                        flag = 1;
+                    }
                     switch(showStatusSelector){
                         case 0:
                             showingStatus = Movie.ShowingStatus.COMING_SOON;
@@ -180,21 +257,43 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
 
 
                 case 5: // edit run time
-                    System.out.println("Enter Movie Runtime: ");
-                    runTime = sc.nextInt();
-                    sc.nextLine();
+                    flag = 0;
+                    while(flag == 0){
+                        try{
+                            System.out.println("Enter Movie Runtime: ");
+                            String input = sc.nextLine();
+                            runTime = checkInput(input);
+                            flag = 1;
+                        }
+                        catch(Exception e){
+                            System.out.println("Invalid Input. Please re-enter.");
+                        }
+                    }
                     break;
 
                 case 6: // edit rating
-                    System.out.println("Enter Movie Rating: ");
-                    System.out.println("0: G");
-                    System.out.println("1: PG13");
-                    System.out.println("2: NC16");
-                    System.out.println("3: M18");
-                    System.out.println("4: R21");
-                    int movieRatingSelector = sc.nextInt();
-                    sc.nextLine();
-                    movieRating = Movie.MovieRating.DEFAULT;
+                    flag = 0;
+                    int movieRatingSelector=0;
+                    while(flag == 0){
+                        try{
+                            System.out.println("Enter Movie Rating: ");
+                            System.out.println("0: G");
+                            System.out.println("1: PG13");
+                            System.out.println("2: NC16");
+                            System.out.println("3: M18");
+                            System.out.println("4: R21");
+                            String input = sc.nextLine();
+                            movieRatingSelector = checkInput(input);
+                            while(movieRatingSelector<0 || movieRatingSelector>4){
+                                throw new Exception();
+                            }
+                        }
+                        catch(Exception e){
+                            System.out.println("Invalid Input. Please re-enter.");
+                        }
+
+                    }
+
                     switch(movieRatingSelector){
                         case 0:
                             movieRating = Movie.MovieRating.G;
@@ -217,13 +316,25 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
 
 
                 case 7: // edit movie type
-                    System.out.println("Enter Movie Type: ");
-                    System.out.println("0: 2D");
-                    System.out.println("1: 3D");
-                    System.out.println("2: BLOCKBUSTER");
-                    int movieTypeSelector = sc.nextInt();
-                    sc.nextLine();
-                    movieType = Movie.MovieType.DEFAULT;
+                    flag = 0;
+                    int movieTypeSelector = 0;
+                    while(flag == 0){
+                        try{
+                            System.out.println("Enter Movie Type: ");
+                            System.out.println("0: 2D");
+                            System.out.println("1: 3D");
+                            System.out.println("2: BLOCKBUSTER");
+                            String input = sc.nextLine();
+                            movieTypeSelector = checkInput(input);
+                            while(movieTypeSelector<0 || movieTypeSelector>2){
+                                throw new Exception();
+                            }
+                        }
+                        catch(Exception e){
+                            System.out.println("Invalid Input. Please re-enter.");
+                        }
+                    }
+
                     switch(movieTypeSelector){
                         case 0:
                             movieType = Movie.MovieType.TWO_D;
@@ -367,6 +478,12 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
             System.out.println(e.getMessage());
             return null;
         }
+    }
+
+    private static int checkInput (String input) throws Exception {
+        if (input.length() == 0) throw new IllegalArgumentException();
+        if (input.length() == 1) return Integer.parseInt(input);
+        else return Integer.parseInt(input.substring(0, 2));
     }
 
 }
