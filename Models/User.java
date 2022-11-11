@@ -1,7 +1,7 @@
 package Models;
 
 /**
- * User class stores the username and password of user
+ * User class stores the username and password of user.
  */
 public class User{
     /**

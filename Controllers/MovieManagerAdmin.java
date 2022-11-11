@@ -8,12 +8,20 @@ import java.util.Scanner;
 import Exceptions.ItemNotFoundException;
 import java.util.InputMismatchException;
 
+/**
+ * This Class handles the CRUD (create, read, update, delete) methods for Movies that are authorized for Admins. This class extends the MovieManagerMovieGoer parent class to inherit the base methods that MovieGoers can perform.
+ * The CRUD operations performed in this class generally handle 1 checked exception and 1 unchecked exception:
+ * 1) IOException: CHECKED --> Thrown when assessing data in the specified file fails
+ * 2) ItemNotFoundException: UNCHECKED --> Thrown during runtime when users enter a movieId that does not exist in the database
+ */
+
 public class MovieManagerAdmin extends MovieManagerMovieGoer {
 
     /**
      * Create method
      * Create new movie and add it to the database
      * @param sc takes in scanner to instantiate fields within the function
+     * InputMismatchException: UNCHECKED --> Thrown when user inputs an invalid format
      */
     public static void createMovie(Scanner sc){
         try {
@@ -165,8 +173,9 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
 
     /**
      * Update method
+     * Allows admins to update a movie with new fields
      * @param movieId update movie in the database by movieId
-     * @param sc takes in scanner to update various fields
+     * @param sc takes in scanner to update the various fields
      */
     public static void updateMovies(int movieId, Scanner sc){
         String inputField = "0";
@@ -418,11 +427,12 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
             System.out.println("Your input was of a wrong format! Please ensure that your input is an integer.");
         }
     }
+
     /**
      * Read method
-     * Find movie by movieId
-     * @param movieID
-     * @return Object of type Movie
+     * Find a single movie by movieId
+     * @param movieID The movieID of the movie to be queried
+     * @return Object of type Movie if successful search, else return null
      */
     public static Movie findMovie(int movieID){
         try{
@@ -443,10 +453,11 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
         }
         return null;
     }
+
     /**
      * Delete method
-     * Delete Movie based on movieId
-     * @param movieId
+     * Delete a single Movie based on movieId
+     * @param movieId The movieId of the movie to be deleted
      */
     public static void deleteMovie(int movieId){
         try{
@@ -473,6 +484,10 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
         }
     }
 
+    /**
+     * Allows admins to retrieve all movies in the database as an array list
+     * @return an array list of Movie objects from the database
+     */
     public static ArrayList getMovies() {
         try {
             return readMovies("Databases/movies.txt");
@@ -482,7 +497,12 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
         }
     }
 
-    private static int checkInput (String input) throws Exception {
+    /** Helper function invoked within this class to validate that users only input a single digit when selecting from a list of provided options.
+     * @param input the input from the user to be validated if it is legitimate
+     * @return an integer representation of the user input if validation successful, else return an integer representation of the first 3 characters in the input.
+     * @throws IllegalArgumentException UNCHECKED --> Thrown when the user does not provide any input
+     */
+    private static int checkInput (String input) throws IllegalArgumentException {
         if (input.length() == 0) throw new IllegalArgumentException();
         if (input.length() == 1) return Integer.parseInt(input);
         else return Integer.parseInt(input.substring(0, 2));

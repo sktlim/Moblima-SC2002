@@ -14,15 +14,24 @@ import java.util.*;
 import Exceptions.ItemNotFoundException;
 import java.util.InputMismatchException;
 
+/**
+ * Ticket Manager allows console user to create, read, update, and delete tickets.
+ */
 public class TicketManager implements Manager{
+    /**
+     * Path of prices.txt file.
+     */
     public final static String FILENAME = "Databases/tickets.txt";
+    /**
+     * Separator for parsing prices.txt file.
+     */
     public static final String SEPARATOR = "|";
 
 
-    /** Create Ticket to put into the database
-     * UserID must be provided unless created by guest
+    /** Create Ticket to put into the database.
+     * UserID must be provided unless created by guest.
      * @param sc takes in scanner to instantiate various attributes within the function
-     * @param userId
+     * @param userId user ID to be associated with ticket
      * @return ticketID if successfully created, otherwise return -1.
      */
     public static int createTicket(Scanner sc, int userId){
@@ -153,15 +162,20 @@ public class TicketManager implements Manager{
         }
     }
 
+    /**
+     * Ensure input is valid.
+     * @param input input String
+     * @return returns 0 or 1
+     * @throws Exception Error in method
+     */
     private static int checkInput (String input) throws Exception {
         if (input.length() <= 1) return Integer.parseInt(input);
         else return Integer.parseInt(input.substring(0, 2));
     }
 
     /**
-     * Read Method
-     * Read ticket by ticketID
-     * @param ticketId
+     * Read ticket by ticketID.
+     * @param ticketId ticket ID to be read
      */
     public static void readTicket(int ticketId){
         try {
@@ -185,7 +199,7 @@ public class TicketManager implements Manager{
 
     /**
      * Find ticket by ticketID
-     * @param ticketId
+     * @param ticketId ticket ID of ticket to be found
      * @return Object of type Ticket
      */
     public static Ticket findTicket(int ticketId) {
@@ -302,7 +316,7 @@ public class TicketManager implements Manager{
 
     /**
      * Delete ticket by ticketID
-     * @param ticketId
+     * @param ticketId ticket ID to be deleted
      */
     public static void deleteTicket(int ticketId){
         // delete method
@@ -323,7 +337,10 @@ public class TicketManager implements Manager{
     }
 
     /** reading (helper func, declared as private as it is only called within this file)
-     * This creates a list of instances of movieGoers */
+     * This creates a list of instances of movieGoers
+     * @param filename File to be read
+     * @throws IOException I/O Error with input
+     */
 
     protected static ArrayList readTickets(String filename) throws IOException {
         // read String from text file
@@ -349,8 +366,12 @@ public class TicketManager implements Manager{
         return alr ;
     }
 
-    /** Read the contents of the given file.
-     * (helper func, declared as private as it is only called within this file)*/
+    /**
+     * Read the contents of the given file (helper func, declared as private as it is only called within this file).
+     * @param fileName File Name of content to be parsed
+     * @return  List filled with data from file
+     * @throws IOException Exception throw in in event of I/O error
+     */
     private static List read(String fileName) throws IOException {
         List data = new ArrayList() ;
         Scanner scanner = new Scanner(new FileInputStream(fileName));
@@ -367,9 +388,9 @@ public class TicketManager implements Manager{
 
     /**
      * Save tickets to the database
-     * @param filename
-     * @param al
-     * @throws IOException
+     * @param filename File Name of content saved to
+     * @param al Array list for building String to be written into file
+     * @throws IOException Exception throw in in event of I/O error
      */
     private static void saveTickets(String filename, List al) throws IOException {
         List alw = new ArrayList() ;// to store tickets data
@@ -396,7 +417,11 @@ public class TicketManager implements Manager{
     }
 
     /** Write fixed content to the given file.
-     * (helper func, declared as private as it is only called within this file)*/
+     * (helper func, declared as private as it is only called within this file)
+     * @param fileName File Name of content to be parsed
+     * @param data List to be written into file with data
+     * @throws IOException Exception throw in in event of I/O error
+     */
     private static void write(String fileName, List data) throws IOException  {
         PrintWriter out = new PrintWriter(new FileWriter(fileName));
         try {

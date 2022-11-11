@@ -18,10 +18,21 @@ import java.util.InputMismatchException;
 
 import static Controllers.MovieManagerMovieGoer.readMovies;
 
-
+/**
+ * Rating and Review Manager manages the ratings and reviews for a particular show.
+ */
 public class RatingAndReviewManager implements Manager{
+    /**
+     * Path of ratingAndReviews.txt file
+     */
     public final static String FILENAME = "Databases/ratingAndReviews.txt";
+    /**
+     * Separator for parsing .txt file
+     */
     public static final String SEPARATOR = "|";
+    /**
+     * Path of movies.txt file
+     */
     public final static String MOVIES = "Databases/movies.txt";
 
     /**
@@ -75,7 +86,6 @@ public class RatingAndReviewManager implements Manager{
     }
 
     /**
-     * Read method
      * Print method to display everything on the txt file database
      */
     public static void printRatingsAndReviewList(){
@@ -98,9 +108,9 @@ public class RatingAndReviewManager implements Manager{
 
 
     /**
-     * Update method
-     * this updates the various field of review based on reviewId
-     * @param reviewId
+     * Update method.
+     * This updates the various field of review based on reviewId.
+     * @param reviewId review ID associated with review
      * @param sc takes in scanner to update various fields within the function
      */
     public static void updateReview(int reviewId, Scanner sc){
@@ -172,9 +182,9 @@ public class RatingAndReviewManager implements Manager{
     }
 
     /**
-     * Delete method
-     * delete review based on reviewID
-     * @param reviewId
+     * Delete method.
+     * Deletes review based on reviewID.
+     * @param reviewId review ID of associated review
      */
     public static void deleteReview(int reviewId){
         try{
@@ -202,11 +212,12 @@ public class RatingAndReviewManager implements Manager{
 
     }
 
-
-    /** reading (helper func, declared as protected as it is
-     * accessed within this package)
-     * This creates a list of instances of reviews */
-
+    /**
+     * Reading helper function. This creates a list of instances of reviews.
+     * @param filename filename of content to be read
+     * @return array list with read contents from file
+     * @throws IOException I/O Error with input
+     */
     protected static ArrayList readReviews(String filename) throws IOException {
         // read String from text file
         ArrayList stringArray = (ArrayList)read(filename);
@@ -228,8 +239,13 @@ public class RatingAndReviewManager implements Manager{
         return alr ;
     }
 
-    /** Write fixed content to the given file.
-     * (helper func, declared as private as it is only called within this file)*/
+
+    /**
+     * Write fixed content to the given file.
+     * @param fileName filename of write location
+     * @param data data for writing to file
+     * @throws IOException I/O Error with input
+     */
     private static void write(String fileName, List data) throws IOException  {
         PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
@@ -243,8 +259,12 @@ public class RatingAndReviewManager implements Manager{
         }
     }
 
-    /** Read the contents of the given file.
-     * (helper func, declared as private as it is only called within this file)*/
+    /**
+     * Read the contents of the given file.
+     * @param fileName filename of read location
+     * @return list with read contents from file
+     * @throws IOException I/O Error with input
+     */
     private static List read(String fileName) throws IOException {
         List data = new ArrayList() ;
         Scanner scanner = new Scanner(new FileInputStream(fileName));
@@ -260,8 +280,10 @@ public class RatingAndReviewManager implements Manager{
     }
 
     /**
-     * saving (helper func)
-     * declared as private as it is only called within this file
+     * Save function for reviews. Converts from list to String format to subsequently be written to target file.
+     * @param filename of write location
+     * @param al list with new contents for saving
+     * @throws IOException I/O Error with input
      */
     private static void saveReviews(String filename, List al) throws IOException {
         List alw = new ArrayList() ;// to store review data

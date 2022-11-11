@@ -14,8 +14,17 @@ import Models.Theatre;
 import Exceptions.ItemNotFoundException;
 import java.util.InputMismatchException;
 
+/**
+ * Theatre Manager allows console user to create, read, update, and delete theatres
+ */
 public class TheatreManager implements Manager { // crud
+    /**
+     * Path of theatres.txt file.
+     */
     public final static String FILENAME = "Databases/theatres.txt";
+    /**
+     * Separator for parsing prices.txt file.
+     */
     public final static String SEPARATOR = "|";
 
     /**
@@ -25,7 +34,6 @@ public class TheatreManager implements Manager { // crud
      * Hence, declared as private
      * @param sc takes in scanner for first initialization
      */
-
     private static void createTheatre(Scanner sc){
         try {
             System.out.println("Enter cineplex code: ");
@@ -49,10 +57,10 @@ public class TheatreManager implements Manager { // crud
 
 
     /**
-     * Read method
+     * Read method.
      * Find show by Cineplex Code and TheatreId
-     * @param cineplexCode
-     * @param theatreId
+     * @param cineplexCode Cineplex code that theatre belongs to
+     * @param theatreId Theatre ID of theatre
      * @return Object of type Theatre
      */
     public static Theatre findTheatre(String cineplexCode, int theatreId){
@@ -78,11 +86,11 @@ public class TheatreManager implements Manager { // crud
         return null;
     }
 
-    /** Set theatre busy
-     * @param cineplexCode
-     * @param theatreId
-     * Finds a match to cineplexCode and theatreID
-     * Sets that theatre to busy
+    /**
+     * Set theatre busy by finding a match to cineplexCode and theatreID.
+     * Sets that theatre to busy.
+     * @param cineplexCode Cineplex code that theatre belongs to
+     * @param theatreId Theatre ID of theatre
      */
     public static void setBusy(String cineplexCode, int theatreId){
         try{
@@ -100,11 +108,10 @@ public class TheatreManager implements Manager { // crud
         }
     }
 
-    /** Set theatre free
-     * @param cineplexCode
-     * @param theatreId
-     * Finds a match to cineplexCode and theatreID
-     * Sets that theatre to free
+    /** Set theatre free by finding a match to cineplexCode and theatreID.
+     * Sets that theatre to free.
+     * @param cineplexCode Cineplex code that theatre belongs to
+     * @param theatreId Theatre ID of theatre
      */
     public static void setFree(String cineplexCode, int theatreId){
         try{
@@ -122,8 +129,7 @@ public class TheatreManager implements Manager { // crud
         }
     }
 
-    /** Read method
-     * Print method to display everything on the txt file database */
+    /** Read method to display and print everything on the txt file database. */
     public static void printTheatreList(){
         try{
             ArrayList the = readTheatres(FILENAME);
@@ -144,9 +150,9 @@ public class TheatreManager implements Manager { // crud
 
     /**
      * Read theatres
-     * @param filename
+     * @param filename File name of content to be read
      * @return ArrayList of theatres
-     * @throws IOException
+     * @throws IOException I/O Error with input
      */
     private static ArrayList readTheatres(String filename) throws IOException {
         // read String from text file
@@ -174,7 +180,11 @@ public class TheatreManager implements Manager { // crud
     }
 
     /** Write fixed content to the given file.
-     * (helper func, declared as private as it is only called within this file)*/
+     * (helper func, declared as private as it is only called within this file)
+     * @param fileName File Name of content to be parsed
+     * @param data List to be written into file with data
+     * @throws IOException Exception throw in in event of I/O error
+     */
     private static void write(String fileName, List data) throws IOException  {
         PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
@@ -188,8 +198,12 @@ public class TheatreManager implements Manager { // crud
         }
     }
 
-    /** Read the contents of the given file.
-     * (helper func, declared as private as it is only called within this file)*/
+    /**
+     * Read the contents of the given file (helper func, declared as private as it is only called within this file).
+     * @param fileName File Name of content to be parsed
+     * @return  List filled with data from file
+     * @throws IOException Exception throw in in event of I/O error
+     */
     private static List read(String fileName) throws IOException {
         List data = new ArrayList() ;
         Scanner scanner = new Scanner(new FileInputStream(fileName));
@@ -204,10 +218,12 @@ public class TheatreManager implements Manager { // crud
         return data;
     }
 
-    /** saving (helper function)
-     * declared as private as it is only accessed within the scope of this file
+    /**
+     * Save theatres to the database
+     * @param filename File Name of content to be parsed
+     * @param al Array list for building String to be written into file
+     * @throws IOException Exception throw in in event of I/O error
      */
-
     private static void saveTheatres(String filename, List al) throws IOException {
         List alw = new ArrayList() ;// to store movies data
 

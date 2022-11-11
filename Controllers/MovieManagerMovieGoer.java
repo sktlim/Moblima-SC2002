@@ -15,17 +15,31 @@ import Exceptions.ItemNotFoundException;
 import static Controllers.RatingAndReviewManager.readReviews;
 import static Controllers.TicketManager.readTickets;
 
+/**
+ * Manage movie goers and associated functions. Can contain multiple movie goers.
+ */
 public class MovieManagerMovieGoer implements Manager{
-
+    /**
+     * Path to movies.txt file
+     */
     public final static String FILENAME = "Databases/movies.txt";
+    /**
+     * Separator for parsing .txt files.
+     */
     public final static  String SEPARATOR = "|";
+    /**
+     * Path to ratingAndReviews.txt file
+     */
     public final static String REVIEWS = "Databases/ratingAndReviews.txt";
+    /**
+     * Path to tickets.txt file
+     */
     public final static String TICKETS = "Databases/tickets.txt";
 
     /**
-     * Prints all available reviews for a given Movie
-     * Search by movieId
-     * @param movieId
+     * Prints all available reviews for a given Movie.
+     * Search by movieId.
+     * @param movieId movie ID of associated movie
      */
     public static void getAllReview(int movieId) {
         // prints all the reviews related to a particular movie
@@ -52,7 +66,7 @@ public class MovieManagerMovieGoer implements Manager{
     }
 
     /**
-     * Find the overall average rating for a given movie
+     * Find the overall average rating for a given movie.
      * @param movieId search by movie ID
      * @return an average score of the rating of the movie
      */
@@ -85,7 +99,7 @@ public class MovieManagerMovieGoer implements Manager{
 
     /**
      * Print the overall ratings of movieId
-     * @param movieId
+     * @param movieId movie ID of associated movie
      */
     public static void printOverallRatings(int movieId) {
         // prints the overall numerical ratings for a particular movie
@@ -117,8 +131,8 @@ public class MovieManagerMovieGoer implements Manager{
     }
 
     /**
-     * Add rating and review
-     * Calls RatingAndReviewManager's static method
+     * Add rating and review.
+     * Calls RatingAndReviewManager's static method.
      * @param sc to pass into the createReview method
      */
     public static void addRatingAndReview(Scanner sc) {
@@ -126,7 +140,7 @@ public class MovieManagerMovieGoer implements Manager{
     }
 
     /**
-     * Get ticket sales by movie ID
+     * Get ticket sales by movie ID.
      * @param movieId search field
      * @return total number of tickets that the movie sold
      */
@@ -160,10 +174,10 @@ public class MovieManagerMovieGoer implements Manager{
     }
 
     /**
-     * Get top 5 movies by ticket sales
+     * Get top 5 movies by ticket sales.
      * Utilizes the getTicketSales function and puts this data into a hashmap,
      * where the movieId is the key and the tickets sold are the values.
-     * Sorts the hashmap from largest to smallest
+     * Sorts the hashmap from largest to smallest.
      * Prints the top 5 movies by ticket sales.
      */
     public static void getTop5MoviesByTicketSales() {
@@ -212,9 +226,9 @@ public class MovieManagerMovieGoer implements Manager{
     /**
      * Get top 5 movies by rating
      * Utilizes the getOverallRatings function to put the overall ratings for
-     * a movie (as values) with the movieID as the key
-     * Does a descending sort of the hashmap
-     * Prints the top 5 movies by rating
+     * a movie (as values) with the movieID as the key.
+     * Does a descending sort of the hashmap.
+     * Prints the top 5 movies by rating.
      */
     public static void getTop5MoviesByRating() {
         HashMap<Integer, Float> hm = new HashMap<>();
@@ -257,8 +271,7 @@ public class MovieManagerMovieGoer implements Manager{
     }
 
     /**
-     * Read method
-     * Print method to display everything on the txt file database \
+     * Print method to display everything on the txt file database.
      */
     public static void printMovieList(){
         try{
@@ -283,10 +296,12 @@ public class MovieManagerMovieGoer implements Manager{
         }
     }
 
-
-    /** reading (helper func, declared as protected as it is called within child file)
-     * This creates a list of instances of movies */
-
+    /**
+     * Reading helper function that creates a list of instances of movies
+     * @param filename filename of file to be read
+     * @return Array List with extracted values from file
+     * @throws IOException I/O Error with input
+     */
     protected static ArrayList readMovies(String filename) throws IOException {
         // read String from text file
         ArrayList stringArray = (ArrayList)read(filename);
@@ -314,8 +329,12 @@ public class MovieManagerMovieGoer implements Manager{
         return mov ;
     }
 
-    /** Write fixed content to the given file.
-     * (helper func, declared as private as it is only called within this file)*/
+    /**
+     * Write fixed content to the given file.
+     * @param fileName filename of write location
+     * @param data data for writing to file
+     * @throws IOException I/O Error with input
+     */
     private static void write(String fileName, List data) throws IOException  {
         PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
@@ -329,8 +348,12 @@ public class MovieManagerMovieGoer implements Manager{
         }
     }
 
-    /** Read the contents of the given file.
-     * (helper func, declared as private as it is only called within this file)*/
+    /**
+     * Read the contents of the given file.
+     * @param fileName filename of read location
+     * @return list with read contents from file
+     * @throws IOException I/O Error with input
+     */
     private static List read(String fileName) throws IOException {
         List data = new ArrayList() ;
         Scanner scanner = new Scanner(new FileInputStream(fileName));
@@ -345,9 +368,12 @@ public class MovieManagerMovieGoer implements Manager{
         return data;
     }
 
-    /** saving
-     * (helper func, declared as protected as it is called by child)*/
-
+    /**
+     * Save function for movies. Converts from list to String format to subsequently be written to target file.
+     * @param filename of write location
+     * @param al list with new contents for saving
+     * @throws IOException I/O Error with input
+     */
     protected static void saveMovies(String filename, List al) throws IOException {
         List alw = new ArrayList() ;// to store movies data
 

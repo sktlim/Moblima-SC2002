@@ -10,12 +10,32 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Seat Manager handles creating, reading, updating, and deleting seat plans.
+ */
 public class SeatManager implements Manager {
+    /**
+     * 2D Array for seat plan
+     */
     private int[][] seatPlan;
+    /**
+     * Static seating plan associated with Theatre.
+     */
     public final static String FILE_FIXED_PLAN = "Databases/seatingPlanTheatre.txt";
+    /**
+     * Dynamic seating plan associated with Show that changes according to the person who booked the seat.
+     */
     public final static String FILE_SHOW_PLAN = "Databases/seatingPlanShow.txt";
+    /**
+     * Separator for parsing .txt files.
+     */
     public static final String SEPARATOR = "|";
 
+    /**
+     * Read and prints seat plan for a particular show.
+     * @param showId Show ID for associated show
+     * @throws Exception Catch exception cases e.g. Show plan does not exist
+     */
     public static void readSeatPlan(int showId) throws Exception {
         // display available seats
         // also prints labels for x-y axis for user selection
@@ -70,6 +90,13 @@ public class SeatManager implements Manager {
             System.out.println("   1    : seat is taken");
     }
 
+    /**
+     * Getter method for seat type of particular seats.
+     * @param showId Show ID of associated Show
+     * @param seat Seat that is being referred to
+     * @return Seat type of referred seat
+     * @throws Exception Catches exception cases such as when seat plan does not exist
+     */
     public static String getSeatType(int showId, String seat) throws Exception {
         List show_plans = read(FILE_SHOW_PLAN);
         HashMap show_plan = null;
@@ -89,6 +116,13 @@ public class SeatManager implements Manager {
         return plan[row][col][1];
     }
 
+    /**
+     * Checks whether seat is available.
+     * @param showId Show ID of associated Show
+     * @param seat Seat that is being referred to
+     * @return Integer value to indicate whether seat is available (-1: Seat does not exist, 0:Seat unavailable, 1: Seat available)
+     * @throws Exception Catches exception cases such as when seat plan does not exist
+     */
     public static int isSeatAvail(int showId, String seat) throws Exception {
         //check seat, if seat avail, return true, else return false
 
@@ -115,6 +149,10 @@ public class SeatManager implements Manager {
         } else return -1;
     }
 
+    /**
+     * Creates empty seat plan associated with Show based on Theatre ID.
+     * @param showId Show ID of associated show
+     */
     public static void createShowPlan(int showId) {
         // creates empty seat plan related to show based on theatre id
         // Must pass theatreId since is called in constructor of show
@@ -148,6 +186,13 @@ public class SeatManager implements Manager {
         }
     }
 
+    /**
+     * Updates seat plan of a particular show
+     * @param showId Show ID of associated Show
+     * @param seat Seat that is being referred to
+     * @param option Option for updating seat plan (-1: Seat does not exist, 0:Seat unavailable, 1: Seat available)
+     * @return boolean value indicating if method was successful
+     */
     public static boolean updateSeatPlan(int showId, String seat, int option) {
         try {
             List plans = read(FILE_SHOW_PLAN);
@@ -175,8 +220,13 @@ public class SeatManager implements Manager {
         }
     }
 
-    /** Read the contents of the given file.
-     * (helper func, declared as private as it is only called within this file)*/
+    /**
+     * Reading helper function.
+     * This creates a list of instances of shows
+     * @param fileName File name of content to be read
+     * @return ArrayList of Seats
+     * @throws IOException I/O Error with input
+     */
     private static List read(String fileName) throws IOException {
         // [ {showId: 1, rows: 9, cols: 16, seatingPlan: String[][][] }, ... ]
         List data = new ArrayList();
@@ -217,6 +267,12 @@ public class SeatManager implements Manager {
         return data;
     }
 
+    /**
+     * Save show plans from array list to associated file
+     * @param fileName File for new/updated Show plans to be saved to
+     * @param al Data input for new/updated Show plans
+     * @throws IOException I/O Error with input
+     */
     private static void saveShowPlans(String fileName, List al) throws IOException {
         PrintWriter out = new PrintWriter(new FileWriter(fileName));
         try {

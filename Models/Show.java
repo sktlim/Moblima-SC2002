@@ -1,12 +1,12 @@
 package Models;
 
 /**
- * Show Class with related variables such as Theatre Class, show ID, movie ID, date, start time, end time, theatre identifier, and Cineplex
- * A Show is a specific screening of a Movie
+ * Show Class with related variables such as Theatre Class, show ID, movie ID, date, start time, end time, theatre identifier, and Cineplex.
+ * A Show is a specific screening of a Movie.
  */
 public class Show {
     /**
-     * Enumerated variables for Theatre Classes. Consists of STANDARD, PLATINUM and DEFAULT
+     * Custom Type for Theatre Classes. Consists of STANDARD, PLATINUM and DEFAULT
      */
     public enum TheatreClass {STANDARD, PLATINUM, DEFAULT}
 
