@@ -34,7 +34,7 @@ public class TicketPriceManager implements Manager{
     /**
      * Helper function for converting prices from .txt file to hash map
      * @return returns Hashmap with Key-Value of Price Type and Price respectively
-     * @throws IOException
+     * @throws IOException Exception throw in in event of I/O error
      */
     private static Map<String, Double> readPrices() throws IOException {
 
@@ -60,7 +60,6 @@ public class TicketPriceManager implements Manager{
      * @return Data input from .txt file
      * @throws IOException Error with reading .txt file
      */
-
     private static List read() throws IOException {
 
         List data = new ArrayList();

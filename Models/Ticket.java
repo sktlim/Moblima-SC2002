@@ -6,12 +6,12 @@ package Models;
  */
 public class Ticket {
     /**
-     * Enumerated variables for User Age Type. Consists of STUDENT, SENIOR and ADULT
+     * Custom Type for User Age Type. Consists of STUDENT, SENIOR and ADULT
      */
     public enum UserAgeType {STUDENT, SENIOR, ADULT};
 
     /**
-     * Enumerated variables for Day Type. Consists of WEEKDAY, WEEKEND and DEFAULT
+     * Custom Type for Day Type. Consists of WEEKDAY, WEEKEND and DEFAULT
      */
     public enum DayType {WEEKDAY, WEEKEND, DEFAULT}
 
