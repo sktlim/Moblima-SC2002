@@ -2,7 +2,8 @@ package Models;
 
 /**
  * Represents a Movie in our application.
- * This is the generic Movie in production, and NOT a particular screening of the Movie
+ * This is the generic Movie in production, and NOT a particular screening of the Movie.
+ * One Movie has multiple different Shows.
  */
 
 public class Movie {
