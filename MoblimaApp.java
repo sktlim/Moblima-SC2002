@@ -6,9 +6,11 @@ import java.io.Console;
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
-import static Controllers.AdminAuthManager.adminchecker;
-import static Controllers.MovieGoerAuthManager.mgchecker;
+
+import static Controllers.AdminAuthManager.authenticateAdmin;
+import static Controllers.MovieGoerAuthManager.authenticateMovieGoer;
 import static java.lang.String.valueOf;
+
 
 public class MoblimaApp {
     private static void showSelections() {
@@ -71,7 +73,7 @@ public class MoblimaApp {
                         // Stores username and password to the array
                         login_array[0] = username;
                         login_array[1] = password;
-                        int adminId = adminchecker(login_array [0],login_array [1]);
+                        int adminId = authenticateAdmin(login_array [0],login_array [1]);
                         if (adminId != -1) {
                             AdminUI aui = new AdminUI(adminId);
                             aui.showUI(sc);
@@ -93,7 +95,7 @@ public class MoblimaApp {
                         login_array[0] = username;
                         login_array[1] = password;
 
-                        int moviegoerId = mgchecker(login_array [0],login_array [1]);
+                        int moviegoerId = authenticateMovieGoer(login_array [0],login_array [1]);
                         if (moviegoerId != -1) {
                             MovieGoerUI mui = new MovieGoerUI(moviegoerId);
                             mui.showUI(sc);
