@@ -27,6 +27,8 @@ public class MovieGoerUI {
         System.out.println("5: View my Booking History");
         System.out.println("6: Display Top 5 Movies by Ticket Sales");
         System.out.println("7: Display Top 5 Movies by Rating");
+        System.out.println("========================================");
+        System.out.println("8: Back to main menu");
     }
 
     // User interface
@@ -68,6 +70,8 @@ public class MovieGoerUI {
                     case 7:
                         getTop5MoviesByRating();
                         break;
+                    case 8:
+                        return;
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());

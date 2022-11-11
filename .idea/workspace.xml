@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Controllers/MovieGoerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MovieGoerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Boundary/MovieGoerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Boundary/MovieGoerUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Databases/movies.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Databases/movies.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MoblimaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/MoblimaApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,9 +38,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Controllers/MovieManagerAdmin.java" root0="FORCE_HIGHLIGHTING" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -49,17 +49,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.17931035" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
-  </component>
-  <component name="RunManager" selected="Application.TicketPriceManager">
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "/Users/hohanyu/MOBLIMA/Moblima-SC2002",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.MoblimaApp">
     <configuration name="HolidayManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Controllers.HolidayManager" />
       <module name="Moblima-SC2002" />
@@ -95,9 +93,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MoblimaApp" />
         <item itemvalue="Application.TicketPriceManager" />
         <item itemvalue="Application.HolidayManager" />
-        <item itemvalue="Application.MoblimaApp" />
         <item itemvalue="Application.TicketPriceManager" />
         <item itemvalue="Application.HolidayManager" />
       </list>

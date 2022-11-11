@@ -60,7 +60,7 @@ public class MoblimaApp {
                 switch (option) {
                     case 1:
                         // Login as admin
-                        System.out.println("You have chosen to login as Admin. Please enter your login information below.");
+                        System.out.println("You have chosen to login as Admin. Please enter your login information below in a case sensitive format");
                         System.out.println("Enter your username: ");
                         username = sc.nextLine();
                         System.out.println("Enter your password: ");
@@ -81,7 +81,7 @@ public class MoblimaApp {
                         break;
                     case 2:
                         // Login as moviegoer
-                        System.out.println("You have chosen to login as a Movie Goer. Please enter your login information below.");
+                        System.out.println("You have chosen to login as a Movie Goer. Please enter your login information below in a case sensitive format.");
                         System.out.println("Enter your username: ");
                         username = sc.nextLine();
                         System.out.println("Enter your password: ");
@@ -98,7 +98,7 @@ public class MoblimaApp {
                         }
                         else{
                             System.out.println("Error! Details incorrect, please try again. ");
-                            boolean movieGoerExists = MovieGoerManager.doesUserExist(username2);
+                            boolean movieGoerExists = MovieGoerManager.doesUserExist(username);
                             if (movieGoerExists) {
                                 System.out.println("Your username is correct but password was incorrect.");
                             }
