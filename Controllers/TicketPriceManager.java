@@ -440,7 +440,7 @@ public class TicketPriceManager {
     public static double calculatePrice(Show show, Ticket.UserAgeType userAgeType, String strDate, Movie movie) {
         double price = 0;
         Movie.MovieType movieType = movie.getMovieType();
-        Show.TheatreClass theatreClass = show.getTheaterClass();
+        Show.TheatreClass theatreClass = show.getTheatreClass();
         String startTime = show.getStartTime();
         LocalTime time = LocalTime.parse(startTime);
         Ticket.UserAgeType age = userAgeType;

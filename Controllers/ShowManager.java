@@ -116,7 +116,7 @@ public class ShowManager {
                 System.out.println("Start Time: " + s.getStartTime() );
                 System.out.println("End Time: " + s.getEndTime() );
                 System.out.println("Theatre: " + s.getTheatre());
-                System.out.println("Theatre Class: " + s.getTheaterClass() );
+                System.out.println("Theatre Class: " + s.getTheatreClass() );
                 System.out.println("Cineplex: " + s.getCineplex() );
             }
 
@@ -249,7 +249,7 @@ public class ShowManager {
                             break;
 
                         case 4:
-                            s.setTheaterClass(theatreClass);
+                            s.setTheatreClass(theatreClass);
                             System.out.println("Theatre Class successfully updated.");
                             break;
 
@@ -388,7 +388,7 @@ public class ShowManager {
             st.append(SEPARATOR);
             st.append(s.getTheatre());
             st.append(SEPARATOR);
-            st.append(s.getTheaterClass().name().trim());
+            st.append(s.getTheatreClass().name().trim());
             st.append(SEPARATOR);
             st.append(s.getCineplex().trim());
             st.append(SEPARATOR);
