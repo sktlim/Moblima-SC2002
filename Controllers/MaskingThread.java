@@ -3,11 +3,19 @@ package Controllers;
 import java.io.*;
 
 /**
- * This class attempts to erase characters echoed to the console.
+ * This class attempts to erase characters echoed to the console. For use during password entry in login process.
  */
 
 class MaskingThread extends Thread {
+
+    /**
+     * Semaphore to signal for the masking to stop when user has finished inputting password
+     */
     private volatile boolean stop;
+
+    /**
+     * Char to replace and mask each password char input by the user
+     */
     private char echochar = '*';
 
     /**

@@ -9,14 +9,31 @@ import java.util.*;
 import Exceptions.ItemNotFoundException;
 import Models.MovieGoer;
 
+/**
+ * This class handles the CRUD (create, read, update, delete) methods for MovieGoers. This class implements the read and write methods in the Manager interface.
+ * The CRUD operations performed in this class generally handle 1 checked exception and 1 unchecked exception:
+ * 1) IOException: CHECKED --> Thrown when assessing data in the specified file fails
+ * 2) ItemNotFoundException: UNCHECKED --> Thrown during runtime when users enter a movieGoerID that does not exist in the database
+ */
+
 public class MovieGoerManager implements Manager{
 
+    /**
+     * Path for the movieGoers.txt file
+     */
     public final static String FILENAME = "Databases/movieGoers.txt";
+
+    /**
+     * Separator for parsing movieGoers.txt file
+     */
     public static final String SEPARATOR = "|";
 
     /** Checks if the user exists in the database
      * If yes, let the users know that failed authentication is due to wrong password input
-     * Else, prompt users to sign up **/
+     * Else, prompt users to sign up
+     * @param username Username field input by user during login process
+     * @return true if user with the given username exists in the database, else return false
+     */
     public static boolean doesUserExist(String username) {
         try{
             ArrayList ml = readMovieGoers(FILENAME);
@@ -34,10 +51,10 @@ public class MovieGoerManager implements Manager{
     }
 
     /** Create method
-     * @param sc takes in scanner to input fields within the function
+     * @param sc takes in scanner object to input fields within the function
      * Create new movieGoer and add it to the database
+     * InputMismatchException: UNCHECKED --> Thrown when user inputs an invalid format
      **/
-
     public static void createMovieGoer(Scanner sc){
         try {
             System.out.println("Enter Username: ");
@@ -75,7 +92,7 @@ public class MovieGoerManager implements Manager{
 
     /**
      * Read method
-     * Print method to display everything on the txt file database
+     * Print method to display every movieGoer entry in the movieGoers.txt file database
      */
     public static void printMovieGoerList(){
         try{
@@ -95,9 +112,9 @@ public class MovieGoerManager implements Manager{
 
     /**
      * Read method
-     * Find movie goer by movieGoerID
-     * @param movieGoerID
-     * @return object of type MovieGoer
+     * Find a single movieGoer by movieGoerID
+     * @param movieGoerID The movieGoerID of the movieGoer to be queried
+     * @return object of type MovieGoer if successful search, else return null
      */
     public static MovieGoer findMovieGoer(int movieGoerID){
         try{
@@ -124,9 +141,9 @@ public class MovieGoerManager implements Manager{
     }
 
     /**
-     * Update method
+     * Update method to update a single movieGoer
      * @param movieGoerId takes in the movieGoerId for updating
-     * @param sc takes in scanner for field update within the function
+     * @param sc takes in scanner object for field update within the function
      */
     public static void updateMovieGoer(int movieGoerId, Scanner sc){
         int semaphore = 0; // flag variable for password validation
@@ -206,8 +223,8 @@ public class MovieGoerManager implements Manager{
 
     /**
      * Delete method
-     * delete admin based on adminID
-     * @param movieGoerId
+     * deletes a single movieGoer entry based on movieGoerId
+     * @param movieGoerId The movieGoerId of the movieGoer to be deleted
      */
     public static void deleteMovieGoer(int movieGoerId){
         try{
@@ -234,10 +251,13 @@ public class MovieGoerManager implements Manager{
         }
     }
 
-
-    /** reading (helper func, declared as private as it is only called within this file)
-     * This creates a list of instances of movieGoers */
-
+    /**
+     * Reading (Helper function)
+     * Declared as private as it is only called within the scope of this file
+     * @param filename This method assess data within the movieGoers.txt file
+     * @return Array list of MovieGoer objects
+     * @throws IOException CHECKED --> Thrown when assessing data in the movieGoers.txt file fails
+     */
     private static ArrayList readMovieGoers(String filename) throws IOException {
         // read String from text file
         ArrayList stringArray = (ArrayList)read(filename);
@@ -259,8 +279,12 @@ public class MovieGoerManager implements Manager{
         return alr ;
     }
 
-    /** Write fixed content to the given file.
-     * (helper func, declared as private as it is only called within this file)*/
+    /** Write a fixed content to the given file
+     * Declared as private as it is only called within the scope of this file
+     * @param fileName This method assess data within the movieGoers.txt file
+     * @param data List of MovieGoer objects that contains the MovieGoer instance to be updated
+     * @throws IOException CHECKED --> Thrown when assessing data in the movieGoers.txt file fails
+     */
     private static void write(String fileName, List data) throws IOException  {
         PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
@@ -275,7 +299,11 @@ public class MovieGoerManager implements Manager{
     }
 
     /** Read the contents of the given file.
-     * (helper func, declared as private as it is only called within this file)*/
+     * Declared as private as it is only called within the scope of this file
+     * @param fileName This method assess data within the movieGoers.txt file
+     * @return a List of MovieGoer objects
+     * @throws IOException CHECKED --> Thrown when assessing data in the movieGoers.txt file fails
+     */
     private static List read(String fileName) throws IOException {
         List data = new ArrayList() ;
         Scanner scanner = new Scanner(new FileInputStream(fileName));
@@ -290,9 +318,12 @@ public class MovieGoerManager implements Manager{
         return data;
     }
 
-    /** saving
-     * (helper func, declared as private as it is only called within this file)*/
-
+    /** Saving (Helper function)
+     * declared as private as it is only called within this file
+     * @param filename This method assess data within the movieGoers.txt file
+     * @param al List of MovieGoer objects to be saved into the database
+     * @throws IOException CHECKED --> Thrown when assessing data in the movieGoers.txt file fails
+     */
     private static void saveMovieGoers(String filename, List al) throws IOException {
         List alw = new ArrayList() ;// to store movieGoer data
 

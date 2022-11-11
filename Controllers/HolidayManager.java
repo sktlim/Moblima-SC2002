@@ -9,14 +9,28 @@ import java.time.LocalDate;
 import Exceptions.ItemNotFoundException;
 import java.util.InputMismatchException;
 
+/**
+ * This class handles the CRUD (create, read, update, delete) methods for Holidays. Only Admins have access to the methods within this Class.
+ * This class implements the read and write methods in the Manager interface.
+ */
+
 public class HolidayManager implements Manager {
 
+    /**
+     * Path for the holidays.txt file
+     */
     public final static String FILENAME = "Databases/holidays.txt";
-    public static final String SEPARATOR = ",";
 
     /**
-     * Read the contents of the given file.
-     * (helper func, declared as private as it is only called within this file)
+     * Separator for parsing holidays.txt file
+     */
+    public static final String SEPARATOR = ",";
+
+    /** Read the contents of the given file.
+     * Declared as private as it is only called within the scope of this file
+     * @param fileName This method assess data within the holidays.txt file
+     * @return a List of Holiday objects
+     * @throws IOException CHECKED --> Thrown when assessing data in the holidays.txt file fails
      */
     private static List read(String fileName) throws IOException {
         ArrayList<String> data = new ArrayList<>();
@@ -31,12 +45,13 @@ public class HolidayManager implements Manager {
         return data;
     }
 
-    /**
-     * reading (helper func)
-     * declared as private as it is only called within this file)
-     * @return ArrayList of holidays
-     */
 
+    /** Reading (Helper function)
+     * Declared as private as it is only called within the scope of this file
+     * @param fileName This method assess data within the holidays.txt file
+     * @return Array list of Holiday objects
+     * @throws IOException CHECKED --> Thrown when assessing data in the holidays.txt file fails
+     */
     private static ArrayList readHolidays(String fileName) throws IOException {
         // read String from text file
         ArrayList stringArray = (ArrayList) read(fileName);
@@ -55,16 +70,14 @@ public class HolidayManager implements Manager {
         return alr;
     }
 
-
-
     /**
      * Create method to add new Holiday to database
      * @param sc Takes in the scanner to instantiate variables within
      *        the function itself.
      *        Admins will input the year, month, date separately.
      *        New date object will then be create with these 3 fields.
+     *           InputMismatchException: UNCHECKED --> Thrown when user inputs an invalid format
      */
-
     private static void createHoliday(Scanner sc) {
         try {
             System.out.println("Please enter the holiday's Name: ");
@@ -94,12 +107,11 @@ public class HolidayManager implements Manager {
     }
 
     /**
-
      * Write fixed content to the given file (helper function)
      * Declared as private as it is only called within this file
-     * @param fileName
-     * @param data
-     * @throws IOException
+     * @param fileName This method assess data within the holidays.txt file
+     * @param data List of Holiday objects that contains the Holiday instance to be updated
+     * @throws IOException CHECKED --> Thrown when assessing data in the holidays.txt file fails
      */
     private static void write(String fileName, List data) throws IOException {
         PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(fileName)));
@@ -113,9 +125,11 @@ public class HolidayManager implements Manager {
         }
     }
 
-    /**
-     * saving (Helper function)
-     * Declared as private as it is only called within this file
+    /**Saving (Helper function)
+     * declared as private as it is only called within this file
+     * @param fileName This method assess data within the holidays.txt file
+     * @param al List of Holiday objects to be saved into the database
+     * @throws IOException CHECKED --> Thrown when assessing data in the holidays.txt file fails
      */
     private static void saveHolidays(String fileName, List al) throws IOException {
         List alw = new ArrayList();
@@ -160,7 +174,6 @@ public class HolidayManager implements Manager {
      * Holidays are queried according to their Name
      * Users must input the Holiday Name exact (case-sensitive) including its Year in the name e.g. Christmas 2022
      */
-     
     public static void updateHoliday(Scanner sc) {
         System.out.println("Enter the name of the holiday you wish to change: ");
         String holidayName = sc.nextLine();
@@ -221,10 +234,9 @@ public class HolidayManager implements Manager {
 
     /**
      * Delete method
-     * @param sc takes in scanner to ask which holiday to delete
+     * @param sc takes in scanner to ask which holiday is to be deleted
      * delete holiday based on holidayName 
      */
-
     public static void deleteHoliday(Scanner sc) {
         System.out.println("Which holiday would you like to delete?: ");
         String holidayToBeDeleted = sc.nextLine();
@@ -259,7 +271,6 @@ public class HolidayManager implements Manager {
      * @param holidayDate of format YYYY-MM-DD
      * @return boolean value if the date is a holiday or not
      */
-
     public static boolean isHoliday(String holidayDate) {
         try {
             ArrayList hl = readHolidays(FILENAME);
