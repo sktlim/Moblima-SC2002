@@ -16,10 +16,9 @@ public class SeatManager {
     public final static String FILE_SHOW_PLAN = "Databases/seatingPlanShow.txt";
     public static final String SEPARATOR = "|";
 
-    public static void readSeatPlan(int showId){
+    public static void readSeatPlan(int showId) throws Exception {
         // display available seats
         // also prints labels for x-y axis for user selection
-        try {
             List show_plans = read(FILE_SHOW_PLAN);
             HashMap show_plan = null;
             for (int i=0; i<show_plans.size(); i++) {
@@ -28,7 +27,6 @@ public class SeatManager {
             }
             if (show_plan == null) throw new Exception("Show plan does not exist!");
             String [][][] plan = (String[][][]) show_plan.get("seatingPlan");
-            System.out.println("Please select a seat.");
             // print top labels
             int rows = (int)show_plan.get("rows");
             int cols = (int)show_plan.get("cols");
@@ -70,33 +68,31 @@ public class SeatManager {
             System.out.println(" [    ] : couple seat");
             System.out.println("   0    : seat is available");
             System.out.println("   1    : seat is taken");
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
     }
 
-    public static boolean isSeatAvail(int showId, String seat){
+    public static int isSeatAvail(int showId, String seat) throws Exception {
         //check seat, if seat avail, return true, else return false
-        try {
-            List show_plans = read(FILE_SHOW_PLAN);
-            HashMap show_plan = null;
-            for (int i = 0; i < show_plans.size(); i++) {
-                if ((int) ((HashMap) show_plans.get(i)).get("showId") == showId)
-                    show_plan = (HashMap) show_plans.get(i);
-            }
-            if (show_plan == null) throw new Exception("Show plan does not exist!");
-            String[][][] plan = (String[][][]) show_plan.get("seatingPlan");
 
-            int row = seat.charAt(0)-65;
-            int col = Integer.parseInt(seat.substring(1))-1;
-            if (plan[row][col][0].equals("0")) {
-                return true;
-            }
-            return false;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        List show_plans = read(FILE_SHOW_PLAN);
+        HashMap show_plan = null;
+        for (int i = 0; i < show_plans.size(); i++) {
+            if ((int) ((HashMap) show_plans.get(i)).get("showId") == showId)
+                show_plan = (HashMap) show_plans.get(i);
         }
-        return true;
+        if (show_plan == null) throw new IllegalArgumentException("Show plan does not exist!");
+        String[][][] plan = (String[][][]) show_plan.get("seatingPlan");
+
+        // To add validation whether seat exists on plan!
+        int row = seat.charAt(0)-65;
+        int col = Integer.parseInt(seat.substring(1))-1;
+        if (row >= (int)show_plan.get("rows") || col >= (int)show_plan.get("cols")) {
+            throw new IllegalArgumentException("Seat number does not exist on seat plan!");
+        }
+        if (plan[row][col][0].equals("0")) {
+            return 1;
+        } else if(plan[row][col][0].equals("1")) {
+            return 0;
+        } else return -1;
     }
 
     public static void createShowPlan(int showId) {
