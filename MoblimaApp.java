@@ -61,8 +61,8 @@ public class MoblimaApp {
                 String username, password;
                 switch (option) {
                     case 1:
-                        // Login as admin, must be run using the terminal, if not the password masking will fail
-                        System.out.println("You have chosen to login as Admin. Please enter your login information below.");
+                        // Login as admin
+                        System.out.println("You have chosen to login as Admin. Please enter your login information below in a case sensitive format. ");
                         System.out.println("Enter your username: ");
                         username = sc.nextLine();
                         password = valueOf(PasswordField.getPassword(System.in, "Enter password: "));
@@ -83,7 +83,7 @@ public class MoblimaApp {
                         break;
                     case 2:
                         // Login as moviegoer
-                        System.out.println("You have chosen to login as a Movie Goer. Please enter your login information below.");
+                        System.out.println("You have chosen to login as a Movie Goer. Please enter your login information below in a case sensitive format.");
                         System.out.println("Enter your username: ");
                         username = sc.nextLine();
                         System.out.println("Enter your password: ");

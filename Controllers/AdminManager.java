@@ -54,6 +54,7 @@ public class AdminManager implements Manager{
             Admin a1 = new Admin(username, password, al.size()+1);
             al.add(a1);
             saveAdmins(FILENAME, al);
+            System.out.println("New admin successfully created!\n");
 
         }
         catch (IOException e) {
@@ -196,6 +197,7 @@ public class AdminManager implements Manager{
                 if (adm.getAdminId() == adminID){ // admin has been found
                     foundRequestedAdmin = true;
                     al.remove(i);
+                    System.out.println("Admin " + adminID + " has been deleted!\n");
                 }
             }
             saveAdmins(FILENAME, al);

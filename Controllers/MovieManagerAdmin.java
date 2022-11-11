@@ -128,7 +128,7 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
                     String input = sc.nextLine();
                     int movieTypeSelector = checkInput(input);
                     while(movieTypeSelector<0||movieTypeSelector>2){
-                        throw new Exception();
+                        throw new Exception("Movie type not valid");
                     }
                     switch(movieTypeSelector){
                         case 0:
@@ -217,7 +217,9 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
                             System.out.println("2: NOW_SHOWING");
                             String input = sc.nextLine();
                             showStatusSelector = checkInput(input);
-                            showingStatus = Movie.ShowingStatus.DEFAULT;
+                            while(showStatusSelector<0 || showStatusSelector>2){
+                                throw new Exception();
+                            }
                         }
                         catch(Exception e){
                             System.out.println("Invalid Input. Please re-enter.");
@@ -455,6 +457,7 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
                 if (m.getMovieId() == movieId){ // found
                     foundMovie = true;
                     ml.remove(i);
+                    System.out.println("Movie successfully deleted!\n");
                 }
             }
             saveMovies(FILENAME, ml);

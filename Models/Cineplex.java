@@ -1,7 +1,6 @@
 package Models;
 /**
- * Represents a Cineplex in our Application.
- * One Cineplex has multiple theatres.
+ * Represents a Cineplex in our Application. One Cineplex has multiple theatres.
  * */
 
 public class Cineplex {
@@ -20,17 +19,13 @@ public class Cineplex {
     /**
      * Constructor method
      * Allows us to create new Cineplexes if our application scales in the future
-     * @param cineplexCode
-     * @param name
+     * @param cineplexCode This Cineplex's Code.Represented with a 3-Character String
+     * @param name This Cineplex's name
      */
     public Cineplex(String cineplexCode, String name) {
         this.cineplexCode = cineplexCode;
         this.name = name;
     }
-
-    /**
-     * Getter and Setter Methods
-     */
 
     /**
      * Gets the unique cineplexCode
@@ -42,7 +37,7 @@ public class Cineplex {
 
     /**
      * Modifies the unique cineplexCode
-     * @param cineplexCode
+     * @param cineplexCode This Cineplex's unique Code
      */
     public void setCineplexCode(String cineplexCode) {
         this.cineplexCode = cineplexCode;
@@ -58,7 +53,7 @@ public class Cineplex {
 
     /**
      * Modifies the name of this Cineplex
-     * @param name
+     * @param name This Cineplex's name
      */
     public void setName(String name) {
         this.name = name;
