@@ -35,7 +35,7 @@ public class AdminUI {
         System.out.println("9: Update an Existing Admin");
         System.out.println("10: Delete an Existing Admin");
         System.out.println("========================================");
-        System.out.println("11: Back to main menu");
+        System.out.println("11: Back to main menu\n");
     }
 
     // User interface
@@ -110,9 +110,12 @@ public class AdminUI {
         }
     }
 
-    private int checkInput (String input) throws Exception {
-        if (input.length() == 1) return Integer.parseInt(input);
-        else return Integer.parseInt(input.substring(0, 2));
+    private int checkInput (String input) throws IllegalArgumentException {
+        try {
+            return Integer.parseInt(input);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Input is not a valid movie id. Please try again\n");
+        }
     }
     private void printMovieId() {
         ArrayList movies = MovieManagerAdmin.getMovies();

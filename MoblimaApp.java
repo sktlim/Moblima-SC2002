@@ -60,7 +60,7 @@ public class MoblimaApp {
                 switch (option) {
                     case 1:
                         // Login as admin
-                        System.out.println("You have chosen to login as Admin. Please enter your login information below in a case sensitive format");
+                        System.out.println("You have chosen to login as Admin. Please enter your login information below in a case sensitive format. ");
                         System.out.println("Enter your username: ");
                         username = sc.nextLine();
                         System.out.println("Enter your password: ");
