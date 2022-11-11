@@ -2,11 +2,13 @@ import Controllers.*;
 import Models.*;
 import Boundary.*;
 
+import java.io.Console;
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 import static Controllers.AdminAuthManager.adminchecker;
 import static Controllers.MovieGoerAuthManager.mgchecker;
+import static java.lang.String.valueOf;
 
 public class MoblimaApp {
     private static void showSelections() {
@@ -59,12 +61,12 @@ public class MoblimaApp {
                 String username, password;
                 switch (option) {
                     case 1:
-                        // Login as admin
+                        // Login as admin, must be run using the terminal, if not the password masking will fail
                         System.out.println("You have chosen to login as Admin. Please enter your login information below.");
                         System.out.println("Enter your username: ");
                         username = sc.nextLine();
-                        System.out.println("Enter your password: ");
-                        password = sc.nextLine();
+                        password = valueOf(PasswordField.getPassword(System.in, "Enter password: "));
+
 
                         // Stores username and password to the array
                         login_array[0] = username;

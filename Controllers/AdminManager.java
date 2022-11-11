@@ -13,6 +13,7 @@ import Exceptions.ItemNotFoundException;
 import java.util.InputMismatchException;
 import Models.Admin;
 
+import static java.lang.String.valueOf;
 
 
 /** Completed MH (10Nov)*/
@@ -37,10 +38,10 @@ public class AdminManager implements Manager{
             int semaphore = 0; // password validation flag
             String password = "password";
             while(semaphore != 1){
-                System.out.println("Enter Password: ");
-                password = sc.nextLine();
-                System.out.println("Confirm Password: ");
-                String confirmation = sc.nextLine();
+//                System.out.println("Enter Password: ");
+                password = valueOf(PasswordField.getPassword(System.in, "Enter Password: "));
+//                System.out.println("Confirm Password: ");
+                String confirmation = valueOf(PasswordField.getPassword(System.in, "Confirm Password: "));
                 if (password.equals(confirmation)){
                     semaphore = 1;
                 }
@@ -135,10 +136,8 @@ public class AdminManager implements Manager{
                 inputField = sc.nextLine();
             }
             else if (fieldEdit == 1){
-                System.out.println("Enter new Password: ");
-                inputField = sc.nextLine();
-                System.out.println("Re-Enter new Password:");
-                String check = sc.nextLine();
+                inputField = valueOf(PasswordField.getPassword(System.in, "Enter new Password: "));
+                String check = valueOf(PasswordField.getPassword(System.in, "Re-enter password:"));
                 if (check.equals(inputField)){
                     semaphore = 1;
                 }
