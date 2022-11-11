@@ -174,7 +174,6 @@ public class TicketManager implements Manager{
     }
 
     /**
-     * Read Method.
      * Read ticket by ticketID.
      * @param ticketId ticket ID to be read
      */
