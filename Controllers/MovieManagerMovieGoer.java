@@ -276,20 +276,15 @@ public class MovieManagerMovieGoer implements Manager{
     public static void printMovieList(){
         try{
             ArrayList mov = readMovies(FILENAME);
+            System.out.println("MovieID | Movie Title | Showing Status | Synopsis | " +
+                    "Director | Cast | Movie Runtime | Movie Rating | Movie Type");
             for (int i = 0 ; i < mov.size() ; i++) {
                 Movie m = (Movie) mov.get(i);
-                System.out.println("MovieID: " + m.getMovieId() );
-                System.out.println("Movie Title: " + m.getMovieTitle() );
-                System.out.println("Showing Status: " + m.getShowingStatus());
-                System.out.println("Synopsis: " + m.getSynopsis() );
-                System.out.println("Director: " + m.getDirector() );
-                System.out.println("Cast: " + m.getCast() );
-                System.out.println("Movie Runtime: " + m.getMovieRuntime() );
-                System.out.println("Movie Rating: " + m.getMovieRating() );
-                System.out.println("Movie Type: " + m.getMovieType() );
+                System.out.println(m.getMovieId() + " | " + m.getMovieTitle() + " | "
+                + m.getShowingStatus() + " | " + m.getSynopsis() + " | " + m.getDirector() +
+                        " | " + m.getCast() + " | " + m.getMovieRuntime() + " | "
+                + m.getMovieRating() + " | " + m.getMovieType());
             }
-
-
         }
         catch (IOException e){
 

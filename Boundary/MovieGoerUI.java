@@ -27,8 +27,9 @@ public class MovieGoerUI extends UserUI {
         System.out.println("5: View my Booking History");
         System.out.println("6: Display Top 5 Movies by Ticket Sales");
         System.out.println("7: Display Top 5 Movies by Rating");
+        System.out.println("8: Create Review and Rating");
         System.out.println("========================================");
-        System.out.println("8: Back to main menu");
+        System.out.println("9: Back to main menu");
     }
 
     // User interface
@@ -69,6 +70,10 @@ public class MovieGoerUI extends UserUI {
                         getTop5MoviesByRating();
                         break;
                     case 8:
+                        listMovies();
+                        createRatingAndReview(sc);
+                        break;
+                    case 9:
                         return;
                 }
             } catch (Exception e) {
@@ -136,6 +141,10 @@ public class MovieGoerUI extends UserUI {
 
     public static void getTop5MoviesByRating() {
         MovieManagerMovieGoer.getTop5MoviesByRating();
+    }
+
+    public static void createRatingAndReview(Scanner sc) {
+        RatingAndReviewManager.createReview(sc);
     }
 
 }

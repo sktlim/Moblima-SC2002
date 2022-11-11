@@ -72,13 +72,12 @@ public class AdminManager implements Manager{
     public static void printAdminList(){
         try{
             ArrayList al = readAdmins(FILENAME);
+            System.out.println("AdminID | Username");
             for (int i = 0 ; i < al.size() ; i++) {
                 Admin adm = (Admin)al.get(i);
-                System.out.println("AdminID: " + adm.getAdminId() );
-                System.out.println("Username: " + adm.getUsername() );
-                System.out.println("Password: " + adm.getPassword());
+                System.out.println(adm.getAdminId() + " | " + adm.getUsername() );
+                // System.out.println("Password: " + adm.getPassword());
             }
-
 
         }
         catch (IOException e){

@@ -153,12 +153,11 @@ public class SeatManager implements Manager {
      * Creates empty seat plan associated with Show based on Theatre ID.
      * @param showId Show ID of associated show
      */
-    public static void createShowPlan(int showId) {
+    public static void createShowPlan(int showId, int tid) {
         // creates empty seat plan related to show based on theatre id
         // Must pass theatreId since is called in constructor of show
         try {
             Show show = ShowManager.findShow(showId);
-            int tid = show.getTheatre();
             List show_plans = read(FILE_SHOW_PLAN);
             for (int i=0; i<show_plans.size(); i++) {
                 if ((int)((HashMap)show_plans.get(i)).get("showId") == showId)
@@ -210,6 +209,30 @@ public class SeatManager implements Manager {
             int col = Integer.parseInt(seat.substring(1))-1;
             if (plan[row][col][1].equals("NULL")) throw new Exception("Seat does not exist at position!");
             plan[row][col][0] = Integer.toString(option);
+            // write plan into new file
+            saveShowPlans(FILE_SHOW_PLAN, plans);
+            return true;
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    public static boolean deleteSeatPlan(int showId) {
+        try {
+            List plans = read(FILE_SHOW_PLAN);
+            HashMap show = null;
+            int idx = -1;
+            for (int i=0; i < plans.size(); i++) {
+                HashMap curr = (HashMap) plans.get(i);
+                if ((int)curr.get("showId") == showId) {
+                    show = curr;
+                    idx = i;
+                }
+            }
+            if (idx == -1) throw new Exception("Show does not exist!");
+            plans.remove(idx);
             // write plan into new file
             saveShowPlans(FILE_SHOW_PLAN, plans);
             return true;

@@ -65,11 +65,11 @@ public class MoblimaApp {
                     case 1:
                         // Login as admin
                         System.out.println("You have chosen to login as Admin. Please enter your login information below in a case sensitive format. ");
-                        System.out.println("Enter your username: ");
+                        System.out.print("Enter your username: ");
                         username = sc.nextLine();
-                        password = valueOf(PasswordField.getPassword(System.in, "Enter password: "));
-
-
+                        System.out.print("Enter your password: ");
+                        password = sc.nextLine();
+                        // password = String.valueOf(PasswordField.getPassword(System.in, "Enter password: "));
                         // Stores username and password to the array
                         login_array[0] = username;
                         login_array[1] = password;
