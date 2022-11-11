@@ -83,20 +83,15 @@ public class MovieGoerUI extends UserUI {
 
     private void printShowsId() {
         ArrayList shows = ShowManager.getShows("Databases/shows.txt");
-        System.out.println("Cineplex | Theatre  | Date | Start Time | End Time | Movie Name | Id");
+        System.out.printf("%-25s | %-8s | %-12s | %-10s | %-10s | %-30s | %-10s %n", "CINEPLEX", "THEATRE", "DATE", "START TIME", "END TIME", "MOVIE NAME", "ID");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------");
         for (int i=0; i<shows.size(); i++) {
             Show s = (Show)shows.get(i);
-            StringBuilder sb = new StringBuilder();
-            sb.append(s.getCineplex() + " | ");
-            sb.append(s.getTheatre() + " | ");
-            sb.append(s.getDate() + " | ");
-            sb.append(s.getStartTime() + " | ");
-            sb.append(s.getEndTime() + " | ");
             Movie m = MovieManagerAdmin.findMovie(s.getMovieId());
-            sb.append(m.getMovieTitle() + " | ");
-            sb.append(s.getShowId());
-            System.out.println(sb);
+            System.out.printf("%-25s | %-8s | %-12s | %-10s | %-10s | %-30s | %-10s %n", s.getCineplex(), s.getTheatre(), s.getDate(), s.getStartTime(), s.getEndTime(),
+                    m.getMovieTitle(), s.getShowId());
         }
+        System.out.println("");
     }
 
     public void readSeatPlan(Scanner sc) {
