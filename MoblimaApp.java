@@ -55,18 +55,16 @@ public class MoblimaApp {
                 showSelections();
                 input = sc.nextLine();
                 option = checkInput(input);
+                String [] login_array = new String [2];
+                String username, password;
                 switch (option) {
                     case 1:
                         // Login as admin
                         System.out.println("You have chosen to login as Admin. Please enter your login information below.");
-                        String [] login_array = new String [2];
-                        String username, password;
-
-
                         System.out.println("Enter your username: ");
-                        username = sc.next();
+                        username = sc.nextLine();
                         System.out.println("Enter your password: ");
-                        password = sc.next();
+                        password = sc.nextLine();
 
                         // Stores username and password to the array
                         login_array[0] = username;
@@ -84,19 +82,16 @@ public class MoblimaApp {
                     case 2:
                         // Login as moviegoer
                         System.out.println("You have chosen to login as a Movie Goer. Please enter your login information below.");
-                        String [] login_array2 = new String [2];
-                        String username2, password2;
-
                         System.out.println("Enter your username: ");
-                        username2 = sc.next();
+                        username = sc.nextLine();
                         System.out.println("Enter your password: ");
-                        password2 = sc.next();
+                        password = sc.nextLine();
 
                         // Stores username and password to the array
-                        login_array2[0] = username2;
-                        login_array2[1] = password2;
+                        login_array[0] = username;
+                        login_array[1] = password;
 
-                        int moviegoerId = mgchecker(login_array2 [0],login_array2 [1]);
+                        int moviegoerId = mgchecker(login_array [0],login_array [1]);
                         if (moviegoerId != -1) {
                             MovieGoerUI mui = new MovieGoerUI(moviegoerId);
                             mui.showUI(sc);
