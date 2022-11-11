@@ -1,7 +1,6 @@
 package Models;
 /**
- * Represents a Cineplex in our Application.
- * One Cineplex has multiple theatres.
+ * Represents a Cineplex in our Application. One Cineplex has multiple theatres.
  * */
 
 public class Cineplex {
@@ -27,10 +26,6 @@ public class Cineplex {
         this.cineplexCode = cineplexCode;
         this.name = name;
     }
-
-    /**
-     * Getter and Setter Methods
-     */
 
     /**
      * Gets the unique cineplexCode

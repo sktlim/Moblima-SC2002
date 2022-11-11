@@ -92,11 +92,6 @@ public class Movie {
         this.movieType = movieType;
     }
 
-
-    /**
-     * Getter and Setter Methods
-     */
-
     /**
      * Get this Movie's unique ID
      * @return the Movie's ID

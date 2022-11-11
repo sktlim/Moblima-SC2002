@@ -1,18 +1,14 @@
 package Models;
 
 /**
- * Represents an Admin in our application.
- * Subclass of the base User class
+ * Represents an Admin in our application. Subclass of the base User class
+ * This class inherits the following fields from the base User class:
+ * username
+ * password
+ * age
  */
 
 public class Admin extends User {
-
-    /**
-     * This class inherits the following fields from the base User class:
-     * username
-     * password
-     * age
-     * */
 
     /**
      * The unique ID for each admin
@@ -39,11 +35,6 @@ public class Admin extends User {
         super(username, password);
         this.adminId = adminId;
     }
-
-    /**
-     * Getter and setter methods
-     */
-
 
     /**
      * Gets the unique ID of the Admin.

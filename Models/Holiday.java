@@ -29,9 +29,6 @@ public class Holiday {
         this.date = date;
     }
 
-    /**
-     * Getter and Setter Methods
-     */
 
     /**
      * Returns the name of the Holiday
