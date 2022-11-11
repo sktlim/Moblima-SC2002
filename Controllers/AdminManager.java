@@ -16,20 +16,31 @@ import Models.Admin;
 import static java.lang.String.valueOf;
 
 
-/** Completed MH (10Nov)*/
+/**
+ * This class handles the CRUD (create, read, update, delete) methods for Admins. This class implements the read and write methods in the Manager interface.
+ * The CRUD operations performed in this class generally handle 1 checked exception and 1 unchecked exception:
+ * 1) IOException: CHECKED --> Thrown when assessing data in the specified file fails
+ * 2) ItemNotFoundException: UNCHECKED --> Thrown during runtime when users enter an AdminID that does not exist in the database
+ */
 
 public class AdminManager implements Manager{
+    /**
+     * Separator for parsing admins.txt file
+     */
     public static final String SEPARATOR = "|";
+
+    /**
+     * Path for the admins.txt file
+     */
     public static final String FILENAME = "Databases/admins.txt" ;
-
-
 
     /**
      * Create method to add new admin to the database
      * @param sc Takes in the scanner to instantiate variables within
      *           the function itself.
      *           Password is checked with a confirm password field as per
-     *           normal sign up operations.
+     *           regular sign up operations.
+     *           InputMismatchException: UNCHECKED --> Thrown when user inputs an invalid format
      */
     public static void createAdmin(Scanner sc){
         try {
@@ -67,7 +78,7 @@ public class AdminManager implements Manager{
 
 
     /**
-     * Prints the entire admin list from the database,
+     * Prints the entire admin list from the database
      */
     public static void printAdminList(){
         try{
@@ -89,9 +100,9 @@ public class AdminManager implements Manager{
 
     /**
      * Read Method
-     * Find Admins by their Admin ID
-     * @param adminID
-     * @return Admin Object
+     * Find a single Admin by their Admin ID
+     * @param adminID The Admin ID to be queried in the admins database
+     * @return Admin Object if successful search, else return null
      */
     public static Admin findAdmin(int adminID){
         try{
@@ -116,8 +127,8 @@ public class AdminManager implements Manager{
     }
 
     /** Update Method
-     * Used to update the various fields of admin based on admin ID
-     * @param adminID
+     * Used to update the various fields of a single Admin based on admin ID
+     * @param adminID The Admin ID to be queried in the admins database
      * @param sc scanner is passed in to change various fields within the function
      */
     public static void updateAdmin(int adminID, Scanner sc){
@@ -185,8 +196,8 @@ public class AdminManager implements Manager{
 
     /**
      * Delete Method
-     * Deletes entry on the database based on adminID
-     * @param adminID
+     * Deletes a single Admin entry from the database based on adminID
+     * @param adminID The AdminID of the Admin to be deleted
      */
     public static void deleteAdmin(int adminID){
         try{
@@ -219,11 +230,10 @@ public class AdminManager implements Manager{
     /**
      * Reading (Helper function)
      * Declared as private as it is only called within the scope of this file
-     * @param filename
-     * @return Array list of admins
-     * @throws IOException
+     * @param filename This method assess data within the admins.txt file
+     * @return Array list of Admin objects
+     * @throws IOException CHECKED --> Thrown when assessing data in the admins.txt file fails
      */
-
     private static ArrayList readAdmins(String filename) throws IOException {
         // read String from text file
         ArrayList stringArray = (ArrayList)read(filename);
@@ -246,9 +256,9 @@ public class AdminManager implements Manager{
 
     /** Write a fixed content to the given file
      * Declared as private as it is only called within the scope of this file
-     * @param fileName
-     * @param data
-     * @throws IOException
+     * @param fileName This method assess data within the admins.txt file
+     * @param data List of Admin objects that contains the Admin instance to be updated
+     * @throws IOException CHECKED --> Thrown when assessing data in the admins.txt file fails
      */
     private static void write(String fileName, List data) throws IOException  {
         PrintWriter out = new PrintWriter(new FileWriter(fileName));
@@ -265,9 +275,9 @@ public class AdminManager implements Manager{
 
     /** Read the contents of the given file.
      * Declared as private as it is only called within the scope of this file
-     * @param fileName
-     * @return
-     * @throws IOException
+     * @param fileName This method assess data within the admins.txt file
+     * @return a List of Admin objects
+     * @throws IOException CHECKED --> Thrown when assessing data in the admins.txt file fails
      */
     private static List read(String fileName) throws IOException {
         List data = new ArrayList() ;
@@ -286,9 +296,9 @@ public class AdminManager implements Manager{
 
     /** Saving (Helper function)
      * declared as private as it is only called within this file
-     * @param filename
-     * @param al
-     * @throws IOException
+     * @param filename This method assess data within the admins.txt file
+     * @param al List of Admin objects to be saved into the database
+     * @throws IOException CHECKED --> Thrown when assessing data in the admins.txt file fails
      */
     private static void saveAdmins(String filename, List al) throws IOException {
         List alw = new ArrayList() ;// to store admins data

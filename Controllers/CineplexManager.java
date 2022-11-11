@@ -13,15 +13,28 @@ import java.util.StringTokenizer;
 
 import Exceptions.ItemNotFoundException;
 
+/**
+ * This class handles the CRUD (create, read, update, delete) methods for Cineplexes. Only Admins have access to the methods within this Class.
+ * This class implements the read and write methods in the Manager interface.
+ */
 
 public class CineplexManager implements Manager{ //crud
+
+    /**
+     * Path for the cineplexes.txt file
+     */
     public final static String FILENAME = "Databases/cineplexes.txt";
+
+    /**
+     * Separator for parsing cineplexes.txt file
+     */
     public final static  String SEPARATOR = "|";
 
 
     /**
      * Read method
-     * Print method to display everything on the txt file database
+     * Print method to display every entry in the cineplexes.txt file
+     * IOException: CHECKED --> Thrown when assessing data in the specified file fails
      */
     public static void printCineplexList(){
         try{
@@ -33,13 +46,16 @@ public class CineplexManager implements Manager{ //crud
             }
         }
         catch (IOException e){
+            System.out.println("IOException > " + e.getMessage());
         }
     }
 
     /**
-     * Read Method, find by cineplex code
-     * @param cineplexCode
+     * Read Method, find a single Cineplex by Cineplex code
+     * @param cineplexCode Unique 3-Character Code of the Cineplex
      * @return an object of type Cineplex
+     * IOException: CHECKED --> Thrown when assessing data in the specified file fails
+     * ItemNotFoundException: UNCHECKED --> Thrown during runtime when users enter a cineplexCode that does not exist in the database
      */
     public static Cineplex findCineplex(String cineplexCode){
         try{
@@ -66,9 +82,9 @@ public class CineplexManager implements Manager{ //crud
     /**
      * Read (Helper function)
      * Declared as private as it is only called within the scope of this file
-     * @param filename
-     * @return ArrayList of cineplexes
-     * @throws IOException
+     * @param filename This method assess data within the cineplexes.txt file
+     * @return ArrayList of Cineplex objects
+     * @throws IOException CHECKED --> Thrown when assessing data in the cineplexes.txt file fails
      */
 
     private static ArrayList readCineplexes(String filename) throws IOException {
@@ -91,8 +107,12 @@ public class CineplexManager implements Manager{ //crud
         return cin ;
     }
 
-    /** Write fixed content to the given file.
-     * (helper func, declared as private as it is only called within this file)*/
+    /** Write a fixed content to the given file
+     * Declared as private as it is only called within the scope of this file
+     * @param fileName This method assess data within the cineplexes.txt file
+     * @param data List of Cineplex objects that contains the Cineplex instance to be updated
+     * @throws IOException CHECKED --> Thrown when assessing data in the cineplexes.txt file fails
+     */
     private static void write(String fileName, List data) throws IOException  {
         PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
@@ -107,7 +127,11 @@ public class CineplexManager implements Manager{ //crud
     }
 
     /** Read the contents of the given file.
-     * (helper func, declared as private as it is only called within this file)*/
+     * Declared as private as it is only called within the scope of this file
+     * @param fileName This method assess data within the cineplexes.txt file
+     * @return a List of Cineplex objects
+     * @throws IOException CHECKED --> Thrown when assessing data in the cineplexes.txt file fails
+     */
     private static List read(String fileName) throws IOException {
         List data = new ArrayList() ;
         Scanner scanner = new Scanner(new FileInputStream(fileName));
@@ -125,9 +149,9 @@ public class CineplexManager implements Manager{ //crud
     /**
      * Save to database (Helper function)
      * Declared as private as it is only called within the scope of this file
-     * @param filename
-     * @param al
-     * @throws IOException
+     * @param filename This method assess data within the cineplexes.txt file
+     * @param al List of Cineplex objects to be saved into the database
+     * @throws IOException CHECKED --> Thrown when assessing data in the cineplexes.txt file fails
      */
 
     private static void saveCineplexes(String filename, List al) throws IOException {
