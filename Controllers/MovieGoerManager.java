@@ -4,13 +4,9 @@ import java.io.IOException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.FileInputStream;
-import java.util.Scanner;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
+import java.util.*;
 
 import Exceptions.ItemNotFoundException;
-import java.util.InputMismatchException;
 import Models.MovieGoer;
 
 public class MovieGoerManager {
@@ -18,11 +14,30 @@ public class MovieGoerManager {
     public final static String FILENAME = "Databases/movieGoers.txt";
     public static final String SEPARATOR = "|";
 
-    /**
-     * Create method
+    /** Checks if the user exists in the database
+     * If yes, let the users know that failed authentication is due to wrong password input
+     * Else, prompt users to sign up **/
+    public static boolean doesUserExist(String username) {
+        try{
+            ArrayList ml = readMovieGoers(FILENAME);
+            for (int i = 0 ; i < ml.size() ; i++) {
+                MovieGoer mg = (MovieGoer)ml.get(i);
+                if (Objects.equals(mg.getUsername(), username)) {
+                    return true;
+                }
+            }
+        }
+        catch (IOException e){
+            System.out.println("IOException > " + e.getMessage());
+        }
+        return false;
+    }
+
+    /** Create method
      * @param sc takes in scanner to input fields within the function
      * Create new movieGoer and add it to the database
-     */
+     **/
+
     public static void createMovieGoer(Scanner sc){
         try {
             System.out.println("Enter Username: ");
