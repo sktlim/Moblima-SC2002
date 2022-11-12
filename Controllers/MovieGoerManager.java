@@ -55,7 +55,7 @@ public class MovieGoerManager implements Manager{
      * Create new movieGoer and add it to the database
      * InputMismatchException: UNCHECKED --> Thrown when user inputs an invalid format
      **/
-    public static void createMovieGoer(Scanner sc){
+    public static int createMovieGoer(Scanner sc){
         try {
             System.out.println("Enter Username: ");
             String username = sc.nextLine();
@@ -77,10 +77,11 @@ public class MovieGoerManager implements Manager{
             int age = sc.nextInt();
 
             ArrayList ml = readMovieGoers(FILENAME);
-            MovieGoer m1 = new MovieGoer(username, password, age,ml.size()+1);
+            int mid = ml.size()+1;
+            MovieGoer m1 = new MovieGoer(username, password, age,mid);
             ml.add(m1);
             saveMovieGoers(FILENAME, ml);
-
+            return mid;
         }
         catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
@@ -88,6 +89,7 @@ public class MovieGoerManager implements Manager{
         catch (InputMismatchException e) {
             System.out.println("Your input was of a wrong format! Please ensure that your input is an integer.");
         }
+        return -1;
     }
 
     /**
