@@ -260,6 +260,8 @@ public class ShowManager implements Manager{
                     System.out.println("Invalid Input. Please re-enter.");
                 }
             }
+            Show show = ShowManager.findShow(showId);
+            Movie m = MovieManagerAdmin.findMovie(show.getMovieId());
 
             switch(fieldEdit){
                 case 0: //edit Date
@@ -393,6 +395,20 @@ public class ShowManager implements Manager{
                             break;
                         case 1:
                             s.setStartTime(inputField);
+                            Calendar cal = Calendar.getInstance();
+                            try{
+                                Date dateFormat = new SimpleDateFormat("HH:mm").parse(inputField);
+                                cal.setTime(dateFormat);
+                                cal.add(Calendar.MINUTE, m.getMovieRuntime());
+                                Date endDate = cal.getTime();
+                                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+                                String endTime = sdf.format(endDate);
+                                s.setEndTime(endTime);
+                            }
+                            catch(ParseException e){
+
+                            }
+
                             System.out.println("Start Time successfully updated.");
                             break;
 
