@@ -139,7 +139,7 @@ public class ShowManager implements Manager{
 
             semaphore = -1;
             int theatre = -1;
-            TheatreManager.printTheatreList();
+            TheatreManager.printTheatreList(cineplexSelector);
             while (semaphore == -1) {
                 try {
                     System.out.println("Enter Theatre: ");
