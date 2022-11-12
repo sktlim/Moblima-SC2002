@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import Exceptions.ItemNotFoundException;
+import Exceptions.PasswordIncorrectException;
 import java.util.InputMismatchException;
 import Models.Admin;
 
@@ -109,7 +110,6 @@ public class AdminManager implements Manager{
             for (int i = 0 ; i < al.size() ; i++) {
                 Admin adm = (Admin)al.get(i);
                 if (adm.getAdminId()==adminID){
-                    System.out.println("Admin Successfully Found.");
                     return adm;
                 }
             }
@@ -147,11 +147,26 @@ public class AdminManager implements Manager{
                 inputField = sc.nextLine();
             }
             else if (fieldEdit == 1){
-                inputField = valueOf(PasswordField.getPassword(System.in, "Enter new Password: "));
-                String check = valueOf(PasswordField.getPassword(System.in, "Re-enter password:"));
-                if (check.equals(inputField)){
-                    semaphore = 1;
+//                String oldPassword = valueOf(PasswordField.getPassword(System.in, "Enter old Password: "));
+                System.out.println("Enter Old Password:");
+                String oldPassword = sc.nextLine();
+                Admin ad = findAdmin(adminID);
+                if (oldPassword.equals(ad.getPassword())){
+//                    inputField = valueOf(PasswordField.getPassword(System.in, "Enter new Password: "));
+                    System.out.println("Enter new Password: ");
+                    inputField = sc.nextLine();
+                    System.out.println("Re-enter Password: ");
+                    String check = sc.nextLine();
+//                    String check = valueOf(PasswordField.getPassword(System.in, "Re-enter password:"));
+                    if (check.equals(inputField)){
+                        semaphore = 1;
+                    }
                 }
+                else{
+                    throw new PasswordIncorrectException();
+                }
+
+
             }
 
 
@@ -190,6 +205,9 @@ public class AdminManager implements Manager{
         }
         catch (InputMismatchException e) {
             System.out.println("Your input was of a wrong format! Please ensure that your input is an integer.");
+        }
+        catch (PasswordIncorrectException e){
+            System.out.println(e.getMessage());
         }
     }
 

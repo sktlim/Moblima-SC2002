@@ -11,3 +11,4 @@ ssg|NOW_SHOWING|g|g|g|32|NC16|THREE_D|10
 g|NOW_SHOWING|g|g|g|23|R21|BLOCKBUSTER|11
 wayne and his s life|NOW_SHOWING|Its never coming.|Wayne|Wayne|1|R21|BLOCKBUSTER|12
 hello world|COMING_SOON|this is a very nice show teaching java|java|java, python|12|G|BLOCKBUSTER|13
+Test Movie|COMING_SOON|This is a test.|Test|testing|12|PG13|BLOCKBUSTER|14
