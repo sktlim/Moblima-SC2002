@@ -202,9 +202,10 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
                     System.out.println("5: Runtime");
                     System.out.println("6: Rating");
                     System.out.println("7: Movie Type");
+                    System.out.println("8: End of Showing Date");
                     String input = sc.nextLine();
                     fieldEdit = checkInput(input);
-                    while(fieldEdit<0 || fieldEdit > 7){
+                    while(fieldEdit<0 || fieldEdit > 8){
                         throw new Exception();
                     }
                     flag = 1;
@@ -228,9 +229,10 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
                             System.out.println("0: COMING_SOON");
                             System.out.println("1: PREVIEW");
                             System.out.println("2: NOW_SHOWING");
+                            System.out.println("3: SHOWING_ENDED");
                             String input = sc.nextLine();
                             showStatusSelector = checkInput(input);
-                            while(showStatusSelector<0 || showStatusSelector>2){
+                            while(showStatusSelector<0 || showStatusSelector>3){
                                 throw new Exception();
                             }
                         }
@@ -250,6 +252,9 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
 
                         case 2:
                             showingStatus = Movie.ShowingStatus.NOW_SHOWING;
+                            break;
+                        case 3:
+                            showingStatus = Movie.ShowingStatus.SHOWING_ENDED;
                             break;
                     }
                     break;
@@ -364,6 +369,11 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
                             break;
                     }
                     break;
+
+                case 8: // edit end of showing date
+                    System.out.println("Enter the Movie's Updated End of Showing Date: (format DD/MM/YYYY)");
+                    inputField = sc.nextLine();
+                    break;
             }
 
 
@@ -414,6 +424,11 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
                             m.setMovieType(movieType);
                             System.out.println("Movie Type successfully updated.");
                             break;
+
+                        case 8:
+                            m.setEndOfShowingDate(inputField);
+                            System.out.println("End of Showing Date successfully updated.");
+                            break;
                     }
                 }
             }
@@ -456,7 +471,7 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
             System.out.println("IOException > " + e.getMessage());
         }
         catch (ItemNotFoundException e) {
-            System.out.println("Admin not found > " + e.getMessage());
+            System.out.println("Movie not found > " + e.getMessage());
         }
         return null;
     }
@@ -487,7 +502,7 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
             System.out.println("IOException > " + e.getMessage());
         }
         catch (ItemNotFoundException e) {
-            System.out.println("Admin not found > " + e.getMessage());
+            System.out.println("Movie not found > " + e.getMessage());
         }
     }
 

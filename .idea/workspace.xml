@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="Updated javadoc comments for controllers">
+    <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="Update password incorrect exception class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Boundary/AdminUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Boundary/AdminUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/ShowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ShowManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/TicketPriceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/TicketPriceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Databases/prices.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Databases/prices.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Databases/seatingPlanShow.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Databases/seatingPlanShow.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Databases/tickets.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Databases/tickets.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Databases/transactions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Databases/transactions.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +60,7 @@
     <property name="project.structure.side.proportion" value="0.17931035" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
-  <component name="RunManager" selected="Application.MoblimaApp">
+  <component name="RunManager" selected="Application.TicketPriceManager">
     <configuration name="HolidayManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Controllers.HolidayManager" />
       <module name="Moblima-SC2002" />
@@ -102,8 +96,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MoblimaApp" />
         <item itemvalue="Application.TicketPriceManager" />
+        <item itemvalue="Application.MoblimaApp" />
         <item itemvalue="Application.HolidayManager" />
         <item itemvalue="Application.TicketPriceManager" />
         <item itemvalue="Application.HolidayManager" />
@@ -154,7 +148,21 @@
       <option name="project" value="LOCAL" />
       <updated>1668161856583</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Update password incorrect exception class">
+      <created>1668265237333</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1668265237333</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Update password incorrect exception class">
+      <created>1668266003162</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1668266003162</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -168,7 +176,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/sk-new" />
+                        <option value="origin/main" />
                       </list>
                     </value>
                   </entry>
@@ -202,7 +210,8 @@
     <MESSAGE value="Updated ticket price manager" />
     <MESSAGE value="Completed ticket price manager class" />
     <MESSAGE value="Updated javadoc comments for controllers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated javadoc comments for controllers" />
+    <MESSAGE value="Update password incorrect exception class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update password incorrect exception class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
