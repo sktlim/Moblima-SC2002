@@ -7,10 +7,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.*;
+import java.time.format.DateTimeFormatter;
 
 import Exceptions.ItemNotFoundException;
+
 import java.util.InputMismatchException;
 import java.util.regex.Pattern;
 
@@ -26,6 +28,21 @@ public class ShowManager implements Manager{
      * Path of shows.txt file.
      */
     public static final String FILENAME = "Databases/shows.txt" ;
+
+    /**
+     * Helper function to check if the start and end times of the show being created, conflicts with an existing show for the same cineplex, theatre, and date.
+     * @param start1 Start time for the new show as requested by user
+     * @param end1 End time for the new show as requested by user
+     * @param start2 Start time for the existing show in database
+     * @param end2 End time for the existing show in database
+     * @return true if there is a conflict, else return false
+     */
+    public static boolean isOverlapping(LocalTime start1, LocalTime end1, LocalTime start2, LocalTime end2) {
+        boolean overlapCase1 = start1.isBefore(end2) && start2.isBefore(end1);
+        boolean overlapCase2 = start2.isBefore(end1) && start1.isBefore(end2);
+        return overlapCase1 || overlapCase2; // as long as one overlapCase is true, return true to signify an overlap
+    }
+
 
     /** Create method
      * Create new show and add it to the database
@@ -121,6 +138,7 @@ public class ShowManager implements Manager{
                     theatreClass = Show.TheatreClass.PLATINUM;
                     break;
             }
+
             String cineplex = "null";
             int cineplexSelector = 0;
             flag = 0;
@@ -142,7 +160,6 @@ public class ShowManager implements Manager{
                 }
             }
 
-
             switch(cineplexSelector){
                 case 0:
                     cineplex = "AMK Hub Mall";
@@ -156,6 +173,25 @@ public class ShowManager implements Manager{
             }
 
             ArrayList sl = readShows(FILENAME);
+
+            // check if the start and end times conflict with any shows on the same date from the same cineplex and theatre in the database
+            for (int i=0; i<sl.size(); i++) {
+                Show show = (Show) sl.get(i);
+                if (show.getCineplex().equals(cineplex) && show.getTheatre() == theatre && show.getDate().equals(date)) { // matching entry in db
+                    DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("HH:mm", Locale.getDefault());
+                    LocalTime dbStartTime = LocalTime.parse(show.getStartTime(), inputFormatter); // start time of show from db
+                    LocalTime dbEndTime = LocalTime.parse(show.getEndTime(), inputFormatter); // end time of show from db
+                    LocalTime userStartTime = LocalTime.parse(startTime, inputFormatter); // start time input by user
+                    LocalTime userEndTime = LocalTime.parse(endTime, inputFormatter); // end time input by user
+
+                    if (isOverlapping(userStartTime, userEndTime, dbStartTime, dbEndTime)) {
+                        System.out.println("An existing show for this theatre conflicts with your chosen show time for this date");
+                        System.out.println("Please create another show with a different show time");
+                        return; // terminate the function if a conflict exists
+                    }
+                }
+            }
+
             int new_showId = sl.size()+1;
             Show s1 = new Show(new_showId, movieId, date, startTime, endTime, theatre, theatreClass, cineplex);
             sl.add(s1);
