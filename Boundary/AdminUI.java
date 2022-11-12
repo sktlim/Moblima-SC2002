@@ -19,7 +19,7 @@ public class AdminUI extends UserUI{
     /* implementation of abstract method
        this method should be called repeatedly in the main While loop */
     public void showSelections() {
-        System.out.println("Welcome to the admin page.");
+        System.out.println("\nWelcome to the admin page.");
         System.out.println("SELECT ONE OF THE FOLLOWING OPTIONS");
         System.out.println("========================================");
         System.out.println("MOVIES");
