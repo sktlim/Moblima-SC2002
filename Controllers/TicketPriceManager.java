@@ -444,6 +444,12 @@ public class TicketPriceManager implements Manager{
         LocalTime time = LocalTime.parse(startTime);
         Ticket.UserAgeType age = userAgeType;
 
+//        System.out.println(movieType); //************tobeDeleted***********
+//        System.out.println(theatreClass);
+//        System.out.println(startTime);
+//        System.out.println(strDate);
+//        System.out.println(age); //*************
+
         try {
             Price priceList = new Price();
             Map<String, Double> hm = readPrices();

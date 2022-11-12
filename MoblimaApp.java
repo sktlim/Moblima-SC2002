@@ -89,8 +89,8 @@ public class MoblimaApp {
                         System.out.println("Enter your username: ");
                         username = sc.nextLine();
                         System.out.println("Enter your password: ");
-//                        password = sc.nextLine();
-                        password = String.valueOf(PasswordField.getPassword(System.in, "Enter password: "));
+                        password = sc.nextLine();
+//                        password = String.valueOf(PasswordField.getPassword(System.in, "Enter password: "));
 
 
                         // Stores username and password to the array
