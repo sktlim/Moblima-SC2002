@@ -10,7 +10,7 @@ public class Movie {
     /**
      * Custom type representing the current Showing Status of the Movie
      */
-    public enum ShowingStatus{COMING_SOON, PREVIEW, NOW_SHOWING, DEFAULT}
+    public enum ShowingStatus{COMING_SOON, PREVIEW, NOW_SHOWING, SHOWING_ENDED, DEFAULT}
 
     /**
      * Custom type representing the rating categories for the Movie
@@ -68,19 +68,26 @@ public class Movie {
     private MovieType movieType;
 
     /**
+     * The End Date for screening for this Movie
+     * Must be of format DD/MM/YYYY
+     */
+    private String endOfShowingDate;
+
+    /**
      * Constructor for Movie
      * Allows Admins to create a new Movie with the following params
      * @param movieId This Movie's unique ID. ID will be incremented with each new entry in the Movies Database.
      * @param movieTitle This Movie's Title
-     * @param showingStatus This Movie's current showing status. Enumerated variable consisting of COMING_SOON, PREVIEW, NOW_SHOWING, DEFAULT
+     * @param showingStatus This Movie's current showing status. Enumerated variable consisting of COMING_SOON, PREVIEW, NOW_SHOWING, SHOWING_ENDED, DEFAULT
      * @param synopsis This Movie's synopsis
      * @param director This Movie's Director
      * @param cast This Movie's Cast
      * @param movieRuntime This Movie's Runtime, represented in minutes
      * @param movieRating This Movie's Rating. Enumerated variable consisting of G, PG13, NC16, M18, R21, DEFAULT
      * @param movieType This Movie's Type. Enumerated variable consisting of TWO_D,THREE_D, BLOCKBUSTER, DEFAULT
+     * @param endOfShowingDate This Movie's End Date of Screening. Once this date has passed, the Admin will set showingStatus to SHOWING_ENDED and this Movie will not be available for booking by movieGoers.
      */
-    public Movie(int movieId, String movieTitle, ShowingStatus showingStatus, String synopsis, String director, String cast, int movieRuntime, MovieRating movieRating, MovieType movieType){
+    public Movie(int movieId, String movieTitle, ShowingStatus showingStatus, String synopsis, String director, String cast, int movieRuntime, MovieRating movieRating, MovieType movieType, String endOfShowingDate){
         this.movieId = movieId;
         this.movieTitle = movieTitle;
         this.showingStatus = showingStatus;
@@ -90,6 +97,7 @@ public class Movie {
         this.movieRuntime = movieRuntime;
         this.movieRating = movieRating;
         this.movieType = movieType;
+        this.endOfShowingDate = endOfShowingDate;
     }
 
     /**
@@ -165,11 +173,27 @@ public class Movie {
     }
 
     /**
+     * Get the End Date of screening for this Movie
+     * @return this Movie's end of showing date in format DD/MM/YYYY
+     */
+    public String getEndOfShowingDate() {
+        return endOfShowingDate;
+    }
+
+    /**
+     * Modifies the End Date of screening for this Movie
+     * @param endOfShowingDate this Movie's updated end of showing date in format DD/MM/YYYY
+     */
+    public void setEndOfShowingDate(String endOfShowingDate) {
+        this.endOfShowingDate = endOfShowingDate;
+    }
+
+    /**
      * Modifies this Movie's unique ID
      * SHOULD NOT BE CALLED UNNECESSARILY
      * @param movieId This Movie's unique ID.
      */
-    public void setmovieId(int movieId){
+    public void setMovieId(int movieId){
         this.movieId = movieId;
     }
 
