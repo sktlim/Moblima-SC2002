@@ -407,7 +407,7 @@ public class MovieManagerMovieGoer implements Manager{
 
         for (int i = 0 ; i < al.size() ; i++) {
             Movie m = (Movie)al.get(i);
-            StringBuilder st =  new StringBuilder() ;
+            StringBuilder st =  new StringBuilder();
             st.append(m.getMovieTitle().trim());
             st.append(SEPARATOR);
             st.append(m.getShowingStatus().name().trim());
@@ -423,6 +423,8 @@ public class MovieManagerMovieGoer implements Manager{
             st.append(m.getMovieRating().name().trim());
             st.append(SEPARATOR);
             st.append(m.getMovieType().name().trim());
+            st.append(SEPARATOR);
+            st.append(m.getEndOfShowingDate());
             st.append(SEPARATOR);
             st.append(m.getMovieId());
 

@@ -12,4 +12,7 @@ g|NOW_SHOWING|g|g|g|23|R21|BLOCKBUSTER|05/01/2023|11
 wayne and his life|NOW_SHOWING|Its never coming.|Wayne|Wayne|1|R21|BLOCKBUSTER|05/01/2023|12
 hello world|COMING_SOON|this is a very nice show teaching java|java|java, python|12|G|BLOCKBUSTER|05/01/2023|13
 Test Movie|COMING_SOON|This is a test.|Test|testing|12|PG13|BLOCKBUSTER|05/01/2023|14
-Black Hawk Down|NOW_SHOWING|The film takes place in 1993...|Ridley Scott|Tom Hardy|24|PG13|TWO_D|05/01/2023|15
+STOP SHOWING LIAO|SHOWING_ENDED|yea|waynnabe|waynnabe|12|R21|THREE_D|05/01/2023|15
+new stuff|NOW_SHOWING|new stuff|sk|sk|11|R21|BLOCKBUSTER|04/01/2023|16
+testtest|NOW_SHOWING|y|y|y|12|G|TWO_D|06/01/2022|17
+new|COMING_SOON|k|k|k|130|PG13|BLOCKBUSTER|06/01/2023|18
