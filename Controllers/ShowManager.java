@@ -60,6 +60,13 @@ public class ShowManager implements Manager{
             }
             Movie m = MovieManagerAdmin.findMovie(movieId);
 
+            // Checks if the movie has been listed as SHOWING_ENDED. Such movies cannot be listed for screening.
+            if (m.getShowingStatus().equals(Movie.ShowingStatus.SHOWING_ENDED)) {
+                System.out.println("This movie is no longer available for screening.");
+                System.out.println("Please select another movie.");
+                return;
+            }
+
             int semaphore = -1;
             String date = "";
             while (semaphore == -1) {
