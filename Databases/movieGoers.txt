@@ -3,3 +3,4 @@ nic|123|22|2
 wayne|123|22|3
 xxx|password|123|4
 nic|nic|22|5
+waynetanjingheng|waynetanjingheng|12|6
