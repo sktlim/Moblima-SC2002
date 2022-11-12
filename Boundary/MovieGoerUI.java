@@ -28,8 +28,9 @@ public class MovieGoerUI extends UserUI {
         System.out.println("6: Display Top 5 Movies by Ticket Sales");
         System.out.println("7: Display Top 5 Movies by Rating");
         System.out.println("8: Create Review and Rating");
+        System.out.println("9: Find Movie");
         System.out.println("========================================");
-        System.out.println("9: Back to main menu");
+        System.out.println("10: Back to main menu");
     }
 
     // User interface
@@ -74,6 +75,8 @@ public class MovieGoerUI extends UserUI {
                         createRatingAndReview(sc);
                         break;
                     case 9:
+                        findMovie(sc);
+                    case 10:
                         return;
                 }
             } catch (Exception e) {
@@ -147,4 +150,20 @@ public class MovieGoerUI extends UserUI {
         RatingAndReviewManager.createReview(sc);
     }
 
+    public static void findMovie(Scanner sc){
+        System.out.println("Enter the name of the movie you wish to find: ");
+        String movieName = sc.nextLine();
+        Movie m = MovieManagerMovieGoer.findMovie(movieName);
+        if (m!=null){
+            System.out.println("Movie found.");
+            System.out.println("Movie Title: "+m.getMovieTitle());
+            System.out.println("Showing Status: "+m.getShowingStatus());
+            System.out.println("Synopsis: "+m.getSynopsis());
+            System.out.println("Director: "+m.getDirector());
+            System.out.println("Cast: "+m.getCast());
+            System.out.println("Movie Runtime: "+m.getMovieRuntime());
+            System.out.println("Movie Rating: "+m.getMovieRating());
+            System.out.println("Movie Type:"+m.getMovieType());
+        }
+    }
 }

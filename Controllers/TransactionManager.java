@@ -22,6 +22,11 @@ public class TransactionManager implements Manager{ //CRUD
      */
     public static final String FILENAME = "Databases/transactions.txt" ;
 
+    /**
+     * Cineplex file path
+     */
+    public static final String CINEPLEX = "Databases/cineplexes.txt";
+
 
     /**
      * Create transaction in the transactions database
@@ -40,7 +45,18 @@ public class TransactionManager implements Manager{ //CRUD
             dateTimeNew = dateTimeNew.replaceAll(":","");
             int showID = t.getShowId();
             Show s = ShowManager.findShow(showID);
-            String cinCode = s.getCineplex();
+            String cineplex = s.getCineplex();
+            String cinCode = "";
+            ArrayList cins = readCineplexes(CINEPLEX);
+            for (int i=0; i<cins.size();i++){
+                Cineplex c = (Cineplex) cins.get(i);
+                if (c.getName().equals(s.getCineplex())){
+                    cinCode = c.getCineplexCode();
+                }
+            }
+            if (cinCode.equals("")){
+                throw new ItemNotFoundException();
+            }
             String TID = cinCode+dateTimeNew;
 
 
@@ -52,6 +68,9 @@ public class TransactionManager implements Manager{ //CRUD
         }
         catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
+        }
+        catch(ItemNotFoundException e){
+            System.out.println("Cineplex not found > " + e.getMessage());
         }
     }
 
@@ -197,6 +216,26 @@ public class TransactionManager implements Manager{ //CRUD
 
         }
         write(filename,alw);
+    }
+    protected static ArrayList readCineplexes(String filename) throws IOException {
+        // read String from text file
+        ArrayList stringArray = (ArrayList)read(filename);
+        ArrayList mov = new ArrayList() ;// to store Cineplex data
+
+        for (int i = 0 ; i < stringArray.size() ; i++) {
+            String st = (String)stringArray.get(i);
+            // get individual 'fields' of the string separated by SEPARATOR
+            StringTokenizer star = new StringTokenizer(st , SEPARATOR);	// pass in the string to the string tokenizer using delimiter ","
+            String  cinCode = star.nextToken().trim();	// first token
+            String cinName = star.nextToken().trim(); // second token
+            // create movie object from file data
+
+            Cineplex c = new Cineplex(cinCode, cinName);
+
+            // add to Cineplex list
+            mov.add(c) ;
+        }
+        return mov ;
     }
 
 }
