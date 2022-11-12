@@ -57,7 +57,6 @@ public class MovieGoerUI extends UserUI {
                         break;
                     case 3:
                         printShowsId();
-                        System.out.println("Which seat would you like to check is available?");
                         isSeatAvail(sc);
                         break;
                     case 4:
@@ -119,15 +118,7 @@ public class MovieGoerUI extends UserUI {
 
     public void isSeatAvail(Scanner sc) {
         try {
-            System.out.print("show id: ");
-            String input = sc.nextLine();
-            int sid = checkInput(input);
-            System.out.print("seat: ");
-            String seat = sc.nextLine();
-            int isAvail = SeatManager.isSeatAvail(sid, seat);
-            if (isAvail == 1) System.out.println("Seat is available!");
-            else if (isAvail == 0) System.out.println("Seat has been taken!");
-            return;
+            SeatManager.askSeatAvail(sc);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

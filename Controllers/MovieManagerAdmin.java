@@ -307,6 +307,7 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
                             while(movieRatingSelector<0 || movieRatingSelector>4){
                                 throw new Exception();
                             }
+                            flag = 1;
                         }
                         catch(Exception e){
                             System.out.println("Invalid Input. Please re-enter.");
@@ -349,6 +350,7 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
                             while(movieTypeSelector<0 || movieTypeSelector>2){
                                 throw new Exception();
                             }
+                            flag = 1;
                         }
                         catch(Exception e){
                             System.out.println("Invalid Input. Please re-enter.");

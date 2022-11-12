@@ -57,9 +57,21 @@ public class MovieGoerManager implements Manager{
      **/
     public static int createMovieGoer(Scanner sc){
         try {
-            System.out.println("Enter Username: ");
-            String username = sc.nextLine();
-            int semaphore = 0; // password validation flag
+            int semaphore = 0;
+            String username = "";
+            while (semaphore != 1) {
+                try {
+                    System.out.println("Enter Username: ");
+                    username = sc.nextLine();
+                    boolean userExist = doesUserExist(username);
+                    if (userExist) throw new IllegalArgumentException("Username is already taken! Please try again.");
+                    semaphore = 1;
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+
+            semaphore = 0; // password validation flag
             String password = "password";
             while(semaphore != 1){
                 System.out.println("Enter Password: ");
@@ -75,7 +87,7 @@ public class MovieGoerManager implements Manager{
             }
             System.out.println("Enter your age: ");
             int age = sc.nextInt();
-
+            sc.nextLine();
             ArrayList ml = readMovieGoers(FILENAME);
             int mid = ml.size()+1;
             MovieGoer m1 = new MovieGoer(username, password, age,mid);

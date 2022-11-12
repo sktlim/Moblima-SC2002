@@ -9,7 +9,7 @@ Talbis Iblis|COMING_SOON|To protect their family???s name from being scarred, Ha
 Black Hawk|PREVIEW|Black hawk is an action packed drama featuring Tom Cruise|Keddy Walsh|Tom Cruise, Scarlett Johannsen, Bobby, Mike Tyson|121|R21|TWO_D|05/01/2023|9
 ssg|NOW_SHOWING|g|g|g|32|NC16|THREE_D|05/01/2023|10
 g|NOW_SHOWING|g|g|g|23|R21|BLOCKBUSTER|05/01/2023|11
-wayne and his s life|NOW_SHOWING|Its never coming.|Wayne|Wayne|1|R21|BLOCKBUSTER|05/01/2023|12
+wayne and his life|NOW_SHOWING|Its never coming.|Wayne|Wayne|1|R21|BLOCKBUSTER|05/01/2023|12
 hello world|COMING_SOON|this is a very nice show teaching java|java|java, python|12|G|BLOCKBUSTER|05/01/2023|13
 Test Movie|COMING_SOON|This is a test.|Test|testing|12|PG13|BLOCKBUSTER|05/01/2023|14
 STOP SHOWING LIAO|SHOWING_ENDED|yea|waynnabe|waynnabe|12|R21|THREE_D|05/01/2023|15

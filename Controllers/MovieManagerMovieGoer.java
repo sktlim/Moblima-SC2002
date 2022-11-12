@@ -153,7 +153,7 @@ public class MovieManagerMovieGoer implements Manager{
             for (int i=0 ;i<al.size(); i++){
                 Ticket t = (Ticket) al.get(i);
                 Show s = ShowManager.findShow(t.getShowId());
-                Movie m = MovieManagerAdmin.findMovie(s.getShowId());
+                Movie m = MovieManagerAdmin.findMovie(s.getMovieId());
                 if (m.getMovieId() == movieId){ // found
                     foundMovie = true;
                     ticketSold++;
