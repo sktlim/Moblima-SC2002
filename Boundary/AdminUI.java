@@ -6,18 +6,35 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * This Class represents the UI interface for Admins. It extends the abstract UserUI class and provides the implementation for the showSelections() method.
+ * This Class contains 2 key methods: showSelections and showUI to display the list of actions available for Admins and to handle inputs.
+ * The other methods below are helper functions that call the static methods of Controllers.
+ */
 
 public class AdminUI extends UserUI{
 
+    /**
+     * Upon successful authentication, we store the AdminID of the current Admin as an attribute that will be passed as a param to the various functions below.
+     */
     private Admin sessionAdmin;
 
-    // constructor
+    /**
+     * Constructor to initialize the current session AdminId
+     * @param userId The adminId of the current authenticated Admin
+     */
     public AdminUI(int userId) {
         this.sessionAdmin = new Admin(userId);
     }
 
     /* implementation of abstract method
        this method should be called repeatedly in the main While loop */
+
+    /**
+     * Implementation of abstract method in UserUI.
+     * Displays the list of possible actions to the current authenticated Admin.
+     * This method should be called repeatedly in the main While loop with each iteration.
+     */
     public void showSelections() {
         System.out.println("\nWelcome to the admin page.");
         System.out.println("SELECT ONE OF THE FOLLOWING OPTIONS");
@@ -47,7 +64,10 @@ public class AdminUI extends UserUI{
         System.out.println("17: Back to main menu");
     }
 
-    // User interface
+    /**
+     * This method operates in sync with the showSelections method above to accept input from the current authenticated Admin.
+     * @param sc Scanner object to allow Admins to make their selections.
+     */
     public void showUI (Scanner sc) {
         while (true) {
             try {
@@ -147,13 +167,23 @@ public class AdminUI extends UserUI{
         }
     }
 
+    /**
+     * This method validates the String input of an Admin and removes the problems of accepting integer input through the Scanner.
+     * @param input String input by current authenticated Admin.
+     * @return the integer representation of the input if parsing is successful.
+     * @throws IllegalArgumentException UNCHECKED --> thrown when user input fails to be parsed as an integer.
+     */
     private int checkInput (String input) throws IllegalArgumentException {
         try {
             return Integer.parseInt(input);
         } catch (Exception e) {
-            throw new IllegalArgumentException("Input is not a valid movie id. Please try again\n");
+            throw new IllegalArgumentException("Input is not a valid Admin id. Please try again\n");
         }
     }
+
+    /**
+     * Helper function to print the movies and their associated movieIDs to assist Admins in selecting the IDs of their chosen movie.
+     */
     private void printMovieId() {
         ArrayList movies = MovieManagerAdmin.getMovies();
         System.out.printf("%-30s | %-8s %n","Movie", "ID");
@@ -166,6 +196,9 @@ public class AdminUI extends UserUI{
         }
     }
 
+    /**
+     * Helper function to print the shows and their associated showIDs to assist Admins in selecting the IDs of their chosen show.
+     */
     private void printShowsId() {
 //        ShowManager.printShowList();
         ArrayList shows = ShowManager.getShows("Databases/shows.txt");
@@ -179,43 +212,89 @@ public class AdminUI extends UserUI{
         }
     }
 
+    /**
+     * Enables Admins to list a new Movie. Invokes the static method of the MovieManagerAdmin class.
+     * @param sc Scanner object to instantiate fields within the function.
+     */
     public void createMovie(Scanner sc) {
         MovieManagerAdmin.createMovie(sc); // invokes the MovieManagerAdmin static method
     }
 
+    /**
+     * Enables Admins to update an existing Movie. Invokes the static method of the MovieManagerAdmin class.
+     * @param movieId The ID of the movie to be updated.
+     * @param sc Scanner object to instantiate fields within the function.
+     */
     public void updateMovie(int movieId, Scanner sc) {
         MovieManagerAdmin.updateMovies(movieId, sc);
     }
 
+    /**
+     * Enables Admins to delete an existing Movie. Invokes the static method of the MovieManagerAdmin class.
+     * @param movieId The ID of the movie to be deleted.
+     */
     public void deleteMovie(int movieId) {
         MovieManagerAdmin.deleteMovie(movieId);
     }
 
+    /**
+     * Enables Admins to list a new Show. Invokes the static method of the ShowManager class.
+     * @param sc Scanner object to instantiate fields within the function.
+     */
     public void createShow(Scanner sc) {
         ShowManager.createShow(sc);
     }
 
+    /**
+     * Enables Admins to update an existing Show. Invokes the static method of the ShowManager class.
+     * @param showId The ID of the show to be updated.
+     * @param sc Scanner object to instantiate fields within the function.
+     */
     public void updateShow(int showId, Scanner sc) {
         ShowManager.updateShows(showId, sc);
     }
 
+    /**
+     * Enables Admins to delete an existing Show. Invokes the static method of the ShowManager class.
+     * @param showId The ID of the show to be deleted.
+     */
     public void deleteShow(int showId) {
         ShowManager.deleteShow(showId);
     }
 
-    public void createAdmin(Scanner sc) {
+    /**
+     * Enables an Admin to create another Admin account.
+     * Declared private to prevent access outside of this Class.
+     * @param sc Scanner object to instantiate fields within the function.
+     */
+    private void createAdmin(Scanner sc) {
         AdminManager.createAdmin(sc);
     }
 
-    public void printAdminList() {
+    /**
+     * Prints the list of existing Admins.
+     * Declared private to prevent access outside of this Class.
+     */
+    private void printAdminList() {
         AdminManager.printAdminList();
     }
 
-    public void updateAdmin(int adminId, Scanner sc) {
+    /**
+     * Enables an Admin to update an Admin account.
+     * Declared private to prevent access outside of this Class.
+     * @param adminId The ID of the Admin to be updated.
+     * @param sc Scanner object to instantiate fields within the function.
+     */
+    private void updateAdmin(int adminId, Scanner sc) {
         AdminManager.updateAdmin(adminId, sc);
     }
 
-    public void deleteAdmin(int adminId) {
+    /**
+     * Enables an Admin to delete an Admin account.
+     * Declared private to prevent access outside of this Class.
+     * @param adminId The ID of the Admin to be deleted.
+     */
+    private void deleteAdmin(int adminId) {
         AdminManager.deleteAdmin(adminId);
     }
 

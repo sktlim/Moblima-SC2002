@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="Update password incorrect exception class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/TicketPriceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/TicketPriceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Boundary/AdminUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Boundary/AdminUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +60,7 @@
     <property name="project.structure.side.proportion" value="0.17931035" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
-  <component name="RunManager" selected="Application.TicketPriceManager">
+  <component name="RunManager" selected="Application.MoblimaApp">
     <configuration name="HolidayManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Controllers.HolidayManager" />
       <module name="Moblima-SC2002" />
@@ -96,8 +96,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TicketPriceManager" />
         <item itemvalue="Application.MoblimaApp" />
+        <item itemvalue="Application.TicketPriceManager" />
         <item itemvalue="Application.HolidayManager" />
         <item itemvalue="Application.TicketPriceManager" />
         <item itemvalue="Application.HolidayManager" />
@@ -202,7 +202,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added userUI files" />
