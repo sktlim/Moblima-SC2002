@@ -207,7 +207,6 @@ public class TicketPriceManager implements Manager{
      * Updates prices based on input from user
      * @param sc Takes in Scanner object as input
      */
-     
     public static void updatePrice(Scanner sc) {
         try {
             int selection;
@@ -225,161 +224,222 @@ public class TicketPriceManager implements Manager{
                         System.out.println("Update Standard 2D Weekday(Mon-Wed): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setStandard_2DWeekday_MonWed(updatedPrice);
+                        hm.replace("Standard_2DWeekday_MonWed", priceList.getStandard_2DWeekday_MonWed());
                         break;
                     case 2:
                         System.out.println("Update Standard 2D Weekday(Thu): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setStandard_2DWeekday_Thu(updatedPrice);
+                        hm.replace("Standard_2DWeekday_Thu",priceList.getStandard_2DWeekday_Thu());
                         break;
                     case 3:
                         System.out.println("Update Standard 2D Weekday(Before Fri 6pm): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setStandard_2DWeekday_Fri(updatedPrice);
+                        hm.replace("Standard_2DWeekday_Fri", priceList.getStandard_2DWeekday_Fri());
                         break;
                     case 4:
                         System.out.println("Update Standard 2D Weekend(After Fri 6pm): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setStandard_2DWeekend(updatedPrice);
+                        hm.replace("Standard_2DWeekend", priceList.getStandard_2DWeekend());
+
                         break;
                     case 5:
                         System.out.println("Update Standard 2D Holiday: ");
                         updatedPrice = sc.nextDouble();
                         priceList.setStandard_2DHoliday(updatedPrice);
+                        hm.replace("Standard_2DHoliday", priceList.getStandard_2DHoliday());
+
                         break;
                     case 6:
                         System.out.println("Update Standard 3D Weekday(Mon-Wed): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setStandard_3DWeekday_MonWed(updatedPrice);
+                        hm.replace("Standard_3DWeekday_MonWed", priceList.getStandard_3DWeekday_MonWed());
+
                         break;
                     case 7:
                         System.out.println("Update Standard 3D Weekday(Thu): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setStandard_3DWeekday_Thu(updatedPrice);
+                        hm.replace("Standard_3DWeekday_Thu", priceList.getStandard_3DWeekday_Thu());
+
                         break;
                     case 8:
                         System.out.println("Update Standard 3D Weekday(Before Fri 6pm): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setStandard_3DWeekday_Fri(updatedPrice);
+                        hm.replace("Standard_3DWeekday_Fri", priceList.getStandard_3DWeekday_Fri());
+
                         break;
                     case 9:
                         System.out.println("Update Standard 3D Weekend(After Fri 6pm): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setStandard_3DWeekend(updatedPrice);
+                        hm.replace("Standard_3DWeekend", priceList.getStandard_3DWeekend());
+
                         break;
                     case 10:
                         System.out.println("Update Standard 3D Holiday: ");
                         updatedPrice = sc.nextDouble();
                         priceList.setStandard_3DHoliday(updatedPrice);
+                        hm.replace("Standard_3DHoliday", priceList.getStandard_3DHoliday());
+
                         break;
                     case 11:
                         System.out.println("Update Standard BlockBuster Weekday(Mon-Wed): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setStandard_BlockBusterWeekday_MonWed(updatedPrice);
+                        hm.replace("Standard_BlockBusterWeekday_MonWed", priceList.getStandard_BlockBusterWeekday_MonWed());
+
                         break;
                     case 12:
                         System.out.println("Update Standard BlockBuster Weekday(Thu): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setStandard_BlockBusterWeekday_Thu(updatedPrice);
+                        hm.replace("Standard_BlockBusterWeekday_Thu", priceList.getStandard_BlockBusterWeekday_Thu());
+
                         break;
                     case 13:
                         System.out.println("Update Standard BlockBuster Weekday(Before Fri 6pm): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setStandard_BlockBusterWeekday_Fri(updatedPrice);
+                        hm.replace("Standard_BlockBusterWeekday_Fri", priceList.getStandard_BlockBusterWeekday_Fri());
+
                         break;
                     case 14:
                         System.out.println("Update Standard BlockBuster Weekend(After Fri 6pm): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setStandard_BlockBusterWeekend(updatedPrice);
+                        hm.replace("Standard_BlockBusterWeekend", priceList.getStandard_BlockBusterWeekend());
+
                         break;
                     case 15:
                         System.out.println("Update Standard BlockBuster Holiday: ");
                         updatedPrice = sc.nextDouble();
                         priceList.setStandard_BlockBusterHoliday(updatedPrice);
+                        hm.replace("Standard_BlockBusterHoliday", priceList.getStandard_BlockBusterHoliday());
+
                         break;
                     case 16:
                         System.out.println("Update Platinum 2D Weekday(Mon-Wed): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setPlatinum_2DWeekday_MonWed(updatedPrice);
+                        hm.replace("Platinum_2DWeekday_MonWed", priceList.getPlatinum_2DWeekday_MonWed());
+
                         break;
                     case 17:
                         System.out.println("Update Platinum 2D Weekday(Thu): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setPlatinum_2DWeekday_Thu(updatedPrice);
+                        hm.replace("Platinum_2DWeekday_Thu", priceList.getPlatinum_2DWeekday_Thu());
+
                         break;
                     case 18:
                         System.out.println("Update Platinum 2D Weekday(Before Fri 6pm): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setPlatinum_2DWeekday_Fri(updatedPrice);
+                        hm.replace("Platinum_2DWeekday_Fri", priceList.getPlatinum_2DWeekday_Fri());
+
                         break;
                     case 19:
                         System.out.println("Update Platinum 2D Weekend(After Fri 6pm): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setPlatinum_2DWeekend(updatedPrice);
+                        hm.replace("Platinum_2DWeekend", priceList.getPlatinum_2DWeekend());
+
                         break;
                     case 20:
                         System.out.println("Update Platinum 2D Holiday: ");
                         updatedPrice = sc.nextDouble();
                         priceList.setPlatinum_2DHoliday(updatedPrice);
+                        hm.replace("Platinum_2DHoliday", priceList.getPlatinum_2DHoliday());
+
                         break;
                     case 21:
                         System.out.println("Update Platinum 3D Weekday(Mon-Wed): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setPlatinum_3DWeekday_MonWed(updatedPrice);
+                        hm.replace("Platinum_3DWeekday_MonWed", priceList.getPlatinum_3DWeekday_MonWed());
+
                         break;
                     case 22:
                         System.out.println("Update Platinum 3D Weekday(Thu): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setPlatinum_3DWeekday_Thu(updatedPrice);
+                        hm.replace("Platinum_3DWeekday_Thu", priceList.getPlatinum_3DWeekday_Thu());
+
                         break;
                     case 23:
                         System.out.println("Update Platinum 3D Weekday(Before Fri 6pm): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setPlatinum_3DWeekday_Fri(updatedPrice);
+                        hm.replace("Platinum_3DWeekday_Fri", priceList.getPlatinum_3DWeekday_Fri());
+
                         break;
                     case 24:
                         System.out.println("Update Platinum 3D Weekend(After Fri 6pm): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setPlatinum_3DWeekend(updatedPrice);
+                        hm.replace("Platinum_3DWeekend", priceList.getPlatinum_3DWeekend());
+
                         break;
                     case 25:
                         System.out.println("Update Platinum 3D Holiday: ");
                         updatedPrice = sc.nextDouble();
                         priceList.setPlatinum_3DHoliday(updatedPrice);
+                        hm.replace("Platinum_3DHoliday", priceList.getPlatinum_3DHoliday());
+
                         break;
                     case 26:
                         System.out.println("Update Platinum BlockBuster Weekday(Mon-Wed): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setPlatinum_BlockBusterWeekday_MonWed(updatedPrice);
+                        hm.replace("Platinum_BlockBusterWeekday_MonWed", priceList.getPlatinum_BlockBusterWeekday_MonWed());
+
                         break;
                     case 27:
                         System.out.println("Update Platinum BlockBuster Weekday(Thu): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setPlatinum_BlockBusterWeekday_Thu(updatedPrice);
+                        hm.replace("Platinum_BlockBusterWeekday_Thu", priceList.getPlatinum_BlockBusterWeekday_Thu());
+
                         break;
                     case 28:
                         System.out.println("Update Platinum BlockBuster Weekday(Before Fri 6pm): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setPlatinum_BlockBusterWeekday_Fri(updatedPrice);
+                        hm.replace("Platinum_BlockBusterWeekday_Fri", priceList.getPlatinum_BlockBusterWeekday_Fri());
+
                         break;
                     case 29:
                         System.out.println("Update Platinum BlockBuster Weekend(After Fri 6pm): ");
                         updatedPrice = sc.nextDouble();
                         priceList.setPlatinum_BlockBusterWeekend(updatedPrice);
+                        hm.replace("Platinum_BlockBusterWeekend", priceList.getPlatinum_BlockBusterWeekend());
+
                         break;
                     case 30:
                         System.out.println("Update Platinum BlockBuster Holiday: ");
                         updatedPrice = sc.nextDouble();
                         priceList.setPlatinum_BlockBusterHoliday(updatedPrice);
+                        hm.replace("Platinum_BlockBusterHoliday", priceList.getPlatinum_BlockBusterHoliday());
+
                         break;
                     case 31:
                         System.out.println("Update Student Price: ");
                         updatedPrice = sc.nextDouble();
                         priceList.setStudent(updatedPrice);
+                        hm.replace("student_discount", priceList.getStudent());
+
                         break;
                     case 32:
                         System.out.println("Update Senior Citizen Price: ");
                         updatedPrice = sc.nextDouble();
                         priceList.setSeniorCitizen(updatedPrice);
+                        hm.replace("seniorCitizen_discount", priceList.getSeniorCitizen());
+
                         break;
                     default:
                         break;
@@ -387,38 +447,6 @@ public class TicketPriceManager implements Manager{
                 System.out.println("Price Updated");
                 selection = sc.nextInt();
             }
-            hm.replace("Standard_2DWeekday_MonWed", priceList.getStandard_2DWeekday_MonWed());
-            hm.replace("Standard_2DWeekday_Thu",priceList.getStandard_2DWeekday_Thu());
-            hm.replace("Standard_2DWeekday_Fri", priceList.getStandard_2DWeekday_Fri());
-            hm.replace("Standard_2DWeekend", priceList.getStandard_2DWeekend());
-            hm.replace("Standard_2DHoliday", priceList.getStandard_2DHoliday());
-            hm.replace("Standard_3DWeekday_MonWed", priceList.getStandard_3DWeekday_MonWed());
-            hm.replace("Standard_3DWeekday_Thu", priceList.getStandard_3DWeekday_Thu());
-            hm.replace("Standard_3DWeekday_Fri", priceList.getStandard_3DWeekday_Fri());
-            hm.replace("Standard_3DWeekend", priceList.getStandard_3DWeekend());
-            hm.replace("Standard_3DHoliday", priceList.getStandard_3DHoliday());
-            hm.replace("Standard_BlockBusterWeekday_MonWed", priceList.getStandard_BlockBusterWeekday_MonWed());
-            hm.replace("Standard_BlockBusterWeekday_Thu", priceList.getStandard_BlockBusterWeekday_Thu());
-            hm.replace("Standard_BlockBusterWeekday_Fri", priceList.getStandard_BlockBusterWeekday_Fri());
-            hm.replace("Standard_BlockBusterWeekend", priceList.getStandard_BlockBusterWeekend());
-            hm.replace("Standard_BlockBusterHoliday", priceList.getStandard_BlockBusterHoliday());
-            hm.replace("Platinum_2DWeekday_MonWed", priceList.getPlatinum_2DWeekday_MonWed());
-            hm.replace("Platinum_2DWeekday_Thu", priceList.getPlatinum_2DWeekday_Thu());
-            hm.replace("Platinum_2DWeekday_Fri", priceList.getPlatinum_2DWeekday_Fri());
-            hm.replace("Platinum_2DWeekend", priceList.getPlatinum_2DWeekend());
-            hm.replace("Platinum_2DHoliday", priceList.getPlatinum_2DHoliday());
-            hm.replace("Platinum_3DWeekday_MonWed", priceList.getPlatinum_3DWeekday_MonWed());
-            hm.replace("Platinum_3DWeekday_Thu", priceList.getPlatinum_3DWeekday_Thu());
-            hm.replace("Platinum_3DWeekday_Fri", priceList.getPlatinum_3DWeekday_Fri());
-            hm.replace("Platinum_3DWeekend", priceList.getPlatinum_3DWeekend());
-            hm.replace("Platinum_3DHoliday", priceList.getPlatinum_3DHoliday());
-            hm.replace("Platinum_BlockBusterWeekday_MonWed", priceList.getPlatinum_BlockBusterWeekday_MonWed());
-            hm.replace("Platinum_BlockBusterWeekday_Thu", priceList.getPlatinum_BlockBusterWeekday_Thu());
-            hm.replace("Platinum_BlockBusterWeekday_Fri", priceList.getPlatinum_BlockBusterWeekday_Fri());
-            hm.replace("Platinum_BlockBusterWeekend", priceList.getPlatinum_BlockBusterWeekend());
-            hm.replace("Platinum_BlockBusterHoliday", priceList.getPlatinum_BlockBusterHoliday());
-            hm.replace("student_discount", priceList.getStudent());
-            hm.replace("seniorCitizen_discount", priceList.getSeniorCitizen());
             savePrices(hm);
             System.out.println("Exiting...");
 
@@ -644,11 +672,11 @@ public class TicketPriceManager implements Manager{
 
     }
 
-
+//
 //    public static void main(String[] args) {
 //        Scanner sc = new Scanner(System.in);
-//        TicketPriceManager tpm = new TicketPriceManager();
-//        tpm.updatePrice(sc);
+////        TicketPriceManager tpm = new TicketPriceManager();
+//        updatePrice(sc);
 //    }
 
 }
