@@ -524,8 +524,7 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
      */
     private static int checkInput (String input) throws IllegalArgumentException {
         if (input.length() == 0) throw new IllegalArgumentException();
-        if (input.length() == 1) return Integer.parseInt(input);
-        else return Integer.parseInt(input.substring(0, 2));
+        else return Integer.parseInt(input);
     }
 
 }
