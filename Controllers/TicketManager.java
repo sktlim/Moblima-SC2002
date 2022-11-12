@@ -63,12 +63,39 @@ public class TicketManager implements Manager{
             // get seat number
             semaphore = -1;
             String seat = null;
+            String strDate = "";
+            ArrayList tickets = readTickets(FILENAME);
+            Ticket.DayType dayType = Ticket.DayType.DEFAULT;
             while (semaphore == -1) {
                 try {
-                    System.out.println("Enter your seat number: ");
+                    System.out.println("Note: Seat numbers are case-sensitive. Enter your seat number: ");
                     seat = sc.nextLine();
-                    SeatManager.isSeatAvail(showId, seat);
+                    int seatAvail = SeatManager.isSeatAvail(showId, seat);
+                    if (seatAvail == 0) throw new IllegalArgumentException("Seat has been taken! Please choose another seat.");
                     semaphore = 1;
+
+                    String dateString = s.getDate();
+                    Date dateFormat = new SimpleDateFormat("dd/MM/yyyy").parse(dateString);
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTime(dateFormat);
+                    int day = cal.get(Calendar.DAY_OF_WEEK);
+                    if (day == 1 || day == 7){
+                        dayType = Ticket.DayType.WEEKEND;
+                    }
+                    else{
+                        dayType = Ticket.DayType.WEEKDAY;
+                    }
+                    DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                    strDate = df.format(dateFormat);
+                    // System.out.println("price: " + price);
+
+                    // Check if ticket already exists. But also check before if seat available.
+                    for (int i=0; i<tickets.size(); i++) {
+                        Ticket tic = (Ticket) tickets.get(i);
+                        if (tic.getShowId() == showId && tic.getSeat().equals(seat)) {
+                            throw new Exception("Ticket with same show time and seat already exists!");
+                        }
+                    }
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
@@ -103,43 +130,19 @@ public class TicketManager implements Manager{
                 }
             }
 
-            String dateString = s.getDate();
-
-            Date dateFormat = new SimpleDateFormat("dd/MM/yyyy").parse(dateString);
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(dateFormat);
-            Ticket.DayType dayType = Ticket.DayType.DEFAULT;
-            int day = cal.get(Calendar.DAY_OF_WEEK);
-            if (day == 1 || day == 7){
-                dayType = Ticket.DayType.WEEKEND;
-            }
-            else{
-                dayType = Ticket.DayType.WEEKDAY;
-            }
-            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            String strDate = df.format(dateFormat);
             double price = TicketPriceManager.calculatePrice(s, userAgeType, strDate, m);
-//            System.out.println("price: " + price);
-            ArrayList tickets = readTickets(FILENAME);
             int ticketId = tickets.size()+1;
             Ticket t = new Ticket(ticketId, showId, userId, seat, userAgeType, dayType, price);
-            // Check if ticket already exists. But also check before if seat available.
-             for (int i=0; i<tickets.size(); i++) {
-                 Ticket tic = (Ticket) tickets.get(i);
-                if (tic.getShowId() == t.getShowId() && tic.getSeat().equals(t.getSeat())) {
-                    throw new Exception("ticket with same show time and seat already exists!");
-                }
-             }
             tickets.add(t);
-             saveTickets(FILENAME, tickets);
+            saveTickets(FILENAME, tickets);
 
-             // COUPLE seats and SINGLE seats are booked differently
+            // COUPLE seats and SINGLE seats are booked differently
             String seatType = SeatManager.getSeatType(showId, seat);
             SeatManager.updateSeatPlan(showId, seat, 1);
             TransactionManager.createTransaction(t, userId);
 
             if (seatType.equals("COUPLEL")) {
-                int ticketId2 = tickets.size()+2;
+                int ticketId2 = ticketId + 1;
                 String seat2 = seat.charAt(0) + Integer.toString(Integer.parseInt(seat.substring(1))+1);
                 Ticket t2 = new Ticket(ticketId2, showId, userId, seat2, userAgeType, dayType, price);
                 SeatManager.updateSeatPlan(showId, seat2, 1);
@@ -147,7 +150,7 @@ public class TicketManager implements Manager{
                 saveTickets(FILENAME, tickets);
                 TransactionManager.createTransaction(t2, userId);
             } else if (seatType.equals("COUPLER")) {
-                int ticketId2 = tickets.size()+2;
+                int ticketId2 = ticketId + 1;
                 String seat2 = seat.charAt(0) + Integer.toString(Integer.parseInt(seat.substring(1))-1);
                 Ticket t2 = new Ticket(ticketId2, showId, userId, seat2, userAgeType, dayType, price);
                 SeatManager.updateSeatPlan(showId, seat2, 1);
@@ -156,6 +159,7 @@ public class TicketManager implements Manager{
                 TransactionManager.createTransaction(t2, userId);
             }
             System.out.println("Ticket(s) has been booked!");
+
             return ticketId;
 
         } catch (Exception e) {
@@ -348,6 +352,8 @@ public class TicketManager implements Manager{
         // read String from text file
         ArrayList stringArray = (ArrayList)read(filename);
         ArrayList alr = new ArrayList() ;// to store Tickets data
+        if (stringArray.get(0) == "") return alr; // to handle case when tickets.txt is empty
+
         for (int i = 0 ; i < stringArray.size() ; i++) {
             String st = (String)stringArray.get(i);
             // get individual 'fields' of the string separated by SEPARATOR
@@ -365,6 +371,7 @@ public class TicketManager implements Manager{
             // add to Tickers list
             alr.add(t) ;
         }
+        System.out.println(alr.size());
         return alr ;
     }
 
