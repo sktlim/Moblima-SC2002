@@ -5,20 +5,37 @@ import Controllers.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * This Class represents the UI interface for MovieGoers. It extends the abstract UserUI class and provides the implementation for the showSelections and showUI methods.
+ * This Class contains 2 key methods: showSelections and showUI to display the list of actions available for MovieGoers and to handle inputs.
+ * The other methods below are helper functions that call the static methods of Controllers.
+ */
+
 public class MovieGoerUI extends UserUI {
 
+    /**
+     * Upon successful authentication, we store the movieGoerID of the current movieGoer as an attribute that will be passed as a param to the various functions below.
+     */
     private MovieGoer sessionMovieGoer;
 
-    // default constructor used in GuestUI
+    /**
+     * Default constructor invoked in GuestUI Class since no movieGoerID is tagged to a Guest.
+     */
     public MovieGoerUI() {}
 
-    // constructor
+    /**
+     * Constructor to initialize the current session movieGoerId
+     * @param userId The movieGoerId of the current authenticated movieGoer
+     */
     public MovieGoerUI(int userId) {
         this.sessionMovieGoer = new MovieGoer(userId);
     }
 
-    /* implementation of abstract method
-       this method should be called repeatedly in the main While loop */
+    /**
+     * Implementation of abstract method in UserUI.
+     * Displays the list of possible actions to the current authenticated movieGoer.
+     * This method should be called repeatedly in the main While loop with each iteration.
+     */
     public void showSelections() {
         System.out.println("Welcome to the MovieGoer page.");
         System.out.println("SELECT ONE OF THE FOLLOWING OPTIONS");
@@ -36,7 +53,11 @@ public class MovieGoerUI extends UserUI {
         System.out.println("10: Back to main menu");
     }
 
-    // User interface
+    /**
+     * Implementation of abstract method in UserUI.
+     * This method operates in sync with the showSelections method above to accept input from the current authenticated movieGoer.
+     * @param sc Scanner object to allow movieGoers to make their selections.
+     */
     public void showUI (Scanner sc) {
         while (true) {
             try {
@@ -87,24 +108,11 @@ public class MovieGoerUI extends UserUI {
             }
         }
     }
-    protected int checkInput (String input) throws Exception {
-        if (input.length() <= 1) return Integer.parseInt(input);
-        else return Integer.parseInt(input.substring(0, 2));
-    }
 
-    protected void printShowsId() {
-        ArrayList shows = ShowManager.getShows("Databases/shows.txt");
-        System.out.printf("%-25s | %-8s | %-12s | %-10s | %-10s | %-30s | %-10s %n", "CINEPLEX", "THEATRE", "DATE", "START TIME", "END TIME", "MOVIE NAME", "ID");
-        System.out.println("--------------------------------------------------------------------------------------------------------------------");
-        for (int i=0; i<shows.size(); i++) {
-            Show s = (Show)shows.get(i);
-            Movie m = MovieManagerAdmin.findMovie(s.getMovieId());
-            System.out.printf("%-25s | %-8s | %-12s | %-10s | %-10s | %-30s | %-10s %n", s.getCineplex(), s.getTheatre(), s.getDate(), s.getStartTime(), s.getEndTime(),
-                    m.getMovieTitle(), s.getShowId());
-        }
-        System.out.println("");
-    }
-
+    /**
+     * Enables movieGoers to view the SeatPlan for a desired show.
+     * @param sc Scanner object to allow movieGoers to make their selections.
+     */
     public void readSeatPlan(Scanner sc) {
         try {
             String input = sc.nextLine();
@@ -116,6 +124,10 @@ public class MovieGoerUI extends UserUI {
         }
     }
 
+    /**
+     * Enables movieGoers to check if a seat is available.
+     * @param sc Scanner object to allow movieGoers to make their selections.
+     */
     public void isSeatAvail(Scanner sc) {
         try {
             SeatManager.askSeatAvail(sc);
@@ -124,27 +136,50 @@ public class MovieGoerUI extends UserUI {
         }
     }
 
+    /**
+     * Enables movieGoers to book a new ticket.
+     * @param sc Scanner object to allow movieGoers to make their selections.
+     * @param userId The movieGoerID of the currently authenticated movieGoer.
+     */
     public void bookTicket(Scanner sc, int userId) {
         TicketManager.createTicket(sc, userId);
     }
 
+    /**
+     * Enables movieGoers to view their personal booking history.
+     * @param userId The movieGoerID of the currently authenticated movieGoer.
+     */
     public void viewBookingHistory(int userId) {
         // call TransactionManager's static method
         TransactionManager.printTransactionHistory(userId);
     }
 
+    /**
+     * Displays the Top 5 Movies ranked by ticket sales.
+     */
     public static void getTop5MoviesByTicketSales() {
         MovieManagerMovieGoer.getTop5MoviesByTicketSales();
     }
 
+    /**
+     * Displays the Top 5 Movies ranked by their ratings.
+     */
     public static void getTop5MoviesByRating() {
         MovieManagerMovieGoer.getTop5MoviesByRating();
     }
 
+    /**
+     * Enables movieGoers to rate and review a particular Movie.
+     * @param sc Scanner object to allow movieGoers to make their selections.
+     */
     public static void createRatingAndReview(Scanner sc) {
         RatingAndReviewManager.createReview(sc);
     }
 
+    /**
+     * Enables movieGoers to query a desired Movie.
+     * @param sc Scanner object to allow movieGoers to make their selections.
+     */
     public static void findMovie(Scanner sc){
         System.out.println("Enter the name of the movie you wish to find: ");
         String movieName = sc.nextLine();

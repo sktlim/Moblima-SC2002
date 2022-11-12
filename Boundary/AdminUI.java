@@ -2,12 +2,11 @@ package Boundary;
 import Models.*;
 import Controllers.*;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * This Class represents the UI interface for Admins. It extends the abstract UserUI class and provides the implementation for the showSelections() method.
+ * This Class represents the UI interface for Admins. It extends the abstract UserUI class and provides the implementation for the showSelections and showUI methods.
  * This Class contains 2 key methods: showSelections and showUI to display the list of actions available for Admins and to handle inputs.
  * The other methods below are helper functions that call the static methods of Controllers.
  */
@@ -65,6 +64,7 @@ public class AdminUI extends UserUI{
     }
 
     /**
+     * Implementation of abstract method in UserUI.
      * This method operates in sync with the showSelections method above to accept input from the current authenticated Admin.
      * @param sc Scanner object to allow Admins to make their selections.
      */
@@ -168,20 +168,6 @@ public class AdminUI extends UserUI{
     }
 
     /**
-     * This method validates the String input of an Admin and removes the problems of accepting integer input through the Scanner.
-     * @param input String input by current authenticated Admin.
-     * @return the integer representation of the input if parsing is successful.
-     * @throws IllegalArgumentException UNCHECKED --> thrown when user input fails to be parsed as an integer.
-     */
-    private int checkInput (String input) throws IllegalArgumentException {
-        try {
-            return Integer.parseInt(input);
-        } catch (Exception e) {
-            throw new IllegalArgumentException("Input is not a valid Admin id. Please try again\n");
-        }
-    }
-
-    /**
      * Helper function to print the movies and their associated movieIDs to assist Admins in selecting the IDs of their chosen movie.
      */
     private void printMovieId() {
@@ -193,22 +179,6 @@ public class AdminUI extends UserUI{
             System.out.printf("%-30s | %-8s %n",m.getMovieTitle(), m.getMovieId());
             String title = m.getMovieTitle();
             int id = m.getMovieId();
-        }
-    }
-
-    /**
-     * Helper function to print the shows and their associated showIDs to assist Admins in selecting the IDs of their chosen show.
-     */
-    private void printShowsId() {
-//        ShowManager.printShowList();
-        ArrayList shows = ShowManager.getShows("Databases/shows.txt");
-        System.out.printf("%-25s | %-8s | %-12s | %-10s | %-10s | %-30s | %-10s %n", "CINEPLEX", "THEATRE", "DATE", "START TIME", "END TIME", "MOVIE NAME", "ID");
-        System.out.println("--------------------------------------------------------------------------------------------------------------------");        for (int i = 0; i < shows.size(); i++) {
-            Show s = (Show) shows.get(i);
-            StringBuilder sb = new StringBuilder();
-            Movie m = MovieManagerAdmin.findMovie(s.getMovieId());
-            System.out.printf("%-25s | %-8s | %-12s | %-10s | %-10s | %-30s | %-10s %n", s.getCineplex(), s.getTheatre(), s.getDate(), s.getStartTime(), s.getEndTime(),
-                    m.getMovieTitle(), s.getShowId());
         }
     }
 
