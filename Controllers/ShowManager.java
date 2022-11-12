@@ -526,7 +526,6 @@ public class ShowManager implements Manager{
      * @return ArrayList of Shows
      * @throws IOException I/O Error with input
      */
-
     private static ArrayList readShows(String filename) throws IOException {
         // read String from text file
         ArrayList stringArray = (ArrayList)read(filename);

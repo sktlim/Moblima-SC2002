@@ -156,9 +156,13 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
                 }
             }
 
+            String endOfShowingDate = "";
+            System.out.println("Enter the Movie's End of Showing Date: (format DD/MM/YYYY)");
+            endOfShowingDate = sc.nextLine();
+
             System.out.println("Movie successfully created!");
             ArrayList al = readMovies(FILENAME);
-            Movie m1 = new Movie(al.size()+1, movieTitle, showingStatus, synopsis, director, cast, movieRuntime, movieRating, movieType);
+            Movie m1 = new Movie(al.size()+1, movieTitle, showingStatus, synopsis, director, cast, movieRuntime, movieRating, movieType, endOfShowingDate);
             al.add(m1);
             saveMovies(FILENAME, al);
 
