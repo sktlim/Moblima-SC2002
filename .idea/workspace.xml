@@ -6,9 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="Updated javadoc comments for controllers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/MovieManagerAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MovieManagerAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/MovieManagerMovieGoer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MovieManagerMovieGoer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Boundary/AdminUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Boundary/AdminUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/ShowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ShowManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/TicketPriceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/TicketPriceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Databases/prices.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Databases/prices.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Databases/seatingPlanShow.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Databases/seatingPlanShow.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Databases/tickets.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Databases/tickets.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Databases/transactions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Databases/transactions.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,6 +194,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added userUI files" />
