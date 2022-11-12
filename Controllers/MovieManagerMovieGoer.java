@@ -346,8 +346,8 @@ public class MovieManagerMovieGoer implements Manager{
             int movieRuntime = Integer.parseInt(star.nextToken().trim()); // 6th token
             Movie.MovieRating movieRating = Movie.MovieRating.valueOf(star.nextToken().trim()); // 7th token, convert to type enum
             Movie.MovieType movieType = Movie.MovieType.valueOf(star.nextToken().trim()); // 8th token
-            int movieId = Integer.parseInt(star.nextToken().trim()); // 9th token
-            String endOfShowingDate = star.nextToken().trim(); // 10th token
+            String endOfShowingDate = star.nextToken().trim(); // 9th token
+            int movieId = Integer.parseInt(star.nextToken().trim()); // 10th token
             // create movie object from file data
 
             Movie m = new Movie(movieId, movieTitle, showingStatus, synopsis, director, cast, movieRuntime, movieRating, movieType, endOfShowingDate);
