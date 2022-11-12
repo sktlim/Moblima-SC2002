@@ -39,7 +39,7 @@ public class Show {
      */
     private TheatreClass theatreClass;
     /**
-     * Cineplex code in String format
+     * Cineplex name in String format
      */
     private String cineplex;
 
@@ -52,7 +52,7 @@ public class Show {
      * @param endTime End time of show in HH:MM format
      * @param theatre Theatre identifier in Integer format
      * @param theatreClass Enumerated variables for Theatre Classes. Consists of STANDARD, PLATINUM and DEFAULT
-     * @param cineplex Cineplex code in String format
+     * @param cineplex Cineplex name in String format
      */
     public Show(int showId, int movieId, String date, String startTime, String endTime, int theatre, TheatreClass theatreClass, String cineplex){
         this.showId = showId;
@@ -123,8 +123,8 @@ public class Show {
     }
 
     /**
-     * Getter method for Cineplex code
-     * @return Returns Cineplex code in Integer format
+     * Getter method for Cineplex name
+     * @return Returns Cineplex name in Integer format
      */
     public String getCineplex(){
         return this.cineplex;
@@ -187,8 +187,8 @@ public class Show {
     }
 
     /**
-     * Setter method for cineplex
-     * @param cineplex Cineplex code in Integer format
+     * Setter method for cineplex name
+     * @param cineplex Cineplex name in String format
      */
     public void setCineplex(String cineplex){
         this.cineplex = cineplex;
