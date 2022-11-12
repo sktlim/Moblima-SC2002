@@ -174,6 +174,32 @@ public class MovieManagerMovieGoer implements Manager{
     }
 
     /**
+     * Read method
+     * Find a single movie by movie name
+     * @param movieName The movie name of the movie to be queried
+     * @return Object of type Movie if successful search, else return null
+     */
+    public static Movie findMovie(String movieName){
+        try{
+            ArrayList mov = readMovies(FILENAME);
+            for (int i = 0 ; i < mov.size() ; i++) {
+                Movie m = (Movie) mov.get(i);
+                if (m.getMovieTitle().trim().toLowerCase().equals(movieName.trim().toLowerCase())) { // found
+                    return m;
+                }
+            }
+            throw new ItemNotFoundException();
+        }
+        catch(IOException e){
+            System.out.println("IOException > " + e.getMessage());
+        }
+        catch(ItemNotFoundException e){
+            System.out.println("Movie not found > " + e.getMessage());
+        }
+        return null;
+    }
+
+    /**
      * Get top 5 movies by ticket sales.
      * Utilizes the getTicketSales function and puts this data into a hashmap,
      * where the movieId is the key and the tickets sold are the values.
