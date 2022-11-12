@@ -118,7 +118,9 @@ public class MoblimaApp {
                         MovieGoerManager.createMovieGoer(sc);
                         break;
                     case 4:
-
+                        GuestUI gui = new GuestUI();
+                        gui.showUI(sc);
+                        break;
                     case 5:
                         System.out.println("Exiting Application...");
                         return;

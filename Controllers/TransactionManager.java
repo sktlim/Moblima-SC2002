@@ -238,4 +238,34 @@ public class TransactionManager implements Manager{ //CRUD
         return mov ;
     }
 
+    // used in GuestUI to delete transactions with -1 as moviegoerid
+    public static void deleteTransaction(int tid) throws Exception {
+        ArrayList trans = readTransactions();
+        int count = -1;
+        while (count != 0) {
+            count = 0;
+            for (int i = 0 ; i < trans.size() ; i++) {
+                Transaction t = (Transaction) trans.get(i);
+                if (t.getMovieGoerId() == tid) {
+                    trans.remove(i);
+                    count++;
+                    break;
+                }
+            }
+        }
+
+        saveTransactions(FILENAME, trans);
+    }
+
+    // used in GuestUI to delete transactions with -1 as moviegoerid
+    public static void updateMovieGoerIdOfTransactions(int oldMovieGoerId, int newMovieGoerId) throws Exception {
+        ArrayList trans = readTransactions();
+        for (int i = 0 ; i < trans.size() ; i++) {
+            Transaction t = (Transaction) trans.get(i);
+            if (t.getMovieGoerId() == oldMovieGoerId) {
+                t.setMovieGoerId(newMovieGoerId);
+            }
+        }
+        saveTransactions(FILENAME, trans);
+    }
 }

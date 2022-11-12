@@ -4,3 +4,7 @@ wayne|123|22|3
 xxx|password|123|4
 nic|nic|22|5
 waynetanjingheng|waynetanjingheng|12|6
+nic1|nic1|20|7
+nic2|nic2|22|8
+nic3|nic3|22|9
+nic4|nic4|23|10

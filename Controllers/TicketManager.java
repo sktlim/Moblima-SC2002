@@ -37,20 +37,26 @@ public class TicketManager implements Manager{
     public static int createTicket(Scanner sc, int userId){
         // create method - should be called by other managers (not from UI)
         try {
-            System.out.println("Enter the show ID: ");
-            int showId = sc.nextInt();
-            sc.nextLine();
-            while(ShowManager.findShow(showId)==null){
-                System.out.println("Show not found! Please re-enter.");
-                showId = sc.nextInt();
-                sc.nextLine();
+            int semaphore = -1;
+            int showId = -1;
+            while (semaphore == -1) {
+                try {
+                    System.out.print("Enter the show ID: ");
+                    String input = sc.nextLine();
+                    showId = checkInput(input);
+                    if (ShowManager.findShow(showId) == null) throw new IllegalArgumentException("Show not found! Please re-enter.");
+                    semaphore = 1;
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
             }
+
             Show s = ShowManager.findShow(showId);
             int movieId = s.getMovieId();
             Movie m = MovieManagerAdmin.findMovie(movieId);
 
             // show seat plan relating to a show id
-            int semaphore = -1;
+            semaphore = -1;
             while (semaphore == -1) {
                 try {
                     SeatManager.readSeatPlan(showId);
@@ -322,20 +328,51 @@ public class TicketManager implements Manager{
 
     /**
      * Delete ticket by ticketID
-     * @param ticketId ticket ID to be deleted
+     * @param movieGoerId ticket ID to be deleted
      */
-    public static void deleteTicket(int ticketId){
+    public static ArrayList deleteTicket(int movieGoerId){
+        // delete method
+        ArrayList deletedSeats = new ArrayList();
+        try {
+            ArrayList<Ticket> tickets = readTickets(FILENAME);
+            int count = -1;
+            while (count != 0) {
+                count = 0;
+                for (int i=0; i<tickets.size(); i++) {
+                    if (tickets.get(i).getUserId() == movieGoerId) {
+                        Ticket t = tickets.get(i);
+                        HashMap t_data = new HashMap();
+                        tickets.remove(i);
+                        t_data.put("seat", t.getSeat());
+                        t_data.put("showId", t.getShowId());
+                        deletedSeats.add(t_data);
+                        count++;
+                        break;
+                    }
+                }
+            }
+            // if (idx == -1)  throw new Exception("Ticket to be deleted could not be found!");
+            saveTickets(FILENAME, tickets);
+            return deletedSeats;
+        } catch (Exception e) {
+            System.out.println("Exception > " + e.getMessage());
+        }
+        return deletedSeats;
+    }
+
+    public static void updateMovieGoerIdOfTickets(int oldMovieGoerId, int newMovieGoerId){
         // delete method
         try {
             ArrayList<Ticket> tickets = readTickets(FILENAME);
             int idx = -1;
             for (int i=0; i<tickets.size(); i++) {
-                if (tickets.get(i).getTicketId() == ticketId) {
+                if (tickets.get(i).getUserId() == oldMovieGoerId) {
                     idx = i;
+                    Ticket t = tickets.get(i);
+                    t.setUserId(newMovieGoerId);
                 }
             }
-            if (idx == -1)  throw new Exception("ticket with same show time and seat already exists!");
-            else tickets.remove(idx);
+            if (idx == -1)  throw new Exception("Ticket with old movie goer id could not be found!");
             saveTickets(FILENAME, tickets);
         } catch (Exception e) {
             System.out.println("Exception > " + e.getMessage());
@@ -371,7 +408,7 @@ public class TicketManager implements Manager{
             // add to Tickers list
             alr.add(t) ;
         }
-        System.out.println(alr.size());
+        // System.out.println(alr.size());
         return alr ;
     }
 

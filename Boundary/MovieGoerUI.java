@@ -9,6 +9,9 @@ public class MovieGoerUI extends UserUI {
 
     private MovieGoer sessionMovieGoer;
 
+    // default constructor used in GuestUI
+    public MovieGoerUI() {}
+
     // constructor
     public MovieGoerUI(int userId) {
         this.sessionMovieGoer = new MovieGoer(userId);
@@ -85,12 +88,12 @@ public class MovieGoerUI extends UserUI {
             }
         }
     }
-    private int checkInput (String input) throws Exception {
+    protected int checkInput (String input) throws Exception {
         if (input.length() <= 1) return Integer.parseInt(input);
         else return Integer.parseInt(input.substring(0, 2));
     }
 
-    private void printShowsId() {
+    protected void printShowsId() {
         ArrayList shows = ShowManager.getShows("Databases/shows.txt");
         System.out.printf("%-25s | %-8s | %-12s | %-10s | %-10s | %-30s | %-10s %n", "CINEPLEX", "THEATRE", "DATE", "START TIME", "END TIME", "MOVIE NAME", "ID");
         System.out.println("--------------------------------------------------------------------------------------------------------------------");
