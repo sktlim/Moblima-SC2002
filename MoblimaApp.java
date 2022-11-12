@@ -14,7 +14,7 @@ import static java.lang.String.valueOf;
 
 public class MoblimaApp {
     private static void showSelections() {
-        System.out.println("Please make a selection:\n1:Login as Admin\n2:Login as Movie Goer\n3:Create a new Movie Goer\n4:Exit application");
+        System.out.println("Please make a selection:\n1:Login as Admin\n2:Login as Movie Goer\n3:Create a new Movie Goer\n4.Enter as guest\n5:Exit application");
     }
 
     private static void wallPaper(){
@@ -118,6 +118,8 @@ public class MoblimaApp {
                         MovieGoerManager.createMovieGoer(sc);
                         break;
                     case 4:
+
+                    case 5:
                         System.out.println("Exiting Application...");
                         return;
                     default:
