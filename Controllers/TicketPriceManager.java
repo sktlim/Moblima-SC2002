@@ -445,7 +445,9 @@ public class TicketPriceManager implements Manager{
                         break;
                 }
                 System.out.println("Price Updated");
+                System.out.println("Enter new price to update or 'e' to exit");
                 selection = sc.nextInt();
+//                sc.nextLine();
             }
             savePrices(hm);
             System.out.println("Exiting...");
