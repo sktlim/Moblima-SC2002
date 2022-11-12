@@ -445,7 +445,7 @@ public class TicketPriceManager implements Manager{
                         break;
                 }
                 System.out.println("Price Updated");
-                System.out.println("Enter new price to update or 'e' to exit");
+                System.out.println("Enter new price to update or '0' to exit");
                 selection = sc.nextInt();
 //                sc.nextLine();
             }
@@ -674,12 +674,12 @@ public class TicketPriceManager implements Manager{
 
     }
 
-//
-//    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-////        TicketPriceManager tpm = new TicketPriceManager();
-//        updatePrice(sc);
-//    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+//        TicketPriceManager tpm = new TicketPriceManager();
+        updatePrice(sc);
+    }
 
 }
 

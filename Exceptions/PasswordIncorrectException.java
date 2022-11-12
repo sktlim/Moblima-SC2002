@@ -1,9 +1,13 @@
 package Exceptions;
 
+/**
+ *  Custom exception class for password incorrect
+ */
 public class PasswordIncorrectException extends Exception{
-    /** THIS EXCEPTION CLASS IS CALLED WHEN THE USER KEYS IN THE WRONG PASSWORD **/
-
+    /**
+     * Custom exception class for password incorrect. Exception called during password verification.
+     */
     public PasswordIncorrectException() { // default constructor for custom error message
-        super("Incorrect password entered.");
+        super("Password is incorrect. Please try again and ensure no spelling mistakes.");
     }
 }

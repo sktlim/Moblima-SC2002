@@ -8,3 +8,7 @@ nic1|nic1|20|7
 nic2|nic2|22|8
 nic3|nic3|22|9
 nic4|nic4|23|10
+nic|nic|20|11
+nic5|nic5|22|12
+nic6|nic6|22|13
+nic123|nic123|22|14

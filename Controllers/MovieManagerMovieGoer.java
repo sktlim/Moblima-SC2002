@@ -153,7 +153,7 @@ public class MovieManagerMovieGoer implements Manager{
             for (int i=0 ;i<al.size(); i++){
                 Ticket t = (Ticket) al.get(i);
                 Show s = ShowManager.findShow(t.getShowId());
-                Movie m = MovieManagerAdmin.findMovie(s.getShowId());
+                Movie m = MovieManagerAdmin.findMovie(s.getMovieId());
                 if (m.getMovieId() == movieId){ // found
                     foundMovie = true;
                     ticketSold++;
@@ -302,16 +302,16 @@ public class MovieManagerMovieGoer implements Manager{
     public static void printMovieList(){
         try{
             ArrayList mov = readMovies(FILENAME);
-            System.out.printf("%-10s | %-40s | %-15s | %-220s | %-23s | %-125s | %-13s | %-13s | %-15s %n",
-                    "MovieID", "Movie Title", "Showing Status", "Synopsis", "Director", "Cast", "Movie Runtime", "Movie Rating", "Movie Type");
+            System.out.printf("%-10s | %-40s | %-15s | %-220s | %-23s | %-125s | %-13s | %-13s | %-15s | %-10s %n",
+                    "MovieID", "Movie Title", "Showing Status", "Synopsis", "Director", "Cast", "Movie Runtime", "Movie Rating", "Movie Type", "End of Showing Date");
             System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 //            System.out.println("MovieID | Movie Title | Showing Status | Synopsis | " +
 //                    "Director | Cast | Movie Runtime | Movie Rating | Movie Type");
             for (int i = 0 ; i < mov.size() ; i++) {
                 Movie m = (Movie) mov.get(i);
-                System.out.printf("%-10s | %-40s | %-15s | %-220s | %-23s | %-125s | %-13s | %-13s | %-15s %n",
+                System.out.printf("%-10s | %-40s | %-15s | %-220s | %-23s | %-125s | %-13s | %-13s | %-15s | %-10s %n",
                         m.getMovieId(), m.getMovieTitle(), m.getShowingStatus(), m.getSynopsis(), m.getDirector(),
-                        m.getCast(), m.getMovieRuntime(), m.getMovieRating(), m.getMovieType());
+                        m.getCast(), m.getMovieRuntime(), m.getMovieRating(), m.getMovieType(), m.getEndOfShowingDate());
 //                System.out.println(m.getMovieId() + " | " + m.getMovieTitle() + " | "
 //                + m.getShowingStatus() + " | " + m.getSynopsis() + " | " + m.getDirector() +
 //                        " | " + m.getCast() + " | " + m.getMovieRuntime() + " | "
@@ -346,10 +346,11 @@ public class MovieManagerMovieGoer implements Manager{
             int movieRuntime = Integer.parseInt(star.nextToken().trim()); // 6th token
             Movie.MovieRating movieRating = Movie.MovieRating.valueOf(star.nextToken().trim()); // 7th token, convert to type enum
             Movie.MovieType movieType = Movie.MovieType.valueOf(star.nextToken().trim()); // 8th token
-            int movieId = Integer.parseInt(star.nextToken().trim()); // 9th token
+            String endOfShowingDate = star.nextToken().trim(); // 9th token
+            int movieId = Integer.parseInt(star.nextToken().trim()); // 10th token
             // create movie object from file data
 
-            Movie m = new Movie(movieId, movieTitle, showingStatus, synopsis, director, cast, movieRuntime, movieRating, movieType);
+            Movie m = new Movie(movieId, movieTitle, showingStatus, synopsis, director, cast, movieRuntime, movieRating, movieType, endOfShowingDate);
             // add to movie list
             mov.add(m) ;
         }
@@ -406,7 +407,7 @@ public class MovieManagerMovieGoer implements Manager{
 
         for (int i = 0 ; i < al.size() ; i++) {
             Movie m = (Movie)al.get(i);
-            StringBuilder st =  new StringBuilder() ;
+            StringBuilder st =  new StringBuilder();
             st.append(m.getMovieTitle().trim());
             st.append(SEPARATOR);
             st.append(m.getShowingStatus().name().trim());
@@ -422,6 +423,8 @@ public class MovieManagerMovieGoer implements Manager{
             st.append(m.getMovieRating().name().trim());
             st.append(SEPARATOR);
             st.append(m.getMovieType().name().trim());
+            st.append(SEPARATOR);
+            st.append(m.getEndOfShowingDate());
             st.append(SEPARATOR);
             st.append(m.getMovieId());
 

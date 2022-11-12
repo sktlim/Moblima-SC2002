@@ -50,10 +50,12 @@ public class AdminManager implements Manager{
             int semaphore = 0; // password validation flag
             String password = "password";
             while(semaphore != 1){
-//                System.out.println("Enter Password: ");
-                password = valueOf(PasswordField.getPassword(System.in, "Enter Password: "));
-//                System.out.println("Confirm Password: ");
-                String confirmation = valueOf(PasswordField.getPassword(System.in, "Confirm Password: "));
+                System.out.println("Enter Password: ");
+                //password = valueOf(PasswordField.getPassword(System.in, "Enter Password: "));
+                password = sc.nextLine();
+                System.out.println("Confirm Password: ");
+                // String confirmation = valueOf(PasswordField.getPassword(System.in, "Confirm Password: "));
+                String confirmation = sc.nextLine();
                 if (password.equals(confirmation)){
                     semaphore = 1;
                 }

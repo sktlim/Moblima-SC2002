@@ -4,20 +4,33 @@ import Controllers.MovieGoerManager;
 import Controllers.SeatManager;
 import Controllers.TicketManager;
 import Controllers.TransactionManager;
-import Models.MovieGoer;
-import Models.Transaction;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+
+/**
+ * This Class represents the UI interface for Guests. It extends the MovieGoerUI class.
+ * Guests are allowed to perform most actions that authenticated MovieGoers can.
+ * Upon booking a ticket, our application will prompt users to sign up.
+ * This Class contains 2 key methods: showSelections and showUI to display the list of actions available for Guests and to handle inputs.
+ */
+
 public class GuestUI extends MovieGoerUI {
+
+    /**
+     * Default constructor which calls the base class constructor.
+     * No params passed since guests do not have an associated ID.
+     */
     public GuestUI() {
         super();
     }
 
-    /* Overrides showSelections method in MovieGoerUI */
+    @Override
+    /**
+     * Overrides the showSelections method in the base class.
+     */
     public void showSelections() {
         System.out.println("Welcome to the Guest page.");
         System.out.println("SELECT ONE OF THE FOLLOWING OPTIONS");
@@ -34,7 +47,10 @@ public class GuestUI extends MovieGoerUI {
         System.out.println("9: Back to main menu");
     }
 
-    // User interface
+    @Override
+    /**
+     * Overrides the showUI method in the base class.
+     */
     public void showUI (Scanner sc) {
         while (true) {
             try {
@@ -105,6 +121,11 @@ public class GuestUI extends MovieGoerUI {
         }
     }
 
+    /**
+     * Identifies SeatPlans, Tickets, and Transactions with movieGoerId == -1 and deletes them.
+     * This method is called when Guests refuse to sign up upon being prompted to do so.
+     * It ensures that database entries are tagged to authenticated MovieGoers only.
+     */
     private void revertGuestBooking() {
         try {
             // remove transactions with -1 as moviegoer id

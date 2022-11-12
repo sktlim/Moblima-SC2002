@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="Updated javadoc comments for controllers">
+    <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="Update password incorrect exception class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/ShowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ShowManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Boundary/AdminUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Boundary/AdminUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +148,21 @@
       <option name="project" value="LOCAL" />
       <updated>1668161856583</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Update password incorrect exception class">
+      <created>1668265237333</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1668265237333</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Update password incorrect exception class">
+      <created>1668266003162</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1668266003162</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,7 +176,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/sk-new" />
+                        <option value="origin/main" />
                       </list>
                     </value>
                   </entry>
@@ -196,7 +210,19 @@
     <MESSAGE value="Updated ticket price manager" />
     <MESSAGE value="Completed ticket price manager class" />
     <MESSAGE value="Updated javadoc comments for controllers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated javadoc comments for controllers" />
+    <MESSAGE value="Update password incorrect exception class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update password incorrect exception class" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Controllers/TicketManager.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

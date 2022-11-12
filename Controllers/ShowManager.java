@@ -60,6 +60,13 @@ public class ShowManager implements Manager{
             }
             Movie m = MovieManagerAdmin.findMovie(movieId);
 
+            // Checks if the movie has been listed as SHOWING_ENDED. Such movies cannot be listed for screening.
+            if (m.getShowingStatus().equals(Movie.ShowingStatus.SHOWING_ENDED)) {
+                System.out.println("This movie is no longer available for screening.");
+                System.out.println("Please select another movie.");
+                return;
+            }
+
             int semaphore = -1;
             String date = "";
             while (semaphore == -1) {
@@ -97,51 +104,9 @@ public class ShowManager implements Manager{
             SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
             String endTime = sdf.format(endDate);
 
-            semaphore = -1;
-            int theatre = -1;
-            while (semaphore == -1) {
-                try {
-                    System.out.println("Enter Theatre: ");
-                    String input = sc.nextLine();
-                    theatre = checkInput(input);
-                    semaphore = 1;
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                }
-            }
-
-            int flag = 0;
-            int theatreClassSelector = 0;
-            Show.TheatreClass theatreClass = Show.TheatreClass.DEFAULT;
-            while(flag == 0){
-                try{
-                    System.out.println("Enter Theatre Class: ");
-                    System.out.println("0: STANDARD");
-                    System.out.println("1: PLATINUM");
-                    String input = sc.nextLine();
-                    theatreClassSelector = checkInput(input);
-                    while(theatreClassSelector < 0 || theatreClassSelector > 1){
-                        throw new Exception();
-                    }
-                    flag = 1;
-                }
-                catch(Exception e){
-                    System.out.println("Invalid Input. Please re-enter.");
-                }
-            }
-
-            switch(theatreClassSelector){
-                case 0:
-                    theatreClass = Show.TheatreClass.STANDARD;
-                    break;
-                case 1:
-                    theatreClass = Show.TheatreClass.PLATINUM;
-                    break;
-            }
-
             String cineplex = "null";
             int cineplexSelector = 0;
-            flag = 0;
+            int flag = 0;
             while (flag == 0){
                 try{
                     System.out.println("Enter Cineplex: ");
@@ -169,6 +134,49 @@ public class ShowManager implements Manager{
                     break;
                 case 2:
                     cineplex = "Jurong Point Junction";
+                    break;
+            }
+
+            semaphore = -1;
+            int theatre = -1;
+            TheatreManager.printTheatreList(cineplexSelector);
+            while (semaphore == -1) {
+                try {
+                    System.out.println("Enter Theatre: ");
+                    String input = sc.nextLine();
+                    theatre = checkInput(input);
+                    semaphore = 1;
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+
+            flag = 0;
+            int theatreClassSelector = 0;
+            Show.TheatreClass theatreClass = Show.TheatreClass.DEFAULT;
+            while(flag == 0){
+                try{
+                    System.out.println("Enter Theatre Class: ");
+                    System.out.println("0: STANDARD");
+                    System.out.println("1: PLATINUM");
+                    String input = sc.nextLine();
+                    theatreClassSelector = checkInput(input);
+                    while(theatreClassSelector < 0 || theatreClassSelector > 1){
+                        throw new Exception();
+                    }
+                    flag = 1;
+                }
+                catch(Exception e){
+                    System.out.println("Invalid Input. Please re-enter.");
+                }
+            }
+
+            switch(theatreClassSelector){
+                case 0:
+                    theatreClass = Show.TheatreClass.STANDARD;
+                    break;
+                case 1:
+                    theatreClass = Show.TheatreClass.PLATINUM;
                     break;
             }
 
@@ -526,7 +534,6 @@ public class ShowManager implements Manager{
      * @return ArrayList of Shows
      * @throws IOException I/O Error with input
      */
-
     private static ArrayList readShows(String filename) throws IOException {
         // read String from text file
         ArrayList stringArray = (ArrayList)read(filename);

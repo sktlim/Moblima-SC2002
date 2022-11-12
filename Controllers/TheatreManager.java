@@ -130,17 +130,30 @@ public class TheatreManager implements Manager { // crud
     }
 
     /** Read method to display and print everything on the txt file database. */
-    public static void printTheatreList(){
+    public static void printTheatreList(int cineplexSelector){
+        String cineplexCode = "";
+        System.out.println(cineplexSelector);
+        switch (cineplexSelector) {
+            case 0:
+                cineplexCode = "AHM";
+                break;
+            case 1:
+                cineplexCode = "BTH";
+                break;
+            case 2:
+                cineplexCode = "JPJ";
+                break;
+        }
+        System.out.println(cineplexCode);
         try{
             ArrayList the = readTheatres(FILENAME);
-            System.out.println("readTheatres");
+            System.out.println("Cineplex Code | Theatre Class | Theatre busy | Theatre ID ");
             for (int i = 0 ; i < the.size() ; i++) {
-                System.out.println("for");
                 Theatre t = (Theatre) the.get(i);
-                System.out.println("Cineplex Code: " + t.getCineplexCode() );
-                System.out.println("Theatre Class: " + t.getTheatreClass() );
-                System.out.println("Theatre busy: "+ t.getStatus());
-                System.out.println("TheatreID: "+ t.getTheatreId());
+                if (cineplexCode.equals(t.getCineplexCode())) {
+                    System.out.println(t.getCineplexCode() + " | " + t.getTheatreClass() + " | "
+                            + t.getStatus() + " | " + t.getTheatreId());
+                }
             }
         }
         catch (IOException e){
