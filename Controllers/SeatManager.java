@@ -149,6 +149,67 @@ public class SeatManager implements Manager {
         } else return -1;
     }
 
+
+    // Added function
+    public static int askSeatAvail(Scanner sc) {
+        //check seat, if seat avail, return true, else return false
+        System.out.println("Which seat would you like to check is available?");
+        int semaphore = -1;
+        int showId;
+        List show_plans = null;
+        HashMap show_plan = null;
+        while (semaphore == -1) {
+            try {
+                System.out.print("show id: ");
+                String input = sc.nextLine();
+                showId = checkInput(input);
+                show_plans = read(FILE_SHOW_PLAN);
+                for (int i = 0; i < show_plans.size(); i++) {
+                    if ((int) ((HashMap) show_plans.get(i)).get("showId") == showId)
+                        show_plan = (HashMap) show_plans.get(i);
+                }
+                if (show_plan == null) throw new IllegalArgumentException("Show plan does not exist!");
+                semaphore = 1;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        String[][][] plan = (String[][][]) show_plan.get("seatingPlan");
+
+        semaphore = -1;
+        int row = 0;
+        int col = 0;
+        while (semaphore == -1) {
+            try {
+                System.out.print("seat: ");
+                String seat = sc.nextLine();
+                // To add validation whether seat exists on plan!
+                row = seat.charAt(0)-65;
+                col = Integer.parseInt(seat.substring(1))-1;
+                if (row >= (int)show_plan.get("rows") || col >= (int)show_plan.get("cols")) {
+                    throw new IllegalArgumentException("Seat number does not exist on seat plan!");
+                }
+                if (plan[row][col][1].equals("NULL")) throw new IllegalArgumentException("Seat does not exist at position! Please try again");
+                semaphore = 1;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        if (plan[row][col][0].equals("0")) {
+            System.out.println("Seat is available!");
+            return 1;
+        } else if(plan[row][col][0].equals("1")) {
+            System.out.println("Seat has been taken!");
+            return 0;
+        } else return -1;
+    }
+
+    protected static int checkInput (String input) throws Exception {
+        if (input.length() <= 1) return Integer.parseInt(input);
+        else return Integer.parseInt(input.substring(0, 2));
+    }
+
     /**
      * Creates empty seat plan associated with Show based on Theatre ID.
      * @param showId Show ID of associated show

@@ -198,6 +198,17 @@
     <MESSAGE value="Updated javadoc comments for controllers" />
     <option name="LAST_COMMIT_MESSAGE" value="Updated javadoc comments for controllers" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Controllers/TicketManager.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />

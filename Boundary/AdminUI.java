@@ -140,7 +140,7 @@ public class AdminUI extends UserUI{
                         break;
                     case 17:
                         return;
-                    }
+                }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
