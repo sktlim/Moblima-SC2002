@@ -36,7 +36,7 @@ public class TicketPriceManager implements Manager{
      * @return returns Hashmap with Key-Value of Price Type and Price respectively
      * @throws IOException Exception throw in in event of I/O error
      */
-    private static Map<String, Double> readPrices() throws IOException {
+    public static Map<String, Double> readPrices() throws IOException {
 
         // read String from text file
         ArrayList stringArray = (ArrayList) read();
@@ -119,7 +119,7 @@ public class TicketPriceManager implements Manager{
      * @param priceList Price Object to update with Prices
      * @return Updated Price Object will be returned
      */
-    private static Price createPrices(Map<String, Double> hashMap, Price priceList) {
+    public static Price createPrices(Map<String, Double> hashMap, Price priceList) {
         priceList.setStandard_2DWeekday_MonWed(hashMap.get("Standard_2DWeekday_MonWed"));
         priceList.setStandard_2DWeekday_Thu(hashMap.get("Standard_2DWeekday_Thu"));
         priceList.setStandard_2DWeekday_Fri(hashMap.get("Standard_2DWeekday_Fri"));
