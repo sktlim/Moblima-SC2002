@@ -219,6 +219,11 @@ public class SeatManager implements Manager {
         }
     }
 
+    /**
+     * Called by Admin together with deleteShow method once the show is over. Deletes the seatPlan for the corresponding show.
+     * @param showId showId of the show to be deleted after screening.
+     * @return true if successful deletion, else return false
+     */
     public static boolean deleteSeatPlan(int showId) {
         try {
             List plans = read(FILE_SHOW_PLAN);
