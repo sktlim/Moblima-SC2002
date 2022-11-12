@@ -138,6 +138,7 @@ public class ShowManager implements Manager{
                     theatreClass = Show.TheatreClass.PLATINUM;
                     break;
             }
+
             String cineplex = "null";
             int cineplexSelector = 0;
             flag = 0;
