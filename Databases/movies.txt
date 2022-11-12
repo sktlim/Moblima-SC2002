@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Black Panther: Wakanda Forever|NOW_SHOWING|QM'Baku, Okoye and the Dora Milaje fight to protect their nation from intervening world powers in the wake of King T'Challa's death. As the Wakandans strive to embrace their next chapt.|Ryan Coogler|Lupita Nyong'o , Danai Gurira , Angela Bassett, Winston Duke, Letitia Wright , Florence Kasumba|161|PG13|BLOCKBUSTER|1
 Ajoomma|NOW_SHOWING|Auntie (Hong Huifang), is a middle-aged Singaporean woman who has dedicated the best years of her life to caring for her family. Now widowed with her grown up son, Sam (Shane Pow) about to fly the roost.|He Shuming|Hong Huifang, Jung Dong-Hwan, Kang Hyung Suk, Yeo Jingoo|90|NC16|BLOCKBUSTER|2
 Deleted|NOW_SHOWING|The story starts with a Malaysian police detective - Chia Zhong Yi. In his desperate search for his daughter Hazel who was being kidnapped by child traffickers. He unintentionally caused grievous hurt to a|Ken Ng Lai Huat|Jack Neo, Fattah Amin, Zheng Ge Ping, Vincent Ng, Dato Rosyam Nor , Tien Hsin, Zhu Hou Ren, Henley Hii, Pablo Amirul|86|NC16|THREE_D|3
@@ -13,3 +14,19 @@ wayne and his s life|NOW_SHOWING|Its never coming.|Wayne|Wayne|1|R21|BLOCKBUSTER
 hello world|COMING_SOON|this is a very nice show teaching java|java|java, python|12|G|BLOCKBUSTER|13
 blackhawk|COMING_SOON|The film takes place in 1993|123|2|24|PG13|TWO_D|14
 Black Hawk Down|NOW_SHOWING|The film takes place in 1993...|Ridley Scott|Tom Hardy|24|PG13|TWO_D|15
+=======
+Black Panther: Wakanda Forever|NOW_SHOWING|QM'Baku, Okoye and the Dora Milaje fight to protect their nation from intervening world powers in the wake of King T'Challa's death. As the Wakandans strive to embrace their next chapt.|Ryan Coogler|Lupita Nyong'o , Danai Gurira , Angela Bassett, Winston Duke, Letitia Wright , Florence Kasumba|161|PG13|BLOCKBUSTER|05/01/2023|1
+Ajoomma|NOW_SHOWING|Auntie (Hong Huifang), is a middle-aged Singaporean woman who has dedicated the best years of her life to caring for her family. Now widowed with her grown up son, Sam (Shane Pow) about to fly the roost.|He Shuming|Hong Huifang, Jung Dong-Hwan, Kang Hyung Suk, Yeo Jingoo|90|NC16|BLOCKBUSTER|05/01/2023|2
+Deleted|NOW_SHOWING|The story starts with a Malaysian police detective - Chia Zhong Yi. In his desperate search for his daughter Hazel who was being kidnapped by child traffickers. He unintentionally caused grievous hurt to a|Ken Ng Lai Huat|Jack Neo, Fattah Amin, Zheng Ge Ping, Vincent Ng, Dato Rosyam Nor , Tien Hsin, Zhu Hou Ren, Henley Hii, Pablo Amirul|86|NC16|THREE_D|05/01/2023|3
+Uunchai (Hindi)|PREVIEW|The Amitabh Bachchan-Anupam Kher-Boman Irani trio leave their cozy Delhi lives to trek to Everest Base Camp with friendship as their only motivation. Embark on the journey of a lifetime with Team Uunchai.|Sooraj R. Barjatya|Anupam Kher, Amitabh Bachchan, Boman Irani, Sarika ., Neena Gupta, Parineeti Chopra|170|PG13|BLOCKBUSTER|05/01/2023|4
+Love Today (Tamil)|PREVIEW|Imagine a world where the criteria to get married to your loved one is to explore each other's phone. A witty father lays such a trap to make his daughter realise how much she knows about her lover.|Pradeep Ranganathan|Pradeep Ranganathan, Ivana|153|PG13|BLOCKBUSTER|05/01/2023|5
+The Quintessential Quintuplets|COMING_SOON|Hired as a private tutor to the five identical quintuplets for the Nakano???s family, high school student Futaro Uesugi has led the quintuplets: Ichika, Nino, Miku, Yotsuba and|Masato Jinbo|Yoshitsugu Matsuoka, Inori Minase, Ayana Taketatsu, Ayane Sakura, Kana Hanazawa, Miku Ito|136|R21|BLOCKBUSTER|05/01/2023|6
+Black Adam|PREVIEW|Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods - and imprisoned just as quickly - Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice.|Jaume Collet-Serra|Dwayne Johnson, Aldis Hodge, Pierce Brosnan, Noah Centineo, Sarah Shahi, Marwan Kenzari, Quintessa Swindell, Bodhi Sabongui|125|PG13|BLOCKBUSTER|05/01/2023|7
+Talbis Iblis|COMING_SOON|To protect their family???s name from being scarred, Hajar who is pregnant out of wedlock, is being forced by her mother to have the baby far away from Kuala Lumpur. After several tries to aborting the|Khabir Bhatia|Zul Ariffin, Azira Shafinaz, Nasha Aziz, Amir Nafis, Jay Iswazir|98|NC16|THREE_D|05/01/2023|8
+Black Hawk|PREVIEW|Black hawk is an action packed drama featuring Tom Cruise|Keddy Walsh|Tom Cruise, Scarlett Johannsen, Bobby, Mike Tyson|121|R21|TWO_D|05/01/2023|9
+ssg|NOW_SHOWING|g|g|g|32|NC16|THREE_D|05/01/2023|10
+g|NOW_SHOWING|g|g|g|23|R21|BLOCKBUSTER|05/01/2023|11
+wayne and his s life|NOW_SHOWING|Its never coming.|Wayne|Wayne|1|R21|BLOCKBUSTER|05/01/2023|12
+hello world|COMING_SOON|this is a very nice show teaching java|java|java, python|12|G|BLOCKBUSTER|05/01/2023|13
+Test Movie|COMING_SOON|This is a test.|Test|testing|12|PG13|BLOCKBUSTER|05/01/2023|14
+>>>>>>> 40f257fad94ce066b5e4533d69cc17e280faacea
