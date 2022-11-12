@@ -29,8 +29,14 @@ public class ShowManager implements Manager{
      */
     public static final String FILENAME = "Databases/shows.txt" ;
 
-
-
+    /**
+     * Helper function to check if the start and end times of the show being created, conflicts with an existing show for the same cineplex, theatre, and date.
+     * @param start1 Start time for the new show as requested by user
+     * @param end1 End time for the new show as requested by user
+     * @param start2 Start time for the existing show in database
+     * @param end2 End time for the existing show in database
+     * @return true if there is a conflict, else return false
+     */
     public static boolean isOverlapping(LocalTime start1, LocalTime end1, LocalTime start2, LocalTime end2) {
         boolean overlapCase1 = start1.isBefore(end2) && start2.isBefore(end1);
         boolean overlapCase2 = start2.isBefore(end1) && start1.isBefore(end2);
