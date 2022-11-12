@@ -91,11 +91,11 @@ public class RatingAndReviewManager implements Manager{
     public static void printRatingsAndReviewList(){
         try{
             ArrayList ml = readReviews(FILENAME);
-            System.out.println("Review ID | Movie ID | Rating | Review");
+            System.out.printf("%-10s | %-8s | %-8s | %-20s%n","Review ID","Movie ID","Rating","Review");
+            System.out.println("------------------------------------------");
             for (int i = 0 ; i < ml.size() ; i++) {
                 RatingAndReview mg = (RatingAndReview) ml.get(i);
-                System.out.println(mg.getReviewId() + " | " + mg.getMovieId() + " | " +
-                                mg.getRating() + " | " + mg.getReview());
+                System.out.printf("%-10s | %-8s | %-8s | %-20s%n", mg.getReviewId(), mg.getMovieId(), mg.getRating(), mg.getReview());
             }
 
         }

@@ -302,14 +302,20 @@ public class MovieManagerMovieGoer implements Manager{
     public static void printMovieList(){
         try{
             ArrayList mov = readMovies(FILENAME);
-            System.out.println("MovieID | Movie Title | Showing Status | Synopsis | " +
-                    "Director | Cast | Movie Runtime | Movie Rating | Movie Type");
+            System.out.printf("%-10s | %-40s | %-15s | %-220s | %-23s | %-125s | %-13s | %-13s | %-15s %n",
+                    "MovieID", "Movie Title", "Showing Status", "Synopsis", "Director", "Cast", "Movie Runtime", "Movie Rating", "Movie Type");
+            System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+//            System.out.println("MovieID | Movie Title | Showing Status | Synopsis | " +
+//                    "Director | Cast | Movie Runtime | Movie Rating | Movie Type");
             for (int i = 0 ; i < mov.size() ; i++) {
                 Movie m = (Movie) mov.get(i);
-                System.out.println(m.getMovieId() + " | " + m.getMovieTitle() + " | "
-                + m.getShowingStatus() + " | " + m.getSynopsis() + " | " + m.getDirector() +
-                        " | " + m.getCast() + " | " + m.getMovieRuntime() + " | "
-                + m.getMovieRating() + " | " + m.getMovieType());
+                System.out.printf("%-10s | %-40s | %-15s | %-220s | %-23s | %-125s | %-13s | %-13s | %-15s %n",
+                        m.getMovieId(), m.getMovieTitle(), m.getShowingStatus(), m.getSynopsis(), m.getDirector(),
+                        m.getCast(), m.getMovieRuntime(), m.getMovieRating(), m.getMovieType());
+//                System.out.println(m.getMovieId() + " | " + m.getMovieTitle() + " | "
+//                + m.getShowingStatus() + " | " + m.getSynopsis() + " | " + m.getDirector() +
+//                        " | " + m.getCast() + " | " + m.getMovieRuntime() + " | "
+//                + m.getMovieRating() + " | " + m.getMovieType());
             }
         }
         catch (IOException e){

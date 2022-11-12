@@ -119,7 +119,7 @@ public class TicketManager implements Manager{
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             String strDate = df.format(dateFormat);
             double price = TicketPriceManager.calculatePrice(s, userAgeType, strDate, m);
-            System.out.println("price: " + price);
+//            System.out.println("price: " + price);
             ArrayList tickets = readTickets(FILENAME);
             int ticketId = tickets.size()+1;
             Ticket t = new Ticket(ticketId, showId, userId, seat, userAgeType, dayType, price);

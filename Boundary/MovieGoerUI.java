@@ -76,6 +76,7 @@ public class MovieGoerUI extends UserUI {
                         break;
                     case 9:
                         findMovie(sc);
+                        break;
                     case 10:
                         return;
                 }
