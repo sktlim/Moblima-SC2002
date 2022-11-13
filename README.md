@@ -95,20 +95,15 @@ In the design of our application, we made the following assumptions:
 The following members contributed to the success of this project through their hard work and sleepless nights.
 In no particular order:
 
-1. Chan Ming Han (Computer Engineering)
-   https://www.linkedin.com/in/chan-ming-han-601b531ba/
+1. [Chan Ming Han](https://www.linkedin.com/in/chan-ming-han-601b531ba/) (Computer Engineering)
+   
+2. [Wayne Tan Jing Heng](https://www.linkedin.com/in/wayne-tan-jh/) (Computer Science)
 
-2. Wayne Tan Jing Heng (Computer Science)
-   https://www.linkedin.com/in/wayne-tan-jh/
+3. [Lim Sui Kiat](https://www.linkedin.com/in/sui-kiat-lim/) (Computer Science)
+   
+4. [Ho Han Yu](https://www.linkedin.com/in/hohanyu/) (Computer Science)
 
-3. Lim Sui Kiat (Computer Science)
-   https://www.linkedin.com/in/sui-kiat-lim/
-
-4. Ho Han Yu (Computer Science)
-   https://www.linkedin.com/in/hohanyu/
-
-5. Yap Zhe Kai, Nicholas (Computer Science)
-   https://www.linkedin.com/in/nicholas-yap-5706311b7/
-
+5. [Yap Zhe Kai, Nicholas](https://www.linkedin.com/in/nicholas-yap-5706311b7/) (Computer Science)
+   
 ## Acknowledgements
 Special thanks goes out to Dr Althea Liang for her patience and guidance throughout the course of this project. 
