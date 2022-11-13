@@ -8,6 +8,7 @@ import java.time.LocalDate;
 
 import Exceptions.ItemNotFoundException;
 import java.util.InputMismatchException;
+import java.lang.IllegalArgumentException;
 
 /**
  * This class handles the CRUD (create, read, update, delete) methods for Holidays. Only Admins have access to the methods within this Class.
@@ -82,15 +83,37 @@ public class HolidayManager implements Manager {
         try {
             System.out.println("Please enter the holiday's Name: ");
             String holidayName = sc.nextLine();
+
+            String input = "";
             System.out.println("Please enter the holiday's Year: ");
-            int holidayYear = sc.nextInt();
-            sc.nextLine();
-            System.out.println("Please enter the holiday's Month: ");
-            int holidayMonth = sc.nextInt();
-            sc.nextLine();
-            System.out.println("Please enter the holiday's Date: ");
-            int holidayDate = sc.nextInt();
-            sc.nextLine();
+            input = sc.nextLine();
+            int holidayYear = checkInput(input);
+
+            int flag = -1;
+            int holidayMonth = 0;
+            while (flag == -1) {
+                System.out.println("Please enter the holiday's Month: ");
+                input = sc.nextLine();
+                holidayMonth = checkInput(input);
+                if (holidayMonth < 1 || holidayMonth > 12) {
+                    System.out.println("Your month is invalid. Ensure that it is between 1 and 12 inclusive.");
+                    continue;
+                }
+                flag = 1;
+            }
+
+            flag = -1;
+            int holidayDate = 0;
+            while (flag == -1) {
+                System.out.println("Please enter the holiday's Day of Month: ");
+                input = sc.nextLine();
+                holidayDate = checkInput(input);
+                if (holidayDate < 0 || holidayDate > 31) {
+                    System.out.println("Your day of month is invalid. Ensure that it is between 1 and 31 inclusive.");
+                    continue;
+                }
+                flag = 1;
+            }
 
             LocalDate date = LocalDate.of(holidayYear, holidayMonth, holidayDate);
 
@@ -175,26 +198,61 @@ public class HolidayManager implements Manager {
      * Users must input the Holiday Name exact (case-sensitive) including its Year in the name e.g. Christmas 2022
      */
     public static void updateHoliday(Scanner sc) {
+        printHolidayList();
         System.out.println("Enter the name of the holiday you wish to change: ");
         String holidayName = sc.nextLine();
         String inputField = "0";
+        LocalDate newDate = LocalDate.of(2022, 1, 1); // placeholder
 
         try {
             System.out.println("Select field to change: ");
             System.out.println("1: Name");
             System.out.println("2: Date");
 
-            int fieldEdit = sc.nextInt();
-            sc.nextLine();
+            String input = sc.nextLine();
+            int fieldEdit = checkInput(input);
 
             switch (fieldEdit) {
                 case 1: // edit Name
                     System.out.println("Enter new Holiday Name: ");
                     inputField = sc.nextLine();
                     break;
+
                 case 2: // edit Date
-                    System.out.println("Enter new Holiday Date: ");
+                    int newHolidayYear = 0;
+                    int newHolidayMonth = 0;
+                    int newHolidayDate = 0;
+                    int flag = -1;
+
+                    System.out.println("Enter new Holiday Year: ");
                     inputField = sc.nextLine();
+                    newHolidayYear = checkInput(inputField);
+
+                    while (flag == -1) {
+                        System.out.println("Please enter the new Holiday Month: ");
+                        input = sc.nextLine();
+                        newHolidayMonth = checkInput(input);
+                        if (newHolidayMonth < 1 || newHolidayMonth > 12) {
+                            System.out.println("Your month is invalid. Ensure that it is between 1 and 12 inclusive.");
+                            continue;
+                        }
+                        flag = 1;
+                    }
+
+                    flag = -1;
+                    while (flag == -1) {
+                        System.out.println("Please enter the new Holiday Day of Month: ");
+                        input = sc.nextLine();
+                        newHolidayDate = checkInput(input);
+                        if (newHolidayDate < 0 || newHolidayDate > 31) {
+                            System.out.println("Your day of month is invalid. Ensure that it is between 1 and 31 inclusive.");
+                            continue;
+                        }
+                        flag = 1;
+                    }
+
+                    newDate = LocalDate.of(newHolidayYear, newHolidayMonth, newHolidayDate);
+
                     break;
             }
 
@@ -210,7 +268,7 @@ public class HolidayManager implements Manager {
                             System.out.println("Name successfully updated.");
                             break;
                         case 2:
-                            h.setDate(inputField);
+                            h.setDate(newDate.toString());
                             System.out.println("Date successfully updated.");
                             break;
                     }
@@ -235,7 +293,7 @@ public class HolidayManager implements Manager {
     /**
      * Delete method
      * @param sc takes in scanner to ask which holiday is to be deleted
-     * delete holiday based on holidayName 
+     * delete holiday based on holidayName
      */
     public static void deleteHoliday(Scanner sc) {
         System.out.println("Which holiday would you like to delete?: ");
@@ -284,6 +342,20 @@ public class HolidayManager implements Manager {
         } catch (IOException e) {
             // do something
             return false;
+        }
+    }
+
+    /**
+     * This method validates the String input of users and removes the problems of accepting integer input through the Scanner.
+     * @param input String input by current user.
+     * @return the integer representation of the input if parsing is successful.
+     * @throws IllegalArgumentException UNCHECKED --> thrown when user input fails to be parsed as an integer.
+     */
+    public static int checkInput(String input) throws IllegalArgumentException {
+        try {
+            return Integer.parseInt(input);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Input is not a valid integer. Please try again\n");
         }
     }
 
