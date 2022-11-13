@@ -11,7 +11,9 @@ import static Controllers.AdminAuthManager.authenticateAdmin;
 import static Controllers.MovieGoerAuthManager.authenticateMovieGoer;
 import static java.lang.String.valueOf;
 
-
+/**
+ *Main Moblima Application
+ */
 public class MoblimaApp {
     private static void showSelections() {
         System.out.println("Please make a selection:\n1:Login as Admin\n2:Login as Movie Goer\n3:Create a new Movie Goer\n4.Enter as guest\n5:Exit application");
@@ -48,6 +50,10 @@ public class MoblimaApp {
         else return Integer.parseInt(input.substring(0, 2));
     }
 
+    /**
+     * Run application
+     * @param args nil
+     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         wallPaper();

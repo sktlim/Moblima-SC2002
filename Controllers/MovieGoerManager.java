@@ -52,8 +52,7 @@ public class MovieGoerManager implements Manager{
 
     /** Create method
      * @param sc takes in scanner object to input fields within the function
-     * Create new movieGoer and add it to the database
-     * InputMismatchException: UNCHECKED --> Thrown when user inputs an invalid format
+     * @return Create new movieGoer and add it to the database
      **/
     public static int createMovieGoer(Scanner sc){
         try {

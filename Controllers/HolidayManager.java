@@ -14,8 +14,8 @@ import java.lang.IllegalArgumentException;
  * This class handles the CRUD (create, read, update, delete) methods for Holidays. Only Admins have access to the methods within this Class.
  * This class implements the read and write methods in the Manager interface.
  * When creating or updating Holiday dates, the following constraints are present:
- * 1) Month input must be >= 1 and <= 12
- * 2) Day of Month input must be >= 1 and <= 31
+ * 1) Month input must be greater than or equals 1 and lesser than or equals 12
+ * 2) Day of Month input must be greater than or equals 1 and lesser than or equals 31
  */
 
 public class HolidayManager implements Manager {

@@ -226,6 +226,7 @@ public class SeatManager implements Manager {
     /**
      * Creates empty seat plan associated with Show based on Theatre ID.
      * @param showId Show ID of associated show
+     * @param tid ticket ID of associated show
      */
     public static void createShowPlan(int showId, int tid) {
         // creates empty seat plan related to show based on theatre id

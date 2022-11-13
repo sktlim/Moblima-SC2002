@@ -10,17 +10,77 @@ public class Movie {
     /**
      * Custom type representing the current Showing Status of the Movie
      */
-    public enum ShowingStatus{COMING_SOON, PREVIEW, NOW_SHOWING, SHOWING_ENDED, DEFAULT}
+    public enum ShowingStatus{
+        /**
+         * Movie is coming soon
+         */
+        COMING_SOON,
+        /**
+         * Movie is in preview status
+         */
+        PREVIEW,
+        /**
+         * Movie is now showing
+         */
+        NOW_SHOWING,
+        /**
+         * Movie showing has ended
+         */
+        SHOWING_ENDED,
+        /**
+         * Default placeholder value
+         */
+        DEFAULT}
 
     /**
      * Custom type representing the rating categories for the Movie
      */
-    public enum MovieRating{G, PG13, NC16, M18, R21, DEFAULT}
+    public enum MovieRating{
+        /**
+         * Movie is for general audience
+         */
+        G,
+        /**
+         * Parental Guidance is advised for movie
+         */
+        PG13,
+        /**
+         * No children under 16 for this movie
+         */
+        NC16,
+        /**
+         * 18 year old mature rating
+         */
+        M18,
+        /**
+         * Movie restricted for those above 21 years old
+         */
+        R21,
+        /**
+         * Default placeholder value
+         */
+        DEFAULT}
 
     /**
      *Custom type representing the type of the Movie
      */
-    public enum MovieType{TWO_D,THREE_D, BLOCKBUSTER, DEFAULT}
+    public enum MovieType{
+        /**
+         * Movie is available is 2D
+         */
+        TWO_D,
+        /**
+         * Movie is available in 3D
+         */
+        THREE_D,
+        /**
+         * Movie is classified as blockbuster
+         */
+        BLOCKBUSTER,
+        /**
+         * Default placeholder value
+         */
+        DEFAULT}
 
     /**
      * The unique ID for this Movie
