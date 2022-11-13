@@ -8,12 +8,36 @@ public class Ticket {
     /**
      * Custom Type for User Age Type. Consists of STUDENT, SENIOR and ADULT
      */
-    public enum UserAgeType {STUDENT, SENIOR, ADULT};
+    public enum UserAgeType {
+        /**
+         * Student user age type
+         */
+        STUDENT,
+        /**
+         * Senior user age type
+         */
+        SENIOR,
+        /**
+         * Adult user age type
+         */
+        ADULT};
 
     /**
      * Custom Type for Day Type. Consists of WEEKDAY, WEEKEND and DEFAULT
      */
-    public enum DayType {WEEKDAY, WEEKEND, DEFAULT}
+    public enum DayType {
+        /**
+         * Week day day type
+         */
+        WEEKDAY,
+        /**
+         * Weekend day type
+         */
+        WEEKEND,
+        /**
+         * Default day type (placeholder)
+         */
+        DEFAULT}
 
     /**
      * ticket ID of ticket

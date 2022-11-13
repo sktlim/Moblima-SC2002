@@ -47,7 +47,7 @@ public class TransactionManager implements Manager{ //CRUD
             Show s = ShowManager.findShow(showID);
             String cineplex = s.getCineplex();
             String cinCode = "";
-            ArrayList cins = readCineplexes(CINEPLEX);
+            ArrayList cins = readCineplexes();
             for (int i=0; i<cins.size();i++){
                 Cineplex c = (Cineplex) cins.get(i);
                 if (c.getName().equals(s.getCineplex())){
@@ -217,9 +217,15 @@ public class TransactionManager implements Manager{ //CRUD
         }
         write(filename,alw);
     }
-    protected static ArrayList readCineplexes(String filename) throws IOException {
+
+    /**
+     * Helper function for converting cineplexes from .txt file to array list
+     * @return Array list of read values from cineplex
+     * @throws IOException I/O error during input/output operation
+     */
+    protected static ArrayList readCineplexes() throws IOException {
         // read String from text file
-        ArrayList stringArray = (ArrayList)read(filename);
+        ArrayList stringArray = (ArrayList)read(TransactionManager.CINEPLEX);
         ArrayList mov = new ArrayList() ;// to store Cineplex data
 
         for (int i = 0 ; i < stringArray.size() ; i++) {
@@ -239,6 +245,12 @@ public class TransactionManager implements Manager{ //CRUD
     }
 
     // used in GuestUI to delete transactions with -1 as moviegoerid
+
+    /**
+     * Delete transaction according to transaction ID
+     * @param tid Unique transaction ID
+     * @throws Exception Exception when erroneous
+     */
     public static void deleteTransaction(int tid) throws Exception {
         ArrayList trans = readTransactions();
         int count = -1;
@@ -258,6 +270,13 @@ public class TransactionManager implements Manager{ //CRUD
     }
 
     // used in GuestUI to delete transactions with -1 as moviegoerid
+
+    /**
+     * Update Movie Goer ID of transaction
+     * @param oldMovieGoerId Old Movie Goer ID to be replaced
+     * @param newMovieGoerId New Movie Goer ID to replace
+     * @throws Exception Exception when erroneous
+     */
     public static void updateMovieGoerIdOfTransactions(int oldMovieGoerId, int newMovieGoerId) throws Exception {
         ArrayList trans = readTransactions();
         for (int i = 0 ; i < trans.size() ; i++) {

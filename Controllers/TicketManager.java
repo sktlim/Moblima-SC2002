@@ -345,6 +345,7 @@ public class TicketManager implements Manager{
 
     /**
      * Delete ticket by ticketID
+     * @return Array list with ticket deleted
      * @param movieGoerId ticket ID to be deleted
      */
     public static ArrayList deleteTicket(int movieGoerId){
@@ -377,6 +378,11 @@ public class TicketManager implements Manager{
         return deletedSeats;
     }
 
+    /**
+     * Update Movie Goer ID of tickets
+     * @param oldMovieGoerId Old Movie Goer ID to be replaced
+     * @param newMovieGoerId New Movie Goer ID to replace
+     */
     public static void updateMovieGoerIdOfTickets(int oldMovieGoerId, int newMovieGoerId){
         // delete method
         try {
@@ -399,9 +405,9 @@ public class TicketManager implements Manager{
     /** reading (helper func, declared as private as it is only called within this file)
      * This creates a list of instances of movieGoers
      * @param filename File to be read
+     * @return Array list with read values
      * @throws IOException I/O Error with input
      */
-
     protected static ArrayList readTickets(String filename) throws IOException {
         // read String from text file
         ArrayList stringArray = (ArrayList)read(filename);

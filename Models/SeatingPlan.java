@@ -69,6 +69,7 @@ public class SeatingPlan {
 
     /**
      * Setter method for Cineplex. Input in String format
+     * Cineplex code
      */
     public void setCineplex(String cineplex){
         this.cineplex = cineplex;
@@ -76,6 +77,7 @@ public class SeatingPlan {
 
     /**
      * Setter method for Theatre. Input in Integer format
+     * theatre ID
      */
     public void setTheatre(int theatre){
         this.theatre = theatre;
@@ -83,6 +85,7 @@ public class SeatingPlan {
 
     /**
      * Setter method for number of rows. Input in Integer format
+     * @param noOfRows number of rows in seating plan
      */
     public void setNoOfRows(int noOfRows){
         this.noOfRows = noOfRows;
@@ -90,6 +93,7 @@ public class SeatingPlan {
 
     /**
      * Setter method for number of columns. Input in Integer format
+     * @param noOfColumns number of columns in seating plan
      */
     public void setNoOfColumns(int noOfColumns){
         this.noOfColumns = noOfColumns;
