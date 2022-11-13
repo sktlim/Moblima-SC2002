@@ -10,8 +10,6 @@ import Exceptions.ItemNotFoundException;
 import Exceptions.PasswordIncorrectException;
 import Models.Admin;
 
-import static java.lang.String.valueOf;
-
 
 /**
  * This class handles the CRUD (create, read, update, delete) methods for Admins. This class implements the read and write methods in the Manager interface.
@@ -21,6 +19,7 @@ import static java.lang.String.valueOf;
  */
 
 public class AdminManager implements Manager{
+
     /**
      * Separator for parsing admins.txt file
      */
@@ -47,10 +46,8 @@ public class AdminManager implements Manager{
             String password = "password";
             while(semaphore != 1){
                 System.out.println("Enter Password: ");
-                //password = valueOf(PasswordField.getPassword(System.in, "Enter Password: "));
                 password = sc.nextLine();
                 System.out.println("Confirm Password: ");
-                // String confirmation = valueOf(PasswordField.getPassword(System.in, "Confirm Password: "));
                 String confirmation = sc.nextLine();
                 if (password.equals(confirmation)){
                     semaphore = 1;
@@ -67,7 +64,6 @@ public class AdminManager implements Manager{
             al.add(a1);
             saveAdmins(FILENAME, al);
             System.out.println("New admin successfully created!\n");
-
         }
         catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
@@ -96,7 +92,6 @@ public class AdminManager implements Manager{
             System.out.println("IOException > " + e.getMessage());
         }
     }
-
 
     /**
      * Read Method
@@ -147,17 +142,14 @@ public class AdminManager implements Manager{
                 inputField = sc.nextLine();
             }
             else if (fieldEdit == 1){
-//                String oldPassword = valueOf(PasswordField.getPassword(System.in, "Enter old Password: "));
                 System.out.println("Enter Old Password:");
                 String oldPassword = sc.nextLine();
                 Admin ad = findAdmin(adminID);
                 if (oldPassword.equals(ad.getPassword())){
-//                    inputField = valueOf(PasswordField.getPassword(System.in, "Enter new Password: "));
                     System.out.println("Enter new Password: ");
                     inputField = sc.nextLine();
                     System.out.println("Re-enter Password: ");
                     String check = sc.nextLine();
-//                    String check = valueOf(PasswordField.getPassword(System.in, "Re-enter password:"));
                     if (check.equals(inputField)){
                         semaphore = 1;
                     }
@@ -165,8 +157,6 @@ public class AdminManager implements Manager{
                 else{
                     throw new PasswordIncorrectException();
                 }
-
-
             }
 
 
@@ -241,8 +231,6 @@ public class AdminManager implements Manager{
             System.out.println("Admin not found > " + e.getMessage());
         }
     }
-
-
 
     /**
      * Reading (Helper function)

@@ -84,7 +84,6 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
             }
 
             flag = 0;
-            String movieRatingSelectorString = "-1";
             Movie.MovieRating movieRating = Movie.MovieRating.DEFAULT;
 
             while(flag == 0){
@@ -449,6 +448,7 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
             System.out.println("Your input was of a wrong format! Please ensure that your input is an integer.");
         }
     }
+
     /**
      * Display all movies on the database including PREVIEW and COMING_SOON (For administrator purposes)
      */
@@ -471,7 +471,6 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
 
         }
     }
-
 
     /**
      * Read method

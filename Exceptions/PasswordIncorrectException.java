@@ -1,7 +1,7 @@
 package Exceptions;
 
 /**
- *  Custom exception class for password incorrect
+ *  Custom exception class for incorrect password input
  */
 public class PasswordIncorrectException extends Exception{
     /**

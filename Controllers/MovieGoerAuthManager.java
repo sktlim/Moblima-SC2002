@@ -39,7 +39,7 @@ public class MovieGoerAuthManager {
             while((line = bufferedReader.readLine()) != null) {
                 //create a token based on
                 String [] token = line.split("\\|");
-                // because you know first and second word of each line in
+                // because we know first and second word of each line in
                 // given file is id and password
                 if (token[0].equals(username) && token[1].equals(password)){
                     moviegoerId = Integer.parseInt(token[3]);

@@ -13,6 +13,9 @@ import java.lang.IllegalArgumentException;
 /**
  * This class handles the CRUD (create, read, update, delete) methods for Holidays. Only Admins have access to the methods within this Class.
  * This class implements the read and write methods in the Manager interface.
+ * When creating or updating Holiday dates, the following constraints are present:
+ * 1) Month input must be >= 1 and <= 12
+ * 2) Day of Month input must be >= 1 and <= 31
  */
 
 public class HolidayManager implements Manager {
@@ -77,7 +80,7 @@ public class HolidayManager implements Manager {
      *        the function itself.
      *        Admins will input the year, month, date separately.
      *        New date object will then be create with these 3 fields.
-     *           InputMismatchException: UNCHECKED --> Thrown when user inputs an invalid format
+     *        InputMismatchException: UNCHECKED --> Thrown when user inputs an invalid format
      */
     public static void createHoliday(Scanner sc) {
         try {
@@ -89,9 +92,10 @@ public class HolidayManager implements Manager {
             input = sc.nextLine();
             int holidayYear = checkInput(input);
 
+            // validate Month input
             int flag = -1;
             int holidayMonth = 0;
-            while (flag == -1) {
+            while (flag == -1) { // repeatedly ask for input until input is valid
                 System.out.println("Please enter the holiday's Month: ");
                 input = sc.nextLine();
                 holidayMonth = checkInput(input);
@@ -102,6 +106,7 @@ public class HolidayManager implements Manager {
                 flag = 1;
             }
 
+            // validate Day of Month input
             flag = -1;
             int holidayDate = 0;
             while (flag == -1) {
@@ -170,7 +175,6 @@ public class HolidayManager implements Manager {
         }
         write(fileName, alw);
     }
-
 
     /**
      * Read method

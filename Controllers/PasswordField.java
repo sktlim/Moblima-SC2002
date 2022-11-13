@@ -1,8 +1,6 @@
 package Controllers;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 import java.io.*;
 import java.util.*;
@@ -27,7 +25,6 @@ public class PasswordField {
 
         char[] lineBuffer;
         char[] buf;
-        int i;
 
         buf = lineBuffer = new char[128];
 

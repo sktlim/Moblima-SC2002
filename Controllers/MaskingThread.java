@@ -16,7 +16,7 @@ class MaskingThread extends Thread {
     /**
      * Char to replace and mask each password char input by the user
      */
-    private char echochar = '*';
+    private final char echochar = '*';
 
     /**
      *@param prompt The prompt displayed to the user

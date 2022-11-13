@@ -193,7 +193,6 @@ public class MovieGoerManager implements Manager{
 
             }
 
-
             ArrayList ml = readMovieGoers(FILENAME);
             boolean foundRequestedMovieGoer = false;
             for (int i=0; i<ml.size(); i++){

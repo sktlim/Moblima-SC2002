@@ -25,5 +25,5 @@ public interface Manager {
      * @param data List of model objects that contains the model instance to be updated
      * @throws IOException CHECKED --> Thrown when assessing data in the specified file fails
      */
-    private static void write(String fileName, List data) throws IOException  {}
+    public static void write(String fileName, List data) throws IOException  {}
 }
