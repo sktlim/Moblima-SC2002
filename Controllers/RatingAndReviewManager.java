@@ -75,7 +75,9 @@ public class RatingAndReviewManager implements Manager{
             String review = sc.nextLine();
 
             ArrayList revList = readReviews(FILENAME);
-            RatingAndReview r1 = new RatingAndReview(revList.size()+1, movieId, review, rating);
+            RatingAndReview rFinal = (RatingAndReview) revList.get(revList.size()-1);
+            int finalRId = rFinal.getReviewId();
+            RatingAndReview r1 = new RatingAndReview(finalRId+1, movieId, review, rating);
             revList.add(r1);
             saveReviews(FILENAME, revList);
         }

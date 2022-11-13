@@ -42,7 +42,9 @@ public class TheatreManager implements Manager { // crud
             int busy = 1;
 
             ArrayList al = readTheatres(FILENAME);
-            Theatre a1 = new Theatre(al.size()+1,cineplexcode, theatreClass, busy);
+            Theatre tFinal = (Theatre) al.get(al.size()-1);
+            int finalTheatreId = tFinal.getTheatreId();
+            Theatre a1 = new Theatre(finalTheatreId+1,cineplexcode, theatreClass, busy);
             al.add(a1);
             saveTheatres(FILENAME, al);
 

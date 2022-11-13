@@ -89,11 +89,12 @@ public class MovieGoerManager implements Manager{
             int age = sc.nextInt();
             sc.nextLine();
             ArrayList ml = readMovieGoers(FILENAME);
-            int mid = ml.size()+1;
-            MovieGoer m1 = new MovieGoer(username, password, age,mid);
+            MovieGoer mFinal = (MovieGoer) ml.get(ml.size()-1);
+            int finalMgId = mFinal.getMovieGoerId();
+            MovieGoer m1 = new MovieGoer(username, password, age,finalMgId+1);
             ml.add(m1);
             saveMovieGoers(FILENAME, ml);
-            return mid;
+            return finalMgId;
         }
         catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
