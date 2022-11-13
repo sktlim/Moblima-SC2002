@@ -8,6 +8,37 @@ purchase of movie tickets, listing of movies and sale reporting. It will be used
 
 ![alt text](images/ntu-placeholder-d.jpeg)
 
+### Setup Instructions
+
+The entry point of our application is the MoblimaApp.java class. You may build the project and run the MoblimaApp.java class to get started.
+The .idea directory can be ignored as we developed our application using the IntelliJ IDE. 
+
+------------------
+
+### Our Packages and their Meanings
+
+###### Boundary 
+The Boundary Classes represent the Views, or the user-facing aspect of our application. These classes contain methods that display the options available to users, and handle the requests of users.
+
+The UserUI abstract class serves as the base class in this package, and contain 2 abstract methods that the AdminUI and MovieGoerUI subclasses will implement.
+
+###### Controllers
+The Controller Classes represent the main logic in our application. These classes contain methods that manipulate the data in our database. These methods are invoked by the Boundary classes when the users perform actions.
+
+The Manager interface serves to ensure that all classes in this package implement the _read_ and _write_ methods that are imperative for database information manipulation.
+
+There exists a single Controller class for each corresponding model class to abide by the Single Responsibility Principle.
+
+###### Databases
+Our Model data are stored in this package in .txt flat file format. There exists one .txt file for each Model class in our application. This ensures that changes to one model and its persisted information will not affect others.
+
+###### Exceptions
+Most of our exception handling leverages the built-in Java exception classes. However, we created 3 custom exception classes that provide an additional layer of robust checks to handle erroneous user inputs that might crash our application.
+
+###### Models
+These Classes represent the entity classes in our application that would require informational storage in persisted database.
+
+-------------------
 
 ### Preface
 This project is an assignment for our module deliverables (SC2002/CZ2002) and is not intended for any use outside of this scope. 
