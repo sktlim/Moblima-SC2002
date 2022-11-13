@@ -61,7 +61,12 @@ public class AdminUI extends UserUI{
         System.out.println("16: Update an Existing Admin");
         System.out.println("17: Delete an Existing Admin");
         System.out.println("========================================");
-        System.out.println("18: Back to main menu");
+        System.out.println("HOLIDAYS");
+        System.out.println("18: Print Holiday List");
+        System.out.println("19: Create a new Holiday");
+        System.out.println("20: Update an Existing Holiday");
+        System.out.println("21: Delete and Existing Holiday");
+        System.out.println("22: Back to main menu");
     }
 
     /**
@@ -163,6 +168,20 @@ public class AdminUI extends UserUI{
                         deleteAdmin(id);
                         break;
                     case 18:
+                        printHolidayList();
+                        break;
+                    case 19:
+                        createHoliday(sc);
+                        break;
+                    case 20:
+                        printHolidayList();
+                        updateHoliday(sc);
+                        break;
+                    case 21:
+                        printHolidayList();
+                        deleteHoliday(sc);
+                        break;
+                    case 22:
                         return;
                 }
             } catch (Exception e) {
@@ -170,6 +189,35 @@ public class AdminUI extends UserUI{
             }
         }
     }
+    /**
+     * Enables Admins to list a new Holiday. Invokes the static method of the HolidayManager class.
+     * @param sc Scanner object to instantiate fields within the function.
+     */
+    public void createHoliday(Scanner sc){
+        HolidayManager.createHoliday(sc);
+    }
+    /**
+     * Enables Admins to update an existing Holiday. Invokes the static method of the HolidayManager class.
+     * @param sc Scanner object to instantiate fields within the function.
+     */
+    public void updateHoliday(Scanner sc) {
+        HolidayManager.updateHoliday(sc);
+    }
+    /**
+     * Allows admins to view all holidays in the database
+     */
+    public void printHolidayList(){
+        HolidayManager.printHolidayList();
+    }
+    /**
+     * Allows admin to delete a holiday from the database
+     * @param sc takes in scanner to ask which holiday is to be deleted
+     * delete holiday based on holidayName
+     */
+    public void deleteHoliday(Scanner sc){
+        HolidayManager.deleteHoliday(sc);
+    }
+
     /**
      * Display all movies (For administrator purposes, can see all movies including coming soon)
      */
