@@ -1,5 +1,7 @@
 package Controllers;
 
+import Exceptions.ReviewNotFoundException;
+import Models.Admin;
 import Models.Movie;
 import Models.MovieGoer;
 import Models.RatingAndReview;
@@ -301,6 +303,37 @@ public class RatingAndReviewManager implements Manager{
             alw.add(st.toString()) ;
         }
         write(filename,alw);
+    }
+
+    /**
+     * Read Method
+     * Find a rating and reviews by movieID
+     * @param movieID The Admin movie to be queried in the movies database
+     */
+    public static void printReviews(int movieID){
+        try{
+            ArrayList al = readReviews(FILENAME);
+            int count = 0;
+            System.out.printf("%-8s | %-30s %n","Rating", "Review");
+            System.out.println("-------------------------------------");
+            for (int i = 0 ; i < al.size() ; i++) {
+                RatingAndReview adm = (RatingAndReview) al.get(i);
+                if (adm.getMovieId()==movieID){
+                    System.out.printf("%-8s | %-8s %n",adm.getRating(), adm.getReview());
+                    count ++;
+                }
+            }
+            if (count == 0){
+                throw new ReviewNotFoundException();
+            }
+
+        }
+        catch (IOException e) {
+            System.out.println("IOException > " + e.getMessage());
+        }
+        catch (ReviewNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 
