@@ -8,7 +8,19 @@ public class Show {
     /**
      * Custom Type for Theatre Classes. Consists of STANDARD, PLATINUM and DEFAULT
      */
-    public enum TheatreClass {STANDARD, PLATINUM, DEFAULT}
+    public enum TheatreClass {
+        /**
+         * Standard theatre class
+         */
+        STANDARD,
+        /**
+         * Platinum Theatre Class
+         */
+        PLATINUM,
+        /**
+         * Default Theatre Class (placeholder)
+         */
+        DEFAULT}
 
     /**
      * show ID of associated Show instance

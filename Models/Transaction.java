@@ -93,7 +93,7 @@ public class Transaction {
 
     /**
      * Setter method for date time
-     * @return new date time in YYYY-MM-DD;HH:MM format
+     * @param dateTime date time to be set
      */
     public void setDateTime(String dateTime) {
         this.dateTime = dateTime;

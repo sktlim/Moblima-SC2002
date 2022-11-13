@@ -131,7 +131,10 @@ public class TheatreManager implements Manager { // crud
         }
     }
 
-    /** Read method to display and print everything on the txt file database. */
+    /**
+     * Read method to display and print everything on the txt file database.
+     * @param cineplexSelector integer for selecting cineplex
+     */
     public static void printTheatreList(int cineplexSelector){
         String cineplexCode = "";
         System.out.println(cineplexSelector);
