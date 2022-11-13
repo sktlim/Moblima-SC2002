@@ -142,15 +142,17 @@ public class TicketManager implements Manager{
             tickets.add(t);
             saveTickets(FILENAME, tickets);
 
+
             // COUPLE seats and SINGLE seats are booked differently
             String seatType = SeatManager.getSeatType(showId, seat);
             SeatManager.updateSeatPlan(showId, seat, 1);
             TransactionManager.createTransaction(t, userId);
 
+            Ticket t2 = null;
             if (seatType.equals("COUPLEL")) {
                 int ticketId2 = ticketId + 1;
                 String seat2 = seat.charAt(0) + Integer.toString(Integer.parseInt(seat.substring(1))+1);
-                Ticket t2 = new Ticket(ticketId2, showId, userId, seat2, userAgeType, dayType, price);
+                t2 = new Ticket(ticketId2, showId, userId, seat2, userAgeType, dayType, price);
                 SeatManager.updateSeatPlan(showId, seat2, 1);
                 tickets.add(t2);
                 saveTickets(FILENAME, tickets);
@@ -158,20 +160,34 @@ public class TicketManager implements Manager{
             } else if (seatType.equals("COUPLER")) {
                 int ticketId2 = ticketId + 1;
                 String seat2 = seat.charAt(0) + Integer.toString(Integer.parseInt(seat.substring(1))-1);
-                Ticket t2 = new Ticket(ticketId2, showId, userId, seat2, userAgeType, dayType, price);
+                t2 = new Ticket(ticketId2, showId, userId, seat2, userAgeType, dayType, price);
                 SeatManager.updateSeatPlan(showId, seat2, 1);
                 tickets.add(t2);
                 saveTickets(FILENAME, tickets);
                 TransactionManager.createTransaction(t2, userId);
             }
-            System.out.println("Ticket(s) has been booked!");
-
+            System.out.println("Ticket(s) has been booked! Here is the receipt for your ticket(s):");
+            System.out.printf("%-10s | %-40s | %-15s | %-220s | %-23s | %-125s | %-13s | %-13s | %-15s | %-10s %n",
+                    "Ticket Id", "Movie Title", "Seat", "User Age Type", "Cineplex", "Theatre", "Theatre Class", "Date", "Start Time", "Price");
+            System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            printTicketDetails(t);
+            if (t2 != null) {
+                printTicketDetails(t2);
+            }
             return ticketId;
 
         } catch (Exception e) {
             System.out.println("Exception > " + e.getMessage());
             return -1;
         }
+    }
+
+    private static void printTicketDetails (Ticket t) {
+        Show s = ShowManager.findShow(t.getShowId());
+        Movie m = MovieManagerAdmin.findMovie(s.getMovieId());
+        System.out.printf("%-10s | %-40s | %-15s | %-220s | %-23s | %-125s | %-13s | %-13s | %-15s | %-10s %n",
+                t.getTicketId(), m.getMovieTitle(), t.getSeat(), t.getUserAgeType(), s.getCineplex(), s.getTheatre(), s.getTheatreClass(),
+                s.getDate(), s.getStartTime(), t.getPrice());
     }
 
     /**
