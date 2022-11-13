@@ -8,7 +8,9 @@ import java.io.PrintWriter;
 import java.io.FileInputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.*;
 
 /**
@@ -493,19 +495,27 @@ public class TicketPriceManager implements Manager{
             } catch (ParseException e) {
                 System.out.println("Parse Error > " + e.getMessage());
             }
+            Date in = new Date();
+            LocalDateTime ldt = LocalDateTime.ofInstant(in.toInstant(), ZoneId.systemDefault());
+
+            String dateBeforeString = ldt.plusDays(1).toString();
+            dateBeforeString = dateBeforeString.substring(0,dateBeforeString.length()-6);
+
             Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
             assert date != null;
             calendar.setTime(date);
             int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
             if (theatreClass == Show.TheatreClass.STANDARD) {
-                if (movieType == Movie.MovieType.TWO_D) {
-                    if (dayOfWeek > 1 && dayOfWeek < 5) {
+                 if (movieType == Movie.MovieType.TWO_D) {
+                     if (HolidayManager.isHoliday(strDate) || HolidayManager.isHoliday(dateBeforeString)) {
+                         price = priceList.getStandard_2DHoliday();
+                     } else if (dayOfWeek > 1 && dayOfWeek < 5) {
                         // check Mon-Wed
-                        if (age == Ticket.UserAgeType.SENIOR) {
+                        if (age == Ticket.UserAgeType.SENIOR && time.isBefore(LocalTime.parse("18:00"))) {
                             // check elderly
                             price = priceList.getSeniorCitizen();
                         }
-                        if (age == Ticket.UserAgeType.STUDENT) {
+                        if (age == Ticket.UserAgeType.STUDENT && time.isBefore(LocalTime.parse("18:00"))) {
                             // check student
                             price = priceList.getStudent();
                         } else {
@@ -514,11 +524,11 @@ public class TicketPriceManager implements Manager{
                         }
                     } else if (dayOfWeek == 5) {
                         // check Thu
-                        if (age == Ticket.UserAgeType.SENIOR) {
+                        if (age == Ticket.UserAgeType.SENIOR && time.isBefore(LocalTime.parse("18:00"))) {
                             // check elderly
                             price = priceList.getSeniorCitizen();
                         }
-                        if (age == Ticket.UserAgeType.STUDENT) {
+                        if (age == Ticket.UserAgeType.STUDENT && time.isBefore(LocalTime.parse("18:00"))) {
                             // check student
                             price = priceList.getStudent();
                         } else {
@@ -541,8 +551,6 @@ public class TicketPriceManager implements Manager{
                             price = priceList.getStandard_2DWeekday_Fri();
                         }
 
-                    } else if (HolidayManager.isHoliday(strDate)) {
-                        price = priceList.getStandard_2DHoliday();
                     } else if (dayOfWeek == 1 || dayOfWeek == 7) {
                         // check weekends
                         price = priceList.getStandard_2DWeekend();
@@ -551,7 +559,14 @@ public class TicketPriceManager implements Manager{
                     }
                 }
                 if (movieType == Movie.MovieType.THREE_D) {
-                    if (dayOfWeek > 1 && dayOfWeek < 5) {
+                    if (HolidayManager.isHoliday(strDate) || HolidayManager.isHoliday(dateBeforeString)) {
+                        price = priceList.getStandard_3DHoliday();
+                    }
+                    else if (age == Ticket.UserAgeType.STUDENT && time.isBefore(LocalTime.parse("18:00"))) {
+                        // check student
+                        price = priceList.getStudent() + 2;
+                    }
+                    else if (dayOfWeek > 1 && dayOfWeek < 5) {
                         // check Mon-Wed
                         price = priceList.getStandard_3DWeekday_MonWed();
 
@@ -563,8 +578,6 @@ public class TicketPriceManager implements Manager{
                         // check Fri before 6pm
                         price = priceList.getStandard_3DWeekday_Fri();
 
-                    } else if (HolidayManager.isHoliday(strDate)) {
-                        price = priceList.getStandard_3DHoliday();
                     } else if (dayOfWeek == 1 || dayOfWeek == 7) {
                         // check weekends
                         price = priceList.getStandard_3DWeekend();
@@ -574,7 +587,10 @@ public class TicketPriceManager implements Manager{
                 }
 
                 if (movieType == Movie.MovieType.BLOCKBUSTER) {
-                    if (dayOfWeek > 1 && dayOfWeek < 5) {
+                    if (HolidayManager.isHoliday(strDate) || HolidayManager.isHoliday(dateBeforeString)) {
+                        price = priceList.getStandard_BlockBusterHoliday();
+                    }
+                    else if (dayOfWeek > 1 && dayOfWeek < 5) {
                         // check Mon-Wed
                         price = priceList.getStandard_BlockBusterWeekday_MonWed();
 
@@ -586,8 +602,6 @@ public class TicketPriceManager implements Manager{
                         // check Fri before 6pm
                         price = priceList.getStandard_BlockBusterWeekday_Fri();
 
-                    } else if (HolidayManager.isHoliday(strDate)) {
-                        price = priceList.getStandard_BlockBusterHoliday();
                     } else if (dayOfWeek == 1 || dayOfWeek == 7) {
                         // check weekends
                         price = priceList.getStandard_BlockBusterWeekend();
@@ -599,7 +613,10 @@ public class TicketPriceManager implements Manager{
 
             if (theatreClass == Show.TheatreClass.PLATINUM) {
                 if (movieType == Movie.MovieType.TWO_D) {
-                    if (dayOfWeek > 1 && dayOfWeek < 5) {
+                    if (HolidayManager.isHoliday(strDate) || HolidayManager.isHoliday(dateBeforeString)) {
+                        price = priceList.getPlatinum_2DHoliday();
+                    }
+                    else if (dayOfWeek > 1 && dayOfWeek < 5) {
                         // check Mon-Wed
                         price = priceList.getPlatinum_2DWeekday_MonWed();
 
@@ -611,8 +628,6 @@ public class TicketPriceManager implements Manager{
                         // check Fri before 6pm
                         price = priceList.getPlatinum_2DWeekday_Fri();
 
-                    } else if (HolidayManager.isHoliday(strDate)) {
-                        price = priceList.getPlatinum_2DHoliday();
                     } else if (dayOfWeek == 1 || dayOfWeek == 7) {
                         // check weekends
                         price = priceList.getPlatinum_2DWeekend();
@@ -621,7 +636,10 @@ public class TicketPriceManager implements Manager{
                     }
                 }
                 if (movieType == Movie.MovieType.THREE_D) {
-                    if (dayOfWeek > 1 && dayOfWeek < 5) {
+                    if (HolidayManager.isHoliday(strDate) || HolidayManager.isHoliday(dateBeforeString)) {
+                        price = priceList.getPlatinum_3DHoliday();
+                    }
+                    else if (dayOfWeek > 1 && dayOfWeek < 5) {
                         // check Mon-Wed
                         price = priceList.getPlatinum_3DWeekday_MonWed();
 
@@ -633,8 +651,6 @@ public class TicketPriceManager implements Manager{
                         // check Fri before 6pm
                         price = priceList.getPlatinum_3DWeekday_Fri();
 
-                    } else if (HolidayManager.isHoliday(strDate)) {
-                        price = priceList.getPlatinum_3DHoliday();
                     } else if (dayOfWeek == 1 || dayOfWeek == 7) {
                         // check weekends
                         price = priceList.getPlatinum_3DWeekend();
@@ -643,7 +659,10 @@ public class TicketPriceManager implements Manager{
                     }
                 }
                 if (movieType == Movie.MovieType.BLOCKBUSTER) {
-                    if (dayOfWeek > 1 && dayOfWeek < 5) {
+                    if (HolidayManager.isHoliday(strDate) || HolidayManager.isHoliday(dateBeforeString)) {
+                        price = priceList.getPlatinum_BlockBusterHoliday();
+                    }
+                    else if (dayOfWeek > 1 && dayOfWeek < 5) {
                         // check Mon-Wed
                         price = priceList.getPlatinum_BlockBusterWeekday_MonWed();
 
@@ -655,8 +674,6 @@ public class TicketPriceManager implements Manager{
                         // check Fri before 6pm
                         price = priceList.getPlatinum_BlockBusterWeekday_Fri();
 
-                    } else if (HolidayManager.isHoliday(strDate)) {
-                        price = priceList.getPlatinum_BlockBusterHoliday();
                     } else if (dayOfWeek == 1 || dayOfWeek == 7) {
                         // check weekends
                         price = priceList.getPlatinum_BlockBusterWeekend();
@@ -675,11 +692,11 @@ public class TicketPriceManager implements Manager{
     }
 
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-//        TicketPriceManager tpm = new TicketPriceManager();
-        updatePrice(sc);
-    }
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+////        TicketPriceManager tpm = new TicketPriceManager();
+//        updatePrice(sc);
+//    }
 
 }
 
