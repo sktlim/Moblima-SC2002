@@ -1,7 +1,7 @@
 package Exceptions;
 
 /**
- * Custom exception class for Item not found
+ * Custom exception class for Review not found
  */
 public class ReviewNotFoundException extends Exception {
     /** This Exception class is called when the user requests a read of database files and the requested item is not found **/

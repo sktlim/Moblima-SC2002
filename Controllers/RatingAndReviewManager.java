@@ -1,9 +1,7 @@
 package Controllers;
 
 import Exceptions.ReviewNotFoundException;
-import Models.Admin;
 import Models.Movie;
-import Models.MovieGoer;
 import Models.RatingAndReview;
 
 import java.io.FileInputStream;
@@ -107,8 +105,6 @@ public class RatingAndReviewManager implements Manager{
             System.out.println("IOException > " + e.getMessage());
         }
     }
-
-
 
     /**
      * Update method.
@@ -242,7 +238,6 @@ public class RatingAndReviewManager implements Manager{
         return alr ;
     }
 
-
     /**
      * Write fixed content to the given file.
      * @param fileName filename of write location
@@ -337,7 +332,5 @@ public class RatingAndReviewManager implements Manager{
             System.out.println(e.getMessage());
         }
     }
-
-
 
 }

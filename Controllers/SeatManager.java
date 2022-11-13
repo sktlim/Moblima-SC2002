@@ -14,18 +14,22 @@ import java.util.Scanner;
  * Seat Manager handles creating, reading, updating, and deleting seat plans.
  */
 public class SeatManager implements Manager {
+
     /**
      * 2D Array for seat plan
      */
     private int[][] seatPlan;
+
     /**
      * Static seating plan associated with Theatre.
      */
     public final static String FILE_FIXED_PLAN = "Databases/seatingPlanTheatre.txt";
+
     /**
      * Dynamic seating plan associated with Show that changes according to the person who booked the seat.
      */
     public final static String FILE_SHOW_PLAN = "Databases/seatingPlanShow.txt";
+
     /**
      * Separator for parsing .txt files.
      */
@@ -149,8 +153,11 @@ public class SeatManager implements Manager {
         } else return -1;
     }
 
-
-    // Added function
+    /**
+     * Enables users to check if a desired seat for a particular show is available for booking.
+     * @param sc Scanner object to allow users to input fields.
+     * @return 1 if seat is available, else return 0 if it is not. Return -1 if any errors occur.
+     */
     public static int askSeatAvail(Scanner sc) {
         //check seat, if seat avail, return true, else return false
         System.out.println("Which seat would you like to check is available?");
@@ -205,6 +212,12 @@ public class SeatManager implements Manager {
         } else return -1;
     }
 
+    /**
+     * This method validates the String input of users and removes the problems of accepting integer input through the Scanner.
+     * @param input String input by current user.
+     * @return the integer representation of the input if parsing is successful.
+     * @throws Exception UNCHECKED --> thrown when user input fails to be parsed as an integer.
+     */
     protected static int checkInput (String input) throws Exception {
         if (input.length() <= 1) return Integer.parseInt(input);
         else return Integer.parseInt(input.substring(0, 2));

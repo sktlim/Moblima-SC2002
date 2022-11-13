@@ -283,7 +283,7 @@ public class MovieManagerMovieGoer implements Manager{
                 }
             }
         }
-//        System.out.println(sortedMap);
+
         int numElements = 5;
         System.out.println("Top 5 movies by Rating: ");
         for (Integer key : sortedMap.keySet()) {

@@ -78,7 +78,6 @@ public class CineplexManager implements Manager{ //crud
         return null;
     }
 
-
     /**
      * Read (Helper function)
      * Declared as private as it is only called within the scope of this file
@@ -86,7 +85,6 @@ public class CineplexManager implements Manager{ //crud
      * @return ArrayList of Cineplex objects
      * @throws IOException CHECKED --> Thrown when assessing data in the cineplexes.txt file fails
      */
-
     private static ArrayList readCineplexes(String filename) throws IOException {
         // read String from text file
         ArrayList stringArray = (ArrayList)read(filename);

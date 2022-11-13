@@ -26,9 +26,6 @@ public class AdminUI extends UserUI{
         this.sessionAdmin = new Admin(userId);
     }
 
-    /* implementation of abstract method
-       this method should be called repeatedly in the main While loop */
-
     /**
      * Implementation of abstract method in UserUI.
      * Displays the list of possible actions to the current authenticated Admin.
@@ -188,6 +185,7 @@ public class AdminUI extends UserUI{
             }
         }
     }
+
     /**
      * Enables Admins to list a new Holiday. Invokes the static method of the HolidayManager class.
      * @param sc Scanner object to instantiate fields within the function.
@@ -195,6 +193,7 @@ public class AdminUI extends UserUI{
     public void createHoliday(Scanner sc){
         HolidayManager.createHoliday(sc);
     }
+
     /**
      * Enables Admins to update an existing Holiday. Invokes the static method of the HolidayManager class.
      * @param sc Scanner object to instantiate fields within the function.
@@ -202,12 +201,14 @@ public class AdminUI extends UserUI{
     public void updateHoliday(Scanner sc) {
         HolidayManager.updateHoliday(sc);
     }
+
     /**
      * Allows admins to view all holidays in the database
      */
     public void printHolidayList(){
         HolidayManager.printHolidayList();
     }
+
     /**
      * Allows admin to delete a holiday from the database
      * @param sc takes in scanner to ask which holiday is to be deleted
@@ -234,8 +235,6 @@ public class AdminUI extends UserUI{
         for (int i=0; i<movies.size(); i++) {
             Movie m = (Movie)movies.get(i);
             System.out.printf("%-30s | %-8s %n",m.getMovieTitle(), m.getMovieId());
-            String title = m.getMovieTitle();
-            int id = m.getMovieId();
         }
     }
 
