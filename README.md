@@ -10,7 +10,7 @@ purchase of movie tickets, listing of movies and sale reporting. It will be used
 
 
 ### Preface
-This project is an assignment for our module deliverables (SC2006/CZ2006) and is not intended for any use outside of this scope. 
+This project is an assignment for our module deliverables (SC2002/CZ2002) and is not intended for any use outside of this scope. 
 
 -------------------
 
