@@ -12,3 +12,4 @@ nic|nic|20|11
 nic5|nic5|22|12
 nic6|nic6|22|13
 nic123|nic123|22|14
+minghan222|xx|12|15

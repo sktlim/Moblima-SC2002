@@ -6,3 +6,4 @@
 5|1|booo|8|
 13|5|so intellectual!|9|
 12|5|so interesting!|8|
+3|4|It is deleted.|9|
