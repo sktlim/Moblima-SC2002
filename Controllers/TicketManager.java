@@ -168,14 +168,14 @@ public class TicketManager implements Manager{
                 TransactionManager.createTransaction(t2, userId);
             }
             System.out.println("Ticket(s) has been booked! Here is the receipt for your ticket(s):");
-            System.out.printf("%-10s | %-40s | %-15s | %-220s | %-23s | %-125s | %-13s | %-13s | %-15s | %-10s %n",
+            System.out.printf("%-15s | %-40s | %-10s | %-15s | %-30s | %-10s | %-15s | %-15s | %-15s | %-10s %n",
                     "Ticket Id", "Movie Title", "Seat", "User Age Type", "Cineplex", "Theatre", "Theatre Class", "Date", "Start Time", "Price");
             System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             printTicketDetails(t);
             if (t2 != null) {
                 printTicketDetails(t2);
             }
-            return ticketId;
+            return finalTicketId;
 
         } catch (Exception e) {
             System.out.println("Exception > " + e.getMessage());
@@ -186,7 +186,7 @@ public class TicketManager implements Manager{
     private static void printTicketDetails (Ticket t) {
         Show s = ShowManager.findShow(t.getShowId());
         Movie m = MovieManagerAdmin.findMovie(s.getMovieId());
-        System.out.printf("%-10s | %-40s | %-15s | %-220s | %-23s | %-125s | %-13s | %-13s | %-15s | %-10s %n",
+        System.out.printf("%-15s | %-40s | %-10s | %-15s | %-30s | %-10s | %-15s | %-15s | %-15s | %-10s %n",
                 t.getTicketId(), m.getMovieTitle(), t.getSeat(), t.getUserAgeType(), s.getCineplex(), s.getTheatre(), s.getTheatreClass(),
                 s.getDate(), s.getStartTime(), t.getPrice());
     }
