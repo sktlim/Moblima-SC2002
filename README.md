@@ -109,3 +109,6 @@ In no particular order:
 
 5. Yap Zhe Kai, Nicholas (Computer Science)
    https://www.linkedin.com/in/nicholas-yap-5706311b7/
+
+## Acknowledgements
+Special thanks goes out to Dr Althea Liang for her patience and guidance throughout the course of this project. 
