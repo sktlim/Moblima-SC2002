@@ -48,7 +48,6 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
                         case 0:
                             showingStatus = Movie.ShowingStatus.COMING_SOON;
                             break;
-
                         case 1:
                             showingStatus = Movie.ShowingStatus.PREVIEW;
                             break;

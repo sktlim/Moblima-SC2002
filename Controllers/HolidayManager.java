@@ -78,7 +78,7 @@ public class HolidayManager implements Manager {
      *        New date object will then be create with these 3 fields.
      *           InputMismatchException: UNCHECKED --> Thrown when user inputs an invalid format
      */
-    private static void createHoliday(Scanner sc) {
+    public static void createHoliday(Scanner sc) {
         try {
             System.out.println("Please enter the holiday's Name: ");
             String holidayName = sc.nextLine();
