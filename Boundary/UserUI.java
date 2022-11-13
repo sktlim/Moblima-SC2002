@@ -29,7 +29,7 @@ public abstract class UserUI {
      * Enables users to view the full list of Movies available.
      */
     public void listMovies() {
-        MovieManagerAdmin.printMovieList();
+        MovieManagerAdmin.printMovieListMovieGoer();
     };
 
     /**
@@ -42,8 +42,11 @@ public abstract class UserUI {
         for (int i=0; i<shows.size(); i++) {
             Show s = (Show)shows.get(i);
             Movie m = MovieManagerAdmin.findMovie(s.getMovieId());
-            System.out.printf("%-25s | %-8s | %-12s | %-10s | %-10s | %-30s | %-10s %n", s.getCineplex(), s.getTheatre(), s.getDate(), s.getStartTime(), s.getEndTime(),
-                    m.getMovieTitle(), s.getShowId());
+            if (m.getShowingStatus()== Movie.ShowingStatus.NOW_SHOWING||m.getShowingStatus()== Movie.ShowingStatus.PREVIEW){
+                System.out.printf("%-25s | %-8s | %-12s | %-10s | %-10s | %-30s | %-10s %n", s.getCineplex(), s.getTheatre(), s.getDate(), s.getStartTime(), s.getEndTime(),
+                        m.getMovieTitle(), s.getShowId());
+            }
+
         }
         System.out.println("");
     }

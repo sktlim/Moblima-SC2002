@@ -47,10 +47,11 @@ public class MovieGoerUI extends UserUI {
         System.out.println("5: View my Booking History");
         System.out.println("6: Display Top 5 Movies by Ticket Sales");
         System.out.println("7: Display Top 5 Movies by Rating");
-        System.out.println("8: Create Review and Rating");
-        System.out.println("9: Find Movie");
+        System.out.println("8: Show all movies available in cinemas today");
+        System.out.println("9: Create Review and Rating");
+        System.out.println("10: Find Movie");
         System.out.println("========================================");
-        System.out.println("10: Back to main menu");
+        System.out.println("11: Back to main menu");
     }
 
     /**
@@ -95,12 +96,15 @@ public class MovieGoerUI extends UserUI {
                         break;
                     case 8:
                         listMovies();
-                        createRatingAndReview(sc);
                         break;
                     case 9:
-                        findMovie(sc);
+                        listMovies();
+                        createRatingAndReview(sc);
                         break;
                     case 10:
+                        findMovie(sc);
+                        break;
+                    case 11:
                         return;
                 }
             } catch (Exception e) {
