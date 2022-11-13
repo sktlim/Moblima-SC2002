@@ -4,14 +4,10 @@ import java.io.IOException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.FileInputStream;
-import java.util.Scanner;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
+import java.util.*;
 
 import Exceptions.ItemNotFoundException;
 import Exceptions.PasswordIncorrectException;
-import java.util.InputMismatchException;
 import Models.Admin;
 
 import static java.lang.String.valueOf;
@@ -65,7 +61,9 @@ public class AdminManager implements Manager{
             }
 
             ArrayList al = readAdmins(FILENAME);
-            Admin a1 = new Admin(username, password, al.size()+1);
+            Admin aFinal = (Admin) al.get(al.size()-1);
+            int finalAdminID = aFinal.getAdminId();
+            Admin a1 = new Admin(username, password,finalAdminID+1);
             al.add(a1);
             saveAdmins(FILENAME, al);
             System.out.println("New admin successfully created!\n");

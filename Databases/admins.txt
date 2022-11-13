@@ -1,5 +1,5 @@
 minghan|minghan|1
 sk|sk|2
 wayne|wayne|3
-waynetan|waynetan|5
 nic|nic1|5
+waynetan|waynetan|6

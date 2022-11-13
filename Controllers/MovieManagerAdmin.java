@@ -161,7 +161,9 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
 
             System.out.println("Movie successfully created!");
             ArrayList al = readMovies(FILENAME);
-            Movie m1 = new Movie(al.size()+1, movieTitle, showingStatus, synopsis, director, cast, movieRuntime, movieRating, movieType, endOfShowingDate);
+            Movie mFinal = (Movie)al.get(al.size()-1);
+            int finalMovieId = mFinal.getMovieId();
+            Movie m1 = new Movie(finalMovieId+1, movieTitle, showingStatus, synopsis, director, cast, movieRuntime, movieRating, movieType, endOfShowingDate);
             al.add(m1);
             saveMovies(FILENAME, al);
 
