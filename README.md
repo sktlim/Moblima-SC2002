@@ -96,7 +96,7 @@ The following members contributed to the success of this project through their h
 In no particular order:
 
 1. Chan Ming Han (Computer Engineering)
-   https://www.linkedin.com/in/chan-ming-han-601b531ba/ 
+   [https://www.linkedin.com/in/chan-ming-han-601b531ba/] 
 
 2. Wayne Tan Jing Heng (Computer Science)
    https://www.linkedin.com/in/wayne-tan-jh/
