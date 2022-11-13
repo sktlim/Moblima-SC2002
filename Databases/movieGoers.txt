@@ -13,3 +13,5 @@ nic5|nic5|22|12
 nic6|nic6|22|13
 nic123|nic123|22|14
 minghan222|xx|12|15
+new account|new account|24|16
+newMoveGoer|newMoveGoer|23|17
