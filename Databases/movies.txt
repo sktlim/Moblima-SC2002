@@ -13,5 +13,6 @@ wayne and his life|NOW_SHOWING|Its never coming.|Wayne|Wayne|1|R21|BLOCKBUSTER|0
 hello world|COMING_SOON|this is a very nice show teaching java|java|java, python|12|G|BLOCKBUSTER|05/01/2023|13
 Test Movie|COMING_SOON|This is a test.|Test|testing|12|PG13|BLOCKBUSTER|05/01/2023|14
 new stuff|NOW_SHOWING|new stuff|sk|sk|11|R21|BLOCKBUSTER|04/01/2023|16
-testtest|NOW_SHOWING|y|y|y|12|G|TWO_D|06/01/2022|17
-new|COMING_SOON|k|k|k|130|PG13|BLOCKBUSTER|06/01/2023|18
+testtest|SHOWING_ENDED|y|y|y|12|G|TWO_D|06/01/2022|17
+new|SHOWING_ENDED|k|k|k|130|PG13|BLOCKBUSTER|06/01/2023|18
+Mr Bobby|NOW_SHOWING|Mr bobby and his chocolate factory|mr bobbysaul|bobby and his 5 fingers|145|R21|BLOCKBUSTER|12/11/2022|19

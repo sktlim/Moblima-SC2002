@@ -297,25 +297,23 @@ public class MovieManagerMovieGoer implements Manager{
     }
 
     /**
-     * Print method to display everything on the txt file database.
+     * Print method to display only preview and now_showing on the txt file database.
      */
-    public static void printMovieList(){
+    public static void printMovieListMovieGoer(){
         try{
             ArrayList mov = readMovies(FILENAME);
             System.out.printf("%-10s | %-40s | %-15s | %-220s | %-23s | %-125s | %-13s | %-13s | %-15s | %-10s %n",
                     "MovieID", "Movie Title", "Showing Status", "Synopsis", "Director", "Cast", "Movie Runtime", "Movie Rating", "Movie Type", "End of Showing Date");
             System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-//            System.out.println("MovieID | Movie Title | Showing Status | Synopsis | " +
-//                    "Director | Cast | Movie Runtime | Movie Rating | Movie Type");
+
             for (int i = 0 ; i < mov.size() ; i++) {
                 Movie m = (Movie) mov.get(i);
-                System.out.printf("%-10s | %-40s | %-15s | %-220s | %-23s | %-125s | %-13s | %-13s | %-15s | %-10s %n",
-                        m.getMovieId(), m.getMovieTitle(), m.getShowingStatus(), m.getSynopsis(), m.getDirector(),
-                        m.getCast(), m.getMovieRuntime(), m.getMovieRating(), m.getMovieType(), m.getEndOfShowingDate());
-//                System.out.println(m.getMovieId() + " | " + m.getMovieTitle() + " | "
-//                + m.getShowingStatus() + " | " + m.getSynopsis() + " | " + m.getDirector() +
-//                        " | " + m.getCast() + " | " + m.getMovieRuntime() + " | "
-//                + m.getMovieRating() + " | " + m.getMovieType());
+                if (m.getShowingStatus()== Movie.ShowingStatus.NOW_SHOWING || m.getShowingStatus()== Movie.ShowingStatus.PREVIEW){
+                    System.out.printf("%-10s | %-40s | %-15s | %-220s | %-23s | %-125s | %-13s | %-13s | %-15s | %-10s %n",
+                            m.getMovieId(), m.getMovieTitle(), m.getShowingStatus(), m.getSynopsis(), m.getDirector(),
+                            m.getCast(), m.getMovieRuntime(), m.getMovieRating(), m.getMovieType(), m.getEndOfShowingDate());
+                }
+
             }
         }
         catch (IOException e){

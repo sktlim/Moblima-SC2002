@@ -2,12 +2,11 @@ package Boundary;
 import Models.*;
 import Controllers.*;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * This Class represents the UI interface for Admins. It extends the abstract UserUI class and provides the implementation for the showSelections() method.
+ * This Class represents the UI interface for Admins. It extends the abstract UserUI class and provides the implementation for the showSelections and showUI methods.
  * This Class contains 2 key methods: showSelections and showUI to display the list of actions available for Admins and to handle inputs.
  * The other methods below are helper functions that call the static methods of Controllers.
  */
@@ -43,28 +42,35 @@ public class AdminUI extends UserUI{
         System.out.println("1: Create a New Movie");
         System.out.println("2: Update an Existing Movie");
         System.out.println("3: Delete an Existing Movie");
+        System.out.println("4: Display all Movies");
         System.out.println("SHOWS");
-        System.out.println("4: Create a New Show");
-        System.out.println("5: Update an existing Show");
-        System.out.println("6: Delete an existing Show");
+        System.out.println("5: Create a New Show");
+        System.out.println("6: Update an existing Show");
+        System.out.println("7: Delete an existing Show");
         System.out.println("PRICES");
-        System.out.println("7: Print Price List");
-        System.out.println("8: Update Prices");
+        System.out.println("8: Print Price List");
+        System.out.println("9: Update Prices");
         System.out.println("REVIEWS");
-        System.out.println("9: Print Reviews and Ratings List");
-        System.out.println("10: Create Review");
-        System.out.println("11: Update Review");
-        System.out.println("12: Delete Review");
+        System.out.println("10: Print Reviews and Ratings List");
+        System.out.println("11: Create Review");
+        System.out.println("12: Update Review");
+        System.out.println("13: Delete Review");
         System.out.println("ADMINS");
-        System.out.println("13: Print Admin List");
-        System.out.println("14: Create a New Admin");
-        System.out.println("15: Update an Existing Admin");
-        System.out.println("16: Delete an Existing Admin");
+        System.out.println("14: Print Admin List");
+        System.out.println("15: Create a New Admin");
+        System.out.println("16: Update an Existing Admin");
+        System.out.println("17: Delete an Existing Admin");
         System.out.println("========================================");
-        System.out.println("17: Back to main menu");
+        System.out.println("HOLIDAYS");
+        System.out.println("18: Print Holiday List");
+        System.out.println("19: Create a new Holiday");
+        System.out.println("20: Update an Existing Holiday");
+        System.out.println("21: Delete and Existing Holiday");
+        System.out.println("22: Back to main menu");
     }
 
     /**
+     * Implementation of abstract method in UserUI.
      * This method operates in sync with the showSelections method above to accept input from the current authenticated Admin.
      * @param sc Scanner object to allow Admins to make their selections.
      */
@@ -96,69 +102,86 @@ public class AdminUI extends UserUI{
                         deleteMovie(id);
                         break;
                     case 4:
+                        displayAllMovies();
+                        break;
+                    case 5:
                         printMovieId();
                         createShow(sc);
                         break;
-                    case 5:
+                    case 6:
                         System.out.println("Please select the show id you would like to update.");
                         printShowsId();
                         input = sc.nextLine();
                         id = checkInput(input);
                         updateShow(id, sc);
                         break;
-                    case 6:
+                    case 7:
                         System.out.println("Please select the show id you would like to delete.");
                         printShowsId();
                         input = sc.nextLine();
                         id = checkInput(input);
                         deleteShow(id);
                         break;
-                    case 7:
+                    case 8:
                         TicketPriceManager.printPriceList();
                         break;
-                    case 8:
+                    case 9:
                         TicketPriceManager.updatePrice(sc);
                         break;
-                    case 9:
+                    case 10:
                         RatingAndReviewManager.printRatingsAndReviewList();
                         break;
-                    case 10:
+                    case 11:
                         listMovies();
                         RatingAndReviewManager.createReview(sc);
                         break;
-                    case 11:
+                    case 12:
                         RatingAndReviewManager.printRatingsAndReviewList();
                         System.out.println("Please select the review id you would like to update.");
                         input = sc.nextLine();
                         id = checkInput(input);
                         RatingAndReviewManager.updateReview(id, sc);
                         break;
-                    case 12:
+                    case 13:
                         RatingAndReviewManager.printRatingsAndReviewList();
                         System.out.println("Please select the review id you would like to delete.");
                         input = sc.nextLine();
                         id = checkInput(input);
                         RatingAndReviewManager.deleteReview(id);
                         break;
-                    case 13:
+                    case 14:
                         printAdminList();
                         break;
-                    case 14:
+                    case 15:
                         createAdmin(sc);
                         break;
-                    case 15:
+                    case 16:
                         System.out.println("Please select the admin id you would like to update. If unsure, please use option 7 to print the list of admins.");
                         input = sc.nextLine();
                         id = checkInput(input);
                         updateAdmin(id, sc);
                         break;
-                    case 16:
+                    case 17:
                         System.out.println("Please select the admin id you would like to delete. If unsure, please use option 7 to print the list of admins.");
                         input = sc.nextLine();
                         id = checkInput(input);
                         deleteAdmin(id);
                         break;
-                    case 17:
+                    case 18:
+                        printHolidayList();
+                        break;
+                    case 19:
+                        createHoliday(sc);
+                        break;
+                    case 20:
+                        printHolidayList();
+                        updateHoliday(sc);
+                        break;
+                    case 21:
+                        printHolidayList();
+                        deleteHoliday(sc);
+                        break;
+                    case 22:
                         return;
                 }
             } catch (Exception e) {
@@ -166,19 +189,40 @@ public class AdminUI extends UserUI{
             }
         }
     }
+    /**
+     * Enables Admins to list a new Holiday. Invokes the static method of the HolidayManager class.
+     * @param sc Scanner object to instantiate fields within the function.
+     */
+    public void createHoliday(Scanner sc){
+        HolidayManager.createHoliday(sc);
+    }
+    /**
+     * Enables Admins to update an existing Holiday. Invokes the static method of the HolidayManager class.
+     * @param sc Scanner object to instantiate fields within the function.
+     */
+    public void updateHoliday(Scanner sc) {
+        HolidayManager.updateHoliday(sc);
+    }
+    /**
+     * Allows admins to view all holidays in the database
+     */
+    public void printHolidayList(){
+        HolidayManager.printHolidayList();
+    }
+    /**
+     * Allows admin to delete a holiday from the database
+     * @param sc takes in scanner to ask which holiday is to be deleted
+     * delete holiday based on holidayName
+     */
+    public void deleteHoliday(Scanner sc){
+        HolidayManager.deleteHoliday(sc);
+    }
 
     /**
-     * This method validates the String input of an Admin and removes the problems of accepting integer input through the Scanner.
-     * @param input String input by current authenticated Admin.
-     * @return the integer representation of the input if parsing is successful.
-     * @throws IllegalArgumentException UNCHECKED --> thrown when user input fails to be parsed as an integer.
+     * Display all movies (For administrator purposes, can see all movies including coming soon)
      */
-    private int checkInput (String input) throws IllegalArgumentException {
-        try {
-            return Integer.parseInt(input);
-        } catch (Exception e) {
-            throw new IllegalArgumentException("Input is not a valid Admin id. Please try again\n");
-        }
+    public void displayAllMovies(){
+        MovieManagerAdmin.printMovieListAdmin();
     }
 
     /**
@@ -193,22 +237,6 @@ public class AdminUI extends UserUI{
             System.out.printf("%-30s | %-8s %n",m.getMovieTitle(), m.getMovieId());
             String title = m.getMovieTitle();
             int id = m.getMovieId();
-        }
-    }
-
-    /**
-     * Helper function to print the shows and their associated showIDs to assist Admins in selecting the IDs of their chosen show.
-     */
-    private void printShowsId() {
-//        ShowManager.printShowList();
-        ArrayList shows = ShowManager.getShows("Databases/shows.txt");
-        System.out.printf("%-25s | %-8s | %-12s | %-10s | %-10s | %-30s | %-10s %n", "CINEPLEX", "THEATRE", "DATE", "START TIME", "END TIME", "MOVIE NAME", "ID");
-        System.out.println("--------------------------------------------------------------------------------------------------------------------");        for (int i = 0; i < shows.size(); i++) {
-            Show s = (Show) shows.get(i);
-            StringBuilder sb = new StringBuilder();
-            Movie m = MovieManagerAdmin.findMovie(s.getMovieId());
-            System.out.printf("%-25s | %-8s | %-12s | %-10s | %-10s | %-30s | %-10s %n", s.getCineplex(), s.getTheatre(), s.getDate(), s.getStartTime(), s.getEndTime(),
-                    m.getMovieTitle(), s.getShowId());
         }
     }
 

@@ -42,7 +42,9 @@ public class TheatreManager implements Manager { // crud
             int busy = 1;
 
             ArrayList al = readTheatres(FILENAME);
-            Theatre a1 = new Theatre(al.size()+1,cineplexcode, theatreClass, busy);
+            Theatre tFinal = (Theatre) al.get(al.size()-1);
+            int finalTheatreId = tFinal.getTheatreId();
+            Theatre a1 = new Theatre(finalTheatreId+1,cineplexcode, theatreClass, busy);
             al.add(a1);
             saveTheatres(FILENAME, al);
 
@@ -147,12 +149,12 @@ public class TheatreManager implements Manager { // crud
         System.out.println(cineplexCode);
         try{
             ArrayList the = readTheatres(FILENAME);
-            System.out.println("Cineplex Code | Theatre Class | Theatre busy | Theatre ID ");
+            System.out.printf("%-15s | %-15s | %-15s | %-10s %n", "Cineplex Code", "Theatre Class", "Theatre Busy", "Theatre Number");
+            System.out.println("---------------------------------------------------------------------");
             for (int i = 0 ; i < the.size() ; i++) {
                 Theatre t = (Theatre) the.get(i);
                 if (cineplexCode.equals(t.getCineplexCode())) {
-                    System.out.println(t.getCineplexCode() + " | " + t.getTheatreClass() + " | "
-                            + t.getStatus() + " | " + t.getTheatreId());
+                    System.out.printf("%-15s | %-15s | %-15s | %-10s %n", t.getCineplexCode(), t.getTheatreClass(), t.getStatus(), t.getTheatreId());
                 }
             }
         }

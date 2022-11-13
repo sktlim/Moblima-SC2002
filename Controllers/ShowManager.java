@@ -199,12 +199,13 @@ public class ShowManager implements Manager{
                     }
                 }
             }
+            Show sFinal = (Show) sl.get(sl.size()-1);
+            int finalShowId = sFinal.getShowId();
 
-            int new_showId = sl.size()+1;
-            Show s1 = new Show(new_showId, movieId, date, startTime, endTime, theatre, theatreClass, cineplex);
+            Show s1 = new Show(finalShowId+1, movieId, date, startTime, endTime, theatre, theatreClass, cineplex);
             sl.add(s1);
             saveShows(FILENAME, sl);
-            SeatManager.createShowPlan(new_showId, theatre);
+            SeatManager.createShowPlan(finalShowId+1, theatre);
             System.out.println("Show created successfully!");
         }
         catch (IOException e) {

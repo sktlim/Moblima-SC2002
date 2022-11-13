@@ -48,7 +48,6 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
                         case 0:
                             showingStatus = Movie.ShowingStatus.COMING_SOON;
                             break;
-
                         case 1:
                             showingStatus = Movie.ShowingStatus.PREVIEW;
                             break;
@@ -162,7 +161,9 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
 
             System.out.println("Movie successfully created!");
             ArrayList al = readMovies(FILENAME);
-            Movie m1 = new Movie(al.size()+1, movieTitle, showingStatus, synopsis, director, cast, movieRuntime, movieRating, movieType, endOfShowingDate);
+            Movie mFinal = (Movie)al.get(al.size()-1);
+            int finalMovieId = mFinal.getMovieId();
+            Movie m1 = new Movie(finalMovieId+1, movieTitle, showingStatus, synopsis, director, cast, movieRuntime, movieRating, movieType, endOfShowingDate);
             al.add(m1);
             saveMovies(FILENAME, al);
 
@@ -446,6 +447,28 @@ public class MovieManagerAdmin extends MovieManagerMovieGoer {
         }
         catch (InputMismatchException e) {
             System.out.println("Your input was of a wrong format! Please ensure that your input is an integer.");
+        }
+    }
+    /**
+     * Display all movies on the database including PREVIEW and COMING_SOON (For administrator purposes)
+     */
+    public static void printMovieListAdmin(){
+        try{
+            ArrayList mov = readMovies(FILENAME);
+            System.out.printf("%-10s | %-40s | %-15s | %-220s | %-23s | %-125s | %-13s | %-13s | %-15s | %-10s %n",
+                    "MovieID", "Movie Title", "Showing Status", "Synopsis", "Director", "Cast", "Movie Runtime", "Movie Rating", "Movie Type", "End of Showing Date");
+            System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+            for (int i = 0 ; i < mov.size() ; i++) {
+                Movie m = (Movie) mov.get(i);
+                System.out.printf("%-10s | %-40s | %-15s | %-220s | %-23s | %-125s | %-13s | %-13s | %-15s | %-10s %n",
+                        m.getMovieId(), m.getMovieTitle(), m.getShowingStatus(), m.getSynopsis(), m.getDirector(),
+                        m.getCast(), m.getMovieRuntime(), m.getMovieRating(), m.getMovieType(), m.getEndOfShowingDate());
+
+            }
+        }
+        catch (IOException e){
+
         }
     }
 

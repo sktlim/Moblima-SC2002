@@ -137,8 +137,9 @@ public class TicketManager implements Manager{
             }
 
             double price = TicketPriceManager.calculatePrice(s, userAgeType, strDate, m);
-            int ticketId = tickets.size()+1;
-            Ticket t = new Ticket(ticketId, showId, userId, seat, userAgeType, dayType, price);
+            Ticket fTicket = (Ticket) tickets.get(tickets.size()-1);
+            int finalTicketId = fTicket.getTicketId();
+            Ticket t = new Ticket(finalTicketId + 1, showId, userId, seat, userAgeType, dayType, price);
             tickets.add(t);
             saveTickets(FILENAME, tickets);
 
@@ -150,7 +151,7 @@ public class TicketManager implements Manager{
 
             Ticket t2 = null;
             if (seatType.equals("COUPLEL")) {
-                int ticketId2 = ticketId + 1;
+                int ticketId2 = finalTicketId + 1;
                 String seat2 = seat.charAt(0) + Integer.toString(Integer.parseInt(seat.substring(1))+1);
                 t2 = new Ticket(ticketId2, showId, userId, seat2, userAgeType, dayType, price);
                 SeatManager.updateSeatPlan(showId, seat2, 1);
@@ -158,7 +159,7 @@ public class TicketManager implements Manager{
                 saveTickets(FILENAME, tickets);
                 TransactionManager.createTransaction(t2, userId);
             } else if (seatType.equals("COUPLER")) {
-                int ticketId2 = ticketId + 1;
+                int ticketId2 = finalTicketId + 1;
                 String seat2 = seat.charAt(0) + Integer.toString(Integer.parseInt(seat.substring(1))-1);
                 t2 = new Ticket(ticketId2, showId, userId, seat2, userAgeType, dayType, price);
                 SeatManager.updateSeatPlan(showId, seat2, 1);
