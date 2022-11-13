@@ -4,24 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="Update password incorrect exception class">
+    <list default="true" id="5f5e9b13-5368-42a8-9dde-27d6d0666762" name="Changes" comment="Update javadoc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Boundary/AdminUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Boundary/AdminUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/AdminManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/AdminManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/CineplexManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/CineplexManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/HolidayManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/HolidayManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/MaskingThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MaskingThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/MovieGoerAuthManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MovieGoerAuthManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/MovieGoerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MovieGoerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/MovieManagerAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MovieManagerAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/MovieManagerMovieGoer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MovieManagerMovieGoer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/PasswordField.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/PasswordField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/RatingAndReviewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/RatingAndReviewManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/SeatManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/SeatManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exceptions/PasswordIncorrectException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Exceptions/PasswordIncorrectException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exceptions/ReviewNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Exceptions/ReviewNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MoblimaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/MoblimaApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/SeatingPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/Models/SeatingPlan.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668266003162</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Update javadoc">
+      <created>1668350553629</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1668350553629</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -222,6 +219,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added userUI files" />
@@ -231,7 +229,8 @@
     <MESSAGE value="Completed ticket price manager class" />
     <MESSAGE value="Updated javadoc comments for controllers" />
     <MESSAGE value="Update password incorrect exception class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update password incorrect exception class" />
+    <MESSAGE value="Update javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update javadoc" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

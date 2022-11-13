@@ -69,7 +69,7 @@ public class SeatingPlan {
 
     /**
      * Setter method for Cineplex. Input in String format
-     * Cineplex code
+     * @param cineplex Cineplex code
      */
     public void setCineplex(String cineplex){
         this.cineplex = cineplex;
@@ -77,7 +77,7 @@ public class SeatingPlan {
 
     /**
      * Setter method for Theatre. Input in Integer format
-     * theatre ID
+     * @param theatre theatre ID
      */
     public void setTheatre(int theatre){
         this.theatre = theatre;
