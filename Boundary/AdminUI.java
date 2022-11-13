@@ -37,35 +37,34 @@ public class AdminUI extends UserUI{
     public void showSelections() {
         System.out.println("\nWelcome to the admin page.");
         System.out.println("SELECT ONE OF THE FOLLOWING OPTIONS");
-        System.out.println("========================================");
-        System.out.println("MOVIES");
+        System.out.println("MOVIES==================================");
         System.out.println("1: Create a New Movie");
         System.out.println("2: Update an Existing Movie");
         System.out.println("3: Delete an Existing Movie");
         System.out.println("4: Display all Movies");
-        System.out.println("SHOWS");
+        System.out.println("SHOWS===================================");
         System.out.println("5: Create a New Show");
         System.out.println("6: Update an existing Show");
         System.out.println("7: Delete an existing Show");
-        System.out.println("PRICES");
+        System.out.println("PRICES==================================");
         System.out.println("8: Print Price List");
         System.out.println("9: Update Prices");
-        System.out.println("REVIEWS");
+        System.out.println("REVIEWS=================================");
         System.out.println("10: Print Reviews and Ratings List");
         System.out.println("11: Create Review");
         System.out.println("12: Update Review");
         System.out.println("13: Delete Review");
-        System.out.println("ADMINS");
+        System.out.println("ADMINS==================================");
         System.out.println("14: Print Admin List");
         System.out.println("15: Create a New Admin");
         System.out.println("16: Update an Existing Admin");
         System.out.println("17: Delete an Existing Admin");
-        System.out.println("========================================");
-        System.out.println("HOLIDAYS");
+        System.out.println("HOLIDAYS================================");
         System.out.println("18: Print Holiday List");
         System.out.println("19: Create a new Holiday");
         System.out.println("20: Update an Existing Holiday");
         System.out.println("21: Delete and Existing Holiday");
+        System.out.println("========================================");
         System.out.println("22: Back to main menu");
     }
 
