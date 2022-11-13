@@ -495,9 +495,8 @@ public class TicketPriceManager implements Manager{
             } catch (ParseException e) {
                 System.out.println("Parse Error > " + e.getMessage());
             }
-            Date in = new Date();
-            LocalDateTime ldt = LocalDateTime.ofInstant(in.toInstant(), ZoneId.systemDefault());
 
+            LocalDateTime ldt = LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
             String dateBeforeString = ldt.plusDays(1).toString();
             dateBeforeString = dateBeforeString.substring(0,dateBeforeString.length()-6);
 
